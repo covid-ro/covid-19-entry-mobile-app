@@ -5,7 +5,9 @@ import DeviceInfo from 'react-native-device-info'
 const registerScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.black,
+  },
+  progressBarContainer: {
+    marginHorizontal: metrics.size20,
   },
   firstCard: {
     backgroundColor: colors.white,

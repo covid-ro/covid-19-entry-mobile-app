@@ -1,1 +1,1 @@
-export default strings;
+export {default as strings} from './strings';

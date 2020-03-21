@@ -2,6 +2,7 @@ import React, {useRef, useCallback} from 'react';
 import Carousel from 'react-native-snap-carousel';
 import {View} from 'react-native';
 import {registerScreenStyles} from './styles';
+import {ProgressHeader} from './components';
 import {metrics} from '../themes';
 
 const RegisterScreen = () => {
@@ -14,7 +15,7 @@ const RegisterScreen = () => {
   ];
 
   const renderItem = useCallback(({item, index}) => {
-    console.log("Index:", index)
+    console.log('Index:', index);
     switch (index) {
       case 0:
         return <View style={registerScreenStyles.firstCard} />;
@@ -27,19 +28,24 @@ const RegisterScreen = () => {
   }, []);
 
   return (
-    <Carousel
-      useScrollView
-      keyboardDismissMode="on-drag"
-      keyboardShouldPersistTaps="handled"
-      ref={carouselRef}
-      data={cards}
-      renderItem={renderItem}
-      sliderWidth={metrics.screenWidth}
-      itemWidth={metrics.cardWidth}
-      inactiveSlideOpacity={0.85}
-      inactiveSlideScale={0.93}
-      swipeThreshold={metrics.screenWidth * 0.1}
-    />
+    <View style={registerScreenStyles.container}>
+      <View style={registerScreenStyles.progressBarContainer}>
+        <ProgressHeader style={registerScreenStyles.progressBar} step={4} />
+      </View>
+      <Carousel
+        useScrollView
+        keyboardDismissMode="on-drag"
+        keyboardShouldPersistTaps="handled"
+        ref={carouselRef}
+        data={cards}
+        renderItem={renderItem}
+        sliderWidth={metrics.screenWidth}
+        itemWidth={metrics.cardWidth}
+        inactiveSlideOpacity={0.85}
+        inactiveSlideScale={0.93}
+        swipeThreshold={metrics.screenWidth * 0.1}
+      />
+    </View>
   );
 };
 
