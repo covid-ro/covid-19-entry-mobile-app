@@ -13,7 +13,10 @@ const ValidateSMSScreen = () => {
       </View>
       <Text style={styles.addCodeLabelStyle}>{strings.addSMSCode}</Text>
       <View style={styles.inputFieldStyle}>
-        <InputField placeholder={strings.codValidareSMS} />
+        <InputField
+          placeholder={strings.codValidareSMS}
+          keyboardType="number-pad"
+        />
       </View>
       <View style={styles.saveButtonStyle}>
         <GeneralButton text={strings.save} />
