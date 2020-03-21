@@ -24,7 +24,7 @@ const FormSection2 = () => {
           }}
         />
         <SelectionButton
-          text="Card"
+          text={strings.card}
           isSelected={cardSelected}
           onPress={() => {
             setPasssportSelected(false);

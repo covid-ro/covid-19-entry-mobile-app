@@ -16,7 +16,7 @@ const FormSection8 = ({text}) => {
       </View>
       <View style={formSection8Styles.buttonsContainer}>
         <SelectionButton
-          text={strings.yes}
+          text={strings.da}
           isSelected={yesSelected}
           onPress={() => {
             setYesSelected(true);
@@ -24,7 +24,7 @@ const FormSection8 = ({text}) => {
           }}
         />
         <SelectionButton
-          text={strings.no}
+          text={strings.nu}
           isSelected={noSelected}
           onPress={() => {
             setYesSelected(false);
