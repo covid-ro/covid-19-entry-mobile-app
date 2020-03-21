@@ -37,5 +37,8 @@ const strings = {
   languageSelectSubtitle: 'Please select a preferred language.',
   romana: 'Romana',
   engleza: 'Engleza',
+  cj: 'CJ',
+  passportNumber: '123123',
+  form3Label: 'Introduceți datele din pașaport:',
 };
 export default strings;
