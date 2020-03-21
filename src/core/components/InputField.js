@@ -28,14 +28,7 @@ const InputField = ({
         secureTextEntry={secureTextEntry}
         placeholder={placeholder}
         placeholderTextColor={colors.lightGrey}
-        style={
-          isFocused
-            ? [
-                styles.inputStyle,
-                {borderColor: colors.darkBlue, borderBottomWidth: 2},
-              ]
-            : styles.inputStyle
-        }
+        style={isFocused ? styles.inputStyle : styles.unselectedInputStyle}
         value={value}
         selectionColor={colors.darkBlue}
         editable={editable}

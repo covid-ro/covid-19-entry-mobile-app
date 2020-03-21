@@ -12,14 +12,21 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: colors.lightGrey,
     paddingBottom: metrics.size8,
+    height:metrics.size40,
   },
 
   labelStyle: {
     paddingBottom: metrics.size10,
     color: colors.darkBlue,
   },
+  unselectedInputStyle: {
+    borderBottomWidth: 2,
+    borderColor: colors.darkBlue,
+    paddingBottom: metrics.size8,
+    height:metrics.size40,
+  },
   unselectedLabelStyle: {
     paddingBottom: metrics.size10,
-    color: colors.white,
+    color: 'transparent',
   },
 });
