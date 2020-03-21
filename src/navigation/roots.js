@@ -1,4 +1,5 @@
 const roots = {
+  countriesCrossed: 'countriesCrossed',
   languageSelect: 'LanguageSelect',
   registerStack: 'RegisterStack',
 };
