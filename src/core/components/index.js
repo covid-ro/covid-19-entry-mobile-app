@@ -1,2 +1,2 @@
-export {default as CustomButton} from './CustomButton';
+export {default as SelectionButton} from './SelectionButton';
 export {default as GeneralButton} from './GeneralButton';

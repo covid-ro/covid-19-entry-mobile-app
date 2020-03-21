@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
-import {customButtonStyles} from './styles';
+import {selectionButtonStyles} from './styles';
 
 const CustomButton = ({text, onPress, isSelected}) => {
   return (
@@ -8,14 +8,14 @@ const CustomButton = ({text, onPress, isSelected}) => {
       onPress={onPress}
       style={
         isSelected
-          ? customButtonStyles.selectedStyle
-          : customButtonStyles.buttonStyle
+          ? selectionButtonStyles.selectedStyle
+          : selectionButtonStyles.normalButtonStyle
       }>
       <Text
         style={
           isSelected
-            ? customButtonStyles.selectedTextStyle
-            : customButtonStyles.normalTextStyle
+            ? selectionButtonStyles.selectedTextStyle
+            : selectionButtonStyles.normalTextStyle
         }>
         {text}
       </Text>

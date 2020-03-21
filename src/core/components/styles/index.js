@@ -1,2 +1,2 @@
-export {default as customButtonStyles} from './customButtonStyles';
+export {default as selectionButtonStyles} from './selectionButtonStyles';
 export {default as generalButtonStyles} from './generalButtonStyles';
