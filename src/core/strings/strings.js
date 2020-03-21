@@ -1,10 +1,10 @@
 const strings = {
-  declaratie: 'Declaratie',
+  declaratie: 'Declarație',
   progressHeaderStep: 'din 10',
   telefon: 'Telefon',
-  validatePhoneNumber: 'Valideaza numarul de telefon',
+  validatePhoneNumber: 'Validează numărul de telefon',
   validatePhoneNumberInformationLabel:
-    'Va rugam sa introduceti un numar de telefon valid, unde puteti fi contactat pe perioada autoizolarii. Veti primi pe SMS un cod unic, ce va trebui inscris in campul de mai jos.',
+    'Va rugăm să introduceți un număr de telefon valid, unde puteți fi contactat pe perioada autoizolării. Veți primi pe SMS un cod unic, ce va trebui înscris în câmpul de mai jos.',
 };
 
 export default strings;

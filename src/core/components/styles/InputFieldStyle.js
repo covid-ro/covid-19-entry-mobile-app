@@ -9,10 +9,10 @@ export default StyleSheet.create({
   },
 
   inputStyle: {
-    borderBottomWidth: 2,
+    borderBottomWidth: metrics.size2,
     borderColor: colors.darkBlue,
     paddingBottom: metrics.size8,
-    height:metrics.size40,
+    height: metrics.size40,
   },
 
   labelStyle: {
@@ -20,10 +20,10 @@ export default StyleSheet.create({
     color: colors.darkBlue,
   },
   unselectedInputStyle: {
-    borderBottomWidth: 1,
+    borderBottomWidth: metrics.size1,
     borderColor: colors.lightGrey,
     paddingBottom: metrics.size8,
-    height:metrics.size40,
+    height: metrics.size40,
   },
   unselectedLabelStyle: {
     paddingBottom: metrics.size10,
