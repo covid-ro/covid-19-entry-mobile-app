@@ -10,23 +10,25 @@ const LanguageSelectionScreen = ({navigation}) => {
   return (
     <View style={languageSelectionScreenStyles.container}>
       <Image source={images.logo} style={languageSelectionScreenStyles.logo} />
-      <Text style={languageSelectionScreenStyles.titleStyle}>
-        {strings.languageSelectTitle}
-      </Text>
-      <Text style={languageSelectionScreenStyles.subTitleStyle}>
-        {strings.languageSelectSubtitle}
-      </Text>
-      <View style={languageSelectionScreenStyles.buttonContainer}>
-        <GeneralButton
-          text={strings.romana}
-          onPress={() => navigation.navigate(roots.registerStack)}
-        />
-      </View>
-      <View style={languageSelectionScreenStyles.buttonContainer}>
-        <GeneralButton
-          text={strings.engleza}
-          onPress={() => navigation.navigate(roots.registerStack)}
-        />
+      <View style={languageSelectionScreenStyles.bottomContainer}>
+        <Text style={languageSelectionScreenStyles.titleStyle}>
+          {strings.languageSelectTitle}
+        </Text>
+        <Text style={languageSelectionScreenStyles.subTitleStyle}>
+          {strings.languageSelectSubtitle}
+        </Text>
+        <View style={languageSelectionScreenStyles.buttonContainer}>
+          <GeneralButton
+            text={strings.romana}
+            onPress={() => navigation.navigate(roots.registerStack)}
+          />
+        </View>
+        <View style={languageSelectionScreenStyles.buttonContainer}>
+          <GeneralButton
+            text={strings.engleza}
+            onPress={() => navigation.navigate(roots.registerStack)}
+          />
+        </View>
       </View>
     </View>
   );
