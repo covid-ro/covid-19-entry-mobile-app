@@ -8,26 +8,18 @@ const FormSection3 = () => {
   const [locationValue, setLocationValue] = useState(undefined);
   const [numberValue, setNumberValue] = useState(null);
 
-  const onLocationValueChange = useCallback(value => {
-    setLocationValue(value);
-  }, []);
-
-  const onNumberValueChange = useCallback(value => {
-    setNumberValue(value);
-  }, []);
-
   return (
     <View style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{strings.form3Label}</Text>
       <InputField
         placeholder={strings.cj}
         value={locationValue}
-        onChangeText={value => onLocationValueChange(value)}
+        onChangeText={value => setLocationValue(value)}
       />
       <InputField
         placeholder={strings.passportNumber}
         value={numberValue}
-        onChangeText={value => onNumberValueChange(value)}
+        onChangeText={value => setNumberValue(value)}
       />
     </View>
   );
