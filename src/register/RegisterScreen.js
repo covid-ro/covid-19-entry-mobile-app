@@ -15,7 +15,6 @@ const RegisterScreen = () => {
   ];
 
   const renderItem = useCallback(({item, index}) => {
-    console.log('Index:', index);
     switch (index) {
       case 0:
         return <View style={registerScreenStyles.firstCard} />;
