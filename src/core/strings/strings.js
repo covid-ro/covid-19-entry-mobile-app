@@ -1,5 +1,5 @@
 const strings = {
-  declaratie: 'Declaratie',
+  declaratie: 'Declarație',
   progressHeaderStep: 'din 10',
   form2Label: 'Selectati unul din actele de identitate.',
   form8Label:
@@ -21,5 +21,17 @@ const strings = {
   simptom2: 'Dificultatea \nde a înghiți', //duplicated in design, we will replace
   simptom3: 'Dificultatea \nde a respira',
   simptom4: 'Tuse intensă',
+  telefon: 'Telefon',
+  validatePhoneNumber: 'Validează numărul de telefon',
+  validatePhoneNumberInformationLabel:
+    'Va rugăm să introduceți un număr de telefon valid, unde puteți fi contactat pe perioada autoizolării. Veți primi pe SMS un cod unic, ce va trebui înscris în câmpul de mai jos.',
+  countriesCrossed: 'Tări tranzitate',
+  countriesCrossedDescription:
+    'Selectati din lista de mai jos tările ce le-ați tranzitat (inclusiv escale). Puteți selecta mai multe optiuni.',
+  languageSelectTitle: 'Vă rugăm să selectați o limbă.',
+  languageSelectSubtitle: 'Please select a preferred language.',
+  romana: 'Romana',
+  engleza: 'Engleza',
+
 };
 export default strings;

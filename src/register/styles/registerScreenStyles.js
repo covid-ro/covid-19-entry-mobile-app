@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
-import DeviceInfo from 'react-native-device-info'
+import DeviceInfo from 'react-native-device-info';
 
 const registerScreenStyles = StyleSheet.create({
   container: {
