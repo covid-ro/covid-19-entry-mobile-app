@@ -21,6 +21,11 @@ const strings = {
   simptom2: 'Dificultatea \nde a înghiți', //duplicated in design, we will replace
   simptom3: 'Dificultatea \nde a respira',
   simptom4: 'Tuse intensă',
+  addSMSCode: 'Introduceți codul primit prin SMS',
+  codValidareSMS: 'Cod validare SMS',
+  save: 'Salvează',
+  dontReceiveTheCode: 'Nu ai primit codul de validare?',
+  resendSMSCod: 'Retrimite Cod validare \n SMS',
   telefon: 'Telefon',
   validatePhoneNumber: 'Validează numărul de telefon',
   validatePhoneNumberInformationLabel:
