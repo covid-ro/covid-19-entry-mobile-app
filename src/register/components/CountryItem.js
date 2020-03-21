@@ -9,7 +9,7 @@ const CountryItem = ({item, selected, onSelect}) => {
       onPress={() => onSelect(item.id)}
       style={countriesCrossedListStyles.item}>
       <View style={countriesCrossedListStyles.content}>
-        <Text>{item.data}</Text>
+        <Text style={countriesCrossedListStyles.textItem}>{item.data}</Text>
         {selected && <Image source={images.ic_check} />}
       </View>
       <View style={countriesCrossedListStyles.separator} />
