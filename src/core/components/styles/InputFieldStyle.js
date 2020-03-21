@@ -9,8 +9,8 @@ export default StyleSheet.create({
   },
 
   inputStyle: {
-    borderBottomWidth: 1,
-    borderColor: colors.lightGrey,
+    borderBottomWidth: 2,
+    borderColor: colors.darkBlue,
     paddingBottom: metrics.size8,
     height:metrics.size40,
   },
@@ -20,8 +20,8 @@ export default StyleSheet.create({
     color: colors.darkBlue,
   },
   unselectedInputStyle: {
-    borderBottomWidth: 2,
-    borderColor: colors.darkBlue,
+    borderBottomWidth: 1,
+    borderColor: colors.lightGrey,
     paddingBottom: metrics.size8,
     height:metrics.size40,
   },
