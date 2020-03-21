@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../themes';
+import {colors, metrics} from '../../themes';
 
 const registerScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.black,
+    marginHorizontal: metrics.size20,
   },
 });
 
