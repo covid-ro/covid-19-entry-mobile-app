@@ -4,7 +4,7 @@ import styles from './styles/validateSMSScreenStyle';
 import {InputField, GeneralButton} from '../core/components';
 import {strings} from '../core/strings';
 import {ProgressHeader} from '../register/components';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native';
 const ValidateSMSScreen = () => {
   return (
     <View>
