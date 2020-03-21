@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../../themes';
 
-const customButtonStyles = StyleSheet.create({
+const selectionButtonStyles = StyleSheet.create({
   normalButtonStyle: {
     backgroundColor: colors.white,
     width: metrics.size111,
@@ -34,4 +34,4 @@ const customButtonStyles = StyleSheet.create({
   },
 });
 
-export default customButtonStyles;
+export default selectionButtonStyles;
