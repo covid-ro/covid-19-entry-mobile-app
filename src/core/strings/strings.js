@@ -1,7 +1,7 @@
 const strings = {
   declaratie: 'Declarație',
   progressHeaderStep: 'din 10',
-  form2Label: 'Selectati unul din actele de identitate.',
+  form2Label: 'Selectați unul din actele de identitate.',
   form8Label:
     'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
   form9Label:
