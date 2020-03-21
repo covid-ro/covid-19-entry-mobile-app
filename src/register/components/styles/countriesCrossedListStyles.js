@@ -13,6 +13,7 @@ const countriesCrossedListStyles = StyleSheet.create({
   content: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingRight: metrics.size16,
   },
   separator: {
