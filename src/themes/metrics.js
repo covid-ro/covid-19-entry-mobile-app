@@ -104,6 +104,8 @@ const metrics = {
     z8: 8,
     z10: 10,
   },
+
+  cardWidth: (width < height ? width : height) - 38,
 };
 
 export default metrics;
