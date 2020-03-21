@@ -6,6 +6,8 @@ const progressHeaderStyles = StyleSheet.create({
     flexDirection: 'row',
     height: metrics.size40,
     justifyContent: 'space-between',
+    backgroundColor: colors.white,
+    paddingHorizontal: metrics.size20,
   },
   circle: {
     height: metrics.size8,

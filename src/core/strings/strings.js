@@ -1,6 +1,6 @@
 const strings = {
   declaratie: 'Declarație',
-  progressHeaderStep: 'din 10',
+  progressHeaderStep: 'din 14',
   form2Label: 'Selectați unul din actele de identitate.',
   form8Label:
     'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
@@ -11,6 +11,7 @@ const strings = {
     'Ați avut unul sau mai multe dintre următoarele simptome (selectie multiplă) :',
   form12Label:
     'Pentru a mă deplasa la adresa de carantină completată mai sus, folosesc:',
+  form13Label: 'Introduceți numărul automobilului cu care vă deplasați:',
   da: 'DA',
   nu: 'NU',
   auto: 'Auto',
@@ -37,5 +38,6 @@ const strings = {
   languageSelectSubtitle: 'Please select a preferred language.',
   romana: 'Romana',
   engleza: 'Engleza',
+  placeholderAutomobil: 'Număr înmatriculare autoturism',
 };
 export default strings;

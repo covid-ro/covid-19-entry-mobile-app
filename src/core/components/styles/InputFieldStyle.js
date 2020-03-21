@@ -13,6 +13,7 @@ export default StyleSheet.create({
     borderColor: colors.darkBlue,
     paddingBottom: metrics.size8,
     height: metrics.size40,
+    color: colors.black,
   },
 
   labelStyle: {
@@ -24,6 +25,7 @@ export default StyleSheet.create({
     borderColor: colors.lightGrey,
     paddingBottom: metrics.size8,
     height: metrics.size40,
+    color: colors.black,
   },
   unselectedLabelStyle: {
     paddingBottom: metrics.size10,

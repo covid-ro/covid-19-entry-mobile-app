@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 const RegisterStack = () => (
   <Stack.Navigator
     screenOptions={{gestureEnabled: false}}
-    initialRouteName={roots.countriesCrossed}>
+    initialRouteName={'Declaratie'}>
     <Stack.Screen name={'Declaratie'} component={RegisterScreen} />
     <Stack.Screen
       name={roots.countriesCrossed}
