@@ -1,24 +1,22 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
-import {selectIdentityScreenStyles} from './styles';
+import {formSection2Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton} from '../core/components';
 import {strings} from '../core/strings';
 
-const SelectIdentityCardScreen = () => {
+const FormSection2 = () => {
   const [passportSelected, setPasssportSelected] = useState(false);
   const [cardSelected, setCardSelected] = useState(false);
 
   return (
-    <View style={selectIdentityScreenStyles.container}>
-      <View style={selectIdentityScreenStyles.textContainer}>
-        <Text style={labelStyles.textStyle}>
-          {strings.selectIdentityCardLabel}
-        </Text>
+    <View style={formSection2Styles.container}>
+      <View style={formSection2Styles.textContainer}>
+        <Text style={labelStyles.textStyle}>{strings.form2Label}</Text>
       </View>
-      <View style={selectIdentityScreenStyles.buttonsContainer}>
+      <View style={formSection2Styles.buttonsContainer}>
         <SelectionButton
-          text="Pasaport"
+          text={strings.passport}
           isSelected={passportSelected}
           onPress={() => {
             setPasssportSelected(true);
@@ -38,4 +36,4 @@ const SelectIdentityCardScreen = () => {
   );
 };
 
-export default SelectIdentityCardScreen;
+export default FormSection2;

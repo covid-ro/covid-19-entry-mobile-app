@@ -26,11 +26,15 @@ const selectionButtonStyles = StyleSheet.create({
   selectedTextStyle: {
     fontSize: metrics.size15,
     color: colors.darkBlue,
+    fontWeight: '500',
+    textAlign: 'center',
   },
 
   normalTextStyle: {
     fontSize: metrics.size15,
     color: colors.lightGrey,
+    fontWeight: '500',
+    textAlign: 'center',
   },
 });
 

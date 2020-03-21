@@ -7,6 +7,7 @@ const labelStyles = StyleSheet.create({
     fontSize: metrics.size17,
     color: colors.black4A,
     fontWeight: '500',
+    textAlign: 'left',
   },
 });
 
