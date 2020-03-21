@@ -1,8 +1,7 @@
-import {FlatList, Text, View, TouchableOpacity} from 'react-native';
+import {FlatList, View} from 'react-native';
 import {countriesCrossedListStyles} from './styles';
-import {strings} from '../../core/strings';
 import React from 'react';
-import {colors} from '../../themes';
+import {CountryItem} from './index';
 
 const CountriesCrossedList = countries => {
   const [selected, setSelected] = React.useState(new Map());
@@ -17,24 +16,20 @@ const CountriesCrossedList = countries => {
     [selected],
   );
 
-  const renderItem = ({item}) => {
-    return (
-      <TouchableOpacity
-        onPress={() => onSelect(item.id)}
-        style={countriesCrossedListStyles.item}>
-        <Text>{item.data}</Text>
-        <View style={countriesCrossedListStyles.separator} />
-      </TouchableOpacity>
-    );
-  };
-
   return (
     <View style={countriesCrossedListStyles.container}>
       <View style={countriesCrossedListStyles.separator} />
       <FlatList
         data={countries.countries}
         keyExtractor={item => item.id}
-        renderItem={renderItem}
+        renderItem={({item}) => (
+          <CountryItem
+            item={item}
+            selected={!!selected.get(item.id)}
+            onSelect={onSelect}
+          />
+        )}
+        extraData={selected}
       />
     </View>
   );

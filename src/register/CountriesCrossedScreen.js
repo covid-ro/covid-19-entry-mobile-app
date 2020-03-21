@@ -6,12 +6,6 @@ import {CountriesCrossedList} from './components';
 import {countriesCrossed} from '../core/constants';
 
 const CountriesCrossedScreen = () => {
-  const countries = [
-    {id: 0, data: 'Country 1'},
-    {id: 1, data: 'Country 2'},
-    {id: 2, data: 'Country 3'},
-    {id: 3, data: 'Country 4'},
-  ];
   return (
     <View style={countriesCrossedScreenStyles.container}>
       <Text style={countriesCrossedScreenStyles.description}>
