@@ -16,6 +16,7 @@ const InputField = ({
   autoCorrect,
   autoCapitalize,
   returnKeyType,
+  keyboardType,
 }) => {
   const [isFocused, setFocus] = useState(false);
   return (
@@ -45,6 +46,7 @@ const InputField = ({
         autoCorrect={autoCorrect}
         autoCapitalize={autoCapitalize}
         returnKeyType={returnKeyType}
+        keyboardType={keyboardType}
       />
     </View>
   );
