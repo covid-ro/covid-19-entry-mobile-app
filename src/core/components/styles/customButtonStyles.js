@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../../themes';
 
 const customButtonStyles = StyleSheet.create({
-  buttonStyle: {
+  normalButtonStyle: {
     backgroundColor: colors.white,
     width: metrics.size111,
     height: metrics.size92,
