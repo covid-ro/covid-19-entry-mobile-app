@@ -10,7 +10,7 @@ const CountryItem = ({item, selected, onSelect}) => {
       style={countriesCrossedListStyles.item}>
       <View style={countriesCrossedListStyles.content}>
         <Text>{item.data}</Text>
-        {selected ? <Image source={images.ic_check} /> : null}
+        {selected && <Image source={images.ic_check} />}
       </View>
       <View style={countriesCrossedListStyles.separator} />
     </TouchableOpacity>
