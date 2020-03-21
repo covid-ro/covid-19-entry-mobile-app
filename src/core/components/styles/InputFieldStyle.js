@@ -10,13 +10,13 @@ export default StyleSheet.create({
 
   inputStyle: {
     borderBottomWidth: 1,
-    borderColor: colors.gray,
+    borderColor: colors.lightGrey,
     paddingBottom: metrics.size8,
   },
 
   labelStyle: {
     paddingBottom: metrics.size10,
-    color: colors.blue,
+    color: colors.darkBlue,
   },
   unselectedLabelStyle: {
     paddingBottom: metrics.size10,

@@ -27,17 +27,17 @@ const InputField = ({
         maxLength={maxLength}
         secureTextEntry={secureTextEntry}
         placeholder={placeholder}
-        placeholderTextColor={colors.gray}
+        placeholderTextColor={colors.lightGrey}
         style={
           isFocused
             ? [
                 styles.inputStyle,
-                {borderColor: colors.blue, borderBottomWidth: 2},
+                {borderColor: colors.darkBlue, borderBottomWidth: 2},
               ]
             : styles.inputStyle
         }
         value={value}
-        selectionColor={colors.blue}
+        selectionColor={colors.darkBlue}
         editable={editable}
         autoFocus={autoFocus}
         onChangeText={onChangeText}
