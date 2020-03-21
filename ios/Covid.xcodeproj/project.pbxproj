@@ -17,6 +17,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* CovidTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CovidTests.m */; };
 		65A192802426632D002AD566 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A1927F2426632D002AD566 /* Launch Screen.storyboard */; };
+		65A19282242670D9002AD566 /* logo-guvern.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A19281242670D9002AD566 /* logo-guvern.png */; };
 		96514BCDB5522ACFEE854E31 /* libPods-Covid-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F33EAB2D11B63B285F2596 /* libPods-Covid-tvOS.a */; };
 		9FE219F5F8A6464D27F45292 /* libPods-Covid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1976BCE68AA93FAD05E1299F /* libPods-Covid.a */; };
 		C53D9D66EE7BCC5878C74D06 /* libPods-CovidTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD66AC570A8485EC89A0EA89 /* libPods-CovidTests.a */; };
@@ -61,6 +62,7 @@
 		51599018DBF8C500996122AC /* Pods-CovidTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidTests.debug.xcconfig"; path = "Target Support Files/Pods-CovidTests/Pods-CovidTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A2022D4BF649B00C5C37535 /* Pods-Covid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid.debug.xcconfig"; path = "Target Support Files/Pods-Covid/Pods-Covid.debug.xcconfig"; sourceTree = "<group>"; };
 		65A1927F2426632D002AD566 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		65A19281242670D9002AD566 /* logo-guvern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-guvern.png"; path = "../assets/logo-guvern.png"; sourceTree = "<group>"; };
 		6A717EDE24C1EB409E5E0440 /* Pods-CovidTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidTests.release.xcconfig"; path = "Target Support Files/Pods-CovidTests/Pods-CovidTests.release.xcconfig"; sourceTree = "<group>"; };
 		78F33EAB2D11B63B285F2596 /* libPods-Covid-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Covid-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E550F8DE604FC65B5E31FC /* libPods-Covid-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Covid-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				65A1927F2426632D002AD566 /* Launch Screen.storyboard */,
+				65A19281242670D9002AD566 /* logo-guvern.png */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -336,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A19282242670D9002AD566 /* logo-guvern.png in Resources */,
 				65A192802426632D002AD566 /* Launch Screen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

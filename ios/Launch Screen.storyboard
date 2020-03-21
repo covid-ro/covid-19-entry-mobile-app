@@ -28,20 +28,34 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-guvern.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-fV-tR7">
+                                <rect key="frame" x="143" y="226" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="Gpe-oh-7Lk"/>
+                                    <constraint firstAttribute="height" constant="128" id="cTw-Vp-Cfa"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                <variation key="heightClass=compact-widthClass=compact" image="logo-guvern.png"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6ZY-Rv-SqA" firstAttribute="top" secondItem="PqB-3Q-ngx" secondAttribute="bottom" constant="8" id="FsI-6q-7dp"/>
                             <constraint firstItem="6ZY-Rv-SqA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HbD-KU-sqT"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="6ZY-Rv-SqA" secondAttribute="bottom" constant="230" id="LqI-Gs-d5e"/>
+                            <constraint firstItem="PqB-3Q-ngx" firstAttribute="top" secondItem="bvT-fV-tR7" secondAttribute="bottom" constant="84" id="faa-8S-4zp"/>
                             <constraint firstItem="PqB-3Q-ngx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gKr-et-L6J"/>
+                            <constraint firstItem="bvT-fV-tR7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ueq-5E-NHr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="374.18478260869568"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo-guvern.png" width="720" height="720"/>
+    </resources>
 </document>
