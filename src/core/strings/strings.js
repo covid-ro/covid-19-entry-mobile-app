@@ -1,6 +1,11 @@
 const strings = {
   declaratie: 'Declarație',
   progressHeaderStep: 'din 10',
+  addSMSCode: 'Introduceți codul primit prin SMS',
+  codValidareSMS: 'Cod validare SMS',
+  save: 'Salvează',
+  dontReceiveTheCode: 'Nu ai primit codul de validare?',
+  resendSMSCod: 'Retrimite Cod validare \n SMS',
   telefon: 'Telefon',
   validatePhoneNumber: 'Validează numărul de telefon',
   validatePhoneNumberInformationLabel:
@@ -12,7 +17,6 @@ const strings = {
   languageSelectSubtitle: 'Please select a preferred language.',
   romana: 'Romana',
   engleza: 'Engleza',
-
 };
 
 export default strings;
