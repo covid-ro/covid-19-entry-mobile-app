@@ -6,6 +6,7 @@ import {ProgressHeader} from './components';
 import {metrics} from '../themes';
 import {
   FormSection2,
+  FormSection3,
   FormSection8,
   FormSection11,
   FormSection12,
@@ -42,6 +43,12 @@ const RegisterScreen = () => {
         return (
           <View style={registerScreenStyles.card}>
             <FormSection2 />
+          </View>
+        );
+      case 2:
+        return (
+          <View style={registerScreenStyles.card}>
+            <FormSection3 />
           </View>
         );
       case 7:
