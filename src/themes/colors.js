@@ -7,6 +7,8 @@ const colors = {
   gray: '#4A4A4A',
   graySeparator: '#D1D1D1',
   grayBackground: '#F2F2F2',
+  darkGrey: '#4A4A4A',
+  opacityGrey: 'rgba(74,74,74, 0.6)',
 };
 
 export default colors;
