@@ -15,7 +15,7 @@ const FinishNavigator = () => (
       component={FinishScreen}
     />
     <Stack.Screen
-      options={{title: strings.declaratie}}
+      options={{headerShown: false}}
       name={roots.endScreen}
       component={EndScreen}
     />
