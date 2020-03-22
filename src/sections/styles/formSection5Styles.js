@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
 
-const selectIdentityScreenStyles = StyleSheet.create({
+const fromSection5Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
   },
@@ -42,4 +42,4 @@ const selectIdentityScreenStyles = StyleSheet.create({
   },
 });
 
-export default selectIdentityScreenStyles;
+export default fromSection5Styles;
