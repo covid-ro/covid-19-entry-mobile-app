@@ -42,5 +42,13 @@ const strings = {
   cj: 'CJ',
   passportNumber: '123123',
   form3Label: 'Introduceți datele din pașaport:',
+
+  form5Label: 'Pe perioada șederii pot fi contactat la',
+  alertLabel: 'ATENȚIE!',
+  alertMessage:
+    'Numărul de telefon completat trebuie să fie activ pe toată perioada autoizolării. Veți fi contactat pe acest număr de telefon de către autoritățile responsabile. \n \nOrice omisiune va fi pedepsită conform legii pentru combaterea bolilor contagioase.',
+  telefonValid: 'Telefon valid',
+  email: 'E-mail',
+
 };
 export default strings;
