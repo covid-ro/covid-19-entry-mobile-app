@@ -2,7 +2,6 @@ const strings = {
   declaratie: 'Declarație',
   progressHeaderStep: 'din 14',
   form2Label: 'Selectați unul din actele de identitate.',
-  form10Label: 'Ați fost spitalizat în ultimele 3 săptămâni?',
   form8Label:
     'Ați avut unul sau mai multe dintre următoarele simptome (selecție multiplă) :',
   form9Label:
@@ -60,5 +59,11 @@ const strings = {
   nume: 'Nume',
   prenume: 'Prenume',
   cnp: 'CNP',
+  form4Label: 'În România mă voi izola la următoarele adrese:',
+  judet: 'Județ',
+  localitate: 'Localitate',
+  dataSosirii: 'Data sosirii',
+  dataPlecarii: 'Data plecării',
+  adresaCompleta: 'Adresa completă',
 };
 export default strings;
