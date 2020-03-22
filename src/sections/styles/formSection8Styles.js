@@ -3,7 +3,6 @@ import {colors, metrics} from '../../themes';
 
 const formSection8Styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.white,
   },
   buttonsContainer: {
