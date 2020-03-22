@@ -42,5 +42,12 @@ const strings = {
   cj: 'CJ',
   passportNumber: '123123',
   form3Label: 'Introduceți datele din pașaport:',
+  adaugaMembru: 'Adaugă un membru nou',
+  nuMaiAdaug: 'Nu mai adaug pe nimeni',
+  finishScreenFirstLine: 'Felicitări, ai terminat de completat declarația.',
+  finishScreenSecondLine:
+    'Dorești să adaugi încă o declarație pentru alt membru al familiei ce te însoțește? ',
+  finisScreenThirdLine:
+    'Continuă procedura de mai jos, respectând câmpurile ce te vor ghida în completarea corectă a formularului. În cazul minorilor, numărul de telefon necesar pentru validare va fi a unuia din aparținători. ',
 };
 export default strings;
