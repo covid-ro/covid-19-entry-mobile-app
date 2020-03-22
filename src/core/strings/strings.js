@@ -39,8 +39,9 @@ const strings = {
   romana: 'Romana',
   engleza: 'Engleza',
   placeholderAutomobil: 'Număr înmatriculare autoturism',
-  cj: 'CJ',
-  passportNumber: '123123',
-  form3Label: 'Introduceți datele din pașaport:',
+  seria: 'Seria',
+  passportNumber: 'NR',
+  addPassportInfo: 'Introduceți datele din pașaport:',
+  addICInfo: 'Introduceți datele din buletin:',
 };
 export default strings;
