@@ -2,12 +2,10 @@ const strings = {
   declaratie: 'Declarație',
   progressHeaderStep: 'din 14',
   form2Label: 'Selectați unul din actele de identitate.',
-  form8Label:
-    'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
   form9Label:
     'Ați venit în contact direct cu persoane suferinde din cauza infecției cu noul coronavirus (COVID-19) la serviciu, în vecinătatea locuinței sau vizitând unități medicale ori alte genuri de locuri în ultimele 14 zile',
   form10Label: 'Ați fost spitalizat în ultimele 3 săptămâni?',
-  form11Label:
+  form8Label:
     'Ați avut unul sau mai multe dintre următoarele simptome (selectie multiplă) :',
   form12Label:
     'Pentru a mă deplasa la adresa de carantină completată mai sus, folosesc:',

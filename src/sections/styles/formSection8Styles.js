@@ -13,10 +13,7 @@ const formSection8Styles = StyleSheet.create({
   },
   textContainer: {
     marginTop: metrics.size22,
-    marginLeft: metrics.size16,
-    marginRight: metrics.size32,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginHorizontal: metrics.size16,
     marginBottom: metrics.size30,
   },
 });
