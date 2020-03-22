@@ -14,8 +14,8 @@ const strings = {
   ambulance: 'Ambulanță',
   passport: 'Paşaport',
   card: 'Carte\nidentitate',
-  simptom1: 'Dificultatea \nde a înghiți',
-  simptom2: 'Dificultatea \nde a înghiți', //duplicated in design, we will replace
+  simptom1: 'Febra',
+  simptom2: 'Dificultatea \nde a înghiți',
   simptom3: 'Dificultatea \nde a respira',
   simptom4: 'Tuse intensă',
   addSMSCode: 'Introduceți codul primit prin SMS',
@@ -40,6 +40,11 @@ const strings = {
   addPassportInfo: 'Introduceți datele din pașaport:',
   addICInfo: 'Introduceți datele din buletin:',
   form3Label: 'Introduceți datele din pașaport:',
+
+  form10Label: 'Traseul urmărit este:',
+  form10Placeholder:
+    'Introduceți câteva din localitățile de pe drum, diferențiate prin virgulă.',
+
   form7Label:
     'Ați venit în contact direct cu persoane suferinde din cauza infecției  cu noul coronavirus (COVID-19) la serviciu, în vecinătatea locuinței sau vizitând unități medicale ori alte genuri de locuri în ultimele 14 zile?',
   form6FirstQuestion:
