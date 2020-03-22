@@ -42,5 +42,9 @@ const strings = {
   cj: 'CJ',
   passportNumber: '123123',
   form3Label: 'Introduceți datele din pașaport:',
+  form1Label: 'Vă rugăm să adăugați datele personale.',
+  nume: 'Nume',
+  prenume: 'Prenume',
+  cnp: 'CNP',
 };
 export default strings;
