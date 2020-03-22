@@ -2,7 +2,6 @@ const strings = {
   declaratie: 'Declarație',
   progressHeaderStep: 'din 10',
   form2Label: 'Selectați unul din actele de identitate.',
-  form10Label: 'Ați fost spitalizat în ultimele 3 săptămâni?',
   form8Label:
     'Ați avut unul sau mai multe dintre următoarele simptome (selecție multiplă) :',
   form9Label:
@@ -14,8 +13,8 @@ const strings = {
   ambulance: 'Ambulanță',
   passport: 'Paşaport',
   card: 'Carte\nidentitate',
-  simptom1: 'Dificultatea \nde a înghiți',
-  simptom2: 'Dificultatea \nde a înghiți', //duplicated in design, we will replace
+  simptom1: 'Febra',
+  simptom2: 'Dificultatea \nde a înghiți',
   simptom3: 'Dificultatea \nde a respira',
   simptom4: 'Tuse intensă',
   addSMSCode: 'Introduceți codul primit prin SMS',
@@ -47,6 +46,11 @@ const strings = {
     'Dorești să adaugi încă o declarație pentru alt membru al familiei ce te însoțește? ',
   finisScreenThirdLine:
     'Continuă procedura de mai jos, respectând câmpurile ce te vor ghida în completarea corectă a formularului. În cazul minorilor, numărul de telefon necesar pentru validare va fi a unuia din aparținători. ',
+
+  form10Label: 'Traseul urmărit este:',
+  form10Placeholder:
+    'Introduceți câteva din localitățile de pe drum, diferențiate prin virgulă.',
+
   form7Label:
     'Ați venit în contact direct cu persoane suferinde din cauza infecției  cu noul coronavirus (COVID-19) la serviciu, în vecinătatea locuinței sau vizitând unități medicale ori alte genuri de locuri în ultimele 14 zile?',
   form6FirstQuestion:
