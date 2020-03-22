@@ -13,13 +13,12 @@ import {
   FormSection7,
   FormSection8,
   FormSection9,
-  FormSection11,
-  FormSection12,
-  FormSection13,
 } from '../sections';
 import {strings} from '../core/strings';
+import {GeneralButton} from '../core/components';
+import {roots} from '../navigation';
 
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}) => {
   const carouselRef = useRef(null);
   const [activeCard, setActiveCard] = useState(0);
 
@@ -34,10 +33,6 @@ const RegisterScreen = () => {
     {id: 7, data: 'card 8'},
     {id: 8, data: 'card 9'},
     {id: 9, data: 'card 10'},
-    {id: 10, data: 'card 11'},
-    {id: 11, data: 'card 12'},
-    {id: 12, data: 'card 13'},
-    {id: 13, data: 'card 14'},
   ];
 
   const renderItem = useCallback(({item, index}) => {
@@ -97,24 +92,6 @@ const RegisterScreen = () => {
             <FormSection8 text={strings.form10Label} />
           </View>
         );
-      case 10:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection11 />
-          </View>
-        );
-      case 11:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection12 />
-          </View>
-        );
-      case 12:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection13 />
-          </View>
-        );
 
       default:
         return <View style={registerScreenStyles.card} />;
@@ -123,9 +100,7 @@ const RegisterScreen = () => {
 
   return (
     <View style={registerScreenStyles.container}>
-      <View style={registerScreenStyles.progressBarContainer}>
-        <ProgressHeader step={activeCard + 1} />
-      </View>
+      <ProgressHeader step={activeCard + 1} />
       <Carousel
         useScrollView
         onSnapToItem={setActiveCard}
@@ -140,6 +115,19 @@ const RegisterScreen = () => {
         inactiveSlideScale={0.93}
         swipeThreshold={metrics.screenWidth * 0.1}
       />
+      <View style={registerScreenStyles.marginBottom}>
+        {activeCard !== 9 ? (
+          <GeneralButton
+            text={strings.urmatorul}
+            onPress={() => carouselRef.current.snapToNext()}
+          />
+        ) : (
+          <GeneralButton
+            text={strings.trimite}
+            onPress={() => navigation.navigate(roots.finishNavigator)}
+          />
+        )}
+      </View>
     </View>
   );
 };

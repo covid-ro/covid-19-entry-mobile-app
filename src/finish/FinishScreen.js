@@ -9,7 +9,7 @@ import {roots} from '../navigation';
 const FinishScreen = ({navigation}) => {
   return (
     <View style={finishScreenStyles.container}>
-      <ProgressHeader step={14} />
+      <ProgressHeader step={10} />
       <View style={finishScreenStyles.card}>
         <Text style={finishScreenStyles.title}>
           {strings.finishScreenFirstLine}

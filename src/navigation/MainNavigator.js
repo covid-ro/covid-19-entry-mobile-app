@@ -14,7 +14,7 @@ const MainStackNavigator = () => (
     <Stack.Navigator
       screenOptions={{gestureEnabled: false}}
       headerMode="none"
-      initialRouteName={roots.finishNavigator}>
+      initialRouteName={roots.registerStack}>
       <Stack.Screen
         name={roots.languageSelect}
         component={LanguageSelectionScreen}

@@ -1,6 +1,6 @@
 const strings = {
   declaratie: 'Declarație',
-  progressHeaderStep: 'din 14',
+  progressHeaderStep: 'din 10',
   form2Label: 'Selectați unul din actele de identitate.',
   form10Label: 'Ați fost spitalizat în ultimele 3 săptămâni?',
   form8Label:
@@ -62,5 +62,7 @@ const strings = {
   nume: 'Nume',
   prenume: 'Prenume',
   cnp: 'CNP',
+  urmatorul: 'Următorul',
+  trimite: 'Trimite declarația',
 };
 export default strings;
