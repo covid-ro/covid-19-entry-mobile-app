@@ -13,8 +13,6 @@ const registerScreenStyles = StyleSheet.create({
     marginTop: DeviceInfo.hasNotch() ? metrics.size93 : metrics.size73,
     borderWidth: metrics.size1,
     borderColor: colors.opacityGrey,
-    justifyContent: 'center',
-    alignContent: 'center',
   },
 });
 

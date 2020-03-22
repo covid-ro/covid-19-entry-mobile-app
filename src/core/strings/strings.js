@@ -2,23 +2,20 @@ const strings = {
   declaratie: 'Declarație',
   progressHeaderStep: 'din 14',
   form2Label: 'Selectați unul din actele de identitate.',
+  form10Label: 'Ați fost spitalizat în ultimele 3 săptămâni?',
   form8Label:
-    'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
+    'Ați avut unul sau mai multe dintre următoarele simptome (selecție multiplă) :',
   form9Label:
-    'Ați venit în contact direct cu persoane suferinde din cauza infecției cu noul coronavirus (COVID-19) la serviciu, în vecinătatea locuinței sau vizitând unități medicale ori alte genuri de locuri în ultimele 14 zile',
-  form11Label:
-    'Ați avut unul sau mai multe dintre următoarele simptome (selectie multiplă) :',
-  form12Label:
     'Pentru a mă deplasa la adresa de carantină completată mai sus, folosesc:',
-  form13Label: 'Introduceți numărul automobilului cu care vă deplasați:',
+  form9Label2: 'Introduceți numărul automobilului cu care vă deplasați:',
   da: 'DA',
   nu: 'NU',
   auto: 'Auto',
   ambulance: 'Ambulanță',
   passport: 'Paşaport',
   card: 'Carte\nidentitate',
-  simptom1: 'Dificultatea \nde a înghiți',
-  simptom2: 'Dificultatea \nde a înghiți', //duplicated in design, we will replace
+  simptom1: 'Febra',
+  simptom2: 'Dificultatea \nde a înghiți',
   simptom3: 'Dificultatea \nde a respira',
   simptom4: 'Tuse intensă',
   addSMSCode: 'Introduceți codul primit prin SMS',
@@ -38,11 +35,30 @@ const strings = {
   romana: 'Romana',
   engleza: 'Engleza',
   placeholderAutomobil: 'Număr înmatriculare autoturism',
-  cj: 'CJ',
-  passportNumber: '123123',
+  seria: 'Seria',
+  passportNumber: 'NR',
+  addPassportInfo: 'Introduceți datele din pașaport:',
+  addICInfo: 'Introduceți datele din buletin:',
   form3Label: 'Introduceți datele din pașaport:',
+
   form10Label: 'Traseul urmărit este:',
   form10Placeholder:
     'Introduceți câteva din localitățile de pe drum, diferențiate prin virgulă.',
+
+  form7Label:
+    'Ați venit în contact direct cu persoane suferinde din cauza infecției  cu noul coronavirus (COVID-19) la serviciu, în vecinătatea locuinței sau vizitând unități medicale ori alte genuri de locuri în ultimele 14 zile?',
+  form6FirstQuestion:
+    'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
+  form6SecondQuestion: 'Ați fost spitalizat în ultimele 3 săptămâni?',
+  form5Label: 'Pe perioada șederii pot fi contactat la',
+  alertLabel: 'ATENȚIE!',
+  alertMessage:
+    'Numărul de telefon completat trebuie să fie activ pe toată perioada autoizolării. Veți fi contactat pe acest număr de telefon de către autoritățile responsabile. \n \nOrice omisiune va fi pedepsită conform legii pentru combaterea bolilor contagioase.',
+  telefonValid: 'Telefon valid',
+  email: 'E-mail',
+  form1Label: 'Vă rugăm să adăugați datele personale.',
+  nume: 'Nume',
+  prenume: 'Prenume',
+  cnp: 'CNP',
 };
 export default strings;

@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {formSection2Styles} from './styles';
 import {labelStyles} from '../core/styles';
-import {SelectionButton} from '../core/components';
+import {SelectionButton, InputField} from '../core/components';
 import {strings} from '../core/strings';
 
 const FormSection2 = () => {
   const [passportSelected, setPasssportSelected] = useState(false);
   const [cardSelected, setCardSelected] = useState(false);
-
+  const [locationValue, setLocationValue] = useState(undefined);
+  const [numberValue, setNumberValue] = useState(null);
   return (
     <View style={formSection2Styles.container}>
       <View style={formSection2Styles.textContainer}>
@@ -32,6 +33,20 @@ const FormSection2 = () => {
           }}
         />
       </View>
+
+      <Text style={formSection2Styles.title}>
+        {passportSelected ? strings.addPassportInfo : strings.addICInfo}
+      </Text>
+      <InputField
+        placeholder={strings.seria}
+        value={locationValue}
+        onChangeText={setLocationValue}
+      />
+      <InputField
+        placeholder={strings.passportNumber}
+        value={numberValue}
+        onChangeText={setNumberValue}
+      />
     </View>
   );
 };
