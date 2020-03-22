@@ -42,5 +42,8 @@ const strings = {
   cj: 'CJ',
   passportNumber: '123123',
   form3Label: 'Introduceți datele din pașaport:',
+  form4Label: 'Țara și localitatea din care ați plecat, în ce zi:',
+  country: 'Țara',
+  county: 'Localitate',
 };
 export default strings;

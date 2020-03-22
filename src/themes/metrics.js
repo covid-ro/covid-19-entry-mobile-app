@@ -10,6 +10,7 @@ const metrics = {
   size0_4: 0.4,
   size0_2: 0.2,
   size0_3: 0.3,
+  size0_6: 0.6,
   size0_7: 0.7,
   size0_5: 0.5,
   size1_1: 1.1,

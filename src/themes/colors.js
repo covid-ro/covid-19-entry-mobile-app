@@ -10,6 +10,7 @@ const colors = {
   grayBackground: '#F2F2F2',
   darkGrey: '#4A4A4A',
   opacityGrey: 'rgba(74,74,74, 0.6)',
+  greyE7: '#E7EBED',
 };
 
 export default colors;
