@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
 
-const selectIdentityScreenStyles = StyleSheet.create({
+const formSection1Styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
@@ -16,4 +16,4 @@ const selectIdentityScreenStyles = StyleSheet.create({
   },
 });
 
-export default selectIdentityScreenStyles;
+export default formSection1Styles;
