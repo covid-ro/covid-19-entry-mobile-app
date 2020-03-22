@@ -1,10 +1,8 @@
 import {StyleSheet} from 'react-native';
-import DeviceInfo from 'react-native-device-info';
 import {colors, metrics} from '../../themes';
 
-const passportDataScreenStyles = StyleSheet.create({
+const fromSection3Styles = StyleSheet.create({
   container: {
-    flex: metrics.size1,
     backgroundColor: colors.white,
   },
   title: {
@@ -17,4 +15,4 @@ const passportDataScreenStyles = StyleSheet.create({
   },
 });
 
-export default passportDataScreenStyles;
+export default fromSection3Styles;

@@ -4,7 +4,6 @@ import DeviceInfo from 'react-native-device-info';
 
 const selectIdentityScreenStyles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.white,
   },
   buttonsContainer: {

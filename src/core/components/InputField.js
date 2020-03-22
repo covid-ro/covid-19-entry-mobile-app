@@ -27,7 +27,7 @@ const InputField = ({
       <TextInput
         maxLength={maxLength}
         secureTextEntry={secureTextEntry}
-        placeholder={placeholder}
+        placeholder={isFocused ? '' : placeholder}
         placeholderTextColor={colors.lightGrey}
         style={isFocused ? styles.inputStyle : styles.unselectedInputStyle}
         value={value}
