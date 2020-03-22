@@ -39,11 +39,24 @@ const strings = {
   romana: 'Romana',
   engleza: 'Engleza',
   placeholderAutomobil: 'Număr înmatriculare autoturism',
-  cj: 'CJ',
-  passportNumber: '123123',
+  seria: 'Seria',
+  passportNumber: 'NR',
+  addPassportInfo: 'Introduceți datele din pașaport:',
+  addICInfo: 'Introduceți datele din buletin:',
   form3Label: 'Introduceți datele din pașaport:',
   form6FirstQuestion:
     'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
   form6SecondQuestion: 'Ați fost spitalizat în ultimele 3 săptămâni?',
+  form5Label: 'Pe perioada șederii pot fi contactat la',
+  alertLabel: 'ATENȚIE!',
+  alertMessage:
+    'Numărul de telefon completat trebuie să fie activ pe toată perioada autoizolării. Veți fi contactat pe acest număr de telefon de către autoritățile responsabile. \n \nOrice omisiune va fi pedepsită conform legii pentru combaterea bolilor contagioase.',
+  telefonValid: 'Telefon valid',
+  email: 'E-mail',
+  form1Label: 'Vă rugăm să adăugați datele personale.',
+  nume: 'Nume',
+  prenume: 'Prenume',
+  cnp: 'CNP',
+
 };
 export default strings;
