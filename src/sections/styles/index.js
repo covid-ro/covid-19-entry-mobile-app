@@ -5,6 +5,7 @@ export {default as fromSection5Styles} from './formSection5Styles';
 export {default as formSection6Styles} from './formSection6Styles';
 export {default as formSection7Styles} from './formSection7Styles';
 export {default as formSection8Styles} from './formSection8Styles';
+export {default as formSection9Styles} from './formSection9Styles';
 export {default as formSection11Styles} from './formSection11Styles';
 export {default as formSection12Styles} from './formSection12Styles';
 export {default as formSection13Styles} from './formSection13Styles';

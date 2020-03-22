@@ -12,6 +12,7 @@ import {
   FormSection6,
   FormSection7,
   FormSection8,
+  FormSection9,
   FormSection11,
   FormSection12,
   FormSection13,
@@ -87,7 +88,7 @@ const RegisterScreen = () => {
       case 8:
         return (
           <View style={registerScreenStyles.card}>
-            <FormSection8 text={strings.form9Label} />
+            <FormSection9 text={strings.form9Label} />
           </View>
         );
       case 9:
