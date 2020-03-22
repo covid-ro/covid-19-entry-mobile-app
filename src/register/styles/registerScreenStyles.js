@@ -10,7 +10,7 @@ const registerScreenStyles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: metrics.size6,
     borderWidth: metrics.size1,
-    borderColor: colors.colors.cardBorderGrey,
+    borderColor: colors.cardBorderGrey,
     justifyContent: 'center',
     alignContent: 'center',
     marginTop: metrics.size57,
