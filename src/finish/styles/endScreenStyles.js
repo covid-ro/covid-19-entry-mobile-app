@@ -17,7 +17,7 @@ const endScreenStyles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: metrics.size6,
     borderWidth: metrics.size1,
-    borderColor: colors.opacityGrey,
+    borderColor: colors.cardBorderGrey,
     justifyContent: 'center',
     alignContent: 'center',
     marginHorizontal: metrics.size16,
