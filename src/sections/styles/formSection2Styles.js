@@ -1,8 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
-import DeviceInfo from 'react-native-device-info';
 
-const selectIdentityScreenStyles = StyleSheet.create({
+const formSection2Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
   },
@@ -10,15 +9,19 @@ const selectIdentityScreenStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     marginHorizontal: metrics.size35,
-    marginBottom: metrics.size30,
+    marginBottom: metrics.size20,
   },
   textContainer: {
     marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
-    justifyContent: 'center',
-    alignItems: 'center',
     marginBottom: metrics.size30,
+  },
+  title: {
+    marginLeft: metrics.size15,
+    fontSize: metrics.size17,
+    color: colors.black4A,
+    fontWeight: '500',
   },
 });
 
-export default selectIdentityScreenStyles;
+export default formSection2Styles;
