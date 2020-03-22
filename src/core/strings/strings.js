@@ -4,7 +4,7 @@ const strings = {
   form2Label: 'Selectați unul din actele de identitate.',
   form10Label: 'Ați fost spitalizat în ultimele 3 săptămâni?',
   form8Label:
-    'Ați avut unul sau mai multe dintre următoarele simptome (selectie multiplă) :',
+    'Ați avut unul sau mai multe dintre următoarele simptome (selecție multiplă) :',
   form9Label:
     'Pentru a mă deplasa la adresa de carantină completată mai sus, folosesc:',
   form9Label2: 'Introduceți numărul automobilului cu care vă deplasați:',
