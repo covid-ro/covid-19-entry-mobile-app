@@ -1,6 +1,6 @@
 const strings = {
   declaratie: 'Declarație',
-  progressHeaderStep: 'din 14',
+  progressHeaderStep: 'din 10',
   form2Label: 'Selectați unul din actele de identitate.',
   form8Label:
     'Ați avut unul sau mai multe dintre următoarele simptome (selecție multiplă) :',
@@ -39,6 +39,13 @@ const strings = {
   addPassportInfo: 'Introduceți datele din pașaport:',
   addICInfo: 'Introduceți datele din buletin:',
   form3Label: 'Introduceți datele din pașaport:',
+  adaugaMembru: 'Adaugă un membru nou',
+  nuMaiAdaug: 'Nu mai adaug pe nimeni',
+  finishScreenFirstLine: 'Felicitări, ai terminat de completat declarația.',
+  finishScreenSecondLine:
+    'Dorești să adaugi încă o declarație pentru alt membru al familiei ce te însoțește? ',
+  finisScreenThirdLine:
+    'Continuă procedura de mai jos, respectând câmpurile ce te vor ghida în completarea corectă a formularului. În cazul minorilor, numărul de telefon necesar pentru validare va fi a unuia din aparținători. ',
 
   form10Label: 'Traseul urmărit este:',
   form10Placeholder:
@@ -65,5 +72,13 @@ const strings = {
   dataSosirii: 'Data sosirii',
   dataPlecarii: 'Data plecării',
   adresaCompleta: 'Adresa completă',
+  urmatorul: 'Următorul',
+  trimite: 'Trimite declarația',
+  sfaturiDeCalatorie: 'Sfaturi de călătorie',
+  endScreenFirstLine: 'Mulțumim pentru cooperare.',
+  endScreenSecondLine:
+    'Prin utilizarea aplicației economisim timp prețios pe care îl folosim în scopul asigurării sănătății publice.',
+  endScreenThirdLine:
+    'Te rugăm să transmiți reprezentantului DSP din punctul vamal că ai utilizat aplicația mobilă pentru completarea datelor. Pentru a fi validă, declarația completată va fi imprimată și semnată.',
 };
 export default strings;

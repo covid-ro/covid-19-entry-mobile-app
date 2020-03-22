@@ -27,13 +27,7 @@ const FormSection4 = () => {
           onChangeText={setLocalitate}
         />
       </View>
-      <View style={fromSection4Styles.inputStyle}>
-        <InputField
-          placeholder={strings.adresaCompleta}
-          value={adresaCompleta}
-          onChangeText={setAdresaCompleta}
-        />
-      </View>
+
       <View style={fromSection4Styles.datePickerStyle}>
         <DatePicker
           placeHolderText={strings.dataPlecarii}
@@ -49,6 +43,13 @@ const FormSection4 = () => {
           onDateChange={setDataSosirii}
         />
         <View style={fromSection4Styles.separator} />
+      </View>
+      <View style={fromSection4Styles.inputStyle}>
+        <InputField
+          placeholder={strings.adresaCompleta}
+          value={adresaCompleta}
+          onChangeText={setAdresaCompleta}
+        />
       </View>
     </ScrollView>
   );

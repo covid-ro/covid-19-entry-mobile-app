@@ -14,6 +14,7 @@ const fromSection4Styles = StyleSheet.create({
   },
   datePickerStyle: {
     marginHorizontal: metrics.size5,
+    marginTop: metrics.size20,
   },
   datePickerPlaceholderStyle: {
     color: colors.darkGrey,
