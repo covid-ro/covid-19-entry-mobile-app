@@ -5,8 +5,11 @@ import {registerScreenStyles} from './styles';
 import {ProgressHeader} from './components';
 import {metrics} from '../themes';
 import {
+  FormSection1,
   FormSection2,
   FormSection3,
+  FormSection5,
+  FormSection6,
   FormSection7,
   FormSection8,
   FormSection11,
@@ -39,7 +42,11 @@ const RegisterScreen = () => {
   const renderItem = useCallback(({item, index}) => {
     switch (index) {
       case 0:
-        return <View style={registerScreenStyles.card} />;
+        return (
+          <View style={registerScreenStyles.card}>
+            <FormSection1 />
+          </View>
+        );
       case 1:
         return (
           <View style={registerScreenStyles.card}>
@@ -50,6 +57,19 @@ const RegisterScreen = () => {
         return (
           <View style={registerScreenStyles.card}>
             <FormSection3 />
+          </View>
+        );
+
+      case 4:
+        return (
+          <View style={registerScreenStyles.card}>
+            <FormSection5 />
+          </View>
+        );
+      case 5:
+        return (
+          <View style={registerScreenStyles.card}>
+            <FormSection6 />
           </View>
         );
       case 6:
