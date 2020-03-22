@@ -8,6 +8,7 @@ import {
   FormSection1,
   FormSection2,
   FormSection3,
+  FormSection5,
   FormSection8,
   FormSection11,
   FormSection12,
@@ -54,6 +55,12 @@ const RegisterScreen = () => {
         return (
           <View style={registerScreenStyles.card}>
             <FormSection3 />
+          </View>
+        );
+      case 4:
+        return (
+          <View style={registerScreenStyles.card}>
+            <FormSection5 />
           </View>
         );
       case 7:
