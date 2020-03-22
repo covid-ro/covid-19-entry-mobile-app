@@ -44,6 +44,8 @@ const strings = {
   addPassportInfo: 'Introduceți datele din pașaport:',
   addICInfo: 'Introduceți datele din buletin:',
   form3Label: 'Introduceți datele din pașaport:',
+  form7Label:
+    'Ați venit în contact direct cu persoane suferinde din cauza infecției  cu noul coronavirus (COVID-19) la serviciu, în vecinătatea locuinței sau vizitând unități medicale ori alte genuri de locuri în ultimele 14 zile?',
   form6FirstQuestion:
     'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
   form6SecondQuestion: 'Ați fost spitalizat în ultimele 3 săptămâni?',
@@ -57,6 +59,5 @@ const strings = {
   nume: 'Nume',
   prenume: 'Prenume',
   cnp: 'CNP',
-
 };
 export default strings;
