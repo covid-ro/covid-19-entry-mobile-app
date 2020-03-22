@@ -12,6 +12,19 @@ const fromSection4Styles = StyleSheet.create({
   inputStyle: {
     marginTop: metrics.size5,
   },
+  datePickerStyle: {
+    marginHorizontal: metrics.size5,
+  },
+  datePickerPlaceholderStyle: {
+    color: colors.darkGrey,
+    fontSize: metrics.size14,
+  },
+  separator: {
+    borderBottomColor: colors.darkGrey,
+    borderBottomWidth: metrics.size1,
+    marginHorizontal: metrics.size10,
+    marginTop: metrics.size1,
+  },
 });
 
 export default fromSection4Styles;
