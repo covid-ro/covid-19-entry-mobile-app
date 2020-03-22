@@ -42,5 +42,8 @@ const strings = {
   cj: 'CJ',
   passportNumber: '123123',
   form3Label: 'Introduceți datele din pașaport:',
+  form6FirstQuestion:
+    'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
+  form6SecondQuestion: 'Ați fost spitalizat în ultimele 3 săptămâni?',
 };
 export default strings;
