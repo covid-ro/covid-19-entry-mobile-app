@@ -37,7 +37,7 @@ const selectIdentityScreenStyles = StyleSheet.create({
   },
   imageStyle: {
     position: 'absolute',
-    top: metrics.size80,
+    top: metrics.size70,
     right: metrics.size25,
   },
 });
