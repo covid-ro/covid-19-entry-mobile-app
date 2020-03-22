@@ -6,7 +6,6 @@ const strings = {
     'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
   form9Label:
     'Ați venit în contact direct cu persoane suferinde din cauza infecției cu noul coronavirus (COVID-19) la serviciu, în vecinătatea locuinței sau vizitând unități medicale ori alte genuri de locuri în ultimele 14 zile',
-  form10Label: 'Ați fost spitalizat în ultimele 3 săptămâni?',
   form11Label:
     'Ați avut unul sau mai multe dintre următoarele simptome (selectie multiplă) :',
   form12Label:
@@ -42,5 +41,8 @@ const strings = {
   cj: 'CJ',
   passportNumber: '123123',
   form3Label: 'Introduceți datele din pașaport:',
+  form10Label: 'Traseul urmărit este:',
+  form10Placeholder:
+    'Introduceți câteva din localitățile de pe drum, diferențiate prin virgulă.',
 };
 export default strings;
