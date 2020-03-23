@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TextInput, View, Text} from 'react-native';
+import {TextInput, View, Text, Platform} from 'react-native';
 import {colors} from '../../themes';
 import styles from './styles/InputFieldStyle';
 
@@ -28,8 +28,8 @@ const InputField = ({
         maxLength={maxLength}
         secureTextEntry={secureTextEntry}
         placeholder={isFocused ? '' : placeholder}
-        placeholderTextColor={colors.lightGrey}
-        style={isFocused ? styles.inputStyle : styles.unselectedInputStyle}
+        placeholderTextColor={colors.opacityGrey}
+        style={styles.inputStyle}
         value={value}
         selectionColor={colors.darkBlue}
         editable={editable}
@@ -48,6 +48,8 @@ const InputField = ({
         returnKeyType={returnKeyType}
         keyboardType={keyboardType}
       />
+
+      <View style={isFocused ? styles.focusedSeparator : styles.separator} />
     </View>
   );
 };
