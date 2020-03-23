@@ -1,57 +1,30 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
 
 const formSection4Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
   },
-  title: {
-    marginBottom: metrics.size15,
+  topTextStyle: {
     marginTop: metrics.size22,
-    marginLeft: metrics.size15,
-    fontSize: metrics.size17,
-    color: colors.black4A,
-    fontWeight: '500',
+    marginHorizontal: metrics.size16,
   },
-  countryPlaceholder: {
-    fontSize: metrics.size15,
-    color: colors.black4A,
-    fontWeight: 'normal',
-    width: metrics.size200,
+  inputStyle: {
+    marginTop: metrics.size5,
   },
-  pickerDivider: {
-    marginLeft: metrics.size15,
-    marginRight: metrics.size15,
-    borderBottomColor: colors.greyE7,
+  datePickerStyle: {
+    marginHorizontal: metrics.size5,
+    marginTop: metrics.size20,
+  },
+  datePickerPlaceholderStyle: {
+    color: colors.darkGrey,
+    fontSize: metrics.size14,
+  },
+  separator: {
+    borderBottomColor: colors.darkGrey,
     borderBottomWidth: metrics.size1,
-  },
-  picker: {
-    width: Dimensions.get('screen').width - metrics.size30,
-  },
-  pickerIcon: {
-    paddingTop: metrics.size15,
-    position: 'absolute',
-    right: -metrics.size15,
-    color: colors.darkGrey,
-  },
-  pickerText: {
-    paddingTop: metrics.size15,
-    position: 'absolute',
-    left: -metrics.size15,
-  },
-  pickerPlaceHolder: {
-    paddingTop: metrics.size15,
-    fontSize: metrics.size15,
-    fontWeight: 'normal',
-    color: colors.darkGrey,
-  },
-  textInputBorder: {
-    borderBottomColor: '#E7EBED',
-  },
-  textInputPlaceholder: {
-    color: colors.darkGrey,
-    fontWeight: 'normal',
-    fontSize: metrics.size15,
+    marginHorizontal: metrics.size10,
+    marginTop: metrics.size1,
   },
 });
 

@@ -1,54 +1,57 @@
-import React, {useState, useCallback} from 'react';
-import {View, Text} from 'react-native';
-import {Item, Picker, DatePicker, Icon} from 'native-base';
+import React, {useState} from 'react';
+import {View, Text, ScrollView} from 'react-native';
 import {InputField} from '../core/components';
-import {countries} from '../core/utils';
 import {formSection4Styles} from './styles';
 import {strings} from '../core/strings';
-
+import {DatePicker} from 'native-base';
 const FormSection4 = () => {
-  const [country, setCountryValue] = useState(undefined);
-  const [county, setCountyValue] = useState(null);
-  const [date, setDateValue] = useState(null);
-
-  const onCountyValueChange = useCallback(value => {
-    setCountyValue(value);
-  }, []);
-
-  const onDateValueChange = useCallback(value => {
-    setDateValue(value);
-  }, []);
-  console.log(country);
+  const [judet, setJudet] = useState(undefined);
+  const [localitate, setLocalitate] = useState(undefined);
+  const [dataSosirii, setDataSosirii] = useState(undefined);
+  const [dataPlecarii, setDataPlecarii] = useState(undefined);
+  const [adresaCompleta, setAdresaCompleta] = useState(undefined);
   return (
-    <View style={formSection4Styles.container}>
-      <Text style={formSection4Styles.title}>{strings.form4Label}</Text>
+    <ScrollView>
+      <Text style={formSection4Styles.topTextStyle}>{strings.form4Label}</Text>
+      <View style={formSection4Styles.inputStyle}>
+        <InputField
+          placeholder={strings.judet}
+          value={judet}
+          onChangeText={setJudet}
+        />
+      </View>
+      <View style={formSection4Styles.inputStyle}>
+        <InputField
+          placeholder={strings.localitate}
+          value={localitate}
+          onChangeText={setLocalitate}
+        />
+      </View>
 
-      <Item picker style={formSection4Styles.pickerDivider}>
-        <Picker
-          mode="dropdown"
-          style={formSection4Styles.picker}
-          onValueChange={setCountryValue}
-          selectedValue={country}
-          textStyle={formSection4Styles.pickerText}
-          placeholder={strings.country}
-          placeholderStyle={formSection4Styles.pickerPlaceHolder}
-          iosIcon={
-            <Icon name="arrow-down" style={formSection4Styles.pickerIcon} />
-          }>
-          {countries.map(item => (
-            <Picker.Item label={item.name} value={item.name} />
-          ))}
-        </Picker>
-      </Item>
-
-      <InputField
-        placeholder={strings.county}
-        value={county}
-        onChangeText={setCountyValue}
-        borderColor={formSection4Styles.textInputBorder}
-        placeholderColor={formSection4Styles.textInputPlaceholder}
-      />
-    </View>
+      <View style={formSection4Styles.datePickerStyle}>
+        <DatePicker
+          placeHolderText={strings.dataPlecarii}
+          placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
+          onDateChange={setDataPlecarii}
+        />
+        <View style={formSection4Styles.separator} />
+      </View>
+      <View style={formSection4Styles.datePickerStyle}>
+        <DatePicker
+          placeHolderText={strings.dataSosirii}
+          placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
+          onDateChange={setDataSosirii}
+        />
+        <View style={formSection4Styles.separator} />
+      </View>
+      <View style={formSection4Styles.inputStyle}>
+        <InputField
+          placeholder={strings.adresaCompleta}
+          value={adresaCompleta}
+          onChangeText={setAdresaCompleta}
+        />
+      </View>
+    </ScrollView>
   );
 };
 

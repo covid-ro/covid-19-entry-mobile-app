@@ -1,20 +1,23 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
-import DeviceInfo from 'react-native-device-info';
 
 const registerScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
   },
   card: {
+    flex: 1,
     backgroundColor: colors.white,
-    height: metrics.screenHeight - metrics.size300,
     borderRadius: metrics.size6,
-    marginTop: DeviceInfo.hasNotch() ? metrics.size93 : metrics.size73,
     borderWidth: metrics.size1,
-    borderColor: colors.opacityGrey,
+    borderColor: colors.cardBorderGrey,
     justifyContent: 'center',
     alignContent: 'center',
+    marginTop: metrics.size57,
+    marginBottom: metrics.size35,
+  },
+  marginBottom: {
+    marginBottom: metrics.size50,
   },
 });
 
