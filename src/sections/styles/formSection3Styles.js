@@ -109,6 +109,23 @@ const formSection3Styles = StyleSheet.create({
     fontWeight: 'normal',
     color: colors.opacityGrey,
   },
+  recompleteTextContainer: {
+    marginTop: metrics.size30,
+    marginHorizontal: metrics.size16,
+    marginBottom: metrics.size18,
+  },
+  grayText: {
+    fontSize: metrics.size15,
+    textAlign: 'center',
+    color: colors.black4A,
+  },
+  blueText: {
+    marginTop: metrics.size5,
+    textAlign: 'center',
+    color: colors.darkBlue,
+    fontWeight: '500',
+    fontSize: metrics.size15,
+  },
 });
 
 export default formSection3Styles;

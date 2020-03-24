@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {InputField} from '../core/components';
 import {formSection4Styles} from './styles';
 import {strings} from '../core/strings';
@@ -11,6 +11,7 @@ const FormSection4 = () => {
   const [dataSosirii, setDataSosirii] = useState(undefined);
   const [dataPlecarii, setDataPlecarii] = useState(undefined);
   const [adresaCompleta, setAdresaCompleta] = useState(undefined);
+  const [recompleteForm, setRecompleteForm] = useState(false);
   return (
     <ScrollView>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
@@ -54,6 +55,18 @@ const FormSection4 = () => {
           onChangeText={setAdresaCompleta}
         />
       </View>
+      {recompleteForm && (
+        <View style={formSection4Styles.recompleteTextContainer}>
+          <Text style={formSection4Styles.grayText}>
+            {strings.aceleasiDateAnterioare}
+          </Text>
+          <TouchableOpacity>
+            <Text style={formSection4Styles.blueText}>
+              {strings.folosesteDateAnterioare}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </ScrollView>
   );
 };

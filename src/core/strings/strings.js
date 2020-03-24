@@ -92,5 +92,7 @@ const strings = {
   data: 'Data',
   transitedCountries: 'Țările prin care ați trecut(inclusiv escale):',
   selectCountries: 'Selectați țările(selecție multiplă)',
+  aceleasiDateAnterioare: 'Aceleași date ca la membrul adăugat anterior?',
+  folosesteDateAnterioare: 'Folosește datele anterioare',
 };
 export default strings;

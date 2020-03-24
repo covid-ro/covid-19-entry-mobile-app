@@ -13,6 +13,7 @@ const FormSection3 = () => {
   const [country, setCountryValue] = useState(undefined);
   const [county, setCountyValue] = useState(null);
   const [date, setDateValue] = useState(null);
+  const [recompleteForm, setRecompleteForm] = useState(false);
   const [visitedCountries, setVisitedCountries] = useState(null);
   const navigation = useNavigation();
 
@@ -85,6 +86,18 @@ const FormSection3 = () => {
         </Text>
       </TouchableOpacity>
       <View style={formSection3Styles.separator} />
+      {recompleteForm && (
+        <View style={formSection3Styles.recompleteTextContainer}>
+          <Text style={formSection3Styles.grayText}>
+            {strings.aceleasiDateAnterioare}
+          </Text>
+          <TouchableOpacity>
+            <Text style={formSection3Styles.blueText}>
+              {strings.folosesteDateAnterioare}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
