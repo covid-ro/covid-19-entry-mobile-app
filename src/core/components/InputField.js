@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TextInput, View, Text} from 'react-native';
+import {TextInput, View, Text, Platform} from 'react-native';
 import {colors} from '../../themes';
 import styles from './styles/InputFieldStyle';
 
@@ -17,6 +17,9 @@ const InputField = ({
   autoCapitalize,
   returnKeyType,
   keyboardType,
+  placeholderSeparatorStyle,
+  focusedSeparatorStyle,
+  customInputStyle,
 }) => {
   const [isFocused, setFocus] = useState(false);
   return (
@@ -28,8 +31,8 @@ const InputField = ({
         maxLength={maxLength}
         secureTextEntry={secureTextEntry}
         placeholder={isFocused ? '' : placeholder}
-        placeholderTextColor={colors.lightGrey}
-        style={isFocused ? styles.inputStyle : styles.unselectedInputStyle}
+        placeholderTextColor={colors.opacityGrey}
+        style={[styles.inputStyle, customInputStyle]}
         value={value}
         selectionColor={colors.darkBlue}
         editable={editable}
@@ -47,6 +50,14 @@ const InputField = ({
         autoCapitalize={autoCapitalize}
         returnKeyType={returnKeyType}
         keyboardType={keyboardType}
+      />
+
+      <View
+        style={[
+          isFocused
+            ? [styles.focusedSeparator, focusedSeparatorStyle]
+            : [styles.separator, placeholderSeparatorStyle],
+        ]}
       />
     </View>
   );

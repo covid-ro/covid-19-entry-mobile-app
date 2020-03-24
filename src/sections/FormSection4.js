@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {InputField} from '../core/components';
-import {fromSection4Styles} from './styles';
+import {formSection4Styles} from './styles';
 import {strings} from '../core/strings';
 import {DatePicker} from 'native-base';
 const FormSection4 = () => {
@@ -12,15 +12,15 @@ const FormSection4 = () => {
   const [adresaCompleta, setAdresaCompleta] = useState(undefined);
   return (
     <ScrollView>
-      <Text style={fromSection4Styles.topTextStyle}>{strings.form4Label}</Text>
-      <View style={fromSection4Styles.inputStyle}>
+      <Text style={formSection4Styles.topTextStyle}>{strings.form4Label}</Text>
+      <View style={formSection4Styles.inputStyle}>
         <InputField
           placeholder={strings.judet}
           value={judet}
           onChangeText={setJudet}
         />
       </View>
-      <View style={fromSection4Styles.inputStyle}>
+      <View style={formSection4Styles.inputStyle}>
         <InputField
           placeholder={strings.localitate}
           value={localitate}
@@ -28,23 +28,23 @@ const FormSection4 = () => {
         />
       </View>
 
-      <View style={fromSection4Styles.datePickerStyle}>
+      <View style={formSection4Styles.datePickerStyle}>
         <DatePicker
           placeHolderText={strings.dataPlecarii}
-          placeHolderTextStyle={fromSection4Styles.datePickerPlaceholderStyle}
+          placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
           onDateChange={setDataPlecarii}
         />
-        <View style={fromSection4Styles.separator} />
+        <View style={formSection4Styles.separator} />
       </View>
-      <View style={fromSection4Styles.datePickerStyle}>
+      <View style={formSection4Styles.datePickerStyle}>
         <DatePicker
           placeHolderText={strings.dataSosirii}
-          placeHolderTextStyle={fromSection4Styles.datePickerPlaceholderStyle}
+          placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
           onDateChange={setDataSosirii}
         />
-        <View style={fromSection4Styles.separator} />
+        <View style={formSection4Styles.separator} />
       </View>
-      <View style={fromSection4Styles.inputStyle}>
+      <View style={formSection4Styles.inputStyle}>
         <InputField
           placeholder={strings.adresaCompleta}
           value={adresaCompleta}

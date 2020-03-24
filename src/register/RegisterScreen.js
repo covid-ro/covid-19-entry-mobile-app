@@ -14,6 +14,7 @@ import {
   FormSection7,
   FormSection8,
   FormSection9,
+  FormSection10,
 } from '../sections';
 import {strings} from '../core/strings';
 import {GeneralButton} from '../core/components';
@@ -34,6 +35,7 @@ const RegisterScreen = ({navigation}) => {
     {id: 7, data: 'card 8'},
     {id: 8, data: 'card 9'},
     {id: 9, data: 'card 10'},
+    {id: 10, data: 'card 11'},
   ];
 
   const renderItem = useCallback(({item, index}) => {
@@ -95,7 +97,7 @@ const RegisterScreen = ({navigation}) => {
       case 9:
         return (
           <View style={registerScreenStyles.card}>
-            <FormSection8 text={strings.form10Label} />
+            <FormSection10 text={strings.form10Label} />
           </View>
         );
 

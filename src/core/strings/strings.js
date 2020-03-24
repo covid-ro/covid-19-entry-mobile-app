@@ -38,7 +38,9 @@ const strings = {
   passportNumber: 'NR',
   addPassportInfo: 'Introduceți datele din pașaport:',
   addICInfo: 'Introduceți datele din buletin:',
-  form3Label: 'Introduceți datele din pașaport:',
+  form3Label: 'Țara și localitatea din care ați plecat, în ce zi:',
+  country: 'Țara',
+  county: 'Localitate',
   completeDeclaration: 'Completează declarația',
   infoLabelBegin:
     'Această aplicație este pusă la dispoziție de Guvernul României și\nstă la baza declarației de intrare în țară la punctele vamale,\nurmare a pandemiei de coronavirus COVID-19.\n\n',
@@ -87,5 +89,8 @@ const strings = {
     'Prin utilizarea aplicației economisim timp prețios pe care îl folosim în scopul asigurării sănătății publice.',
   endScreenThirdLine:
     'Te rugăm să transmiți reprezentantului DSP din punctul vamal că ai utilizat aplicația mobilă pentru completarea datelor. Pentru a fi validă, declarația completată va fi imprimată și semnată.',
+  data: 'Data',
+  transitedCountries: 'Țările prin care ați trecut(inclusiv escale):',
+  selectCountries: 'Selectați țările(selecție multiplă)',
 };
 export default strings;
