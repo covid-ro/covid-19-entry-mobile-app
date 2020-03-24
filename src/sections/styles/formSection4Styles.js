@@ -6,7 +6,6 @@ const formSection4Styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   topTextStyle: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
   },
   inputStyle: {

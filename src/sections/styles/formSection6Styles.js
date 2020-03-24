@@ -7,20 +7,19 @@ const formSection6Styles = StyleSheet.create({
   },
   title: {
     marginBottom: metrics.size15,
-    marginTop: metrics.size22,
     marginLeft: metrics.size15,
     fontSize: metrics.size17,
     color: colors.black4A,
   },
   textContainer: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size22,
+    marginBottom: metrics.size27,
   },
   buttonsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     marginHorizontal: metrics.size35,
+    marginBottom: metrics.size40,
   },
 });
 

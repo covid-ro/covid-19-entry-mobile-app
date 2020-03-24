@@ -7,7 +7,6 @@ const formSection3Styles = StyleSheet.create({
     marginBottom: metrics.size50,
   },
   title: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
     fontSize: metrics.size17,
     color: colors.black4A,

@@ -4,6 +4,7 @@ import {InputField} from '../core/components';
 import {formSection4Styles} from './styles';
 import {strings} from '../core/strings';
 import {DatePicker} from 'native-base';
+import {labelStyles} from '../core/styles';
 const FormSection4 = () => {
   const [judet, setJudet] = useState(undefined);
   const [localitate, setLocalitate] = useState(undefined);
@@ -12,7 +13,9 @@ const FormSection4 = () => {
   const [adresaCompleta, setAdresaCompleta] = useState(undefined);
   return (
     <ScrollView>
-      <Text style={formSection4Styles.topTextStyle}>{strings.form4Label}</Text>
+      <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
+        {strings.form4Label}
+      </Text>
       <View style={formSection4Styles.inputStyle}>
         <InputField
           placeholder={strings.judet}

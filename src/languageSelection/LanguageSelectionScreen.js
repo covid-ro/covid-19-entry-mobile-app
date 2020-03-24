@@ -20,13 +20,13 @@ const LanguageSelectionScreen = ({navigation}) => {
         <View style={languageSelectionScreenStyles.buttonContainer}>
           <GeneralButton
             text={strings.romana}
-            onPress={() => navigation.navigate(roots.registerStack)}
+            onPress={() => navigation.navigate(roots.informationScreen)}
           />
         </View>
         <View style={languageSelectionScreenStyles.buttonContainer}>
           <GeneralButton
             text={strings.engleza}
-            onPress={() => navigation.navigate(roots.registerStack)}
+            onPress={() => navigation.navigate(roots.informationScreen)}
           />
         </View>
       </View>
