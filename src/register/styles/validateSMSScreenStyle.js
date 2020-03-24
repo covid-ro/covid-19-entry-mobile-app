@@ -6,6 +6,9 @@ export default StyleSheet.create({
     marginHorizontal: metrics.size16,
     marginTop: metrics.size22,
     lineHeight: metrics.size24,
+    fontSize: metrics.size17,
+    color: colors.gray,
+    fontWeight: '500',
   },
   buttonStyle: {marginTop: metrics.size30},
   inputFieldStyle: {
@@ -13,7 +16,7 @@ export default StyleSheet.create({
   },
   progressBarContainer: {
     paddingHorizontal: metrics.size16,
-    backgroundColor:colors.white
+    backgroundColor: colors.white,
   },
   saveButtonStyle: {
     marginTop: metrics.size30,
@@ -22,6 +25,8 @@ export default StyleSheet.create({
     marginTop: metrics.size40,
     marginHorizontal: metrics.size16,
     textAlign: 'center',
+    fontSize: metrics.size15,
+    color: colors.gray,
   },
   resendSMSButtonStyle: {
     marginTop: metrics.size5,
@@ -29,5 +34,7 @@ export default StyleSheet.create({
   resendSMSTextStyle: {
     textAlign: 'center',
     color: colors.darkBlue,
+    fontWeight: '500',
+    fontSize: metrics.size15,
   },
 });

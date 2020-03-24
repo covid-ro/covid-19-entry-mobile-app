@@ -35,7 +35,7 @@ const fromSection5Styles = StyleSheet.create({
   },
   imageStyle: {
     position: 'absolute',
-    top: metrics.size70,
+    top: metrics.size45,
     right: metrics.size25,
   },
 });

@@ -57,15 +57,15 @@ const FormSection3 = () => {
           autoCorrect={false}
         />
       </View>
-      <View style={formSection3Styles.datePickerContainer}>
-        <DatePicker
-          androidMode={'default'}
-          placeHolderText={strings.data}
-          placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
-          onDateChange={setDateValue}
-          textStyle={formSection3Styles.datePickerTextStyle}
-        />
-      </View>
+
+      <DatePicker
+        androidMode={'default'}
+        placeHolderText={strings.data}
+        placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
+        onDateChange={setDateValue}
+        textStyle={formSection3Styles.datePickerTextStyle}
+      />
+
       <View style={formSection3Styles.datePickerSeparator} />
       <View style={formSection3Styles.countriesTitleContainer}>
         <Text style={formSection3Styles.countriesTitleText}>

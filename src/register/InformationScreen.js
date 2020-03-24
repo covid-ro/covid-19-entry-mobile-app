@@ -7,6 +7,7 @@ import {strings} from '../core/strings';
 import {images} from '../themes';
 import {labelStyles} from '../core/styles';
 import {roots} from '../navigation';
+
 const InformationScreen = ({navigation}) => {
   return (
     <View style={informationScreenStyles.container}>
@@ -32,7 +33,7 @@ const InformationScreen = ({navigation}) => {
       <View style={informationScreenStyles.bottomContainer}>
         <GeneralButton
           text={strings.completeDeclaration}
-          onPress={() => navigation.navigate(roots.registerStack)}
+          onPress={() => navigation.navigate(roots.sendNumber)}
         />
       </View>
     </View>

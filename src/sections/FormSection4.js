@@ -32,29 +32,28 @@ const FormSection4 = () => {
         />
       </View>
 
-      <View style={formSection4Styles.datePickerStyle}>
-        <DatePicker
-          placeHolderText={strings.dataPlecarii}
-          placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
-          onDateChange={setDataPlecarii}
-        />
-        <View style={formSection4Styles.separator} />
-      </View>
-      <View style={formSection4Styles.datePickerStyle}>
-        <DatePicker
-          placeHolderText={strings.dataSosirii}
-          placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
-          onDateChange={setDataSosirii}
-        />
-        <View style={formSection4Styles.separator} />
-      </View>
-      <View style={formSection4Styles.inputStyle}>
-        <InputField
-          placeholder={strings.adresaCompleta}
-          value={adresaCompleta}
-          onChangeText={setAdresaCompleta}
-        />
-      </View>
+      <DatePicker
+        placeHolderText={strings.dataPlecarii}
+        placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
+        onDateChange={setDataPlecarii}
+        textStyle={formSection4Styles.datePickerTextStyle}
+      />
+      <View style={formSection4Styles.separator} />
+
+      <DatePicker
+        placeHolderText={strings.dataSosirii}
+        placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
+        onDateChange={setDataSosirii}
+        textStyle={formSection4Styles.datePickerTextStyle}
+      />
+      <View style={formSection4Styles.separator} />
+
+      <InputField
+        placeholder={strings.adresaCompleta}
+        value={adresaCompleta}
+        onChangeText={setAdresaCompleta}
+      />
+
       {recompleteForm && (
         <View style={formSection4Styles.recompleteTextContainer}>
           <Text style={formSection4Styles.grayText}>

@@ -1,4 +1,4 @@
-import React, {useRef, useCallback, useState, useEffect} from 'react';
+import React, {useRef, useCallback, useState} from 'react';
 import Carousel from 'react-native-snap-carousel';
 import {View} from 'react-native';
 import {registerScreenStyles} from './styles';

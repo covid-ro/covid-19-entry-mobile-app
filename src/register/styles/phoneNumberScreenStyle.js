@@ -7,7 +7,10 @@ export default StyleSheet.create({
     marginStart: metrics.size15,
     marginEnd: metrics.size15,
     marginTop: metrics.size32,
-    lineHeight: metrics.size25
+    lineHeight: metrics.size25,
+    fontSize: metrics.size17,
+    color: colors.gray,
+    fontWeight: '500',
   },
   phoneLabel: {
     marginTop: metrics.size43,

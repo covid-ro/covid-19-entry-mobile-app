@@ -1,21 +1,28 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import styles from './styles/phoneNumberScreenStyle';
 import {InputField, GeneralButton} from '../core/components';
 import {strings} from '../core/strings';
-const PhoneNumberScreen = () => {
+import {roots} from '../navigation';
+
+const PhoneNumberScreen = ({navigation}) => {
   return (
-    <View>
-      <Text style={styles.informationLabelStyle}>
-        {strings.validatePhoneNumberInformationLabel}
-      </Text>
-      <View style={styles.phoneLabel}>
-        <InputField placeholder={strings.telefon} keyboardType="number-pad" />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <View>
+        <Text style={styles.informationLabelStyle}>
+          {strings.validatePhoneNumberInformationLabel}
+        </Text>
+        <View style={styles.phoneLabel}>
+          <InputField placeholder={strings.telefon} keyboardType="number-pad" />
+        </View>
+        <View style={styles.buttonStyle}>
+          <GeneralButton
+            text={strings.validatePhoneNumber}
+            onPress={() => navigation.navigate(roots.sendCode)}
+          />
+        </View>
       </View>
-      <View style={styles.buttonStyle}>
-        <GeneralButton text={strings.validatePhoneNumber} />
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

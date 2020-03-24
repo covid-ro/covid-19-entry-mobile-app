@@ -6,5 +6,7 @@ const roots = {
   finishNavigator: 'FinishNavigator',
   finishScreen: 'FinishScreen',
   endScreen: 'EndScreen',
+  sendNumber: 'SendNumber',
+  sendCode: 'SendCode',
 };
 export default roots;
