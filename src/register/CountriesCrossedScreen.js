@@ -6,6 +6,7 @@ import {CountriesCrossedList} from './components';
 import {countriesCrossed} from '../core/constants';
 
 const CountriesCrossedScreen = ({route}) => {
+  const setCountries = route.params.setCountries;
   return (
     <View style={countriesCrossedScreenStyles.container}>
       <Text style={countriesCrossedScreenStyles.description}>
@@ -13,7 +14,7 @@ const CountriesCrossedScreen = ({route}) => {
       </Text>
       <CountriesCrossedList
         countries={countriesCrossed}
-        getCountries={selected => route.params.setCountries(selected)}
+        getCountries={setCountries}
       />
     </View>
   );

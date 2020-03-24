@@ -1,17 +1,20 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Platform} from 'react-native';
 import {Picker, DatePicker, Icon} from 'native-base';
+import {useNavigation} from '@react-navigation/native';
 import {InputField} from '../core/components';
 import {countries, getVisitedCountries} from '../core/utils';
 import {formSection3Styles} from './styles';
 import {strings} from '../core/strings';
+import {ANDROID} from '../core/constants';
 import {roots} from '../navigation';
 
-const FormSection3 = ({navigation}) => {
+const FormSection3 = () => {
   const [country, setCountryValue] = useState(undefined);
   const [county, setCountyValue] = useState(null);
   const [date, setDateValue] = useState(null);
   const [visitedCountries, setVisitedCountries] = useState(null);
+  const navigation = useNavigation();
 
   return (
     <View style={formSection3Styles.container}>
@@ -19,7 +22,7 @@ const FormSection3 = ({navigation}) => {
       <View style={[formSection3Styles.pickerContainer]}>
         <Picker
           style={
-            Platform.OS === 'android'
+            Platform.OS === ANDROID
               ? formSection3Styles.androidPicker
               : formSection3Styles.picker
           }
@@ -36,7 +39,7 @@ const FormSection3 = ({navigation}) => {
           ))}
         </Picker>
       </View>
-      {Platform.OS === 'android' ? (
+      {Platform.OS === ANDROID ? (
         <View style={formSection3Styles.androidPickerSeparator} />
       ) : (
         <View style={formSection3Styles.separator} />

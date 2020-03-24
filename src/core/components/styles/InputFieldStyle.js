@@ -6,7 +6,6 @@ export default StyleSheet.create({
     marginHorizontal: metrics.size16,
     marginBottom: metrics.size32,
   },
-
   inputStyle: {
     color: colors.darkGrey,
     height: metrics.size18,
@@ -14,7 +13,6 @@ export default StyleSheet.create({
     fontWeight: 'normal',
     padding: metrics.size0,
   },
-
   labelStyle: {
     color: colors.darkBlue,
     marginBottom: metrics.size10,
@@ -30,7 +28,6 @@ export default StyleSheet.create({
     borderBottomWidth: metrics.size1,
     borderBottomColor: colors.greyE7,
   },
-
   focusedSeparator: {
     marginTop: metrics.size8,
     borderBottomWidth: metrics.size2,
