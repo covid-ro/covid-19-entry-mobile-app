@@ -41,6 +41,13 @@ const strings = {
   form3Label: 'Țara și localitatea din care ați plecat, în ce zi:',
   country: 'Țara',
   county: 'Localitate',
+  completeDeclaration: 'Completează declarația',
+  infoLabelBegin:
+    'Această aplicație este pusă la dispoziție de Guvernul României și\nstă la baza declarației de intrare în țară la punctele vamale,\nurmare a pandemiei de coronavirus COVID-19.\n\n',
+  infoLabelBold:
+    ' Vă rugăm să completați formularul din această aplicație cu date reale, ',
+  infoLabelEnd:
+    'declarația pe proprie răspundere fiind ulterior verificată de autoritățile competente.',
   adaugaMembru: 'Adaugă un membru nou',
   nuMaiAdaug: 'Nu mai adaug pe nimeni',
   finishScreenFirstLine: 'Felicitări, ai terminat de completat declarația.',
