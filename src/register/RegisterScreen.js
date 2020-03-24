@@ -55,7 +55,7 @@ const RegisterScreen = ({navigation}) => {
       case 2:
         return (
           <View style={registerScreenStyles.card}>
-            <FormSection3 navigation={navigation} />
+            <FormSection3 />
           </View>
         );
       case 3:
