@@ -58,17 +58,7 @@ const formSection3Styles = StyleSheet.create({
   inputContainer: {
     marginTop: metrics.size36,
   },
-  textInputBorder: {
-    borderBottomColor: '#E7EBED',
-  },
-  textInputPlaceholder: {
-    color: colors.darkGrey,
-    fontWeight: 'normal',
-    fontSize: metrics.size15,
-  },
-  datePickerContainer: {
-    marginTop: metrics.size32,
-  },
+
   datePickerTextStyle: {
     top: metrics.size6,
     paddingLeft: metrics.size10,
@@ -84,9 +74,6 @@ const formSection3Styles = StyleSheet.create({
     fontSize: metrics.size15,
     fontWeight: 'normal',
   },
-  datePickerStyle: {
-    marginTop: metrics.size35,
-  },
   datePickerSeparator: {
     borderBottomColor: colors.greyE7,
     borderBottomWidth: metrics.size1,
@@ -98,17 +85,19 @@ const formSection3Styles = StyleSheet.create({
     marginHorizontal: metrics.size16,
     marginTop: metrics.size4,
   },
-  inputStyle: {
-    height: metrics.size25,
-    color: colors.black4A,
-  },
-  inputSeparator: {
+
+  placeholderSeparatorStyle: {
     borderBottomColor: colors.greyE7,
+    marginTop: metrics.size4,
+  },
+  focusedSeparatorStyle: {
+    marginTop: metrics.size4,
   },
   countriesTitleContainer: {
+    flexShrink: 1,
     marginTop: metrics.size45,
     height: metrics.size24,
-    marginLeft: metrics.size16,
+    marginHorizontal: metrics.size16,
   },
   countriesTitleText: {
     fontSize: metrics.size17,
@@ -116,14 +105,15 @@ const formSection3Styles = StyleSheet.create({
     color: colors.black4A,
   },
   countriesTextContainer: {
-    height: metrics.size18,
     marginTop: metrics.size34,
+    minHeight: metrics.size18,
+    maxHeight: metrics.size100,
+    marginHorizontal: metrics.size16,
   },
   countriesText: {
     fontSize: metrics.size15,
     fontWeight: 'normal',
     color: colors.opacityGrey,
-    marginLeft: metrics.size16,
   },
 });
 

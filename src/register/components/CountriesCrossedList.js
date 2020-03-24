@@ -3,7 +3,7 @@ import {countriesCrossedListStyles} from './styles';
 import React from 'react';
 import {CountryItem} from './index';
 
-const CountriesCrossedList = countries => {
+const CountriesCrossedList = ({countries, getCountries}) => {
   const [selected, setSelected] = React.useState(new Map());
 
   const onSelect = React.useCallback(
@@ -12,15 +12,16 @@ const CountriesCrossedList = countries => {
       newSelected.set(id, !selected.get(id));
 
       setSelected(newSelected);
+      getCountries(newSelected);
     },
-    [selected],
+    [selected, getCountries],
   );
 
   return (
     <View style={countriesCrossedListStyles.container}>
       <View style={countriesCrossedListStyles.separator} />
       <FlatList
-        data={countries.countries}
+        data={countries}
         keyExtractor={item => item.id}
         renderItem={({item}) => (
           <CountryItem
