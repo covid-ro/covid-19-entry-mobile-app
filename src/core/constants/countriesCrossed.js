@@ -5,7 +5,7 @@ const countriesCrossed = [
   {id: 3, data: 'Spania'},
   {id: 4, data: 'Republica Moldova'},
   {id: 5, data: 'Olanda'},
-  {id: 36, data: 'China'},
+  {id: 6, data: 'China'},
 ];
 
 export default countriesCrossed;

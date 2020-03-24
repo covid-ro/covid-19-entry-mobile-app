@@ -17,6 +17,9 @@ const InputField = ({
   autoCapitalize,
   returnKeyType,
   keyboardType,
+  placeholderSeparatorStyle,
+  focusedSeparatorStyle,
+  customInputStyle,
 }) => {
   const [isFocused, setFocus] = useState(false);
   return (
@@ -29,7 +32,7 @@ const InputField = ({
         secureTextEntry={secureTextEntry}
         placeholder={isFocused ? '' : placeholder}
         placeholderTextColor={colors.opacityGrey}
-        style={styles.inputStyle}
+        style={[styles.inputStyle, customInputStyle]}
         value={value}
         selectionColor={colors.darkBlue}
         editable={editable}
@@ -49,7 +52,13 @@ const InputField = ({
         keyboardType={keyboardType}
       />
 
-      <View style={isFocused ? styles.focusedSeparator : styles.separator} />
+      <View
+        style={[
+          isFocused
+            ? [styles.focusedSeparator, focusedSeparatorStyle]
+            : [styles.separator, placeholderSeparatorStyle],
+        ]}
+      />
     </View>
   );
 };
