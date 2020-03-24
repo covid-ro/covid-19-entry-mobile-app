@@ -27,7 +27,7 @@ export default StyleSheet.create({
     width: metrics.cardWidth,
     borderRadius: metrics.size6,
     borderWidth: metrics.size1,
-    borderColor: colors.opacityGrey,
+    borderColor: colors.cardBorderGrey,
     marginBottom: metrics.size62,
   },
 

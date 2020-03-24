@@ -6,7 +6,6 @@ const formSection4Styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   topTextStyle: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
   },
   inputStyle: {
@@ -25,6 +24,23 @@ const formSection4Styles = StyleSheet.create({
     borderBottomWidth: metrics.size1,
     marginHorizontal: metrics.size10,
     marginTop: metrics.size1,
+  },
+  recompleteTextContainer: {
+    marginTop: metrics.size30,
+    marginHorizontal: metrics.size16,
+    marginBottom: metrics.size18,
+  },
+  grayText: {
+    fontSize: metrics.size15,
+    textAlign: 'center',
+    color: colors.black4A,
+  },
+  blueText: {
+    marginTop: metrics.size5,
+    textAlign: 'center',
+    color: colors.darkBlue,
+    fontWeight: '500',
+    fontSize: metrics.size15,
   },
 });
 

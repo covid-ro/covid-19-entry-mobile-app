@@ -35,7 +35,6 @@ const RegisterScreen = ({navigation}) => {
     {id: 7, data: 'card 8'},
     {id: 8, data: 'card 9'},
     {id: 9, data: 'card 10'},
-    {id: 10, data: 'card 11'},
   ];
 
   const renderItem = useCallback(({item, index}) => {

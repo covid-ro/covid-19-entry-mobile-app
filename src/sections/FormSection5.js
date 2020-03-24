@@ -4,6 +4,7 @@ import {InputField} from '../core/components';
 import {fromSection5Styles} from './styles';
 import {strings} from '../core/strings';
 import {images} from '../themes';
+import {labelStyles} from '../core/styles';
 
 const FormSection3 = () => {
   const [locationValue, setLocationValue] = useState(undefined);
@@ -11,7 +12,9 @@ const FormSection3 = () => {
 
   return (
     <View style={fromSection5Styles.container}>
-      <Text style={fromSection5Styles.topTextStyle}>{strings.form5Label}</Text>
+      <Text style={[labelStyles.textStyle, fromSection5Styles.topTextStyle]}>
+        {strings.form5Label}
+      </Text>
       <InputField
         placeholder={strings.telefonValid}
         value={locationValue}
@@ -28,7 +31,8 @@ const FormSection3 = () => {
       <Text style={fromSection5Styles.alertLabelStyle}>
         {strings.alertLabel}
       </Text>
-      <Text style={fromSection5Styles.alertMessageStyle}>
+      <Text
+        style={[labelStyles.textStyle, fromSection5Styles.alertMessageStyle]}>
         {strings.alertMessage}
       </Text>
     </View>

@@ -15,6 +15,7 @@ const languageSelectionScreenStyles = StyleSheet.create({
   },
   titleStyle: {
     color: colors.darkGrey,
+    fontWeight: '500',
     fontSize: metrics.size17,
     textAlign: 'center',
     marginBottom: metrics.size3,
@@ -23,6 +24,7 @@ const languageSelectionScreenStyles = StyleSheet.create({
     color: colors.opacityGrey,
     fontSize: metrics.size17,
     textAlign: 'center',
+    fontWeight: '500',
     marginBottom: metrics.size10,
   },
   buttonContainer: {

@@ -6,6 +6,7 @@ import {LanguageSelectionScreen} from '../languageSelection';
 import RegisterStack from './RegisterStack';
 import FinishNavigator from './FinishNavigator';
 import {roots} from '.';
+import {InformationScreen} from '../register';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,10 @@ const MainStackNavigator = () => (
       <Stack.Screen
         name={roots.languageSelect}
         component={LanguageSelectionScreen}
+      />
+      <Stack.Screen
+        name={roots.informationScreen}
+        component={InformationScreen}
       />
       <Stack.Screen name={roots.registerStack} component={RegisterStack} />
       <Stack.Screen name={roots.finishNavigator} component={FinishNavigator} />
