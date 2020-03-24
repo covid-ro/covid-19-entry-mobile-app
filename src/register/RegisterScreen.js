@@ -1,4 +1,4 @@
-import React, {useRef, useCallback, useState, useEffect} from 'react';
+import React, {useRef, useCallback, useState} from 'react';
 import Carousel from 'react-native-snap-carousel';
 import {View} from 'react-native';
 import {registerScreenStyles} from './styles';
@@ -35,7 +35,6 @@ const RegisterScreen = ({navigation}) => {
     {id: 7, data: 'card 8'},
     {id: 8, data: 'card 9'},
     {id: 9, data: 'card 10'},
-    {id: 10, data: 'card 11'},
   ];
 
   const renderItem = useCallback(({item, index}) => {

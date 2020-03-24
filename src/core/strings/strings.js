@@ -21,7 +21,7 @@ const strings = {
   codValidareSMS: 'Cod validare SMS',
   save: 'Salvează',
   dontReceiveTheCode: 'Nu ai primit codul de validare?',
-  resendSMSCod: 'Retrimite Cod validare \n SMS',
+  resendSMSCod: 'Retrimite Cod validare SMS',
   telefon: 'Telefon',
   validatePhoneNumber: 'Validează numărul de telefon',
   validatePhoneNumberInformationLabel:
