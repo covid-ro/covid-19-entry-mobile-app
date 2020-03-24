@@ -4,6 +4,7 @@ import {metrics, colors} from '../../../themes/index';
 export default StyleSheet.create({
   container: {
     marginHorizontal: metrics.size16,
+    marginBottom: metrics.size32,
   },
 
   inputStyle: {
@@ -11,7 +12,7 @@ export default StyleSheet.create({
     height: metrics.size18,
     fontSize: metrics.size15,
     fontWeight: 'normal',
-    paddingVertical: metrics.size0,
+    padding: metrics.size0,
   },
 
   labelStyle: {
@@ -25,14 +26,14 @@ export default StyleSheet.create({
     color: 'transparent',
   },
   separator: {
-    marginTop: metrics.size4,
+    marginTop: metrics.size8,
     borderBottomWidth: metrics.size1,
     borderBottomColor: colors.greyE7,
   },
 
   focusedSeparator: {
+    marginTop: metrics.size8,
     borderBottomWidth: metrics.size2,
     borderColor: colors.darkBlue,
-    paddingBottom: metrics.size5,
   },
 });
