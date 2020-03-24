@@ -2,9 +2,9 @@ import {countriesCrossed} from '../constants';
 const getVisitedCountries = visitedCountries => {
   var string = '';
   for (const [key, value] of visitedCountries.entries()) {
-    for (let country = countriesCrossed.length - 1; country >= 0; country--) {
-      if (countriesCrossed[country].id === key && value) {
-        string = string + countriesCrossed[country].data + ', ';
+    for (let index = countriesCrossed.length - 1; index >= 0; index--) {
+      if (countriesCrossed[index].id === key && value) {
+        string = string + countriesCrossed[index].data + ', ';
       }
     }
   }
