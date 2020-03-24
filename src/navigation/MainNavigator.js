@@ -35,7 +35,7 @@ const MainStackNavigator = ({navigation}) => (
       />
       <Stack.Screen
         options={{headerShown: false}}
-        name={roots.infoScreen}
+        name={roots.informationScreen}
         component={InformationScreen}
       />
 

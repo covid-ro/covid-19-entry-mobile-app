@@ -10,34 +10,32 @@ const fromSection5Styles = StyleSheet.create({
     marginBottom: metrics.size30,
   },
   textContainer: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: metrics.size30,
   },
   topTextStyle: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
     marginBottom: metrics.size5,
   },
   alertLabelStyle: {
     color: colors.darkBlue,
     fontWeight: 'bold',
+    fontSize: metrics.size17,
     marginHorizontal: metrics.size16,
     marginTop: metrics.size20,
-    marginBottom: metrics.size10,
+    marginBottom: metrics.size15,
   },
   alertMessageStyle: {
     marginHorizontal: metrics.size16,
-    lineHeight: metrics.size17,
   },
   inputStyle: {
     marginTop: metrics.size5,
   },
   imageStyle: {
     position: 'absolute',
-    top: metrics.size70,
+    top: metrics.size45,
     right: metrics.size25,
   },
 });

@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import {InputField, SelectionButton} from '../core/components';
 import {formSection6Styles} from './styles';
 import {strings} from '../core/strings';
+import {labelStyles} from '../core/styles';
 
 const FormSection6 = () => {
   const [checkedFirstYES, setcheckedFirstYES] = useState(false);
@@ -12,7 +13,7 @@ const FormSection6 = () => {
   return (
     <View style={formSection6Styles.container}>
       <View style={formSection6Styles.textContainer}>
-        <Text style={formSection6Styles.textStyle}>
+        <Text style={[labelStyles.textStyle, formSection6Styles.textStyle]}>
           {strings.form6FirstQuestion}
         </Text>
       </View>
@@ -35,7 +36,7 @@ const FormSection6 = () => {
         />
       </View>
       <View style={formSection6Styles.textContainer}>
-        <Text style={formSection6Styles.textStyle}>
+        <Text style={[labelStyles.textStyle, formSection6Styles.textStyle]}>
           {strings.form6SecondQuestion}
         </Text>
       </View>

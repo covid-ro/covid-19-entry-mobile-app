@@ -13,6 +13,7 @@ const FormSection3 = () => {
   const [country, setCountryValue] = useState(undefined);
   const [county, setCountyValue] = useState(null);
   const [date, setDateValue] = useState(null);
+  const [recompleteForm, setRecompleteForm] = useState(false);
   const [visitedCountries, setVisitedCountries] = useState(null);
   const navigation = useNavigation();
 
@@ -56,15 +57,15 @@ const FormSection3 = () => {
           autoCorrect={false}
         />
       </View>
-      <View style={formSection3Styles.datePickerContainer}>
-        <DatePicker
-          androidMode={'default'}
-          placeHolderText={strings.data}
-          placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
-          onDateChange={setDateValue}
-          textStyle={formSection3Styles.datePickerTextStyle}
-        />
-      </View>
+
+      <DatePicker
+        androidMode={'default'}
+        placeHolderText={strings.data}
+        placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
+        onDateChange={setDateValue}
+        textStyle={formSection3Styles.datePickerTextStyle}
+      />
+
       <View style={formSection3Styles.datePickerSeparator} />
       <View style={formSection3Styles.countriesTitleContainer}>
         <Text style={formSection3Styles.countriesTitleText}>
@@ -85,6 +86,18 @@ const FormSection3 = () => {
         </Text>
       </TouchableOpacity>
       <View style={formSection3Styles.separator} />
+      {recompleteForm && (
+        <View style={formSection3Styles.recompleteTextContainer}>
+          <Text style={formSection3Styles.grayText}>
+            {strings.aceleasiDateAnterioare}
+          </Text>
+          <TouchableOpacity>
+            <Text style={formSection3Styles.blueText}>
+              {strings.folosesteDateAnterioare}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
