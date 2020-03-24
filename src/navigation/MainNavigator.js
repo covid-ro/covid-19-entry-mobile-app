@@ -12,14 +12,22 @@ import {
 } from '../register';
 import {roots} from '.';
 import {strings} from '../core/strings';
+import {BackButton} from '../core/components';
 
 const Stack = createStackNavigator();
 
-const MainStackNavigator = () => (
+const defaultNavigationOptions = ({navigation}) => ({
+  gestureEnabled: false,
+  headerLeft: () => <BackButton navigation={navigation} />,
+});
+
+const MainStackNavigator = ({navigation}) => (
   <NavigationContainer>
     <Stack.Navigator
       screenOptions={{gestureEnabled: false}}
-      initialRouteName={roots.languageSelect}>
+      initialRouteName={roots.languageSelect}
+      // eslint-disable-next-line react/jsx-no-duplicate-props
+      screenOptions={defaultNavigationOptions}>
       <Stack.Screen
         options={{headerShown: false}}
         name={roots.languageSelect}
