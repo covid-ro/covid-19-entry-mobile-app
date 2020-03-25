@@ -4,7 +4,7 @@ import {metrics, colors} from '../../../themes/index';
 export default StyleSheet.create({
   container: {
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size32,
+    marginTop: metrics.size32,
   },
   inputStyle: {
     color: colors.darkGrey,
@@ -15,6 +15,7 @@ export default StyleSheet.create({
   },
   labelStyle: {
     color: colors.darkBlue,
+    height: metrics.size15,
     marginBottom: metrics.size10,
     fontSize: metrics.size13,
     fontWeight: '500',
