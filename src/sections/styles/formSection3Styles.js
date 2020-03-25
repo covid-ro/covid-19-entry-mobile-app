@@ -110,6 +110,9 @@ const formSection3Styles = StyleSheet.create({
     fontWeight: 'normal',
     color: colors.opacityGrey,
   },
+  selectedCountriesText: {
+    color: colors.black4A,
+  },
   recompleteTextContainer: {
     marginTop: metrics.size30,
     marginHorizontal: metrics.size16,

@@ -15,11 +15,14 @@ const FormSection3 = () => {
       <Text style={[labelStyles.textStyle, formSection5Styles.topTextStyle]}>
         {strings.form5Label}
       </Text>
-      <InputField
-        placeholder={strings.telefonValid}
-        value={locationValue}
-        onChangeText={setLocationValue}
-      />
+      <View>
+        <InputField
+          placeholder={strings.telefonValid}
+          value={locationValue}
+          onChangeText={setLocationValue}
+        />
+        <Image source={images.ic_tick} style={formSection5Styles.imageStyle} />
+      </View>
       <InputField
         placeholder={strings.email}
         value={numberValue}

@@ -9,11 +9,11 @@ const formSection9Styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: metrics.size35,
-    marginBottom: metrics.size40,
+    marginBottom: metrics.size54,
   },
   textContainer: {
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size15,
+    marginBottom: metrics.size29,
   },
   recompleteTextContainer: {
     marginTop: metrics.size30,
@@ -24,6 +24,12 @@ const formSection9Styles = StyleSheet.create({
     fontSize: metrics.size15,
     textAlign: 'center',
     color: colors.black4A,
+  },
+  vehicleTextContainer: {
+    marginHorizontal: metrics.size16,
+  },
+  vehicleInputContainer: {
+    marginTop: metrics.size16,
   },
   blueText: {
     marginTop: metrics.size5,

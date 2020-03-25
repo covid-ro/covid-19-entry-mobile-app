@@ -33,10 +33,13 @@ const FormSection8 = ({text}) => {
           }}
         />
       </View>
-      <View style={formSection9Styles.textContainer}>
+      <View style={formSection9Styles.vehicleTextContainer}>
         <Text style={labelStyles.textStyle}>{strings.form9Label2}</Text>
       </View>
-      <InputField placeholder={strings.placeholderAutomobil} />
+      <InputField
+        placeholder={strings.placeholderAutomobil}
+        customContainerStyle={formSection9Styles.vehicleInputContainer}
+      />
       {recompleteForm && (
         <View style={formSection9Styles.recompleteTextContainer}>
           <Text style={formSection9Styles.grayText}>

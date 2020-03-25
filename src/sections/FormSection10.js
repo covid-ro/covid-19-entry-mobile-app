@@ -16,6 +16,10 @@ const FormSection10 = () => {
         placeholder={strings.form10Placeholder}
         value={location}
         onChangeText={setLocation}
+        customContainerStyle={formSection10Styles.inputCustomContainer}
+        customInputStyle={formSection10Styles.customInput}
+        multiline={true}
+        customLabelStyle={formSection10Styles.customLabel}
       />
     </View>
   );

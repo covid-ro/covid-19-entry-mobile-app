@@ -4,7 +4,7 @@ import {Picker, DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
 import {InputField} from '../core/components';
 import {countries, getVisitedCountries} from '../core/utils';
-import {formSection3Styles} from './styles';
+import {formSection3Styles, formSection10Styles} from './styles';
 import {strings} from '../core/strings';
 import {ANDROID} from '../core/constants';
 import {roots} from '../navigation';
@@ -76,7 +76,11 @@ const FormSection3 = () => {
             setCountries: setVisitedCountries,
           })
         }>
-        <Text style={formSection3Styles.countriesText}>
+        <Text
+          style={[
+            formSection3Styles.countriesText,
+            visitedCountries && formSection3Styles.selectedCountriesText,
+          ]}>
           {visitedCountries
             ? getVisitedCountries(visitedCountries)
             : strings.selectCountries}

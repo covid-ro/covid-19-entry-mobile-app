@@ -9,11 +9,11 @@ const fromSection8Styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: metrics.size35,
-    marginBottom: metrics.size30,
+    marginBottom: metrics.size26,
   },
   textContainer: {
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size30,
+    marginBottom: metrics.size36,
   },
 });
 

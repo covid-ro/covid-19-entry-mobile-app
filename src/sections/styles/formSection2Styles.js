@@ -6,10 +6,11 @@ const formSection2Styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   buttonsContainer: {
+    marginTop: metrics.size32,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: metrics.size35,
-    marginBottom: metrics.size20,
+    marginBottom: metrics.size64,
   },
   textContainer: {
     marginHorizontal: metrics.size16,

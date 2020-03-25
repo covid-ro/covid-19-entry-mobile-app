@@ -7,6 +7,15 @@ const formSection10Styles = StyleSheet.create({
     marginRight: metrics.size32,
     marginBottom: metrics.size10,
   },
+  inputCustomContainer: {
+    marginTop: metrics.size26,
+  },
+  customInput: {
+    height: metrics.size50,
+  },
+  customLabel: {
+    height: metrics.size36,
+  },
 });
 
 export default formSection10Styles;
