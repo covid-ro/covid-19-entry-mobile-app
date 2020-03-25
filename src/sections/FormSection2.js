@@ -41,6 +41,7 @@ const FormSection2 = () => {
         placeholder={strings.seria}
         value={locationValue}
         onChangeText={setLocationValue}
+        customContainerStyle={formSection2Styles.customContainerStyle}
       />
       <InputField
         placeholder={strings.passportNumber}
