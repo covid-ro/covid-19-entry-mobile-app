@@ -3,16 +3,21 @@ import {colors, metrics} from '../../themes';
 
 const formSection1Styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.white,
   },
-  inputFieldStyle: {
-    marginBottom: metrics.size5,
+  textStyle: {
+    fontSize: metrics.size17,
+    color: colors.black4A,
+    fontWeight: '500',
   },
   textContainer: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size10,
+  },
+  inputPlaceholderSeparator: {
+    borderColor: colors.lightGrey,
+  },
+  inputFieldStyle: {
+    marginBottom: metrics.size25,
   },
 });
 

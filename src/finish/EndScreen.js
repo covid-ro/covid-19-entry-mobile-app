@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text} from 'react-native';
+import {View, Image, Text, ScrollView} from 'react-native';
 import {images} from '../themes';
 import {endScreenStyles} from './styles';
 import {GeneralButton} from '../core/components';
@@ -7,7 +7,7 @@ import {strings} from '../core/strings';
 
 const EndScreen = () => {
   return (
-    <View style={endScreenStyles.container}>
+    <ScrollView style={endScreenStyles.container}>
       <Image source={images.logo} style={endScreenStyles.logo} />
       <View style={endScreenStyles.card}>
         <Text style={endScreenStyles.textStyle}>
@@ -26,7 +26,7 @@ const EndScreen = () => {
           onPress={() => console.log('sfaturi')}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

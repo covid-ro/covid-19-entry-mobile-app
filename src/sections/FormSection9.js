@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import {formSection9Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton, InputField} from '../core/components';
@@ -8,10 +8,11 @@ import {strings} from '../core/strings';
 const FormSection8 = ({text}) => {
   const [option1Selected, setOption1Selected] = useState(false);
   const [option2Selected, setOption2Selected] = useState(false);
+  const [autoNumber, setAutoNumber] = useState(false);
   const [recompleteForm, setRecompleteForm] = useState(false);
 
   return (
-    <View style={formSection9Styles.container}>
+    <ScrollView style={formSection9Styles.container}>
       <View style={formSection9Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form9Label}</Text>
       </View>
@@ -33,10 +34,15 @@ const FormSection8 = ({text}) => {
           }}
         />
       </View>
-      <View style={formSection9Styles.textContainer}>
+      <View style={formSection9Styles.vehicleTextContainer}>
         <Text style={labelStyles.textStyle}>{strings.form9Label2}</Text>
       </View>
-      <InputField placeholder={strings.placeholderAutomobil} />
+      <InputField
+        placeholder={strings.placeholderAutomobil}
+        customContainerStyle={formSection9Styles.vehicleInputContainer}
+        value={autoNumber}
+        onChangeText={setAutoNumber}
+      />
       {recompleteForm && (
         <View style={formSection9Styles.recompleteTextContainer}>
           <Text style={formSection9Styles.grayText}>
@@ -49,7 +55,7 @@ const FormSection8 = ({text}) => {
           </TouchableOpacity>
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
 

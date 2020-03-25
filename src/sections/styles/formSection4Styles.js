@@ -8,10 +8,11 @@ const formSection4Styles = StyleSheet.create({
   topTextStyle: {
     marginHorizontal: metrics.size16,
   },
-
-  datePickerStyle: {
-    marginHorizontal: metrics.size16,
-    marginBottom: metrics.size20,
+  inputStyle: {
+    marginTop: metrics.size11,
+  },
+  inputPlaceholderSeparator: {
+    marginTop: metrics.size4,
   },
   datePickerPlaceholderStyle: {
     top: metrics.size6,
@@ -20,11 +21,18 @@ const formSection4Styles = StyleSheet.create({
     fontSize: metrics.size15,
     fontWeight: 'normal',
   },
+  datepickerContainer: {
+    marginTop: metrics.size15,
+  },
+  valueSeparator: {
+    borderBottomColor: colors.darkBlue,
+    borderBottomWidth: metrics.size2,
+    marginHorizontal: metrics.size16,
+  },
   separator: {
     borderBottomColor: colors.greyE7,
     borderBottomWidth: metrics.size1,
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size32,
   },
   recompleteTextContainer: {
     marginTop: metrics.size30,
@@ -50,6 +58,14 @@ const formSection4Styles = StyleSheet.create({
     fontSize: metrics.size15,
     marginLeft: metrics.size6,
     fontWeight: 'normal',
+  },
+  datePickerSeparator: {
+    borderBottomColor: colors.greyE7,
+    borderBottomWidth: metrics.size1,
+    marginHorizontal: metrics.size16,
+  },
+  bottomMargin: {
+    marginBottom: metrics.size25,
   },
 });
 

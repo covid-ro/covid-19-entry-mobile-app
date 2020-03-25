@@ -20,17 +20,17 @@ export default StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
   },
-
   card: {
-    flex: 1,
+    height: metrics.size357,
     backgroundColor: colors.white,
     width: metrics.cardWidth,
     borderRadius: metrics.size6,
     borderWidth: metrics.size1,
     borderColor: colors.cardBorderGrey,
     marginBottom: metrics.size62,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
-
   logo: {
     height: metrics.size120,
     width: metrics.size120,

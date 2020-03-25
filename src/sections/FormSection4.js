@@ -13,47 +13,59 @@ const FormSection4 = () => {
   const [adresaCompleta, setAdresaCompleta] = useState(undefined);
   const [recompleteForm, setRecompleteForm] = useState(false);
   return (
-    <ScrollView>
+    <ScrollView style={formSection4Styles.container}>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
         {strings.form4Label}
       </Text>
-      <View style={formSection4Styles.inputStyle}>
-        <InputField
-          placeholder={strings.judet}
-          value={judet}
-          onChangeText={setJudet}
+      <InputField
+        placeholder={strings.judet}
+        value={judet}
+        onChangeText={setJudet}
+        placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
+      />
+      <InputField
+        placeholder={strings.localitate}
+        value={localitate}
+        onChangeText={setLocalitate}
+        customContainerStyle={formSection4Styles.inputStyle}
+        placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
+      />
+      <View style={formSection4Styles.datepickerContainer}>
+        <DatePicker
+          placeHolderText={strings.dataPlecarii}
+          placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
+          onDateChange={setDataPlecarii}
+          textStyle={formSection4Styles.datePickerTextStyle}
+        />
+        <View
+          style={
+            dataPlecarii
+              ? formSection4Styles.valueSeparator
+              : formSection4Styles.separator
+          }
         />
       </View>
-      <View style={formSection4Styles.inputStyle}>
-        <InputField
-          placeholder={strings.localitate}
-          value={localitate}
-          onChangeText={setLocalitate}
+      <View style={formSection4Styles.datepickerContainer}>
+        <DatePicker
+          placeHolderText={strings.dataSosirii}
+          placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
+          onDateChange={setDataSosirii}
+          textStyle={formSection4Styles.datePickerTextStyle}
+        />
+        <View
+          style={
+            dataSosirii
+              ? formSection4Styles.valueSeparator
+              : formSection4Styles.separator
+          }
         />
       </View>
-
-      <DatePicker
-        placeHolderText={strings.dataPlecarii}
-        placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
-        onDateChange={setDataPlecarii}
-        textStyle={formSection4Styles.datePickerTextStyle}
-      />
-      <View style={formSection4Styles.separator} />
-
-      <DatePicker
-        placeHolderText={strings.dataSosirii}
-        placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
-        onDateChange={setDataSosirii}
-        textStyle={formSection4Styles.datePickerTextStyle}
-      />
-      <View style={formSection4Styles.separator} />
-
       <InputField
         placeholder={strings.adresaCompleta}
         value={adresaCompleta}
         onChangeText={setAdresaCompleta}
+        placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
       />
-
       {recompleteForm && (
         <View style={formSection4Styles.recompleteTextContainer}>
           <Text style={formSection4Styles.grayText}>
@@ -66,6 +78,7 @@ const FormSection4 = () => {
           </TouchableOpacity>
         </View>
       )}
+      <View style={formSection4Styles.bottomMargin} />
     </ScrollView>
   );
 };

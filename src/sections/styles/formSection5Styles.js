@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
 
-const fromSection5Styles = StyleSheet.create({
+const formSection5Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
   },
@@ -24,20 +24,20 @@ const fromSection5Styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: metrics.size17,
     marginHorizontal: metrics.size16,
-    marginTop: metrics.size20,
+    marginTop: metrics.size48,
     marginBottom: metrics.size15,
   },
   alertMessageStyle: {
     marginHorizontal: metrics.size16,
-  },
-  inputStyle: {
-    marginTop: metrics.size5,
+    marginBottom: metrics.size25,
   },
   imageStyle: {
     position: 'absolute',
-    top: metrics.size45,
-    right: metrics.size25,
+    right: metrics.size0,
+    bottom: metrics.size0,
+    marginRight: metrics.size25,
+    marginBottom: metrics.size5,
   },
 });
 
-export default fromSection5Styles;
+export default formSection5Styles;
