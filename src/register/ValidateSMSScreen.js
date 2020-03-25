@@ -1,20 +1,52 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text} from 'react-native';
+import React, {useEffect, useState, useCallback} from 'react';
+import {View, Text, Alert, ActivityIndicator} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 import styles from './styles/validateSMSScreenStyle';
 import {InputField, GeneralButton} from '../core/components';
 import {strings} from '../core/strings';
 import {TimerHeader} from '../register/components';
 import {TouchableOpacity} from 'react-native';
 import {roots} from '../navigation';
+import {sendPhoneNumber, sendCode} from '../api';
+import {colors} from '../themes';
 
-const ValidateSMSScreen = ({navigation}) => {
+const ValidateSMSScreen = ({route, navigation}) => {
   const [step, setStep] = useState(0);
+  const [isSending, setIsSending] = useState(false);
+  const [code, setCode] = useState('');
 
   useEffect(() => {
     if (step < 30) {
       setTimeout(() => setStep(step + 1), 1000);
     }
   }, [step, setStep]);
+
+  const handleSendNumber = useCallback(async () => {
+    const {phoneNumber, countryCode} = route.params;
+    const response = await sendPhoneNumber(
+      phoneNumber,
+      countryCode,
+      DeviceInfo.getUniqueId(),
+    );
+
+    if (response.status !== 200) {
+      Alert.alert(response.data.message);
+    } else {
+      setStep(0);
+    }
+  }, [route]);
+
+  const handleSendCode = useCallback(async () => {
+    setIsSending(true);
+    const response = await sendCode(code, DeviceInfo.getUniqueId());
+    if (response.status === 200) {
+      setIsSending(false);
+      navigation.navigate(roots.registerStack);
+    } else {
+      setIsSending(false);
+      Alert.alert(response.data.message);
+    }
+  }, [code, navigation]);
 
   return (
     <View>
@@ -24,18 +56,23 @@ const ValidateSMSScreen = ({navigation}) => {
         <InputField
           placeholder={strings.codValidareSMS}
           keyboardType="number-pad"
+          value={code}
+          onChangeText={setCode}
         />
       </View>
       <View style={styles.saveButtonStyle}>
-        <GeneralButton
-          text={strings.save}
-          onPress={() => navigation.navigate(roots.registerStack)}
-        />
+        {isSending ? (
+          <ActivityIndicator size="large" color={colors.darkBlue} />
+        ) : (
+          <GeneralButton text={strings.save} onPress={handleSendCode} />
+        )}
       </View>
       <Text style={styles.questionLabelStyle}>
         {strings.dontReceiveTheCode}
       </Text>
-      <TouchableOpacity style={styles.resendSMSButtonStyle}>
+      <TouchableOpacity
+        style={styles.resendSMSButtonStyle}
+        onPress={handleSendNumber}>
         <Text style={styles.resendSMSTextStyle}>{strings.resendSMSCod}</Text>
       </TouchableOpacity>
     </View>

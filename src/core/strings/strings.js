@@ -94,5 +94,6 @@ const strings = {
   selectCountries: 'Selectați țările(selecție multiplă)',
   aceleasiDateAnterioare: 'Aceleași date ca la membrul adăugat anterior?',
   folosesteDateAnterioare: 'Folosește datele anterioare',
+  completePhoneNumber: 'Va rugam introduceti un numar de telefon',
 };
 export default strings;
