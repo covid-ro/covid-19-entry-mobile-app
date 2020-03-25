@@ -41,9 +41,21 @@ const FormSection3 = () => {
         </Picker>
       </View>
       {Platform.OS === ANDROID ? (
-        <View style={formSection3Styles.androidPickerSeparator} />
+        <View
+          style={
+            country
+              ? formSection3Styles.valueAndroidSeparator
+              : formSection3Styles.androidPickerSeparator
+          }
+        />
       ) : (
-        <View style={formSection3Styles.separator} />
+        <View
+          style={
+            country
+              ? formSection3Styles.valueSeparator
+              : formSection3Styles.separator
+          }
+        />
       )}
       <InputField
         placeholder={strings.county}
@@ -62,7 +74,13 @@ const FormSection3 = () => {
           onDateChange={setDateValue}
           textStyle={formSection3Styles.datePickerTextStyle}
         />
-        <View style={formSection3Styles.datePickerSeparator} />
+        <View
+          style={
+            date
+              ? formSection3Styles.valueDatePickerSeparator
+              : formSection3Styles.datePickerSeparator
+          }
+        />
       </View>
       <View style={formSection3Styles.countriesTitleContainer}>
         <Text style={formSection3Styles.countriesTitleText}>
@@ -86,7 +104,13 @@ const FormSection3 = () => {
             : strings.selectCountries}
         </Text>
       </TouchableOpacity>
-      <View style={formSection3Styles.separator} />
+      <View
+        style={
+          visitedCountries
+            ? formSection3Styles.valueSeparator
+            : formSection3Styles.separator
+        }
+      />
       {recompleteForm && (
         <View style={formSection3Styles.recompleteTextContainer}>
           <Text style={formSection3Styles.grayText}>

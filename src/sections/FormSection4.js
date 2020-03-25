@@ -37,7 +37,13 @@ const FormSection4 = () => {
           onDateChange={setDataPlecarii}
           textStyle={formSection4Styles.datePickerTextStyle}
         />
-        <View style={formSection4Styles.separator} />
+        <View
+          style={
+            dataPlecarii
+              ? formSection4Styles.valueSeparator
+              : formSection4Styles.separator
+          }
+        />
       </View>
       <View style={formSection4Styles.datepickerContainer}>
         <DatePicker
@@ -46,7 +52,13 @@ const FormSection4 = () => {
           onDateChange={setDataSosirii}
           textStyle={formSection4Styles.datePickerTextStyle}
         />
-        <View style={formSection4Styles.separator} />
+        <View
+          style={
+            dataSosirii
+              ? formSection4Styles.valueSeparator
+              : formSection4Styles.separator
+          }
+        />
       </View>
       <InputField
         placeholder={strings.adresaCompleta}

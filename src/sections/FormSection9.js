@@ -8,6 +8,7 @@ import {strings} from '../core/strings';
 const FormSection8 = ({text}) => {
   const [option1Selected, setOption1Selected] = useState(false);
   const [option2Selected, setOption2Selected] = useState(false);
+  const [autoNumber, setAutoNumber] = useState(false);
   const [recompleteForm, setRecompleteForm] = useState(false);
 
   return (
@@ -39,6 +40,8 @@ const FormSection8 = ({text}) => {
       <InputField
         placeholder={strings.placeholderAutomobil}
         customContainerStyle={formSection9Styles.vehicleInputContainer}
+        value={autoNumber}
+        onChangeText={setAutoNumber}
       />
       {recompleteForm && (
         <View style={formSection9Styles.recompleteTextContainer}>

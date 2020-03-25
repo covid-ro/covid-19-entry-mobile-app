@@ -45,6 +45,11 @@ const formSection3Styles = StyleSheet.create({
     fontWeight: 'normal',
     color: colors.opacityGrey,
   },
+  valueAndroidSeparator: {
+    borderBottomColor: colors.darkBlue,
+    borderBottomWidth: metrics.size2,
+    marginHorizontal: metrics.size16,
+  },
   androidPickerSeparator: {
     borderBottomColor: colors.greyE7,
     borderBottomWidth: metrics.size1,
@@ -71,10 +76,21 @@ const formSection3Styles = StyleSheet.create({
     fontSize: metrics.size15,
     fontWeight: 'normal',
   },
+  valueDatePickerSeparator: {
+    borderBottomColor: colors.darkBlue,
+    borderBottomWidth: metrics.size2,
+    marginHorizontal: metrics.size16,
+  },
   datePickerSeparator: {
     borderBottomColor: colors.greyE7,
     borderBottomWidth: metrics.size1,
     marginHorizontal: metrics.size16,
+  },
+  valueSeparator: {
+    borderBottomColor: colors.darkBlue,
+    borderBottomWidth: metrics.size2,
+    marginHorizontal: metrics.size16,
+    marginTop: metrics.size4,
   },
   separator: {
     borderBottomColor: colors.greyE7,

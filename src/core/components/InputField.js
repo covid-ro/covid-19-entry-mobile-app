@@ -56,7 +56,7 @@ const InputField = ({
 
       <View
         style={[
-          isFocused
+          isFocused || value
             ? [styles.focusedSeparator, focusedSeparatorStyle]
             : [styles.separator, placeholderSeparatorStyle],
         ]}

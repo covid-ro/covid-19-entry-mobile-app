@@ -24,6 +24,11 @@ const formSection4Styles = StyleSheet.create({
   datepickerContainer: {
     marginTop: metrics.size15,
   },
+  valueSeparator: {
+    borderBottomColor: colors.darkBlue,
+    borderBottomWidth: metrics.size2,
+    marginHorizontal: metrics.size16,
+  },
   separator: {
     borderBottomColor: colors.greyE7,
     borderBottomWidth: metrics.size1,
