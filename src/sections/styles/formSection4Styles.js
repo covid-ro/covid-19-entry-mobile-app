@@ -4,12 +4,16 @@ import {colors, metrics} from '../../themes';
 const formSection4Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
+    marginBottom: metrics.size15,
   },
   topTextStyle: {
     marginHorizontal: metrics.size16,
   },
   inputStyle: {
     marginTop: metrics.size36,
+  },
+  inputPlaceholderSeparator: {
+    marginTop: metrics.size4,
   },
   datePickerPlaceholderStyle: {
     top: metrics.size6,
