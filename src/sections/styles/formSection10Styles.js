@@ -8,7 +8,7 @@ const formSection10Styles = StyleSheet.create({
   },
   customInput: {
     height: metrics.size50,
-    paddingBottom: 1
+    paddingBottom: metrics.size1,
   },
   customLabel: {
     height: metrics.size36,

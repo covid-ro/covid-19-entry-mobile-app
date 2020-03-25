@@ -21,7 +21,6 @@ const formSection2Styles = StyleSheet.create({
     color: colors.black4A,
     fontWeight: '500',
   },
-
   inputContainer: {
     marginBottom: metrics.size25,
   },

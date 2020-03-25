@@ -33,7 +33,6 @@ const FormSection2 = () => {
           }}
         />
       </View>
-
       <Text style={formSection2Styles.title}>
         {passportSelected ? strings.addPassportInfo : strings.addICInfo}
       </Text>

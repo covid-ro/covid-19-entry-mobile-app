@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
 
-const fromSection8Styles = StyleSheet.create({
+const formSection8Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
   },
@@ -17,4 +17,4 @@ const fromSection8Styles = StyleSheet.create({
   },
 });
 
-export default fromSection8Styles;
+export default formSection8Styles;
