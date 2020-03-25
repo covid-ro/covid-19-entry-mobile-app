@@ -7,11 +7,9 @@ import {strings} from '../core/strings';
 
 const EndScreen = () => {
   return (
-    <View style={endScreenStyles.container}>
+    <ScrollView style={endScreenStyles.container}>
       <Image source={images.logo} style={endScreenStyles.logo} />
-      <ScrollView
-        style={endScreenStyles.card}
-        contentContainerStyle={endScreenStyles.contentContainer}>
+      <View style={endScreenStyles.card}>
         <Text style={endScreenStyles.textStyle}>
           {strings.endScreenFirstLine}
         </Text>
@@ -21,14 +19,14 @@ const EndScreen = () => {
         <Text style={endScreenStyles.textStyle}>
           {strings.endScreenThirdLine}
         </Text>
-      </ScrollView>
+      </View>
       <View style={endScreenStyles.bottomContainer}>
         <GeneralButton
           text={strings.sfaturiDeCalatorie}
           onPress={() => console.log('sfaturi')}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

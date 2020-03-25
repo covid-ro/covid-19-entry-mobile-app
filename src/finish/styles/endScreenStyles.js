@@ -14,6 +14,7 @@ const endScreenStyles = StyleSheet.create({
     marginTop: DeviceInfo.hasNotch() ? metrics.size115 : metrics.size73,
   },
   card: {
+    height: metrics.size377,
     backgroundColor: colors.white,
     borderRadius: metrics.size6,
     borderWidth: metrics.size1,
@@ -22,11 +23,8 @@ const endScreenStyles = StyleSheet.create({
     marginTop: metrics.size57,
     marginBottom: metrics.size35,
     padding: metrics.size16,
-  },
-  contentContainer: {
     justifyContent: 'flex-start',
     alignContent: 'center',
-    paddingBottom: metrics.size10,
   },
   textStyle: {
     color: colors.darkGrey,

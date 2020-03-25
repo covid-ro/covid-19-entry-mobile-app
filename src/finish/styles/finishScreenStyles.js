@@ -14,6 +14,7 @@ const finishScreenStyles = StyleSheet.create({
     marginTop: metrics.size24,
   },
   card: {
+    height: metrics.size391,
     backgroundColor: colors.white,
     borderRadius: metrics.size6,
     borderWidth: metrics.size1,
@@ -22,11 +23,8 @@ const finishScreenStyles = StyleSheet.create({
     marginTop: metrics.size57,
     marginBottom: metrics.size35,
     padding: metrics.size16,
-  },
-  contentContainer: {
     justifyContent: 'flex-start',
     alignContent: 'center',
-    paddingBottom: metrics.size10,
   },
   title: {
     color: colors.darkGrey,

@@ -8,11 +8,9 @@ import {roots} from '../navigation';
 
 const FinishScreen = ({navigation}) => {
   return (
-    <View style={finishScreenStyles.container}>
+    <ScrollView style={finishScreenStyles.container}>
       <ProgressHeader step={10} />
-      <ScrollView
-        style={finishScreenStyles.card}
-        contentContainerStyle={finishScreenStyles.contentContainer}>
+      <View style={finishScreenStyles.card}>
         <Text style={finishScreenStyles.title}>
           {strings.finishScreenFirstLine}
         </Text>
@@ -22,7 +20,7 @@ const FinishScreen = ({navigation}) => {
         <Text style={finishScreenStyles.textStyle}>
           {strings.finisScreenThirdLine}
         </Text>
-      </ScrollView>
+      </View>
       <View style={finishScreenStyles.bottomContainer}>
         <GeneralButton
           onPress={() => navigation.navigate(roots.registerStack)}
@@ -35,7 +33,7 @@ const FinishScreen = ({navigation}) => {
           />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

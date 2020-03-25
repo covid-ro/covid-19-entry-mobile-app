@@ -21,14 +21,13 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   card: {
+    height: metrics.size357,
     backgroundColor: colors.white,
     width: metrics.cardWidth,
     borderRadius: metrics.size6,
     borderWidth: metrics.size1,
     borderColor: colors.cardBorderGrey,
     marginBottom: metrics.size62,
-  },
-  contentContainer: {
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
