@@ -27,6 +27,7 @@ const FormSection3 = () => {
         placeholder={strings.email}
         value={numberValue}
         onChangeText={setNumberValue}
+        autoCapitalize={'none'}
       />
       <Text style={formSection5Styles.alertLabelStyle}>
         {strings.alertLabel}
