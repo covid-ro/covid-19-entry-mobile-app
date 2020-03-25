@@ -20,9 +20,7 @@ export default StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
   },
-
   card: {
-    flex: 1,
     backgroundColor: colors.white,
     width: metrics.cardWidth,
     borderRadius: metrics.size6,
@@ -30,7 +28,10 @@ export default StyleSheet.create({
     borderColor: colors.cardBorderGrey,
     marginBottom: metrics.size62,
   },
-
+  contentContainer: {
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
   logo: {
     height: metrics.size120,
     width: metrics.size120,
