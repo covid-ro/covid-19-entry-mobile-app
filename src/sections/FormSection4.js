@@ -28,22 +28,25 @@ const FormSection4 = () => {
         />
       </View>
 
-      <View style={formSection4Styles.datePickerStyle}>
+      <View>
         <DatePicker
-          placeHolderText={strings.dataPlecarii}
-          placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
-          onDateChange={setDataPlecarii}
-        />
-        <View style={formSection4Styles.separator} />
-      </View>
-      <View style={formSection4Styles.datePickerStyle}>
-        <DatePicker
+          androidMode={'default'}
           placeHolderText={strings.dataSosirii}
           placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
           onDateChange={setDataSosirii}
+          textStyle={formSection4Styles.datePickerTextStyle}
         />
-        <View style={formSection4Styles.separator} />
+        <View style={formSection4Styles.datePickerSeparator} />
       </View>
+      <DatePicker
+        androidMode={'default'}
+        placeHolderText={strings.dataPlecarii}
+        placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
+        onDateChange={setDataPlecarii}
+        textStyle={formSection4Styles.datePickerTextStyle}
+      />
+      <View style={formSection4Styles.datePickerSeparator} />
+
       <View style={formSection4Styles.inputStyle}>
         <InputField
           placeholder={strings.adresaCompleta}
