@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
 
-const fromSection5Styles = StyleSheet.create({
+const formSection5Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
   },
@@ -37,9 +37,11 @@ const fromSection5Styles = StyleSheet.create({
   },
   imageStyle: {
     position: 'absolute',
-    top: metrics.size70,
-    right: metrics.size25,
+    right: metrics.size0,
+    bottom: metrics.size0,
+    marginRight: metrics.size25,
+    marginBottom: metrics.size5,
   },
 });
 
-export default fromSection5Styles;
+export default formSection5Styles;
