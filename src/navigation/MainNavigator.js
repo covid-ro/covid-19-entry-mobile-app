@@ -16,9 +16,9 @@ import {BackButton} from '../core/components';
 
 const Stack = createStackNavigator();
 
-const defaultNavigationOptions = ({navigation}) => ({
+const defaultNavigationOptions = () => ({
   gestureEnabled: false,
-  headerLeft: () => <BackButton navigation={navigation} />,
+  headerLeft: () => <BackButton />,
 });
 
 const MainStackNavigator = ({navigation}) => (

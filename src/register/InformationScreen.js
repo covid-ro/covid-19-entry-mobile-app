@@ -10,10 +10,10 @@ import {roots} from '../navigation';
 
 const InformationScreen = ({navigation}) => {
   return (
-    <View style={informationScreenStyles.container}>
+    <ScrollView style={informationScreenStyles.container}>
       <Image source={images.logo} style={informationScreenStyles.logo} />
       <View style={informationScreenStyles.content}>
-        <ScrollView
+        <View
           style={informationScreenStyles.card}
           showsVerticalScrollIndicator={false}>
           <Text
@@ -28,7 +28,7 @@ const InformationScreen = ({navigation}) => {
             </Text>
             {strings.infoLabelEnd}
           </Text>
-        </ScrollView>
+        </View>
       </View>
       <View style={informationScreenStyles.bottomContainer}>
         <GeneralButton
@@ -36,7 +36,7 @@ const InformationScreen = ({navigation}) => {
           onPress={() => navigation.navigate(roots.sendNumber)}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

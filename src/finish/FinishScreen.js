@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {ProgressHeader} from '../register/components';
 import {finishScreenStyles} from './styles';
 import {GeneralButton} from '../core/components';
@@ -8,7 +8,7 @@ import {roots} from '../navigation';
 
 const FinishScreen = ({navigation}) => {
   return (
-    <View style={finishScreenStyles.container}>
+    <ScrollView style={finishScreenStyles.container}>
       <ProgressHeader step={10} />
       <View style={finishScreenStyles.card}>
         <Text style={finishScreenStyles.title}>
@@ -33,7 +33,7 @@ const FinishScreen = ({navigation}) => {
           />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

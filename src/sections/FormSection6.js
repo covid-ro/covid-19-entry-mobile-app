@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
-import {InputField, SelectionButton} from '../core/components';
+import {View, Text, ScrollView} from 'react-native';
+import {SelectionButton} from '../core/components';
 import {formSection6Styles} from './styles';
 import {strings} from '../core/strings';
 import {labelStyles} from '../core/styles';
@@ -11,7 +11,7 @@ const FormSection6 = () => {
   const [checkedSecondYES, setcheckedSecondYES] = useState(false);
   const [checkedSecondNO, setcheckedSecondNO] = useState(false);
   return (
-    <View style={formSection6Styles.container}>
+    <ScrollView style={formSection6Styles.container}>
       <View style={formSection6Styles.textContainer}>
         <Text style={[labelStyles.textStyle, formSection6Styles.textStyle]}>
           {strings.form6FirstQuestion}
@@ -58,7 +58,7 @@ const FormSection6 = () => {
           }}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
