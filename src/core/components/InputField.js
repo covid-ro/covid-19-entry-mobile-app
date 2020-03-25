@@ -20,6 +20,7 @@ const InputField = ({
   placeholderSeparatorStyle,
   focusedSeparatorStyle,
   customInputStyle,
+  defaultValue,
 }) => {
   const [isFocused, setFocus] = useState(false);
   return (
@@ -34,6 +35,7 @@ const InputField = ({
         placeholderTextColor={colors.opacityGrey}
         style={[styles.inputStyle, customInputStyle]}
         value={value}
+        defaultValue={defaultValue}
         selectionColor={colors.darkBlue}
         editable={editable}
         autoFocus={autoFocus}

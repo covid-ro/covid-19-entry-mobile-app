@@ -14,6 +14,20 @@ export default StyleSheet.create({
   },
   phoneLabel: {
     marginTop: metrics.size43,
-    color: colors.darkBlue,
+    marginLeft: metrics.size15,
+  },
+  picker: {
+    marginTop: metrics.size43,
+    marginLeft: metrics.size15,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  },
+  flagStyle: {
+    marginBottom: metrics.size10,
+  },
+  focusedSeparator: {
+    marginTop: metrics.size8,
+    borderBottomWidth: metrics.size2,
+    borderColor: colors.darkBlue,
   },
 });
