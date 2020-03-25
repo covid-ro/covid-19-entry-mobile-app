@@ -21,11 +21,14 @@ const InputField = ({
   focusedSeparatorStyle,
   customInputStyle,
   customContainerStyle,
+  customLabelStyle,
 }) => {
   const [isFocused, setFocus] = useState(false);
   return (
     <View style={[styles.container, customContainerStyle]}>
-      <Text style={styles.labelStyle}>{isFocused && placeholder}</Text>
+      <Text style={[styles.labelStyle, customLabelStyle]}>
+        {isFocused && placeholder}
+      </Text>
       <TextInput
         maxLength={maxLength}
         secureTextEntry={secureTextEntry}
