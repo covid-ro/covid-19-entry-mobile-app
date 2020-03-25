@@ -31,9 +31,6 @@ const formSection5Styles = StyleSheet.create({
     marginHorizontal: metrics.size16,
     marginBottom: metrics.size25,
   },
-  inputStyle: {
-    marginTop: metrics.size5,
-  },
   imageStyle: {
     position: 'absolute',
     right: metrics.size0,
