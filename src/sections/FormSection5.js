@@ -20,14 +20,11 @@ const FormSection3 = () => {
         value={locationValue}
         onChangeText={setLocationValue}
       />
-      <View style={formSection5Styles.inputStyle}>
-        <InputField
-          placeholder={strings.email}
-          value={numberValue}
-          onChangeText={setNumberValue}
-        />
-      </View>
-
+      <InputField
+        placeholder={strings.email}
+        value={numberValue}
+        onChangeText={setNumberValue}
+      />
       <Text style={formSection5Styles.alertLabelStyle}>
         {strings.alertLabel}
       </Text>

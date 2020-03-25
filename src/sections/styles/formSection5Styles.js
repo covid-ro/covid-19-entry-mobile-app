@@ -24,7 +24,7 @@ const formSection5Styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: metrics.size17,
     marginHorizontal: metrics.size16,
-    marginTop: metrics.size20,
+    marginTop: metrics.size48,
     marginBottom: metrics.size15,
   },
   alertMessageStyle: {
