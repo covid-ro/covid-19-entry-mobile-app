@@ -18,22 +18,19 @@ export const sendPhoneNumber = async (phone, countryCode, phoneID) => {
       },
     )
     .then(response => {
-      console.log(response);
       return response;
     })
     .catch(error => {
-      console.log(error.response, 'err');
       return error.response;
     });
 };
 
-export const sendCode = async (phone, countryCode, phoneID) => {
+export const sendCode = async (code, phoneID) => {
   return axios
     .post(
-      `${API_BASE_URL}/phone/validate`,
+      `${API_BASE_URL}/phone/check`,
       {
-        phone,
-        phone_country_prefix: countryCode,
+        phone_validation_code: parseInt(code, 10),
         phone_identifier: phoneID,
       },
       {

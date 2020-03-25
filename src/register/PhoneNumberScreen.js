@@ -16,24 +16,28 @@ import {colors} from '../themes';
 import {sendPhoneNumber} from '../api';
 
 const PhoneNumberScreen = ({navigation}) => {
-  const [phoneNumber, setPhoneNumber] = useState();
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [countryCode, setCountryCode] = useState(40);
   const [isSending, setIsSending] = useState(false);
 
-  const handleSendNumber = React.useCallback(async () => {
-    setIsSending(true);
-    const response = await sendPhoneNumber(
-      phoneNumber,
-      countryCode,
-      DeviceInfo.getUniqueId(),
-    );
-    console.log(response);
-    if (response.status === 200) {
-      setIsSending(false);
-      navigation.navigate(roots.sendCode, {phoneNumber, countryCode});
+  const handleSendNumber = useCallback(async () => {
+    if (phoneNumber === '') {
+      Alert.alert(strings.completePhoneNumber);
     } else {
-      setIsSending(false);
-      Alert.alert(response.data.message);
+      setIsSending(true);
+      const response = await sendPhoneNumber(
+        phoneNumber,
+        countryCode,
+        DeviceInfo.getUniqueId(),
+      );
+
+      if (response.status === 200) {
+        setIsSending(false);
+        navigation.navigate(roots.sendCode, {phoneNumber, countryCode});
+      } else {
+        setIsSending(false);
+        Alert.alert(response.data.message);
+      }
     }
   }, [phoneNumber, navigation, countryCode]);
 
