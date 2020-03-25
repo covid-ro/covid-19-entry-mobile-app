@@ -7,7 +7,6 @@ const formSection3Styles = StyleSheet.create({
     marginBottom: metrics.size50,
   },
   title: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
     fontSize: metrics.size17,
     color: colors.black4A,
@@ -54,6 +53,9 @@ const formSection3Styles = StyleSheet.create({
   },
   inputContainer: {
     marginTop: metrics.size36,
+  },
+  dateContainer: {
+    marginTop: metrics.size32,
   },
   datePickerTextStyle: {
     top: metrics.size6,
@@ -107,6 +109,23 @@ const formSection3Styles = StyleSheet.create({
     fontSize: metrics.size15,
     fontWeight: 'normal',
     color: colors.opacityGrey,
+  },
+  recompleteTextContainer: {
+    marginTop: metrics.size30,
+    marginHorizontal: metrics.size16,
+    marginBottom: metrics.size18,
+  },
+  grayText: {
+    fontSize: metrics.size15,
+    textAlign: 'center',
+    color: colors.black4A,
+  },
+  blueText: {
+    marginTop: metrics.size5,
+    textAlign: 'center',
+    color: colors.darkBlue,
+    fontWeight: '500',
+    fontSize: metrics.size15,
   },
 });
 

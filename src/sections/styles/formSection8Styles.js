@@ -7,12 +7,11 @@ const fromSection8Styles = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     marginHorizontal: metrics.size35,
     marginBottom: metrics.size30,
   },
   textContainer: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
     marginBottom: metrics.size30,
   },

@@ -6,7 +6,9 @@ import {strings} from '../core/strings';
 
 import {images} from '../themes';
 import {labelStyles} from '../core/styles';
-const InformationScreen = () => {
+import {roots} from '../navigation';
+
+const InformationScreen = ({navigation}) => {
   return (
     <View style={informationScreenStyles.container}>
       <Image source={images.logo} style={informationScreenStyles.logo} />
@@ -29,7 +31,10 @@ const InformationScreen = () => {
         </ScrollView>
       </View>
       <View style={informationScreenStyles.bottomContainer}>
-        <GeneralButton text={strings.completeDeclaration} />
+        <GeneralButton
+          text={strings.completeDeclaration}
+          onPress={() => navigation.navigate(roots.sendNumber)}
+        />
       </View>
     </View>
   );

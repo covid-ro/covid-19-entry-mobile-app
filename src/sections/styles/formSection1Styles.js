@@ -11,7 +11,6 @@ const formSection1Styles = StyleSheet.create({
     fontWeight: '500',
   },
   textContainer: {
-    marginTop: metrics.size22,
     marginHorizontal: metrics.size16,
   },
   inputPlaceholderSeparator: {
