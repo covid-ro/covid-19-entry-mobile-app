@@ -44,27 +44,22 @@ const FormSection3 = () => {
       ) : (
         <View style={formSection3Styles.separator} />
       )}
-      <View style={formSection3Styles.inputContainer}>
-        <InputField
-          placeholder={strings.county}
-          value={county}
-          onChangeText={setCountyValue}
-          placeholderSeparatorStyle={
-            formSection3Styles.placeholderSeparatorStyle
-          }
-          focusedSeparatorStyle={formSection3Styles.focusedSeparatorStyle}
-          autoCorrect={false}
-        />
-      </View>
-      <View style={formSection3Styles.datePickerContainer}>
-        <DatePicker
-          androidMode={'default'}
-          placeHolderText={strings.data}
-          placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
-          onDateChange={setDateValue}
-          textStyle={formSection3Styles.datePickerTextStyle}
-        />
-      </View>
+      <InputField
+        placeholder={strings.county}
+        value={county}
+        onChangeText={setCountyValue}
+        placeholderSeparatorStyle={formSection3Styles.placeholderSeparatorStyle}
+        focusedSeparatorStyle={formSection3Styles.focusedSeparatorStyle}
+        autoCorrect={false}
+        customContainerStyle={formSection3Styles.inputContainer}
+      />
+      <DatePicker
+        androidMode={'default'}
+        placeHolderText={strings.data}
+        placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
+        onDateChange={setDateValue}
+        textStyle={formSection3Styles.datePickerTextStyle}
+      />
       <View style={formSection3Styles.datePickerSeparator} />
       <View style={formSection3Styles.countriesTitleContainer}>
         <Text style={formSection3Styles.countriesTitleText}>

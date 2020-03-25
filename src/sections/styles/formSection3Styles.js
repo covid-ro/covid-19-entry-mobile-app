@@ -82,14 +82,12 @@ const formSection3Styles = StyleSheet.create({
     marginTop: metrics.size4,
   },
   placeholderSeparatorStyle: {
-    borderBottomColor: colors.greyE7,
     marginTop: metrics.size4,
   },
   focusedSeparatorStyle: {
     marginTop: metrics.size4,
   },
   countriesTitleContainer: {
-    flexShrink: 1,
     marginTop: metrics.size45,
     height: metrics.size24,
     marginHorizontal: metrics.size16,
