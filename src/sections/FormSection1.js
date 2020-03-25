@@ -14,12 +14,14 @@ const FormSection1 = () => {
       <View style={formSection1Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form1Label}</Text>
       </View>
-
-      <View style={formSection1Styles.inputFieldStyle}>
+      <View>
         <InputField
           placeholder={strings.nume}
           value={nume}
           onChangeText={setNume}
+          placeholderSeparatorStyle={
+            formSection1Styles.inputPlaceholderSeparator
+          }
         />
       </View>
       <View style={formSection1Styles.inputFieldStyle}>
@@ -27,6 +29,9 @@ const FormSection1 = () => {
           placeholder={strings.prenume}
           value={prenume}
           onChangeText={setPrenume}
+          placeholderSeparatorStyle={
+            formSection1Styles.inputPlaceholderSeparator
+          }
         />
       </View>
       <View style={formSection1Styles.inputFieldStyle}>
@@ -34,6 +39,9 @@ const FormSection1 = () => {
           placeholder={strings.cnp}
           value={CNP}
           onChangeText={setCNP}
+          placeholderSeparatorStyle={
+            formSection1Styles.inputPlaceholderSeparator
+          }
         />
       </View>
     </View>
