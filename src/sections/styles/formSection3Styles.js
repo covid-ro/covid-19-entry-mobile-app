@@ -4,7 +4,6 @@ import {colors, metrics} from '../../themes';
 const formSection3Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
-    marginBottom: metrics.size50,
   },
   title: {
     marginHorizontal: metrics.size16,
@@ -52,10 +51,10 @@ const formSection3Styles = StyleSheet.create({
     marginHorizontal: metrics.size16,
   },
   inputContainer: {
-    marginTop: metrics.size36,
+    marginTop: metrics.size11,
   },
   dateContainer: {
-    marginTop: metrics.size32,
+    marginTop: metrics.size15,
   },
   datePickerTextStyle: {
     top: metrics.size6,
@@ -129,6 +128,9 @@ const formSection3Styles = StyleSheet.create({
     color: colors.darkBlue,
     fontWeight: '500',
     fontSize: metrics.size15,
+  },
+  bottomMargin: {
+    marginBottom: metrics.size25,
   },
 });
 

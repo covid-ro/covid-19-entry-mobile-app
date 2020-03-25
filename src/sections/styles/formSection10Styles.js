@@ -5,13 +5,10 @@ const formSection10Styles = StyleSheet.create({
   textContainer: {
     marginLeft: metrics.size16,
     marginRight: metrics.size32,
-    marginBottom: metrics.size10,
-  },
-  inputCustomContainer: {
-    marginTop: metrics.size26,
   },
   customInput: {
     height: metrics.size50,
+    paddingBottom: 1
   },
   customLabel: {
     height: metrics.size36,

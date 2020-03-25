@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {formSection2Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton, InputField} from '../core/components';
@@ -11,7 +11,7 @@ const FormSection2 = () => {
   const [locationValue, setLocationValue] = useState(undefined);
   const [numberValue, setNumberValue] = useState(null);
   return (
-    <View style={formSection2Styles.container}>
+    <ScrollView style={formSection2Styles.container}>
       <View style={formSection2Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form2Label}</Text>
       </View>
@@ -41,14 +41,14 @@ const FormSection2 = () => {
         placeholder={strings.seria}
         value={locationValue}
         onChangeText={setLocationValue}
-        customContainerStyle={formSection2Styles.customContainerStyle}
       />
       <InputField
         placeholder={strings.passportNumber}
         value={numberValue}
         onChangeText={setNumberValue}
+        customContainerStyle={formSection2Styles.inputContainer}
       />
-    </View>
+    </ScrollView>
   );
 };
 

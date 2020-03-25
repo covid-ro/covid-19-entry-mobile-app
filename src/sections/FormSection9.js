@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import {formSection9Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton, InputField} from '../core/components';
@@ -11,7 +11,7 @@ const FormSection8 = ({text}) => {
   const [recompleteForm, setRecompleteForm] = useState(false);
 
   return (
-    <View style={formSection9Styles.container}>
+    <ScrollView style={formSection9Styles.container}>
       <View style={formSection9Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form9Label}</Text>
       </View>
@@ -52,7 +52,7 @@ const FormSection8 = ({text}) => {
           </TouchableOpacity>
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
 

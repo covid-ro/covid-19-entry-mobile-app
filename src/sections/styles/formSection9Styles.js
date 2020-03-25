@@ -29,7 +29,7 @@ const formSection9Styles = StyleSheet.create({
     marginHorizontal: metrics.size16,
   },
   vehicleInputContainer: {
-    marginTop: metrics.size16,
+    marginBottom: metrics.size25,
   },
   blueText: {
     marginTop: metrics.size5,

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, ScrollView} from 'react-native';
 import {InputField} from '../core/components';
 import {formSection5Styles} from './styles';
 import {strings} from '../core/strings';
@@ -11,7 +11,7 @@ const FormSection3 = () => {
   const [numberValue, setNumberValue] = useState(null);
 
   return (
-    <View style={formSection5Styles.container}>
+    <ScrollView style={formSection5Styles.container}>
       <Text style={[labelStyles.textStyle, formSection5Styles.topTextStyle]}>
         {strings.form5Label}
       </Text>
@@ -35,7 +35,7 @@ const FormSection3 = () => {
         style={[labelStyles.textStyle, formSection5Styles.alertMessageStyle]}>
         {strings.alertMessage}
       </Text>
-    </View>
+    </ScrollView>
   );
 };
 

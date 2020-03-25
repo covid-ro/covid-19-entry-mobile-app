@@ -66,6 +66,7 @@ const FormSection4 = () => {
           </TouchableOpacity>
         </View>
       )}
+      <View style={formSection4Styles.bottomMargin} />
     </ScrollView>
   );
 };

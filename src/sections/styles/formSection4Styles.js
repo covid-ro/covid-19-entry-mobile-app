@@ -4,13 +4,12 @@ import {colors, metrics} from '../../themes';
 const formSection4Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
-    marginBottom: metrics.size15,
   },
   topTextStyle: {
     marginHorizontal: metrics.size16,
   },
   inputStyle: {
-    marginTop: metrics.size36,
+    marginTop: metrics.size11,
   },
   inputPlaceholderSeparator: {
     marginTop: metrics.size4,
@@ -23,7 +22,7 @@ const formSection4Styles = StyleSheet.create({
     fontWeight: 'normal',
   },
   datepickerContainer: {
-    marginTop: metrics.size32,
+    marginTop: metrics.size15,
   },
   separator: {
     borderBottomColor: colors.greyE7,
@@ -59,6 +58,9 @@ const formSection4Styles = StyleSheet.create({
     borderBottomColor: colors.greyE7,
     borderBottomWidth: metrics.size1,
     marginHorizontal: metrics.size16,
+  },
+  bottomMargin: {
+    marginBottom: metrics.size25,
   },
 });
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Platform} from 'react-native';
+import {View, Text, TouchableOpacity, Platform, ScrollView} from 'react-native';
 import {Picker, DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
 import {InputField} from '../core/components';
@@ -18,7 +18,7 @@ const FormSection3 = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={formSection3Styles.container}>
+    <ScrollView style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{strings.form3Label}</Text>
       <View style={[formSection3Styles.pickerContainer]}>
         <Picker
@@ -99,7 +99,8 @@ const FormSection3 = () => {
           </TouchableOpacity>
         </View>
       )}
-    </View>
+      <View style={formSection3Styles.bottomMargin} />
+    </ScrollView>
   );
 };
 export default FormSection3;

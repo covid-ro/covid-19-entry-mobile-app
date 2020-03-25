@@ -16,6 +16,9 @@ const formSection1Styles = StyleSheet.create({
   inputPlaceholderSeparator: {
     borderColor: colors.lightGrey,
   },
+  inputFieldStyle: {
+    marginBottom: metrics.size25,
+  },
 });
 
 export default formSection1Styles;

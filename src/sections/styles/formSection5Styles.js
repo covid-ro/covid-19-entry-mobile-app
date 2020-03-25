@@ -29,6 +29,7 @@ const formSection5Styles = StyleSheet.create({
   },
   alertMessageStyle: {
     marginHorizontal: metrics.size16,
+    marginBottom: metrics.size25,
   },
   inputStyle: {
     marginTop: metrics.size5,
