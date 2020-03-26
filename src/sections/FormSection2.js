@@ -11,7 +11,7 @@ const FormSection2 = () => {
   const [locationValue, setLocationValue] = useState(undefined);
   const [numberValue, setNumberValue] = useState(null);
   return (
-    <ScrollView style={formSection2Styles.container}>
+    <View style={formSection2Styles.container}>
       <View style={formSection2Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form2Label}</Text>
       </View>
@@ -47,7 +47,7 @@ const FormSection2 = () => {
         onChangeText={setNumberValue}
         customContainerStyle={formSection2Styles.inputContainer}
       />
-    </ScrollView>
+    </View>
   );
 };
 

@@ -11,7 +11,7 @@ const FormSection6 = () => {
   const [checkedSecondYES, setcheckedSecondYES] = useState(false);
   const [checkedSecondNO, setcheckedSecondNO] = useState(false);
   return (
-    <ScrollView style={formSection6Styles.container}>
+    <View style={formSection6Styles.container}>
       <View style={formSection6Styles.textContainer}>
         <Text style={[labelStyles.textStyle, formSection6Styles.textStyle]}>
           {strings.form6FirstQuestion}
@@ -58,7 +58,7 @@ const FormSection6 = () => {
           }}
         />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

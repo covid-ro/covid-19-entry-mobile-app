@@ -13,7 +13,7 @@ const FormSection4 = () => {
   const [adresaCompleta, setAdresaCompleta] = useState(undefined);
   const [recompleteForm, setRecompleteForm] = useState(false);
   return (
-    <ScrollView style={formSection4Styles.container}>
+    <View style={formSection4Styles.container}>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
         {strings.form4Label}
       </Text>
@@ -79,7 +79,7 @@ const FormSection4 = () => {
         </View>
       )}
       <View style={formSection4Styles.bottomMargin} />
-    </ScrollView>
+    </View>
   );
 };
 

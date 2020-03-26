@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 import {colors, metrics} from '../../themes';
 import normalize from 'react-native-normalize';
 
@@ -15,11 +16,16 @@ const registerScreenStyles = StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: normalize(metrics.size22),
     alignContent: 'center',
-    marginTop: normalize(metrics.size57),
-    marginBottom: normalize(metrics.size35),
+    marginTop: DeviceInfo.hasNotch() ? metrics.size57 : metrics.size15,
   },
+
   marginBottom: {
-    marginBottom: normalize(metrics.size50),
+    marginTop: metrics.size25,
+    marginBottom: metrics.size25,
+  },
+  contentContainer: {
+    justifyContent: 'flex-start',
+    alignContent: 'center',
   },
 });
 

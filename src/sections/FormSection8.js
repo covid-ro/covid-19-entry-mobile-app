@@ -12,7 +12,7 @@ const FormSection8 = ({text}) => {
   const [option4Selected, setOption4Selected] = useState(false);
 
   return (
-    <ScrollView style={formSection8Styles.container}>
+    <View style={formSection8Styles.container}>
       <View style={formSection8Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form8Label}</Text>
       </View>
@@ -48,7 +48,7 @@ const FormSection8 = ({text}) => {
           }}
         />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

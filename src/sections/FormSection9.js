@@ -12,7 +12,7 @@ const FormSection8 = ({text}) => {
   const [recompleteForm, setRecompleteForm] = useState(false);
 
   return (
-    <ScrollView style={formSection9Styles.container}>
+    <View style={formSection9Styles.container}>
       <View style={formSection9Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form9Label}</Text>
       </View>
@@ -55,7 +55,7 @@ const FormSection8 = ({text}) => {
           </TouchableOpacity>
         </View>
       )}
-    </ScrollView>
+    </View>
   );
 };
 

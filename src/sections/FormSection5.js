@@ -11,7 +11,7 @@ const FormSection3 = () => {
   const [numberValue, setNumberValue] = useState(null);
 
   return (
-    <ScrollView style={formSection5Styles.container}>
+    <View style={formSection5Styles.container}>
       <Text style={[labelStyles.textStyle, formSection5Styles.topTextStyle]}>
         {strings.form5Label}
       </Text>
@@ -36,7 +36,7 @@ const FormSection3 = () => {
         style={[labelStyles.textStyle, formSection5Styles.alertMessageStyle]}>
         {strings.alertMessage}
       </Text>
-    </ScrollView>
+    </View>
   );
 };
 
