@@ -16,12 +16,14 @@ const registerScreenStyles = StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: normalize(metrics.size22),
     alignContent: 'center',
-    marginTop: DeviceInfo.hasNotch() ? metrics.size57 : metrics.size15,
+    marginTop: DeviceInfo.hasNotch() ? metrics.size57 : metrics.size25,
   },
-
-  marginBottom: {
-    marginTop: metrics.size25,
-    marginBottom: metrics.size25,
+  scrollViewContainer: {
+    flex: 1,
+  },
+  generalButtonContainer: {
+    marginTop: DeviceInfo.hasNotch() ? metrics.size64 : metrics.size32,
+    marginBottom: DeviceInfo.hasNotch() ? metrics.size50 : metrics.size25,
   },
   contentContainer: {
     justifyContent: 'flex-start',

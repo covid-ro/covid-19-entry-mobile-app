@@ -1,6 +1,7 @@
 import React, {useRef, useCallback, useState} from 'react';
 import Carousel from 'react-native-snap-carousel';
 import {View, KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 import {registerScreenStyles} from './styles';
 import {ProgressHeader} from './components';
 import {metrics} from '../themes';
@@ -112,7 +113,7 @@ const RegisterScreen = ({navigation, name}) => {
   return (
     <View style={registerScreenStyles.container}>
       <ProgressHeader step={activeCard + 1} />
-      <ScrollView style={{flex: 1}}>
+      <ScrollView style={registerScreenStyles.scrollViewContainer}>
         {Platform.OS === IOS ? (
           <KeyboardAvoidingView
             style={registerScreenStyles.container}
@@ -135,7 +136,6 @@ const RegisterScreen = ({navigation, name}) => {
           </KeyboardAvoidingView>
         ) : (
           <Carousel
-            style={{flex: 1}}
             useScrollView
             onSnapToItem={setActiveCard}
             keyboardDismissMode="on-drag"
@@ -150,7 +150,24 @@ const RegisterScreen = ({navigation, name}) => {
             swipeThreshold={metrics.screenWidth * 0.1}
           />
         )}
-        <View style={registerScreenStyles.marginBottom}>
+        {!DeviceInfo.hasNotch() && (
+          <View style={registerScreenStyles.generalButtonContainer}>
+            {activeCard !== 9 ? (
+              <GeneralButton
+                text={strings.urmatorul}
+                onPress={() => carouselRef.current.snapToNext()}
+              />
+            ) : (
+              <GeneralButton
+                text={strings.trimite}
+                onPress={() => navigation.navigate(roots.finishNavigator)}
+              />
+            )}
+          </View>
+        )}
+      </ScrollView>
+      {DeviceInfo.hasNotch() && (
+        <View style={registerScreenStyles.generalButtonContainer}>
           {activeCard !== 9 ? (
             <GeneralButton
               text={strings.urmatorul}
@@ -163,7 +180,7 @@ const RegisterScreen = ({navigation, name}) => {
             />
           )}
         </View>
-      </ScrollView>
+      )}
     </View>
   );
 };
