@@ -4,12 +4,22 @@ import {formSection2Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton, InputField} from '../core/components';
 import {strings} from '../core/strings';
+import {connect} from 'react-redux';
+import {
+  SET_DOCUMENT_TYPE,
+  SET_DOCUMENT_NUMBER,
+  SET_DOCUMENT_SERIES,
+} from '../register/redux/actionTypes';
 
-const FormSection2 = () => {
+const FormSection2 = ({
+  documentNumber,
+  documentSeries,
+  setDocumentType,
+  setDocumentNumber,
+  setDocumentSeries,
+}) => {
   const [passportSelected, setPasssportSelected] = useState(false);
   const [cardSelected, setCardSelected] = useState(false);
-  const [locationValue, setLocationValue] = useState(undefined);
-  const [numberValue, setNumberValue] = useState(null);
   const numberRef = useRef(null);
   return (
     <ScrollView style={formSection2Styles.container}>
@@ -23,6 +33,7 @@ const FormSection2 = () => {
           onPress={() => {
             setPasssportSelected(true);
             setCardSelected(false);
+            setDocumentType('pssport');
           }}
         />
         <SelectionButton
@@ -31,6 +42,7 @@ const FormSection2 = () => {
           onPress={() => {
             setPasssportSelected(false);
             setCardSelected(true);
+            setDocumentType('identity_card');
           }}
         />
       </View>
@@ -39,8 +51,8 @@ const FormSection2 = () => {
       </Text>
       <InputField
         placeholder={strings.seria}
-        value={locationValue}
-        onChangeText={setLocationValue}
+        value={documentSeries}
+        onChangeText={setDocumentSeries}
         returnKeyType={'next'}
         onSubmitEditing={() => {
           numberRef.current.focus();
@@ -50,12 +62,26 @@ const FormSection2 = () => {
       <InputField
         inputRef={numberRef}
         placeholder={strings.passportNumber}
-        value={numberValue}
-        onChangeText={setNumberValue}
+        value={documentNumber}
+        onChangeText={setDocumentNumber}
         customContainerStyle={formSection2Styles.inputContainer}
       />
     </ScrollView>
   );
 };
 
-export default FormSection2;
+const mapStateToProps = state => {
+  const {documentSeries, documentNumber} = state.register.rergisterReducer;
+  return {documentSeries, documentNumber};
+};
+
+const mapDispatchToProps = dispatch => ({
+  setDocumentType: documentType =>
+    dispatch({type: SET_DOCUMENT_TYPE, documentType}),
+  setDocumentSeries: documentSeries =>
+    dispatch({type: SET_DOCUMENT_SERIES, documentSeries}),
+  setDocumentNumber: documentNumber =>
+    dispatch({type: SET_DOCUMENT_NUMBER, documentNumber}),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormSection2);

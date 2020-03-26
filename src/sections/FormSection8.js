@@ -4,13 +4,24 @@ import {formSection8Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton} from '../core/components';
 import {strings} from '../core/strings';
+import {
+  SET_FEVER,
+  SET_BREATHING,
+  SET_COUGH,
+  SET_SWALLOW,
+} from '../register/redux/actionTypes';
+import {connect} from 'react-redux';
 
-const FormSection8 = ({text}) => {
-  const [option1Selected, setOption1Selected] = useState(false);
-  const [option2Selected, setOption2Selected] = useState(false);
-  const [option3Selected, setOption3Selected] = useState(false);
-  const [option4Selected, setOption4Selected] = useState(false);
-
+const FormSection8 = ({
+  fever,
+  breathing,
+  swallow,
+  cough,
+  setFever,
+  setBreathing,
+  setSwallow,
+  setCough,
+}) => {
   return (
     <ScrollView style={formSection8Styles.container}>
       <View style={formSection8Styles.textContainer}>
@@ -19,32 +30,32 @@ const FormSection8 = ({text}) => {
       <View style={formSection8Styles.buttonsContainer}>
         <SelectionButton
           text={strings.simptom1}
-          isSelected={option1Selected}
+          isSelected={fever}
           onPress={() => {
-            setOption1Selected(!option1Selected);
+            setFever(!fever);
           }}
         />
         <SelectionButton
           text={strings.simptom2}
-          isSelected={option2Selected}
+          isSelected={swallow}
           onPress={() => {
-            setOption2Selected(!option2Selected);
+            setSwallow(!swallow);
           }}
         />
       </View>
       <View style={formSection8Styles.buttonsContainer}>
         <SelectionButton
           text={strings.simptom3}
-          isSelected={option3Selected}
+          isSelected={breathing}
           onPress={() => {
-            setOption3Selected(!option3Selected);
+            setBreathing(!breathing);
           }}
         />
         <SelectionButton
           text={strings.simptom4}
-          isSelected={option4Selected}
+          isSelected={cough}
           onPress={() => {
-            setOption4Selected(!option4Selected);
+            setCough(!cough);
           }}
         />
       </View>
@@ -52,4 +63,16 @@ const FormSection8 = ({text}) => {
   );
 };
 
-export default FormSection8;
+const mapStateToProps = state => {
+  const {fever, swallow, cough, breathing} = state.register.rergisterReducer;
+  return {fever, swallow, cough, breathing};
+};
+
+const mapDispatchToProps = dispatch => ({
+  setFever: fever => dispatch({type: SET_FEVER, fever}),
+  setBreathing: breathing => dispatch({type: SET_BREATHING, breathing}),
+  setCough: cough => dispatch({type: SET_COUGH, cough}),
+  setSwallow: swallow => dispatch({type: SET_SWALLOW, swallow}),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormSection8);
