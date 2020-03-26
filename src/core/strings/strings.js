@@ -55,7 +55,7 @@ const strings = {
     'Dorești să adaugi încă o declarație pentru alt membru al familiei ce te însoțește? ',
   finisScreenThirdLine:
     'Continuă procedura de mai jos, respectând câmpurile ce te vor ghida în completarea corectă a formularului. În cazul minorilor, numărul de telefon necesar pentru validare va fi a unuia din aparținători. ',
-
+  finishScreenCodeLabel: 'Codul dumneavoastră de înregistrare este:',
   form10Label: 'Traseul urmărit este:',
   form10Placeholder:
     'Introduceți câteva din localitățile de pe drum, diferențiate prin virgulă.',

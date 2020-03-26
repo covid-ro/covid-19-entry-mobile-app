@@ -37,6 +37,47 @@ const finishScreenStyles = StyleSheet.create({
     fontSize: metrics.size17,
     marginBottom: metrics.size20,
   },
+  codeContainer: {
+    marginTop: metrics.size40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  codeLabelStyle: {
+    fontSize: metrics.size14,
+    color: colors.black4A,
+    fontWeight: '500',
+    textAlign: 'left',
+  },
+  codeStyle: {
+    marginTop: metrics.size10,
+    fontSize: metrics.size22,
+    color: colors.darkBlue,
+    fontWeight: 'bold',
+    textAlign: 'left',
+  },
+
+  codeListStyle: {
+    marginTop: metrics.size5,
+    fontSize: metrics.size18,
+    color: colors.darkBlue,
+    fontWeight: 'bold',
+    textAlign: 'left',
+  },
+  nameTextStyle: {
+    marginTop: metrics.size10,
+    fontSize: metrics.size14,
+    color: colors.black4A,
+    fontWeight: 'bold',
+    textAlign: 'left',
+  },
+  listStyle: {
+    height: metrics.size391,
+    marginHorizontal: metrics.size16,
+    marginBottom: metrics.size35,
+    padding: metrics.size16,
+    justifyContent: 'flex-start',
+    alignContent: 'center',
+  },
 });
 
 export default finishScreenStyles;
