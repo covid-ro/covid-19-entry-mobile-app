@@ -1,27 +1,52 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useState, useCallback} from 'react';
 import {
   View,
   Text,
-  Keyboard,
   TouchableWithoutFeedback,
-  TextInput,
+  ActivityIndicator,
+  Alert,
 } from 'react-native';
+import styles from './styles/phoneNumberScreenStyle';
 import CountryPicker from 'react-native-country-picker-modal';
 import PhoneInput from 'react-native-phone-input';
-import styles from './styles/phoneNumberScreenStyle';
-import {InputField, GeneralButton} from '../core/components';
+import {GeneralButton} from '../core/components';
+import DeviceInfo from 'react-native-device-info';
+import {phoneValidator} from '../core/utils/validators';
 import {strings} from '../core/strings';
 import {roots} from '../navigation';
+import {colors} from '../themes';
+import {sendPhoneNumber} from '../api';
 
 const PhoneNumberScreen = ({navigation}) => {
-  const [flag, setFlag] = useState('ro');
-  const [phoneNumber, setPhoneNumber] = useState();
+  const [phoneNumber, setPhoneNumber] = useState(undefined);
   const [dialCode, setDialCode] = useState('+40');
   const [isFocused, setFocus] = useState();
   const [modal, setModal] = useState(false);
-  let phoneRef = useRef(null);
+  const [isSending, setIsSending] = useState(false);
 
-  console.log(dialCode);
+  const handleSendNumber = useCallback(async () => {
+    const countryCode = parseInt(dialCode, 10);
+    console.log(countryCode);
+    console.log(phoneNumber);
+    if (phoneNumber === '') {
+      Alert.alert(strings.completePhoneNumber);
+    } else if (phoneValidator(phoneNumber)) {
+      setIsSending(true);
+      const response = await sendPhoneNumber(
+        phoneNumber,
+        countryCode,
+        DeviceInfo.getUniqueId(),
+      );
+
+      if (response.status === 200) {
+        setIsSending(false);
+        navigation.navigate(roots.sendCode, {phoneNumber, countryCode});
+      } else {
+        setIsSending(false);
+        Alert.alert(response.data.message);
+      }
+    }
+  }, [phoneNumber, navigation, dialCode]);
   return (
     <TouchableWithoutFeedback>
       <View>
@@ -36,30 +61,28 @@ const PhoneNumberScreen = ({navigation}) => {
             {strings.telefon}
           </Text>
           <PhoneInput
-            ref={phoneRef}
-            initialCountry={'ro'}
+            initialCountry={strings.ro}
             textProps={{
-              placeholder: strings.telefon,
+              placeholder: isFocused ? '' : strings.telefon,
               onFocus: () => setFocus(true),
               onBlur: () => setFocus(false),
+              style: styles.textInputPicker,
+              placeholderTextColor: colors.opacityGrey,
               value: phoneNumber,
             }}
-            value={dialCode}
+            value={strings.plus + dialCode}
             onPressFlag={() => setModal(true)}
-            autoFormat={true}
             onChangePhoneNumber={setPhoneNumber}
           />
-          {modal && (
-            <CountryPicker
-              visible={modal}
-              onClose={() => setModal(false)}
-              withCallingCode
-              onSelect={value => {
-                setDialCode('+' + value.callingCode[0]);
-              }}>
-              <View />
-            </CountryPicker>
-          )}
+          <CountryPicker
+            containerButtonStyle={styles.countryPicker}
+            visible={modal}
+            onClose={() => setModal(false)}
+            onSelect={value => setDialCode(value.callingCode[0])}
+            withCallingCode
+            withFilter>
+            <View />
+          </CountryPicker>
           <View
             style={
               isFocused || phoneNumber
@@ -69,10 +92,14 @@ const PhoneNumberScreen = ({navigation}) => {
           />
         </View>
         <View style={styles.buttonStyle}>
-          <GeneralButton
-            text={strings.validatePhoneNumber}
-            onPress={() => navigation.navigate(roots.sendCode)}
-          />
+          {isSending ? (
+            <ActivityIndicator size="large" color={colors.darkBlue} />
+          ) : (
+            <GeneralButton
+              text={strings.validatePhoneNumber}
+              onPress={handleSendNumber}
+            />
+          )}
         </View>
       </View>
     </TouchableWithoutFeedback>

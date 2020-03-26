@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {formSection8Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton} from '../core/components';
@@ -12,7 +12,7 @@ const FormSection8 = ({text}) => {
   const [option4Selected, setOption4Selected] = useState(false);
 
   return (
-    <View style={formSection8Styles.container}>
+    <ScrollView style={formSection8Styles.container}>
       <View style={formSection8Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form8Label}</Text>
       </View>
@@ -48,7 +48,7 @@ const FormSection8 = ({text}) => {
           }}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

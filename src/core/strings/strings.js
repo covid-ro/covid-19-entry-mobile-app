@@ -13,7 +13,7 @@ const strings = {
   ambulance: 'Ambulanță',
   passport: 'Paşaport',
   card: 'Carte\nidentitate',
-  simptom1: 'Febra',
+  simptom1: 'Febră',
   simptom2: 'Dificultatea \nde a înghiți',
   simptom3: 'Dificultatea \nde a respira',
   simptom4: 'Tuse intensă',
@@ -28,7 +28,7 @@ const strings = {
     'Vă rugăm să introduceți un număr de telefon valid, unde puteți fi contactat pe perioada autoizolării. Veți primi pe SMS un cod unic, ce va trebui înscris în câmpul de mai jos.',
   countriesCrossed: 'Tări tranzitate',
   countriesCrossedDescription:
-    'Selectati din lista de mai jos tările ce le-ați tranzitat (inclusiv escale). Puteți selecta mai multe optiuni.',
+    'Selectați din lista de mai jos țările ce le-ați tranzitat (inclusiv escale). Puteți selecta mai multe opțiuni.',
   languageSelectTitle: 'Vă rugăm să selectați o limbă.',
   languageSelectSubtitle: 'Please select a preferred language.',
   romana: 'Română',
@@ -94,5 +94,9 @@ const strings = {
   selectCountries: 'Selectați țările(selecție multiplă)',
   aceleasiDateAnterioare: 'Aceleași date ca la membrul adăugat anterior?',
   folosesteDateAnterioare: 'Folosește datele anterioare',
+  completePhoneNumber: 'Va rugam introduceti un numar de telefon',
+  plus: '+',
+  ro: 'ro',
+  phoneNumberError: 'Vă rugăm introduceți un număr valid de telefon.',
 };
 export default strings;

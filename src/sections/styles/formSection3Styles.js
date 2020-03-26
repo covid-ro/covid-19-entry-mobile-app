@@ -4,7 +4,6 @@ import {colors, metrics} from '../../themes';
 const formSection3Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
-    marginBottom: metrics.size50,
   },
   title: {
     marginHorizontal: metrics.size16,
@@ -46,13 +45,21 @@ const formSection3Styles = StyleSheet.create({
     fontWeight: 'normal',
     color: colors.opacityGrey,
   },
+  valueAndroidSeparator: {
+    borderBottomColor: colors.darkBlue,
+    borderBottomWidth: metrics.size2,
+    marginHorizontal: metrics.size16,
+  },
   androidPickerSeparator: {
     borderBottomColor: colors.greyE7,
     borderBottomWidth: metrics.size1,
     marginHorizontal: metrics.size16,
   },
   inputContainer: {
-    marginTop: metrics.size36,
+    marginTop: metrics.size11,
+  },
+  dateContainer: {
+    marginTop: metrics.size15,
   },
   datePickerTextStyle: {
     top: metrics.size6,
@@ -69,10 +76,21 @@ const formSection3Styles = StyleSheet.create({
     fontSize: metrics.size15,
     fontWeight: 'normal',
   },
+  valueDatePickerSeparator: {
+    borderBottomColor: colors.darkBlue,
+    borderBottomWidth: metrics.size2,
+    marginHorizontal: metrics.size16,
+  },
   datePickerSeparator: {
     borderBottomColor: colors.greyE7,
     borderBottomWidth: metrics.size1,
     marginHorizontal: metrics.size16,
+  },
+  valueSeparator: {
+    borderBottomColor: colors.darkBlue,
+    borderBottomWidth: metrics.size2,
+    marginHorizontal: metrics.size16,
+    marginTop: metrics.size4,
   },
   separator: {
     borderBottomColor: colors.greyE7,
@@ -81,14 +99,12 @@ const formSection3Styles = StyleSheet.create({
     marginTop: metrics.size4,
   },
   placeholderSeparatorStyle: {
-    borderBottomColor: colors.greyE7,
     marginTop: metrics.size4,
   },
   focusedSeparatorStyle: {
     marginTop: metrics.size4,
   },
   countriesTitleContainer: {
-    flexShrink: 1,
     marginTop: metrics.size45,
     height: metrics.size24,
     marginHorizontal: metrics.size16,
@@ -109,6 +125,9 @@ const formSection3Styles = StyleSheet.create({
     fontWeight: 'normal',
     color: colors.opacityGrey,
   },
+  selectedCountriesText: {
+    color: colors.black4A,
+  },
   recompleteTextContainer: {
     marginTop: metrics.size30,
     marginHorizontal: metrics.size16,
@@ -125,6 +144,9 @@ const formSection3Styles = StyleSheet.create({
     color: colors.darkBlue,
     fontWeight: '500',
     fontSize: metrics.size15,
+  },
+  bottomMargin: {
+    marginBottom: metrics.size25,
   },
 });
 

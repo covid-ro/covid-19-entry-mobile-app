@@ -13,7 +13,7 @@ const formSection7Styles = StyleSheet.create({
   },
   textContainer: {
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size30,
+    marginBottom: metrics.size21,
   },
 });
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Platform} from 'react-native';
+import {View, Text, TouchableOpacity, Platform, ScrollView} from 'react-native';
 import {Picker, DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
 import {InputField} from '../core/components';
@@ -18,7 +18,7 @@ const FormSection3 = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={formSection3Styles.container}>
+    <ScrollView style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{strings.form3Label}</Text>
       <View style={[formSection3Styles.pickerContainer]}>
         <Picker
@@ -41,32 +41,47 @@ const FormSection3 = () => {
         </Picker>
       </View>
       {Platform.OS === ANDROID ? (
-        <View style={formSection3Styles.androidPickerSeparator} />
-      ) : (
-        <View style={formSection3Styles.separator} />
-      )}
-      <View style={formSection3Styles.inputContainer}>
-        <InputField
-          placeholder={strings.county}
-          value={county}
-          onChangeText={setCountyValue}
-          placeholderSeparatorStyle={
-            formSection3Styles.placeholderSeparatorStyle
+        <View
+          style={
+            country
+              ? formSection3Styles.valueAndroidSeparator
+              : formSection3Styles.androidPickerSeparator
           }
-          focusedSeparatorStyle={formSection3Styles.focusedSeparatorStyle}
-          autoCorrect={false}
+        />
+      ) : (
+        <View
+          style={
+            country
+              ? formSection3Styles.valueSeparator
+              : formSection3Styles.separator
+          }
+        />
+      )}
+      <InputField
+        placeholder={strings.county}
+        value={county}
+        onChangeText={setCountyValue}
+        placeholderSeparatorStyle={formSection3Styles.placeholderSeparatorStyle}
+        focusedSeparatorStyle={formSection3Styles.focusedSeparatorStyle}
+        autoCorrect={false}
+        customContainerStyle={formSection3Styles.inputContainer}
+      />
+      <View style={formSection3Styles.dateContainer}>
+        <DatePicker
+          androidMode={'default'}
+          placeHolderText={strings.data}
+          placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
+          onDateChange={setDateValue}
+          textStyle={formSection3Styles.datePickerTextStyle}
+        />
+        <View
+          style={
+            date
+              ? formSection3Styles.valueDatePickerSeparator
+              : formSection3Styles.datePickerSeparator
+          }
         />
       </View>
-
-      <DatePicker
-        androidMode={'default'}
-        placeHolderText={strings.data}
-        placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
-        onDateChange={setDateValue}
-        textStyle={formSection3Styles.datePickerTextStyle}
-      />
-
-      <View style={formSection3Styles.datePickerSeparator} />
       <View style={formSection3Styles.countriesTitleContainer}>
         <Text style={formSection3Styles.countriesTitleText}>
           {strings.transitedCountries}
@@ -79,13 +94,23 @@ const FormSection3 = () => {
             setCountries: setVisitedCountries,
           })
         }>
-        <Text style={formSection3Styles.countriesText}>
+        <Text
+          style={[
+            formSection3Styles.countriesText,
+            visitedCountries && formSection3Styles.selectedCountriesText,
+          ]}>
           {visitedCountries
             ? getVisitedCountries(visitedCountries)
             : strings.selectCountries}
         </Text>
       </TouchableOpacity>
-      <View style={formSection3Styles.separator} />
+      <View
+        style={
+          visitedCountries
+            ? formSection3Styles.valueSeparator
+            : formSection3Styles.separator
+        }
+      />
       {recompleteForm && (
         <View style={formSection3Styles.recompleteTextContainer}>
           <Text style={formSection3Styles.grayText}>
@@ -98,7 +123,8 @@ const FormSection3 = () => {
           </TouchableOpacity>
         </View>
       )}
-    </View>
+      <View style={formSection3Styles.bottomMargin} />
+    </ScrollView>
   );
 };
 export default FormSection3;

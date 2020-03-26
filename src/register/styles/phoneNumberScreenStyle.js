@@ -35,7 +35,6 @@ export default StyleSheet.create({
     top: -metrics.size10,
     fontSize: metrics.size13,
     fontWeight: '500',
-    lineHeight: metrics.size15,
     color: colors.darkBlue,
   },
   unselectedLabel: {
@@ -46,7 +45,6 @@ export default StyleSheet.create({
     borderBottomWidth: metrics.size1,
     borderBottomColor: colors.greyE7,
   },
-
   textInputPicker: {
     color: colors.darkGrey,
     height: metrics.size18,
@@ -59,4 +57,8 @@ export default StyleSheet.create({
     marginTop: metrics.size43,
   },
   placeholderTextColor: {color: colors.opacityGrey},
+  countryPicker: {
+    height: metrics.size0,
+    opacity: metrics.size0,
+  },
 });
