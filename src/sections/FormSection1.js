@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {formSection1Styles} from './styles';
 import {labelStyles} from '../core/styles';
@@ -19,6 +19,9 @@ const FormSection1 = ({
   setSurname,
   setCNP,
 }) => {
+  const prenumeRef = useRef(null);
+  const CNPRef = useRef(null);
+
   return (
     <ScrollView style={formSection1Styles.container}>
       <View style={formSection1Styles.textContainer}>
@@ -28,15 +31,27 @@ const FormSection1 = ({
         placeholder={strings.nume}
         value={firstName}
         onChangeText={setFirstName}
+        returnKeyType={'next'}
+        onSubmitEditing={() => {
+          prenumeRef.current.focus();
+        }}
+        blurOnSubmit={false}
         placeholderSeparatorStyle={formSection1Styles.inputPlaceholderSeparator}
       />
       <InputField
+        inputRef={prenumeRef}
         placeholder={strings.prenume}
         value={surname}
         onChangeText={setSurname}
+        returnKeyType={'next'}
+        onSubmitEditing={() => {
+          CNPRef.current.focus();
+        }}
+        blurOnSubmit={false}
         placeholderSeparatorStyle={formSection1Styles.inputPlaceholderSeparator}
       />
       <InputField
+        inputRef={CNPRef}
         placeholder={strings.cnp}
         value={cnp}
         onChangeText={setCNP}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {InputField} from '../core/components';
 import {formSection4Styles} from './styles';
@@ -27,7 +27,7 @@ const FormSection4 = ({
   setDeparture,
 }) => {
   const [recompleteForm, setRecompleteForm] = useState(false);
-  console.log(city, county);
+  const localitateRef = useRef(null);
   return (
     <ScrollView style={formSection4Styles.container}>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
@@ -38,8 +38,14 @@ const FormSection4 = ({
         value={county}
         onChangeText={setCounty}
         placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
+        returnKeyType={'next'}
+        onSubmitEditing={() => {
+          localitateRef.current.focus();
+        }}
+        blurOnSubmit={false}
       />
       <InputField
+        inputRef={localitateRef}
         placeholder={strings.localitate}
         value={city}
         onChangeText={setCity}

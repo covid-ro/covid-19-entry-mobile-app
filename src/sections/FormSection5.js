@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {View, Text, Image, ScrollView} from 'react-native';
 import {InputField} from '../core/components';
 import {formSection5Styles} from './styles';
@@ -10,6 +10,7 @@ import {connect} from 'react-redux';
 
 const FormSection5 = ({email, setEmail}) => {
   const [locationValue, setLocationValue] = useState(undefined);
+  const emailRef = useRef(null);
 
   return (
     <ScrollView style={formSection5Styles.container}>
@@ -21,10 +22,16 @@ const FormSection5 = ({email, setEmail}) => {
           placeholder={strings.telefonValid}
           value={locationValue}
           onChangeText={setLocationValue}
+          returnKeyType={'next'}
+          onSubmitEditing={() => {
+            emailRef.current.focus();
+          }}
+          blurOnSubmit={false}
         />
         <Image source={images.ic_tick} style={formSection5Styles.imageStyle} />
       </View>
       <InputField
+        inputRef={emailRef}
         placeholder={strings.email}
         value={email}
         onChangeText={setEmail}
