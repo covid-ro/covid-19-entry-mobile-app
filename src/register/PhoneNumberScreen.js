@@ -11,7 +11,7 @@ import CountryPicker from 'react-native-country-picker-modal';
 import PhoneInput from 'react-native-phone-input';
 import {GeneralButton} from '../core/components';
 import DeviceInfo from 'react-native-device-info';
-import {phoneValidator} from '../core/utils/validators';
+import {validators} from '../core/utils';
 import {strings} from '../core/strings';
 import {roots} from '../navigation';
 import {colors} from '../themes';
@@ -30,7 +30,7 @@ const PhoneNumberScreen = ({navigation}) => {
     console.log(phoneNumber);
     if (phoneNumber === '') {
       Alert.alert(strings.completePhoneNumber);
-    } else if (phoneValidator(phoneNumber)) {
+    } else if (validators.phoneValidator(phoneNumber)) {
       setIsSending(true);
       const response = await sendPhoneNumber(
         phoneNumber,
@@ -45,6 +45,8 @@ const PhoneNumberScreen = ({navigation}) => {
         setIsSending(false);
         Alert.alert(response.data.message);
       }
+    } else {
+      Alert.alert(strings.phoneNumberError);
     }
   }, [phoneNumber, navigation, dialCode]);
   return (
