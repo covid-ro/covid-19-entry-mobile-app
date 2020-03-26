@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {formSection2Styles} from './styles';
 import {labelStyles} from '../core/styles';
@@ -10,6 +10,7 @@ const FormSection2 = () => {
   const [cardSelected, setCardSelected] = useState(false);
   const [locationValue, setLocationValue] = useState(undefined);
   const [numberValue, setNumberValue] = useState(null);
+  const numberRef = useRef(null);
   return (
     <ScrollView style={formSection2Styles.container}>
       <View style={formSection2Styles.textContainer}>
@@ -40,8 +41,14 @@ const FormSection2 = () => {
         placeholder={strings.seria}
         value={locationValue}
         onChangeText={setLocationValue}
+        returnKeyType={'next'}
+        onSubmitEditing={() => {
+          numberRef.current.focus();
+        }}
+        blurOnSubmit={false}
       />
       <InputField
+        inputRef={numberRef}
         placeholder={strings.passportNumber}
         value={numberValue}
         onChangeText={setNumberValue}
