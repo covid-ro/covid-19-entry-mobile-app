@@ -17,7 +17,6 @@ const PhoneNumberScreen = ({navigation}) => {
   const [flag, setFlag] = useState('ro');
   const [phoneNumber, setPhoneNumber] = useState();
   const [dialCode, setDialCode] = useState('+40');
-  const [country, setCountry] = useState();
   const [isFocused, setFocus] = useState();
   const [modal, setModal] = useState(false);
   let phoneRef = useRef(null);
@@ -43,11 +42,12 @@ const PhoneNumberScreen = ({navigation}) => {
               placeholder: strings.telefon,
               onFocus: () => setFocus(true),
               onBlur: () => setFocus(false),
+              value: phoneNumber,
             }}
-            value={phoneNumber}
+            value={dialCode}
             onPressFlag={() => setModal(true)}
-            onChangePhoneNumber={setPhoneNumber}
             autoFormat={true}
+            onChangePhoneNumber={setPhoneNumber}
           />
           {modal && (
             <CountryPicker
@@ -55,8 +55,6 @@ const PhoneNumberScreen = ({navigation}) => {
               onClose={() => setModal(false)}
               withCallingCode
               onSelect={value => {
-                setCountry(value.cca2.toLowerCase());
-                setPhoneNumber('+' + value.callingCode[0]);
                 setDialCode('+' + value.callingCode[0]);
               }}>
               <View />
@@ -64,7 +62,7 @@ const PhoneNumberScreen = ({navigation}) => {
           )}
           <View
             style={
-              isFocused || phoneNumber?.length - 1 > dialCode?.length - 1
+              isFocused || phoneNumber
                 ? styles.focusedSeparator
                 : styles.separator
             }
