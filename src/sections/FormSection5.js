@@ -5,10 +5,11 @@ import {formSection5Styles} from './styles';
 import {strings} from '../core/strings';
 import {images} from '../themes';
 import {labelStyles} from '../core/styles';
+import {SET_EMAIL} from '../register/redux/actionTypes';
+import {connect} from 'react-redux';
 
-const FormSection3 = () => {
+const FormSection5 = ({email, setEmail}) => {
   const [locationValue, setLocationValue] = useState(undefined);
-  const [numberValue, setNumberValue] = useState(null);
 
   return (
     <ScrollView style={formSection5Styles.container}>
@@ -25,8 +26,8 @@ const FormSection3 = () => {
       </View>
       <InputField
         placeholder={strings.email}
-        value={numberValue}
-        onChangeText={setNumberValue}
+        value={email}
+        onChangeText={setEmail}
         autoCapitalize={'none'}
       />
       <Text style={formSection5Styles.alertLabelStyle}>
@@ -40,4 +41,13 @@ const FormSection3 = () => {
   );
 };
 
-export default FormSection3;
+const mapStateToProps = state => {
+  const {email} = state.register.rergisterReducer;
+  return {email};
+};
+
+const mapDispatchToProps = dispatch => ({
+  setEmail: email => dispatch({type: SET_EMAIL, email}),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormSection5);

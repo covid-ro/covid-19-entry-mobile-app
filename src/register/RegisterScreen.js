@@ -19,13 +19,10 @@ import {
 import {strings} from '../core/strings';
 import {GeneralButton} from '../core/components';
 import {roots} from '../navigation';
-import {connect} from 'react-redux';
 
-const RegisterScreen = ({navigation, name}) => {
+const RegisterScreen = ({navigation}) => {
   const carouselRef = useRef(null);
   const [activeCard, setActiveCard] = useState(0);
-
-  console.log('NAME', name);
 
   const cards = [
     {id: 0, data: 'card 1'},
@@ -142,10 +139,4 @@ const RegisterScreen = ({navigation, name}) => {
   );
 };
 
-const mapStateToProps = state => {
-  const {name} = state.register.rergisterReducer;
-  console.log(state);
-  return {name};
-};
-
-export default connect(mapStateToProps)(RegisterScreen);
+export default RegisterScreen;

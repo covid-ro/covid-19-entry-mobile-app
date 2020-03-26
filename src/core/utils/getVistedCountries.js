@@ -10,4 +10,5 @@ const getVisitedCountries = visitedCountries => {
   }
   return string.slice(0, string.length - 2);
 };
+
 export default getVisitedCountries;

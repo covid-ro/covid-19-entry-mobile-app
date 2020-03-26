@@ -5,8 +5,9 @@ import {finishScreenStyles} from './styles';
 import {GeneralButton} from '../core/components';
 import {strings} from '../core/strings';
 import {roots} from '../navigation';
+import {connect} from 'react-redux';
 
-const FinishScreen = ({navigation}) => {
+const FinishScreen = ({navigation, firstName, surname}) => {
   return (
     <ScrollView style={finishScreenStyles.container}>
       <ProgressHeader step={10} />
@@ -37,4 +38,9 @@ const FinishScreen = ({navigation}) => {
   );
 };
 
-export default FinishScreen;
+const mapStateToProps = state => {
+  const {firstName, surname} = state.register.rergisterReducer;
+  return {firstName, surname};
+};
+
+export default connect(mapStateToProps)(FinishScreen);

@@ -1,14 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {formSection1Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {InputField} from '../core/components';
 import {strings} from '../core/strings';
+import {connect} from 'react-redux';
+import {
+  SET_FIRST_NAME,
+  SET_SURNAME,
+  SET_CNP,
+} from '../register/redux/actionTypes';
 
-const FormSection1 = () => {
-  const [nume, setNume] = useState('');
-  const [prenume, setPrenume] = useState('');
-  const [CNP, setCNP] = useState('');
+const FormSection1 = ({
+  firstName,
+  surname,
+  cnp,
+  setFirstName,
+  setSurname,
+  setCNP,
+}) => {
   return (
     <ScrollView style={formSection1Styles.container}>
       <View style={formSection1Styles.textContainer}>
@@ -16,19 +26,19 @@ const FormSection1 = () => {
       </View>
       <InputField
         placeholder={strings.nume}
-        value={nume}
-        onChangeText={setNume}
+        value={firstName}
+        onChangeText={setFirstName}
         placeholderSeparatorStyle={formSection1Styles.inputPlaceholderSeparator}
       />
       <InputField
         placeholder={strings.prenume}
-        value={prenume}
-        onChangeText={setPrenume}
+        value={surname}
+        onChangeText={setSurname}
         placeholderSeparatorStyle={formSection1Styles.inputPlaceholderSeparator}
       />
       <InputField
         placeholder={strings.cnp}
-        value={CNP}
+        value={cnp}
         onChangeText={setCNP}
         placeholderSeparatorStyle={formSection1Styles.inputPlaceholderSeparator}
         customContainerStyle={formSection1Styles.inputFieldStyle}
@@ -37,4 +47,15 @@ const FormSection1 = () => {
   );
 };
 
-export default FormSection1;
+const mapStateToProps = state => {
+  const {name, lastName, cnp} = state.register.rergisterReducer;
+  return {name, lastName, cnp};
+};
+
+const mapDispatchToProps = dispatch => ({
+  setFirstName: firstName => dispatch({type: SET_FIRST_NAME, firstName}),
+  setSurname: surname => dispatch({type: SET_SURNAME, surname}),
+  setCNP: cnp => dispatch({type: SET_CNP, cnp}),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormSection1);
