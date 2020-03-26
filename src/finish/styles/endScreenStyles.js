@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
 import DeviceInfo from 'react-native-device-info';
+import normalize from 'react-native-normalize';
 
 const endScreenStyles = StyleSheet.create({
   container: {
@@ -11,17 +12,19 @@ const endScreenStyles = StyleSheet.create({
     height: metrics.size120,
     width: metrics.size120,
     alignSelf: 'center',
-    marginTop: DeviceInfo.hasNotch() ? metrics.size115 : metrics.size73,
+    marginTop: DeviceInfo.hasNotch()
+      ? normalize(metrics.size115)
+      : normalize(metrics.size73),
   },
   card: {
-    height: metrics.size377,
+    height: normalize(metrics.size377, 'height'),
     backgroundColor: colors.white,
     borderRadius: metrics.size6,
     borderWidth: metrics.size1,
     borderColor: colors.cardBorderGrey,
     marginHorizontal: metrics.size16,
-    marginTop: metrics.size57,
-    marginBottom: metrics.size35,
+    marginTop: normalize(metrics.size57),
+    marginBottom: normalize(metrics.size35),
     padding: metrics.size16,
     justifyContent: 'flex-start',
     alignContent: 'center',
@@ -33,7 +36,7 @@ const endScreenStyles = StyleSheet.create({
   },
   bottomContainer: {
     justifyContent: 'flex-end',
-    marginBottom: metrics.size50,
+    marginBottom: normalize(metrics.size50),
   },
 });
 

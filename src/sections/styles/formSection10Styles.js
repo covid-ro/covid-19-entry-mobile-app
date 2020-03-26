@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 const formSection10Styles = StyleSheet.create({
   textContainer: {
@@ -7,11 +8,11 @@ const formSection10Styles = StyleSheet.create({
     marginRight: metrics.size32,
   },
   customInput: {
-    height: metrics.size50,
+    height: normalize(metrics.size50),
     paddingBottom: metrics.size1,
   },
   customLabel: {
-    height: metrics.size36,
+    height: normalize(metrics.size36),
   },
 });
 

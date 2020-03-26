@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
 import {metrics, colors} from '../../../themes';
+import normalize from 'react-native-normalize';
 
 const progressHeaderStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: metrics.size40,
+    height: normalize(metrics.size40, 'height'),
     justifyContent: 'space-between',
     backgroundColor: colors.white,
     paddingHorizontal: metrics.size20,

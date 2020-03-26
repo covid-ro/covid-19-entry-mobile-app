@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../../themes';
+import normalize from 'react-native-normalize';
 
 const selectionButtonStyles = StyleSheet.create({
   normalButtonStyle: {
     backgroundColor: colors.white,
-    width: metrics.size111,
-    height: metrics.size92,
+    width: normalize(metrics.size111, 'width'),
+    height: normalize(metrics.size92, 'height'),
     borderRadius: metrics.size9,
     borderWidth: metrics.size1,
     borderColor: colors.lightGrey,
@@ -14,8 +15,8 @@ const selectionButtonStyles = StyleSheet.create({
   },
   selectedStyle: {
     backgroundColor: colors.lightBlue,
-    width: metrics.size111,
-    height: metrics.size92,
+    width: normalize(metrics.size111, 'width'),
+    height: normalize(metrics.size92, 'height'),
     borderRadius: metrics.size9,
     borderWidth: metrics.size2,
     borderColor: colors.darkBlue,

@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 const registerScreenStyles = StyleSheet.create({
   container: {
@@ -12,13 +13,13 @@ const registerScreenStyles = StyleSheet.create({
     borderWidth: metrics.size1,
     borderColor: colors.cardBorderGrey,
     justifyContent: 'flex-start',
-    paddingTop: metrics.size22,
+    paddingTop: normalize(metrics.size22),
     alignContent: 'center',
-    marginTop: metrics.size57,
-    marginBottom: metrics.size35,
+    marginTop: normalize(metrics.size57),
+    marginBottom: normalize(metrics.size35),
   },
   marginBottom: {
-    marginBottom: metrics.size50,
+    marginBottom: normalize(metrics.size50),
   },
 });
 

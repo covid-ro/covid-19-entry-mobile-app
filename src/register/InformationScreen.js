@@ -13,9 +13,7 @@ const InformationScreen = ({navigation}) => {
     <ScrollView style={informationScreenStyles.container}>
       <Image source={images.logo} style={informationScreenStyles.logo} />
       <View style={informationScreenStyles.content}>
-        <View
-          style={informationScreenStyles.card}
-          showsVerticalScrollIndicator={false}>
+        <View style={informationScreenStyles.card}>
           <Text
             style={[
               informationScreenStyles.informationLabelStyle,
