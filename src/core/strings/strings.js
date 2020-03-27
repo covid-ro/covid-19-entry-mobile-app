@@ -95,5 +95,8 @@ const strings = {
   aceleasiDateAnterioare: 'Aceleași date ca la membrul adăugat anterior?',
   folosesteDateAnterioare: 'Folosește datele anterioare',
   completePhoneNumber: 'Va rugam introduceti un numar de telefon',
+  plus: '+',
+  ro: 'ro',
+  phoneNumberError: 'Vă rugăm introduceți un număr valid de telefon.',
 };
 export default strings;

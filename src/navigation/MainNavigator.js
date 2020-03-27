@@ -25,7 +25,7 @@ const MainStackNavigator = ({navigation}) => (
   <NavigationContainer>
     <Stack.Navigator
       screenOptions={{gestureEnabled: false}}
-      initialRouteName={roots.registerStack}
+      initialRouteName={roots.languageSelect}
       // eslint-disable-next-line react/jsx-no-duplicate-props
       screenOptions={defaultNavigationOptions}>
       <Stack.Screen

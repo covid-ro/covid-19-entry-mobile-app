@@ -2,28 +2,33 @@ import React, {useState, useCallback} from 'react';
 import {
   View,
   Text,
-  Keyboard,
   TouchableWithoutFeedback,
   ActivityIndicator,
   Alert,
 } from 'react-native';
 import styles from './styles/phoneNumberScreenStyle';
-import {InputField, GeneralButton} from '../core/components';
+import CountryPicker from 'react-native-country-picker-modal';
+import PhoneInput from 'react-native-phone-input';
+import {GeneralButton} from '../core/components';
 import DeviceInfo from 'react-native-device-info';
+import {validators} from '../core/utils';
 import {strings} from '../core/strings';
 import {roots} from '../navigation';
 import {colors} from '../themes';
 import {sendPhoneNumber} from '../api';
 
 const PhoneNumberScreen = ({navigation}) => {
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [countryCode, setCountryCode] = useState(40);
+  const [phoneNumber, setPhoneNumber] = useState(undefined);
+  const [dialCode, setDialCode] = useState('+40');
+  const [isFocused, setFocus] = useState();
+  const [modal, setModal] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
   const handleSendNumber = useCallback(async () => {
+    const countryCode = parseInt(dialCode, 10);
     if (phoneNumber === '') {
       Alert.alert(strings.completePhoneNumber);
-    } else {
+    } else if (validators.phoneValidator(phoneNumber)) {
       setIsSending(true);
       const response = await sendPhoneNumber(
         phoneNumber,
@@ -38,21 +43,52 @@ const PhoneNumberScreen = ({navigation}) => {
         setIsSending(false);
         Alert.alert(response.data.message);
       }
+    } else {
+      Alert.alert(strings.phoneNumberError);
     }
-  }, [phoneNumber, navigation, countryCode]);
-
+  }, [phoneNumber, navigation, dialCode]);
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+    <TouchableWithoutFeedback>
       <View>
         <Text style={styles.informationLabelStyle}>
           {strings.validatePhoneNumberInformationLabel}
         </Text>
-        <View style={styles.phoneLabel}>
-          <InputField
-            placeholder={strings.telefon}
-            onChangeText={setPhoneNumber}
-            value={phoneNumber}
-            keyboardType="number-pad"
+        <View style={styles.pickerContainer}>
+          <Text
+            style={
+              isFocused ? styles.labelPlaceholder : styles.unselectedLabel
+            }>
+            {strings.telefon}
+          </Text>
+          <PhoneInput
+            initialCountry={strings.ro}
+            textProps={{
+              placeholder: isFocused ? '' : strings.telefon,
+              onFocus: () => setFocus(true),
+              onBlur: () => setFocus(false),
+              style: styles.textInputPicker,
+              placeholderTextColor: colors.opacityGrey,
+              value: phoneNumber,
+            }}
+            value={strings.plus + dialCode}
+            onPressFlag={() => setModal(true)}
+            onChangePhoneNumber={setPhoneNumber}
+          />
+          <CountryPicker
+            containerButtonStyle={styles.countryPicker}
+            visible={modal}
+            onClose={() => setModal(false)}
+            onSelect={value => setDialCode(value.callingCode[0])}
+            withCallingCode
+            withFilter>
+            <View />
+          </CountryPicker>
+          <View
+            style={
+              isFocused || phoneNumber
+                ? styles.focusedSeparator
+                : styles.separator
+            }
           />
         </View>
         <View style={styles.buttonStyle}>
