@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity, Platform, ScrollView} from 'react-native';
 import {Picker, DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
 import {InputField} from '../core/components';
-import {countries, getVisitedCountries} from '../core/utils';
+import {
+  countries,
+  getVisitedCountries,
+  getVisitedCountriesCodes,
+} from '../core/utils';
 import {formSection3Styles} from './styles';
 import {strings} from '../core/strings';
 import {ANDROID} from '../core/constants';
@@ -13,20 +17,29 @@ import {
   SET_TRAVELLING_COUNTRY,
   SET_TRAVELLING_CITY,
   SET_TRAVELLING_DATE,
+  SET_ITINERARY_COUNTRIES,
 } from '../register/redux/actionTypes';
 
 const FormSection3 = ({
   travellingFromCountry,
   travellingFromDate,
   travellingFromCity,
+  itineraryCountries,
   setTravellingCountry,
   setTravellingCity,
   setTravellingDate,
+  setItineraryCountries,
 }) => {
   const [recompleteForm, setRecompleteForm] = useState(false);
   const [visitedCountries, setVisitedCountries] = useState(null);
   const navigation = useNavigation();
 
+  useEffect(() => {
+    if (visitedCountries) {
+      const countriesCodes = getVisitedCountriesCodes(visitedCountries);
+      setItineraryCountries(countriesCodes);
+    }
+  }, [visitedCountries]);
   return (
     <ScrollView style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{strings.form3Label}</Text>
@@ -99,11 +112,11 @@ const FormSection3 = ({
       </View>
       <TouchableOpacity
         style={formSection3Styles.countriesTextContainer}
-        onPress={() =>
+        onPress={() => {
           navigation.navigate(roots.countriesCrossed, {
             setCountries: setVisitedCountries,
-          })
-        }>
+          });
+        }}>
         <Text
           style={[
             formSection3Styles.countriesText,
@@ -143,8 +156,14 @@ const mapStateToProps = state => {
     travellingFromCountry,
     travellingFromCity,
     travellingFromDate,
+    itineraryCountries,
   } = state.register.rergisterReducer;
-  return {travellingFromCountry, travellingFromCity, travellingFromDate};
+  return {
+    travellingFromCountry,
+    travellingFromCity,
+    travellingFromDate,
+    itineraryCountries,
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -154,6 +173,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: SET_TRAVELLING_CITY, travellingFromCity}),
   setTravellingDate: travellingDate =>
     dispatch({type: SET_TRAVELLING_DATE, travellingDate}),
+  setItineraryCountries: itineraryCountries =>
+    dispatch({type: SET_ITINERARY_COUNTRIES, itineraryCountries}),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormSection3);
