@@ -1,11 +1,10 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../../themes';
-import normalize from 'react-native-normalize';
 
 const generalButtonStyles = StyleSheet.create({
   buttonStyle: {
     backgroundColor: colors.darkBlue,
-    height: normalize(metrics.size46),
+    height: metrics.size46,
     marginHorizontal: metrics.size16,
     borderRadius: metrics.size7,
     justifyContent: 'center',
