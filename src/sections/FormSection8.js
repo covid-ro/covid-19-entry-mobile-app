@@ -23,7 +23,7 @@ const FormSection8 = ({
   setCough,
 }) => {
   return (
-    <ScrollView style={formSection8Styles.container}>
+    <View style={formSection8Styles.container}>
       <View style={formSection8Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form8Label}</Text>
       </View>
@@ -59,7 +59,7 @@ const FormSection8 = ({
           }}
         />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

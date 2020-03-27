@@ -1,5 +1,7 @@
 import {StyleSheet} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 const registerScreenStyles = StyleSheet.create({
   container: {
@@ -12,13 +14,19 @@ const registerScreenStyles = StyleSheet.create({
     borderWidth: metrics.size1,
     borderColor: colors.cardBorderGrey,
     justifyContent: 'flex-start',
-    paddingTop: metrics.size22,
+    paddingTop: normalize(metrics.size22),
     alignContent: 'center',
-    marginTop: metrics.size57,
-    marginBottom: metrics.size35,
+    marginTop: DeviceInfo.hasNotch() ? metrics.size57 : metrics.size25,
   },
-  marginBottom: {
-    marginBottom: metrics.size50,
+  generalButtonContainer: {
+    justifyContent: 'flex-end',
+    marginTop: DeviceInfo.hasNotch() ? metrics.size64 : metrics.size32,
+    marginBottom: DeviceInfo.hasNotch() ? metrics.size50 : metrics.size25,
+  },
+  contentContainer: {
+    flexGrow: 1,
+    justifyContent: 'space-between',
+    flexDirection: 'column',
   },
 });
 

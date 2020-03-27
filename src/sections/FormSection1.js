@@ -23,7 +23,7 @@ const FormSection1 = ({
   const CNPRef = useRef(null);
 
   return (
-    <ScrollView style={formSection1Styles.container}>
+    <View style={formSection1Styles.container}>
       <View style={formSection1Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form1Label}</Text>
       </View>
@@ -58,7 +58,7 @@ const FormSection1 = ({
         placeholderSeparatorStyle={formSection1Styles.inputPlaceholderSeparator}
         customContainerStyle={formSection1Styles.inputFieldStyle}
       />
-    </ScrollView>
+    </View>
   );
 };
 

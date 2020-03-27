@@ -13,7 +13,7 @@ const FormSection5 = ({email, setEmail}) => {
   const emailRef = useRef(null);
 
   return (
-    <ScrollView style={formSection5Styles.container}>
+    <View style={formSection5Styles.container}>
       <Text style={[labelStyles.textStyle, formSection5Styles.topTextStyle]}>
         {strings.form5Label}
       </Text>
@@ -44,7 +44,7 @@ const FormSection5 = ({email, setEmail}) => {
         style={[labelStyles.textStyle, formSection5Styles.alertMessageStyle]}>
         {strings.alertMessage}
       </Text>
-    </ScrollView>
+    </View>
   );
 };
 

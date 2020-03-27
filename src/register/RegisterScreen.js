@@ -1,6 +1,6 @@
 import React, {useRef, useCallback, useState} from 'react';
 import Carousel from 'react-native-snap-carousel';
-import {View, KeyboardAvoidingView, Platform} from 'react-native';
+import {View, KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
 import {registerScreenStyles} from './styles';
 import {ProgressHeader} from './components';
 import {metrics} from '../themes';
@@ -109,11 +109,28 @@ const RegisterScreen = ({navigation}) => {
   return (
     <View style={registerScreenStyles.container}>
       <ProgressHeader step={activeCard + 1} />
-      {Platform.OS === IOS ? (
-        <KeyboardAvoidingView
-          style={registerScreenStyles.container}
-          behavior="padding"
-          keyboardVerticalOffset={metrics.size30}>
+      <ScrollView contentContainerStyle={registerScreenStyles.contentContainer}>
+        {Platform.OS === IOS ? (
+          <KeyboardAvoidingView
+            style={registerScreenStyles.container}
+            behavior="padding"
+            keyboardVerticalOffset={metrics.size30}>
+            <Carousel
+              useScrollView
+              onSnapToItem={setActiveCard}
+              keyboardDismissMode="on-drag"
+              keyboardShouldPersistTaps="handled"
+              ref={carouselRef}
+              data={cards}
+              renderItem={renderItem}
+              sliderWidth={metrics.screenWidth}
+              itemWidth={metrics.cardWidth}
+              inactiveSlideOpacity={0.85}
+              inactiveSlideScale={0.93}
+              swipeThreshold={metrics.screenWidth * 0.1}
+            />
+          </KeyboardAvoidingView>
+        ) : (
           <Carousel
             useScrollView
             onSnapToItem={setActiveCard}
@@ -128,37 +145,22 @@ const RegisterScreen = ({navigation}) => {
             inactiveSlideScale={0.93}
             swipeThreshold={metrics.screenWidth * 0.1}
           />
-        </KeyboardAvoidingView>
-      ) : (
-        <Carousel
-          useScrollView
-          onSnapToItem={setActiveCard}
-          keyboardDismissMode="on-drag"
-          keyboardShouldPersistTaps="handled"
-          ref={carouselRef}
-          data={cards}
-          renderItem={renderItem}
-          sliderWidth={metrics.screenWidth}
-          itemWidth={metrics.cardWidth}
-          inactiveSlideOpacity={0.85}
-          inactiveSlideScale={0.93}
-          swipeThreshold={metrics.screenWidth * 0.1}
-        />
-      )}
-
-      <View style={registerScreenStyles.marginBottom}>
-        {activeCard !== 9 ? (
-          <GeneralButton
-            text={strings.urmatorul}
-            onPress={() => carouselRef.current.snapToNext()}
-          />
-        ) : (
-          <GeneralButton
-            text={strings.trimite}
-            onPress={() => navigation.navigate(roots.finishNavigator)}
-          />
         )}
-      </View>
+
+        <View style={registerScreenStyles.generalButtonContainer}>
+          {activeCard !== 9 ? (
+            <GeneralButton
+              text={strings.urmatorul}
+              onPress={() => carouselRef.current.snapToNext()}
+            />
+          ) : (
+            <GeneralButton
+              text={strings.trimite}
+              onPress={() => navigation.navigate(roots.finishNavigator)}
+            />
+          )}
+        </View>
+      </ScrollView>
     </View>
   );
 };

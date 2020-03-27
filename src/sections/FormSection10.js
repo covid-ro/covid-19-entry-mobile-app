@@ -8,7 +8,7 @@ import {labelStyles} from '../core/styles';
 const FormSection10 = () => {
   const [location, setLocation] = useState('');
   return (
-    <ScrollView>
+    <View>
       <Text style={[labelStyles.textStyle, formSection10Styles.textContainer]}>
         {strings.form10Label}
       </Text>
@@ -21,7 +21,7 @@ const FormSection10 = () => {
         multiline={true}
         customLabelStyle={formSection10Styles.customLabel}
       />
-    </ScrollView>
+    </View>
   );
 };
 

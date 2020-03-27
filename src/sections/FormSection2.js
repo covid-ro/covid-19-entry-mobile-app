@@ -22,7 +22,7 @@ const FormSection2 = ({
   const [cardSelected, setCardSelected] = useState(false);
   const numberRef = useRef(null);
   return (
-    <ScrollView style={formSection2Styles.container}>
+    <View style={formSection2Styles.container}>
       <View style={formSection2Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form2Label}</Text>
       </View>
@@ -66,7 +66,7 @@ const FormSection2 = ({
         onChangeText={setDocumentNumber}
         customContainerStyle={formSection2Styles.inputContainer}
       />
-    </ScrollView>
+    </View>
   );
 };
 

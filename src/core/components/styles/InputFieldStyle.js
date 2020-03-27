@@ -1,14 +1,15 @@
 import {StyleSheet} from 'react-native';
 import {metrics, colors} from '../../../themes/index';
+import normalize from 'react-native-normalize';
 
 export default StyleSheet.create({
   container: {
     marginHorizontal: metrics.size16,
-    marginTop: metrics.size7,
+    marginTop: normalize(metrics.size7),
   },
   inputStyle: {
     color: colors.darkGrey,
-    height: metrics.size18,
+    height: normalize(metrics.size18),
     fontSize: metrics.size15,
     fontWeight: 'normal',
     padding: metrics.size0,
@@ -16,7 +17,7 @@ export default StyleSheet.create({
   labelStyle: {
     color: colors.darkBlue,
     height: metrics.size15,
-    marginBottom: metrics.size10,
+    marginBottom: normalize(metrics.size10),
     fontSize: metrics.size13,
     fontWeight: '500',
     lineHeight: metrics.size15,

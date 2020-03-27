@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {metrics, colors} from '../../themes';
 import DeviceInfo from 'react-native-device-info';
+import normalize from 'react-native-normalize';
 
 const languageSelectionScreenStyles = StyleSheet.create({
   container: {
@@ -11,7 +12,9 @@ const languageSelectionScreenStyles = StyleSheet.create({
     height: metrics.size120,
     width: metrics.size120,
     alignSelf: 'center',
-    marginTop: DeviceInfo.hasNotch() ? metrics.size115 : metrics.size73,
+    marginTop: DeviceInfo.hasNotch()
+      ? normalize(metrics.size115)
+      : normalize(metrics.size73),
   },
   titleStyle: {
     color: colors.darkGrey,
@@ -28,12 +31,12 @@ const languageSelectionScreenStyles = StyleSheet.create({
     marginBottom: metrics.size10,
   },
   buttonContainer: {
-    marginTop: metrics.size34,
+    marginTop: normalize(metrics.size34),
   },
   bottomContainer: {
     flex: 1,
     justifyContent: 'flex-end',
-    marginBottom: metrics.size140,
+    marginBottom: normalize(metrics.size140),
   },
 });
 
