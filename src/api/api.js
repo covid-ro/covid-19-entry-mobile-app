@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://monitor-api.indispus.dev/';
+const API_BASE_URL = 'https://covid-api-dev.citizennext.ro/';
 
 export const sendPhoneNumber = async (phone, countryCode, phoneID) => {
   return axios
