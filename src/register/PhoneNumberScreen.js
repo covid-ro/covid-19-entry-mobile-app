@@ -26,8 +26,6 @@ const PhoneNumberScreen = ({navigation}) => {
 
   const handleSendNumber = useCallback(async () => {
     const countryCode = parseInt(dialCode, 10);
-    console.log(countryCode);
-    console.log(phoneNumber);
     if (phoneNumber === '') {
       Alert.alert(strings.completePhoneNumber);
     } else if (validators.phoneValidator(phoneNumber)) {
