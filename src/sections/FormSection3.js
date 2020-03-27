@@ -29,8 +29,8 @@ const FormSection3 = ({
   setTravellingCity,
   setTravellingDate,
   setItineraryCountries,
+  recomplete,
 }) => {
-  const [recompleteForm, setRecompleteForm] = useState(false);
   const [visitedCountries, setVisitedCountries] = useState(null);
   const navigation = useNavigation();
 
@@ -134,7 +134,7 @@ const FormSection3 = ({
             : formSection3Styles.separator
         }
       />
-      {recompleteForm && (
+      {recomplete && (
         <View style={formSection3Styles.recompleteTextContainer}>
           <Text style={formSection3Styles.grayText}>
             {strings.aceleasiDateAnterioare}
@@ -157,12 +157,14 @@ const mapStateToProps = state => {
     travellingFromCity,
     travellingFromDate,
     itineraryCountries,
+    recomplete,
   } = state.register.rergisterReducer;
   return {
     travellingFromCountry,
     travellingFromCity,
     travellingFromDate,
     itineraryCountries,
+    recomplete,
   };
 };
 

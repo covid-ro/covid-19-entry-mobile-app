@@ -1,4 +1,5 @@
 import React, {useRef, useCallback, useState} from 'react';
+import {connect} from 'react-redux';
 import Carousel from 'react-native-snap-carousel';
 import {View, KeyboardAvoidingView, Platform} from 'react-native';
 import {registerScreenStyles} from './styles';
@@ -20,8 +21,19 @@ import {strings} from '../core/strings';
 import {GeneralButton} from '../core/components';
 import {roots} from '../navigation';
 import {IOS} from '../core/constants';
+import {
+  SET_RECOMPLETE_DATA,
+  SET_RECOMPLETE,
+  RESET_STATE,
+} from './redux/actionTypes';
 
-const RegisterScreen = ({navigation}) => {
+const RegisterScreen = ({
+  navigation,
+  recompleteData,
+  setRecompleteData,
+  setRecomplete,
+  resetState,
+}) => {
   const carouselRef = useRef(null);
   const [activeCard, setActiveCard] = useState(0);
 
@@ -155,12 +167,27 @@ const RegisterScreen = ({navigation}) => {
         ) : (
           <GeneralButton
             text={strings.trimite}
-            onPress={() => navigation.navigate(roots.finishNavigator)}
+            onPress={() => {
+              resetState();
+              setRecomplete(true);
+              setRecompleteData();
+              navigation.navigate(roots.finishNavigator);
+            }}
           />
         )}
       </View>
     </View>
   );
 };
+const mapStateToProps = state => {
+  const {email, phoneNumber, recompleteData} = state.register.rergisterReducer;
+  return {email, phoneNumber, recompleteData};
+};
 
-export default RegisterScreen;
+const mapDispatchToProps = dispatch => ({
+  setRecompleteData: () => dispatch({type: SET_RECOMPLETE_DATA}),
+  setRecomplete: recomplete => dispatch({type: SET_RECOMPLETE, recomplete}),
+  resetState: () => dispatch({type: RESET_STATE}),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);

@@ -28,6 +28,9 @@ import {
   SET_REGISTRATION_NO,
   SET_CITIES_ROUTE,
   SET_PHONE_NUMBER,
+  SET_RECOMPLETE,
+  SET_RECOMPLETE_DATA,
+  RESET_STATE,
 } from './actionTypes';
 
 const INITIAL_STATE = {
@@ -58,6 +61,8 @@ const INITIAL_STATE = {
   vechicleType: '',
   registrationNo: '',
   citiesRoute: '',
+  recompleteData: null,
+  recomplete: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -224,6 +229,77 @@ export default (state = INITIAL_STATE, action) => {
           phoneNumber: action.phoneNumber,
         }),
       );
+
+    case SET_RECOMPLETE:
+      return produce(state, nextState => {
+        assign(nextState, {
+          recomplete: action.recomplete,
+        });
+      });
+    case SET_RECOMPLETE_DATA:
+      return produce(state, nextState => {
+        const {
+          travellingFromCountry,
+          travellingFromCity,
+          travellingFromDate,
+          itineraryCountries,
+          city,
+          county,
+          arrivalDate,
+          departureDate,
+          address,
+          vechicleType,
+          registrationNo,
+        } = state;
+        assign(nextState, {
+          recompleteData: {
+            travellingFromCountry: travellingFromCountry,
+            travellingFromCity: travellingFromCity,
+            travellingFromDate: travellingFromDate,
+            itineraryCountries: itineraryCountries,
+            city: city,
+            county: county,
+            arrivalDate: arrivalDate,
+            departureDate: departureDate,
+            address: address,
+            vechicleType: vechicleType,
+            registrationNo: registrationNo,
+          },
+        });
+      });
+
+    case RESET_STATE:
+      return produce(state, nextState => {
+        assign(nextState, {
+          firstName: '',
+          surname: '',
+          cnp: '',
+          documentType: '',
+          documentSeries: '',
+          documentNumber: '',
+          travellingFromCountry: '',
+          travellingFromCity: '',
+          travellingFromDate: '',
+          itineraryCountries: [],
+          city: '',
+          county: '',
+          arrivalDate: '',
+          departureDate: '',
+          address: '',
+          email: '',
+          phoneNumber: '',
+          question1: '',
+          question2: '',
+          question3: '',
+          fever: false,
+          swallow: false,
+          breathing: false,
+          cough: false,
+          vechicleType: '',
+          registrationNo: '',
+          citiesRoute: '',
+        });
+      });
     default:
       return state;
   }

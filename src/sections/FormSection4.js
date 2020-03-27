@@ -20,13 +20,13 @@ const FormSection4 = ({
   address,
   departureDate,
   arrivalDate,
+  recomplete,
   setCity,
   setCounty,
   setAddress,
   setArrrival,
   setDeparture,
 }) => {
-  const [recompleteForm, setRecompleteForm] = useState(false);
   const localitateRef = useRef(null);
   return (
     <ScrollView style={formSection4Styles.container}>
@@ -88,7 +88,7 @@ const FormSection4 = ({
         onChangeText={setAddress}
         placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
       />
-      {recompleteForm && (
+      {recomplete && (
         <View style={formSection4Styles.recompleteTextContainer}>
           <Text style={formSection4Styles.grayText}>
             {strings.aceleasiDateAnterioare}
@@ -112,8 +112,9 @@ const mapStateToProps = state => {
     address,
     departureDate,
     arrivalDate,
+    recomplete,
   } = state.register.rergisterReducer;
-  return {city, county, address, departureDate, arrivalDate};
+  return {city, county, address, departureDate, arrivalDate, recomplete};
 };
 
 const mapDispatchToProps = dispatch => ({
