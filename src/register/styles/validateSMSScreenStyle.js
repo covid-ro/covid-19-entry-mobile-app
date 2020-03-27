@@ -1,18 +1,19 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 export default StyleSheet.create({
   addCodeLabelStyle: {
     marginHorizontal: metrics.size16,
-    marginTop: metrics.size22,
+    marginTop: normalize(metrics.size22),
     lineHeight: metrics.size24,
     fontSize: metrics.size17,
     color: colors.gray,
     fontWeight: '500',
   },
-  buttonStyle: {marginTop: metrics.size30},
+  buttonStyle: {marginTop: normalize(metrics.size30)},
   inputFieldStyle: {
-    marginTop: metrics.size35,
+    marginTop: normalize(metrics.size35),
   },
   progressBarContainer: {
     paddingHorizontal: metrics.size16,
@@ -22,7 +23,7 @@ export default StyleSheet.create({
     marginTop: metrics.size30,
   },
   questionLabelStyle: {
-    marginTop: metrics.size40,
+    marginTop: normalize(metrics.size40),
     marginHorizontal: metrics.size16,
     textAlign: 'center',
     fontSize: metrics.size15,

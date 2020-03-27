@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 const formSection3Styles = StyleSheet.create({
   container: {
@@ -12,7 +13,7 @@ const formSection3Styles = StyleSheet.create({
     fontWeight: '500',
   },
   pickerContainer: {
-    marginTop: metrics.size27,
+    marginTop: normalize(metrics.size27),
     marginLeft: metrics.size16,
     marginRight: metrics.size16,
   },
@@ -22,7 +23,7 @@ const formSection3Styles = StyleSheet.create({
   },
   androidPicker: {
     left: -metrics.size8,
-    paddingBottom: metrics.size30,
+    paddingBottom: normalize(metrics.size30),
     width: metrics.screenWidth - metrics.size60,
     height: metrics.size18,
     color: colors.black4A,
@@ -115,9 +116,9 @@ const formSection3Styles = StyleSheet.create({
     color: colors.black4A,
   },
   countriesTextContainer: {
-    marginTop: metrics.size34,
-    minHeight: metrics.size18,
-    maxHeight: metrics.size100,
+    marginTop: normalize(metrics.size34),
+    minHeight: normalize(metrics.size18),
+    maxHeight: normalize(metrics.size100, 'height'),
     marginHorizontal: metrics.size16,
   },
   countriesText: {
@@ -129,7 +130,7 @@ const formSection3Styles = StyleSheet.create({
     color: colors.black4A,
   },
   recompleteTextContainer: {
-    marginTop: metrics.size30,
+    marginTop: normalize(metrics.size30),
     marginHorizontal: metrics.size16,
     marginBottom: metrics.size18,
   },
@@ -146,7 +147,7 @@ const formSection3Styles = StyleSheet.create({
     fontSize: metrics.size15,
   },
   bottomMargin: {
-    marginBottom: metrics.size25,
+    marginBottom: normalize(metrics.size25),
   },
 });
 

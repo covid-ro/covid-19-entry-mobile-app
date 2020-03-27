@@ -1,16 +1,17 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 const formSection2Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
   },
   buttonsContainer: {
-    marginTop: metrics.size32,
+    marginTop: normalize(metrics.size32),
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: metrics.size35,
-    marginBottom: metrics.size64,
+    marginHorizontal: normalize(metrics.size35),
+    marginBottom: normalize(metrics.size64),
   },
   textContainer: {
     marginHorizontal: metrics.size16,
@@ -22,7 +23,7 @@ const formSection2Styles = StyleSheet.create({
     fontWeight: '500',
   },
   inputContainer: {
-    marginBottom: metrics.size25,
+    marginBottom: normalize(metrics.size25),
   },
 });
 

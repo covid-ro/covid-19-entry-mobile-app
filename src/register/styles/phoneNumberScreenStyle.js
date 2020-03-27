@@ -1,19 +1,20 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 export default StyleSheet.create({
-  buttonStyle: {marginTop: metrics.size30},
+  buttonStyle: {marginTop: normalize(metrics.size30)},
   informationLabelStyle: {
     marginStart: metrics.size15,
     marginEnd: metrics.size15,
-    marginTop: metrics.size32,
+    marginTop: normalize(metrics.size32),
     lineHeight: metrics.size25,
     fontSize: metrics.size17,
     color: colors.gray,
     fontWeight: '500',
   },
   phoneLabel: {
-    marginTop: metrics.size43,
+    marginTop: normalize(metrics.size43),
     marginLeft: metrics.size15,
   },
   picker: {

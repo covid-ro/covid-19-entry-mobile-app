@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 const formSection9Styles = StyleSheet.create({
   container: {
@@ -8,17 +9,17 @@ const formSection9Styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: metrics.size35,
-    marginBottom: metrics.size54,
+    marginHorizontal: normalize(metrics.size35),
+    marginBottom: normalize(metrics.size54),
   },
   textContainer: {
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size29,
+    marginBottom: normalize(metrics.size29),
   },
   recompleteTextContainer: {
-    marginTop: metrics.size30,
+    marginTop: normalize(metrics.size30),
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size18,
+    marginBottom: normalize(metrics.size18),
   },
   grayText: {
     fontSize: metrics.size15,
@@ -29,7 +30,7 @@ const formSection9Styles = StyleSheet.create({
     marginHorizontal: metrics.size16,
   },
   vehicleInputContainer: {
-    marginBottom: metrics.size25,
+    marginBottom: normalize(metrics.size25),
   },
   blueText: {
     marginTop: metrics.size5,

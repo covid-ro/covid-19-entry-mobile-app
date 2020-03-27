@@ -4,15 +4,19 @@ import {formSection9Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton, InputField} from '../core/components';
 import {strings} from '../core/strings';
+import {
+  SET_REGISTRATION_NO,
+  SET_VECHICLE_TYPE,
+} from '../register/redux/actionTypes';
+import {connect} from 'react-redux';
 
-const FormSection8 = ({text}) => {
+const FormSection9 = ({registrationNo, setVechicleType, setRegistrationNo}) => {
   const [option1Selected, setOption1Selected] = useState(false);
   const [option2Selected, setOption2Selected] = useState(false);
-  const [autoNumber, setAutoNumber] = useState(false);
   const [recompleteForm, setRecompleteForm] = useState(false);
 
   return (
-    <ScrollView style={formSection9Styles.container}>
+    <View style={formSection9Styles.container}>
       <View style={formSection9Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form9Label}</Text>
       </View>
@@ -23,6 +27,7 @@ const FormSection8 = ({text}) => {
           onPress={() => {
             setOption1Selected(true);
             setOption2Selected(false);
+            setVechicleType('auto');
           }}
         />
         <SelectionButton
@@ -31,6 +36,7 @@ const FormSection8 = ({text}) => {
           onPress={() => {
             setOption1Selected(false);
             setOption2Selected(true);
+            setVechicleType('ambulance');
           }}
         />
       </View>
@@ -40,8 +46,8 @@ const FormSection8 = ({text}) => {
       <InputField
         placeholder={strings.placeholderAutomobil}
         customContainerStyle={formSection9Styles.vehicleInputContainer}
-        value={autoNumber}
-        onChangeText={setAutoNumber}
+        value={registrationNo}
+        onChangeText={setRegistrationNo}
       />
       {recompleteForm && (
         <View style={formSection9Styles.recompleteTextContainer}>
@@ -55,8 +61,20 @@ const FormSection8 = ({text}) => {
           </TouchableOpacity>
         </View>
       )}
-    </ScrollView>
+    </View>
   );
 };
 
-export default FormSection8;
+const mapStateToProps = state => {
+  const {registrationNo} = state.register.rergisterReducer;
+  return {registrationNo};
+};
+
+const mapDispatchToProps = dispatch => ({
+  setRegistrationNo: registrationNo =>
+    dispatch({type: SET_REGISTRATION_NO, registrationNo}),
+  setVechicleType: vechicleType =>
+    dispatch({type: SET_VECHICLE_TYPE, vechicleType}),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormSection9);

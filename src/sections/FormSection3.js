@@ -8,17 +8,27 @@ import {formSection3Styles} from './styles';
 import {strings} from '../core/strings';
 import {ANDROID} from '../core/constants';
 import {roots} from '../navigation';
+import {connect} from 'react-redux';
+import {
+  SET_TRAVELLING_COUNTRY,
+  SET_TRAVELLING_CITY,
+  SET_TRAVELLING_DATE,
+} from '../register/redux/actionTypes';
 
-const FormSection3 = () => {
-  const [country, setCountryValue] = useState(undefined);
-  const [county, setCountyValue] = useState(null);
-  const [date, setDateValue] = useState(null);
+const FormSection3 = ({
+  travellingFromCountry,
+  travellingFromDate,
+  travellingFromCity,
+  setTravellingCountry,
+  setTravellingCity,
+  setTravellingDate,
+}) => {
   const [recompleteForm, setRecompleteForm] = useState(false);
   const [visitedCountries, setVisitedCountries] = useState(null);
   const navigation = useNavigation();
 
   return (
-    <ScrollView style={formSection3Styles.container}>
+    <View style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{strings.form3Label}</Text>
       <View style={[formSection3Styles.pickerContainer]}>
         <Picker
@@ -27,8 +37,8 @@ const FormSection3 = () => {
               ? formSection3Styles.androidPicker
               : formSection3Styles.picker
           }
-          onValueChange={setCountryValue}
-          selectedValue={country}
+          onValueChange={setTravellingCountry}
+          selectedValue={travellingFromCountry}
           textStyle={formSection3Styles.pickerText}
           placeholder={strings.country}
           placeholderStyle={formSection3Styles.pickerPlaceHolder}
@@ -36,14 +46,14 @@ const FormSection3 = () => {
             <Icon name="arrow-down" style={formSection3Styles.pickerIcon} />
           }>
           {countries.map(item => (
-            <Picker.Item label={item.name} value={item.name} key={item.code} />
+            <Picker.Item label={item.name} value={item.code} key={item.code} />
           ))}
         </Picker>
       </View>
       {Platform.OS === ANDROID ? (
         <View
           style={
-            country
+            travellingFromCountry
               ? formSection3Styles.valueAndroidSeparator
               : formSection3Styles.androidPickerSeparator
           }
@@ -51,7 +61,7 @@ const FormSection3 = () => {
       ) : (
         <View
           style={
-            country
+            travellingFromCountry
               ? formSection3Styles.valueSeparator
               : formSection3Styles.separator
           }
@@ -59,8 +69,8 @@ const FormSection3 = () => {
       )}
       <InputField
         placeholder={strings.county}
-        value={county}
-        onChangeText={setCountyValue}
+        value={travellingFromCity}
+        onChangeText={setTravellingCity}
         placeholderSeparatorStyle={formSection3Styles.placeholderSeparatorStyle}
         focusedSeparatorStyle={formSection3Styles.focusedSeparatorStyle}
         autoCorrect={false}
@@ -71,12 +81,12 @@ const FormSection3 = () => {
           androidMode={'default'}
           placeHolderText={strings.data}
           placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
-          onDateChange={setDateValue}
+          onDateChange={setTravellingDate}
           textStyle={formSection3Styles.datePickerTextStyle}
         />
         <View
           style={
-            date
+            travellingFromDate
               ? formSection3Styles.valueDatePickerSeparator
               : formSection3Styles.datePickerSeparator
           }
@@ -124,7 +134,26 @@ const FormSection3 = () => {
         </View>
       )}
       <View style={formSection3Styles.bottomMargin} />
-    </ScrollView>
+    </View>
   );
 };
-export default FormSection3;
+
+const mapStateToProps = state => {
+  const {
+    travellingFromCountry,
+    travellingFromCity,
+    travellingFromDate,
+  } = state.register.rergisterReducer;
+  return {travellingFromCountry, travellingFromCity, travellingFromDate};
+};
+
+const mapDispatchToProps = dispatch => ({
+  setTravellingCountry: travellingCountry =>
+    dispatch({type: SET_TRAVELLING_COUNTRY, travellingCountry}),
+  setTravellingCity: travellingFromCity =>
+    dispatch({type: SET_TRAVELLING_CITY, travellingFromCity}),
+  setTravellingDate: travellingDate =>
+    dispatch({type: SET_TRAVELLING_DATE, travellingDate}),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormSection3);

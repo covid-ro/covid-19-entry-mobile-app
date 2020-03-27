@@ -23,6 +23,9 @@ const InputField = ({
   defaultValue,
   customContainerStyle,
   customLabelStyle,
+  onSubmitEditing,
+  blurOnSubmit,
+  inputRef,
 }) => {
   const [isFocused, setFocus] = useState(false);
   return (
@@ -31,6 +34,7 @@ const InputField = ({
         {isFocused && placeholder}
       </Text>
       <TextInput
+        ref={inputRef}
         maxLength={maxLength}
         secureTextEntry={secureTextEntry}
         placeholder={isFocused ? '' : placeholder}
@@ -54,6 +58,8 @@ const InputField = ({
         autoCapitalize={autoCapitalize}
         returnKeyType={returnKeyType}
         keyboardType={keyboardType}
+        onSubmitEditing={onSubmitEditing}
+        blurOnSubmit={blurOnSubmit}
       />
 
       <View

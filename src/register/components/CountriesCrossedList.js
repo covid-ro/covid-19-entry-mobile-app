@@ -10,7 +10,7 @@ const CountriesCrossedList = ({countries, getCountries}) => {
     id => {
       const newSelected = new Map(selected);
       newSelected.set(id, !selected.get(id));
-
+      console.log(newSelected);
       setSelected(newSelected);
       getCountries(newSelected);
     },
