@@ -10,7 +10,7 @@ import {SET_CITIES_ROUTE} from '../register/redux/actionTypes';
 const FormSection10 = ({citiesRoute, setCitiesRoute}) => {
   const [location, setLocation] = useState('');
   return (
-    <ScrollView>
+    <View>
       <Text style={[labelStyles.textStyle, formSection10Styles.textContainer]}>
         {strings.form10Label}
       </Text>
@@ -23,7 +23,7 @@ const FormSection10 = ({citiesRoute, setCitiesRoute}) => {
         multiline={true}
         customLabelStyle={formSection10Styles.customLabel}
       />
-    </ScrollView>
+    </View>
   );
 };
 

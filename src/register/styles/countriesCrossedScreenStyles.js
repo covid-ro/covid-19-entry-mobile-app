@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 const countriesCrossedScreenStyles = StyleSheet.create({
   container: {
@@ -7,7 +8,7 @@ const countriesCrossedScreenStyles = StyleSheet.create({
     backgroundColor: colors.grayBackground,
   },
   description: {
-    marginTop: metrics.size22,
+    marginTop: normalize(metrics.size22),
     color: colors.gray,
     marginHorizontal: metrics.size16,
     fontSize: metrics.size17,

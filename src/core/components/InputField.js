@@ -20,6 +20,7 @@ const InputField = ({
   placeholderSeparatorStyle,
   focusedSeparatorStyle,
   customInputStyle,
+  defaultValue,
   customContainerStyle,
   customLabelStyle,
   onSubmitEditing,
@@ -40,6 +41,7 @@ const InputField = ({
         placeholderTextColor={colors.opacityGrey}
         style={[styles.inputStyle, customInputStyle]}
         value={value}
+        defaultValue={defaultValue}
         selectionColor={colors.darkBlue}
         editable={editable}
         autoFocus={autoFocus}

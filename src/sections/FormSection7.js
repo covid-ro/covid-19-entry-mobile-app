@@ -12,7 +12,7 @@ const FormSection7 = ({question3, setQuestion3}) => {
   const [noSelected, setNoSelected] = useState(false);
 
   return (
-    <ScrollView style={formSection7Styles.container}>
+    <View style={formSection7Styles.container}>
       <View style={formSection7Styles.textContainer}>
         <Text style={labelStyles.textStyle}>{strings.form7Label}</Text>
       </View>
@@ -36,7 +36,7 @@ const FormSection7 = ({question3, setQuestion3}) => {
           }}
         />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

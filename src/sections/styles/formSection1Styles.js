@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 const formSection1Styles = StyleSheet.create({
   container: {
@@ -17,7 +18,7 @@ const formSection1Styles = StyleSheet.create({
     borderColor: colors.lightGrey,
   },
   inputFieldStyle: {
-    marginBottom: metrics.size25,
+    marginBottom: normalize(metrics.size25),
   },
 });
 

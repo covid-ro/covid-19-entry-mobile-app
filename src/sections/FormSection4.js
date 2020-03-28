@@ -43,7 +43,7 @@ const FormSection4 = ({
     arrivalPickerRef.setDate(arrivalDate);
   };
   return (
-    <ScrollView style={formSection4Styles.container}>
+    <View style={formSection4Styles.container}>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
         {strings.form4Label}
       </Text>
@@ -117,7 +117,7 @@ const FormSection4 = ({
         </View>
       )}
       <View style={formSection4Styles.bottomMargin} />
-    </ScrollView>
+    </View>
   );
 };
 

@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors, metrics} from '../../themes';
+import normalize from 'react-native-normalize';
 
 const formSection6Styles = StyleSheet.create({
   container: {
@@ -13,13 +14,13 @@ const formSection6Styles = StyleSheet.create({
   },
   textContainer: {
     marginHorizontal: metrics.size16,
-    marginBottom: metrics.size27,
+    marginBottom: normalize(metrics.size27),
   },
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: metrics.size35,
-    marginBottom: metrics.size40,
+    marginBottom: normalize(metrics.size40),
   },
 });
 

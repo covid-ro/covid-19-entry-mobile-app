@@ -57,7 +57,7 @@ const FormSection3 = ({
     datePickerRef.setDate(travellingFromDate);
   };
   return (
-    <ScrollView style={formSection3Styles.container}>
+    <View style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{strings.form3Label}</Text>
       <View style={[formSection3Styles.pickerContainer]}>
         <Picker
@@ -164,7 +164,7 @@ const FormSection3 = ({
         </View>
       )}
       <View style={formSection3Styles.bottomMargin} />
-    </ScrollView>
+    </View>
   );
 };
 
