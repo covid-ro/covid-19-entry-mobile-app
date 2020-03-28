@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {View, Text, TouchableOpacity, Platform, ScrollView} from 'react-native';
 import {Picker, DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
@@ -25,13 +25,15 @@ const FormSection3 = ({
   travellingFromDate,
   travellingFromCity,
   itineraryCountries,
+  recompleteData,
+  recomplete,
   setTravellingCountry,
   setTravellingCity,
   setTravellingDate,
   setItineraryCountries,
-  recomplete,
 }) => {
   const [visitedCountries, setVisitedCountries] = useState(null);
+  let datePickerRef = useRef(null);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -40,6 +42,20 @@ const FormSection3 = ({
       setItineraryCountries(countriesCodes);
     }
   }, [visitedCountries]);
+
+  const onPressReuseData = () => {
+    const {
+      travellingFromCity,
+      travellingFromCountry,
+      travellingFromDate,
+      itineraryCountries,
+    } = recompleteData;
+    setTravellingCountry(travellingFromCountry);
+    setTravellingDate(travellingFromDate);
+    setTravellingCity(travellingFromCity);
+    setItineraryCountries(itineraryCountries);
+    datePickerRef.setDate(travellingFromDate);
+  };
   return (
     <ScrollView style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{strings.form3Label}</Text>
@@ -91,6 +107,7 @@ const FormSection3 = ({
       />
       <View style={formSection3Styles.dateContainer}>
         <DatePicker
+          ref={ref => (datePickerRef = ref)}
           androidMode={'default'}
           placeHolderText={strings.data}
           placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
@@ -139,7 +156,7 @@ const FormSection3 = ({
           <Text style={formSection3Styles.grayText}>
             {strings.aceleasiDateAnterioare}
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => onPressReuseData()}>
             <Text style={formSection3Styles.blueText}>
               {strings.folosesteDateAnterioare}
             </Text>
@@ -158,6 +175,7 @@ const mapStateToProps = state => {
     travellingFromDate,
     itineraryCountries,
     recomplete,
+    recompleteData,
   } = state.register.rergisterReducer;
   return {
     travellingFromCountry,
@@ -165,6 +183,7 @@ const mapStateToProps = state => {
     travellingFromDate,
     itineraryCountries,
     recomplete,
+    recompleteData,
   };
 };
 

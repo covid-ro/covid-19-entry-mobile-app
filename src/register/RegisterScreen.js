@@ -168,10 +168,11 @@ const RegisterScreen = ({
           <GeneralButton
             text={strings.trimite}
             onPress={() => {
-              resetState();
               setRecomplete(true);
               setRecompleteData();
+              resetState();
               navigation.navigate(roots.finishNavigator);
+              carouselRef.current.snapToItem(0);
             }}
           />
         )}

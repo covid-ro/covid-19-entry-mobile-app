@@ -13,11 +13,21 @@ import {connect} from 'react-redux';
 const FormSection9 = ({
   registrationNo,
   recomplete,
+  recompleteData,
   setVechicleType,
   setRegistrationNo,
 }) => {
   const [option1Selected, setOption1Selected] = useState(false);
   const [option2Selected, setOption2Selected] = useState(false);
+
+  const onPressReuseData = () => {
+    const {registrationNo, vechicleType} = recompleteData;
+    setRegistrationNo(registrationNo);
+    setVechicleType(vechicleType);
+    vechicleType === 'auto'
+      ? setOption1Selected(true)
+      : setOption2Selected(true);
+  };
 
   return (
     <ScrollView style={formSection9Styles.container}>
@@ -58,7 +68,7 @@ const FormSection9 = ({
           <Text style={formSection9Styles.grayText}>
             {strings.aceleasiDateAnterioare}
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => onPressReuseData()}>
             <Text style={formSection9Styles.blueText}>
               {strings.folosesteDateAnterioare}
             </Text>
@@ -70,8 +80,12 @@ const FormSection9 = ({
 };
 
 const mapStateToProps = state => {
-  const {registrationNo, recomplete} = state.register.rergisterReducer;
-  return {registrationNo, recomplete};
+  const {
+    registrationNo,
+    recomplete,
+    recompleteData,
+  } = state.register.rergisterReducer;
+  return {registrationNo, recomplete, recompleteData};
 };
 
 const mapDispatchToProps = dispatch => ({

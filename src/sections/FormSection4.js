@@ -21,6 +21,7 @@ const FormSection4 = ({
   departureDate,
   arrivalDate,
   recomplete,
+  recompleteData,
   setCity,
   setCounty,
   setAddress,
@@ -28,6 +29,19 @@ const FormSection4 = ({
   setDeparture,
 }) => {
   const localitateRef = useRef(null);
+  let arrivalPickerRef = useRef(null);
+  let departurePickerRef = useRef(null);
+
+  const onPressReuseData = () => {
+    const {city, county, address, departureDate, arrivalDate} = recompleteData;
+    setCity(city);
+    setCounty(county);
+    setAddress(address);
+    setDeparture(departureDate);
+    setArrrival(arrivalDate);
+    departurePickerRef.setDate(departureDate);
+    arrivalPickerRef.setDate(arrivalDate);
+  };
   return (
     <ScrollView style={formSection4Styles.container}>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
@@ -54,6 +68,7 @@ const FormSection4 = ({
       />
       <View style={formSection4Styles.datepickerContainer}>
         <DatePicker
+          ref={ref => (departurePickerRef = ref)}
           placeHolderText={strings.dataPlecarii}
           placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
           onDateChange={setDeparture}
@@ -69,6 +84,7 @@ const FormSection4 = ({
       </View>
       <View style={formSection4Styles.datepickerContainer}>
         <DatePicker
+          ref={ref => (arrivalPickerRef = ref)}
           placeHolderText={strings.dataSosirii}
           placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
           onDateChange={setArrrival}
@@ -93,7 +109,7 @@ const FormSection4 = ({
           <Text style={formSection4Styles.grayText}>
             {strings.aceleasiDateAnterioare}
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => onPressReuseData()}>
             <Text style={formSection4Styles.blueText}>
               {strings.folosesteDateAnterioare}
             </Text>
@@ -113,8 +129,17 @@ const mapStateToProps = state => {
     departureDate,
     arrivalDate,
     recomplete,
+    recompleteData,
   } = state.register.rergisterReducer;
-  return {city, county, address, departureDate, arrivalDate, recomplete};
+  return {
+    city,
+    county,
+    address,
+    departureDate,
+    arrivalDate,
+    recomplete,
+    recompleteData,
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
