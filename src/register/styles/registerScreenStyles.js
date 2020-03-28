@@ -28,6 +28,7 @@ const registerScreenStyles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
+  marginBottom: {marginBottom: 50},
 });
 
 export default registerScreenStyles;

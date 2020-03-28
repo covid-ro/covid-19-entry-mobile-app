@@ -8,10 +8,10 @@ import {labelStyles} from '../core/styles';
 import {SET_EMAIL, SET_PHONE_NUMBER} from '../register/redux/actionTypes';
 import {connect} from 'react-redux';
 
-const FormSection5 = ({email, phoneNumber, setEmail, setPhoneNumber}) => {
+const FormSection5 = ({email, phoneNumber, setEmail}) => {
   const [locationValue, setLocationValue] = useState(undefined);
   const emailRef = useRef(null);
-
+  console.log(phoneNumber);
   return (
     <View style={formSection5Styles.container}>
       <Text style={[labelStyles.textStyle, formSection5Styles.topTextStyle]}>
@@ -21,7 +21,7 @@ const FormSection5 = ({email, phoneNumber, setEmail, setPhoneNumber}) => {
         <InputField
           placeholder={strings.telefonValid}
           value={phoneNumber}
-          onChangeText={setPhoneNumber}
+          editable={false}
           returnKeyType={'next'}
           onSubmitEditing={() => {
             emailRef.current.focus();

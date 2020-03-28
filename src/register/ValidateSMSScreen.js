@@ -9,8 +9,10 @@ import {TouchableOpacity} from 'react-native';
 import {roots} from '../navigation';
 import {sendPhoneNumber, sendCode} from '../api';
 import {colors} from '../themes';
+import {connect} from 'react-redux';
+import {SET_PHONE_NUMBER} from './redux/actionTypes';
 
-const ValidateSMSScreen = ({route, navigation}) => {
+const ValidateSMSScreen = ({route, navigation, setPhoneNumber}) => {
   const [step, setStep] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const [code, setCode] = useState('');
@@ -37,16 +39,18 @@ const ValidateSMSScreen = ({route, navigation}) => {
   }, [route]);
 
   const handleSendCode = useCallback(async () => {
+    const {phoneNumber} = route.params;
     setIsSending(true);
     const response = await sendCode(code, DeviceInfo.getUniqueId());
     if (response.status === 200) {
       setIsSending(false);
+      setPhoneNumber(phoneNumber);
       navigation.navigate(roots.registerStack);
     } else {
       setIsSending(false);
       Alert.alert(response.data.message);
     }
-  }, [code, navigation]);
+  }, [code, navigation, route, setPhoneNumber]);
 
   return (
     <View>
@@ -79,4 +83,9 @@ const ValidateSMSScreen = ({route, navigation}) => {
   );
 };
 
-export default ValidateSMSScreen;
+const mapDispatchToProps = dispatch => ({
+  setPhoneNumber: phoneNumber =>
+    dispatch({type: SET_PHONE_NUMBER, phoneNumber}),
+});
+
+export default connect(mapDispatchToProps)(ValidateSMSScreen);
