@@ -18,7 +18,7 @@ import {colors} from '../themes';
 import {sendPhoneNumber} from '../api';
 
 const PhoneNumberScreen = ({navigation}) => {
-  const [phoneNumber, setPhoneNumber] = useState(undefined);
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [dialCode, setDialCode] = useState('+40');
   const [isFocused, setFocus] = useState();
   const [modal, setModal] = useState(false);

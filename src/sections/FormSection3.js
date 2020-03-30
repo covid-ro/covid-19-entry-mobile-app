@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, Text, TouchableOpacity, Platform, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, Platform} from 'react-native';
 import {Picker, DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
 import {InputField} from '../core/components';
