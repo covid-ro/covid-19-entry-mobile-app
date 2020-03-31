@@ -7,6 +7,7 @@ import {
   countries,
   getVisitedCountries,
   getVisitedCountriesCodes,
+  getCountriesBasedOnCodes,
 } from '../core/utils';
 import {formSection3Styles} from './styles';
 import {strings} from '../core/strings';
@@ -33,6 +34,7 @@ const FormSection3 = ({
   setItineraryCountries,
 }) => {
   const [visitedCountries, setVisitedCountries] = useState(null);
+  const [countriesCrossed, setCountriesCrossed] = useState(null);
   let datePickerRef = useRef(null);
   const navigation = useNavigation();
 
@@ -55,6 +57,7 @@ const FormSection3 = ({
     setTravellingCity(travellingFromCity);
     setItineraryCountries(itineraryCountries);
     datePickerRef.setDate(travellingFromDate);
+    setCountriesCrossed(getCountriesBasedOnCodes(itineraryCountries));
   };
   return (
     <View style={formSection3Styles.container}>
@@ -137,16 +140,19 @@ const FormSection3 = ({
         <Text
           style={[
             formSection3Styles.countriesText,
-            visitedCountries && formSection3Styles.selectedCountriesText,
+            (visitedCountries || countriesCrossed) &&
+              formSection3Styles.selectedCountriesText,
           ]}>
           {visitedCountries
             ? getVisitedCountries(visitedCountries)
+            : countriesCrossed
+            ? countriesCrossed
             : strings.selectCountries}
         </Text>
       </TouchableOpacity>
       <View
         style={
-          visitedCountries
+          visitedCountries || countriesCrossed
             ? formSection3Styles.valueSeparator
             : formSection3Styles.separator
         }
