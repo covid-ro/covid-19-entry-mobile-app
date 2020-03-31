@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {getUserToken} from '../core/utils';
 
 const API_BASE_URL = 'https://covid-api-dev.citizennext.ro/';
 
@@ -49,8 +50,9 @@ export const sendCode = async (code, phoneID) => {
     });
 };
 
-export const sendDeclaration = async declaration =>
-  axios
+export const sendDeclaration = async declaration => {
+  const userToken = await getUserToken();
+  return axios
     .post(
       `${API_BASE_URL}/declaration`,
       {
@@ -59,14 +61,14 @@ export const sendDeclaration = async declaration =>
       {
         headers: {
           'X-API-KEY': 'Zeileeg4xahdi4zixeaquo0aothooj0b',
+          authorization: userToken ? `Bearer ${userToken}` : '',
         },
       },
     )
     .then(response => {
-      console.log(response);
       return response;
     })
     .catch(error => {
-      console.log(error.response);
       return error.response;
     });
+};

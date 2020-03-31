@@ -11,6 +11,7 @@ import {sendPhoneNumber, sendCode} from '../api';
 import {colors} from '../themes';
 import {connect} from 'react-redux';
 import {SET_PHONE_NUMBER} from './redux/actionTypes';
+import {setUserToken} from '../core/utils';
 
 const ValidateSMSScreen = ({route, navigation, setPhoneNumber}) => {
   const [step, setStep] = useState(0);
@@ -43,6 +44,7 @@ const ValidateSMSScreen = ({route, navigation, setPhoneNumber}) => {
     setIsSending(true);
     const response = await sendCode(code, DeviceInfo.getUniqueId());
     if (response.status === 200) {
+      setUserToken(response.data.token);
       setIsSending(false);
       setPhoneNumber(phoneNumber);
       navigation.navigate(roots.registerStack);
@@ -68,7 +70,10 @@ const ValidateSMSScreen = ({route, navigation, setPhoneNumber}) => {
         {isSending ? (
           <ActivityIndicator size="large" color={colors.darkBlue} />
         ) : (
-          <GeneralButton text={strings.save} onPress={handleSendCode} />
+          <GeneralButton
+            text={strings.save}
+            onPress={navigation.navigate(roots.registerStack)}
+          />
         )}
       </View>
       <Text style={styles.questionLabelStyle}>
@@ -88,4 +93,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: SET_PHONE_NUMBER, phoneNumber}),
 });
 
-export default connect(mapDispatchToProps)(ValidateSMSScreen);
+export default connect(null, mapDispatchToProps)(ValidateSMSScreen);

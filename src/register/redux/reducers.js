@@ -31,6 +31,7 @@ import {
   SET_RECOMPLETE,
   SET_RECOMPLETE_DATA,
   RESET_STATE,
+  SET_DECLARATION_CODE,
 } from './actionTypes';
 
 const INITIAL_STATE = {
@@ -63,6 +64,7 @@ const INITIAL_STATE = {
   citiesRoute: '',
   recompleteData: null,
   recomplete: false,
+  declarationCodes: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -229,7 +231,12 @@ export default (state = INITIAL_STATE, action) => {
           phoneNumber: action.phoneNumber,
         }),
       );
-
+    case SET_DECLARATION_CODE:
+      return produce(state, nextState =>
+        assign(nextState, {
+          declarationCodes: action.declarationCodes,
+        }),
+      );
     case SET_RECOMPLETE:
       return produce(state, nextState => {
         assign(nextState, {
