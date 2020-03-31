@@ -48,3 +48,25 @@ export const sendCode = async (code, phoneID) => {
       return error.response;
     });
 };
+
+export const sendDeclaration = async declaration =>
+  axios
+    .post(
+      `${API_BASE_URL}/declaration`,
+      {
+        ...declaration,
+      },
+      {
+        headers: {
+          'X-API-KEY': 'Zeileeg4xahdi4zixeaquo0aothooj0b',
+        },
+      },
+    )
+    .then(response => {
+      console.log(response);
+      return response;
+    })
+    .catch(error => {
+      console.log(error.response);
+      return error.response;
+    });

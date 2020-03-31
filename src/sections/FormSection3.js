@@ -41,7 +41,7 @@ const FormSection3 = ({
       const countriesCodes = getVisitedCountriesCodes(visitedCountries);
       setItineraryCountries(countriesCodes);
     }
-  }, [visitedCountries]);
+  }, [visitedCountries, setItineraryCountries]);
 
   const onPressReuseData = () => {
     const {

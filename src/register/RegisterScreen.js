@@ -1,7 +1,14 @@
 import React, {useRef, useCallback, useState} from 'react';
 import {connect} from 'react-redux';
 import Carousel from 'react-native-snap-carousel';
-import {View, KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
+import {
+  View,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  Alert,
+  ActivityIndicator,
+} from 'react-native';
 import {registerScreenStyles} from './styles';
 import {ProgressHeader} from './components';
 import {metrics} from '../themes';
@@ -20,12 +27,14 @@ import {
 import {strings} from '../core/strings';
 import {GeneralButton} from '../core/components';
 import {roots} from '../navigation';
+import {colors} from '../themes';
 import {IOS} from '../core/constants';
 import {
   SET_RECOMPLETE_DATA,
   SET_RECOMPLETE,
   RESET_STATE,
 } from './redux/actionTypes';
+import {sendDeclaration} from '../api';
 
 const RegisterScreen = ({
   navigation,
@@ -33,9 +42,35 @@ const RegisterScreen = ({
   setRecompleteData,
   setRecomplete,
   resetState,
+  email,
+  firstName,
+  surname,
+  cnp,
+  documentType,
+  documentSeries,
+  documentNumber,
+  travellingFromCountry,
+  travellingFromCity,
+  travellingFromDate,
+  itineraryCountries,
+  city,
+  county,
+  arrivalDate,
+  departureDate,
+  address,
+  question1,
+  question2,
+  question3,
+  fever,
+  swallow,
+  breathing,
+  cough,
+  vechicleType,
+  registrationNo,
 }) => {
   const carouselRef = useRef(null);
   const [activeCard, setActiveCard] = useState(0);
+  const [isSending, setIsSending] = useState(false);
 
   const cards = [
     {id: 0, data: 'card 1'},
@@ -49,6 +84,80 @@ const RegisterScreen = ({
     {id: 8, data: 'card 9'},
     {id: 9, data: 'card 10'},
   ];
+
+  const handleSendDeclaration = useCallback(async () => {
+    setIsSending(true);
+    const response = sendDeclaration({
+      firstName,
+      surname,
+      email,
+      cnp,
+      document_type: documentType,
+      document_series: documentSeries,
+      document_number: documentNumber,
+      travelling_from_country_code: travellingFromCountry,
+      travelling_from_city: travellingFromCity,
+      travelling_from_date: travellingFromDate,
+      isolation_addresses: {
+        city,
+        county,
+        city_full_address: address,
+        city_arrival_date: arrivalDate,
+        city_departure_date: departureDate,
+      },
+      question_1_answer: question1,
+      question_2_answer: question2,
+      question_3_answer: question3,
+      symptom_fever: fever,
+      symptom_swallow: swallow,
+      symptom_breathing: breathing,
+      symptom_cough: cough,
+      itinerary_countries: itineraryCountries,
+      vehicle_type: vechicleType,
+      vehicle_registration_no: registrationNo,
+    });
+
+    if (response.status === 200) {
+      setIsSending(false);
+      setRecomplete(true);
+      setRecompleteData();
+      navigation.navigate(roots.finishNavigator);
+      resetState();
+    } else {
+      setIsSending(false);
+      Alert.alert(response.data.message);
+    }
+  }, [
+    navigation,
+    setRecomplete,
+    setRecompleteData,
+    resetState,
+    email,
+    firstName,
+    surname,
+    cnp,
+    documentType,
+    documentSeries,
+    documentNumber,
+    travellingFromCountry,
+    travellingFromCity,
+    travellingFromDate,
+    itineraryCountries,
+    city,
+    county,
+    arrivalDate,
+    departureDate,
+    address,
+    question1,
+    question2,
+    question3,
+    fever,
+    swallow,
+    breathing,
+    cough,
+    vechicleType,
+    registrationNo,
+  ]);
 
   const renderItem = useCallback(({item, index}) => {
     switch (index) {
@@ -165,15 +274,12 @@ const RegisterScreen = ({
               text={strings.urmatorul}
               onPress={() => carouselRef.current.snapToNext()}
             />
+          ) : isSending ? (
+            <ActivityIndicator size="large" color={colors.darkBlue} />
           ) : (
             <GeneralButton
               text={strings.trimite}
-              onPress={() => {
-                setRecomplete(true);
-                setRecompleteData();
-                navigation.navigate(roots.finishNavigator);
-                resetState();
-              }}
+              onPress={handleSendDeclaration}
             />
           )}
         </View>
@@ -182,8 +288,66 @@ const RegisterScreen = ({
   );
 };
 const mapStateToProps = state => {
-  const {email, phoneNumber, recompleteData} = state.register.rergisterReducer;
-  return {email, phoneNumber, recompleteData};
+  const {
+    email,
+    phoneNumber,
+    recompleteData,
+    firstName,
+    surname,
+    cnp,
+    documentType,
+    documentSeries,
+    documentNumber,
+    travellingFromCountry,
+    travellingFromCity,
+    travellingFromDate,
+    itineraryCountries,
+    city,
+    county,
+    arrivalDate,
+    departureDate,
+    address,
+    question1,
+    question2,
+    question3,
+    fever,
+    swallow,
+    breathing,
+    cough,
+    vechicleType,
+    registrationNo,
+    citiesRoute,
+  } = state.register.rergisterReducer;
+  return {
+    email,
+    phoneNumber,
+    recompleteData,
+    firstName,
+    surname,
+    cnp,
+    documentType,
+    documentSeries,
+    documentNumber,
+    travellingFromCountry,
+    travellingFromCity,
+    travellingFromDate,
+    itineraryCountries,
+    city,
+    county,
+    arrivalDate,
+    departureDate,
+    address,
+    question1,
+    question2,
+    question3,
+    fever,
+    swallow,
+    breathing,
+    cough,
+    vechicleType,
+    registrationNo,
+    citiesRoute,
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -192,7 +356,4 @@ const mapDispatchToProps = dispatch => ({
   resetState: () => dispatch({type: RESET_STATE}),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(RegisterScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);

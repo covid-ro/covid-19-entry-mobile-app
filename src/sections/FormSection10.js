@@ -8,7 +8,6 @@ import {labelStyles} from '../core/styles';
 import {SET_CITIES_ROUTE} from '../register/redux/actionTypes';
 
 const FormSection10 = ({citiesRoute, setCitiesRoute}) => {
-  const [location, setLocation] = useState('');
   return (
     <View>
       <Text style={[labelStyles.textStyle, formSection10Styles.textContainer]}>
