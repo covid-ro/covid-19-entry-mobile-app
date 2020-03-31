@@ -11,7 +11,6 @@ import {connect} from 'react-redux';
 const FormSection5 = ({email, phoneNumber, setEmail}) => {
   const [locationValue, setLocationValue] = useState(undefined);
   const emailRef = useRef(null);
-  console.log(phoneNumber);
   return (
     <View style={formSection5Styles.container}>
       <Text style={[labelStyles.textStyle, formSection5Styles.topTextStyle]}>
