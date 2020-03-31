@@ -7,35 +7,22 @@ import {strings} from '../core/strings';
 import {roots} from '../navigation';
 import {connect} from 'react-redux';
 
-const FinishScreen = ({navigation, firstName, surname}) => {
-  const codes = [
-    {name: 'Antohi Claudiu', code: 'CJ12WIP1'},
-    {name: 'Antohi Dana', code: 'CJ12WIP2'},
-    {name: 'Antohi Dana', code: 'CJ12WIP3'},
-    {name: 'Antohi Claudiu', code: 'CJ12WIP1'},
-    {name: 'Antohi Dana', code: 'CJ12WIP2'},
-    {name: 'Antohi Dana', code: 'CJ12WIP3'},
-    {name: 'Antohi Claudiu', code: 'CJ12WIP1'},
-    {name: 'Antohi Dana', code: 'CJ12WIP2'},
-    {name: 'Antohi Dana', code: 'CJ12WIP3'},
-  ];
-
+const FinishScreen = ({navigation, declarationCodes}) => {
   const [recompleteForm, setRecompleteForm] = useState(false);
   return (
-    <ScrollView style={finishScreenStyles.container}>
+    <View style={finishScreenStyles.container}>
       <ProgressHeader step={10} />
-      <View style={finishScreenStyles.codeContainer}>
-        <Text style={finishScreenStyles.codeLabelStyle}>
-          {strings.finishScreenCodeLabel}
-        </Text>
-        {!recompleteForm && (
-          <Text style={finishScreenStyles.codeStyle}>CJ12WIP</Text>
-        )}
-      </View>
-      {recompleteForm ? (
+      <ScrollView
+        style={finishScreenStyles.container}
+        contentContainerStyle={finishScreenStyles.contentContainer}>
         <View style={finishScreenStyles.listStyle}>
+          <View style={finishScreenStyles.codeContainer}>
+            <Text style={finishScreenStyles.codeLabelStyle}>
+              {strings.finishScreenCodeLabel}
+            </Text>
+          </View>
           <FlatList
-            data={codes}
+            data={declarationCodes}
             renderItem={({item}) => (
               <View style={finishScreenStyles.codeContainer}>
                 <Text style={finishScreenStyles.nameTextStyle}>
@@ -51,38 +38,39 @@ const FinishScreen = ({navigation, firstName, surname}) => {
             keyExtractor={item => item.name}
           />
         </View>
-      ) : (
-        <View style={finishScreenStyles.card}>
-          <Text style={finishScreenStyles.title}>
-            {strings.finishScreenFirstLine}
-          </Text>
-          <Text style={finishScreenStyles.textStyle}>
-            {strings.finishScreenSecondLine}
-          </Text>
-          <Text style={finishScreenStyles.textStyle}>
-            {strings.finisScreenThirdLine}
-          </Text>
-        </View>
-      )}
-      <View style={finishScreenStyles.bottomContainer}>
-        <GeneralButton
-          onPress={() => navigation.navigate(roots.registerStack)}
-          text={strings.adaugaMembru}
-        />
-        <View style={finishScreenStyles.marginTop}>
+        {!(declarationCodes.length > 2) && (
+          <View style={finishScreenStyles.card}>
+            <Text style={finishScreenStyles.title}>
+              {strings.finishScreenFirstLine}
+            </Text>
+            <Text style={finishScreenStyles.textStyle}>
+              {strings.finishScreenSecondLine}
+            </Text>
+            <Text style={finishScreenStyles.textStyle}>
+              {strings.finisScreenThirdLine}
+            </Text>
+          </View>
+        )}
+        <View style={finishScreenStyles.bottomContainer}>
           <GeneralButton
-            onPress={() => navigation.navigate(roots.endScreen)}
-            text={strings.nuMaiAdaug}
+            onPress={() => navigation.navigate(roots.registerStack)}
+            text={strings.adaugaMembru}
           />
+          <View style={finishScreenStyles.marginTop}>
+            <GeneralButton
+              onPress={() => navigation.navigate(roots.endScreen)}
+              text={strings.nuMaiAdaug}
+            />
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
 const mapStateToProps = state => {
-  const {firstName, surname} = state.register.rergisterReducer;
-  return {firstName, surname};
+  const {declarationCodes} = state.register.rergisterReducer;
+  return {declarationCodes};
 };
 
 export default connect(mapStateToProps)(FinishScreen);
