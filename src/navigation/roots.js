@@ -8,5 +8,6 @@ const roots = {
   endScreen: 'EndScreen',
   sendNumber: 'SendNumber',
   sendCode: 'SendCode',
+  registerScreen: 'registerScreen',
 };
 export default roots;

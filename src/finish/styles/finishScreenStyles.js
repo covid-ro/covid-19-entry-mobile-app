@@ -6,6 +6,11 @@ const finishScreenStyles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
+  contentContainer: {
+    flexGrow: 1,
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+  },
   bottomContainer: {
     justifyContent: 'flex-end',
     marginBottom: metrics.size50,
