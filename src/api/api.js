@@ -61,7 +61,7 @@ export const sendDeclaration = async declaration => {
       {
         headers: {
           'X-API-KEY': 'Zeileeg4xahdi4zixeaquo0aothooj0b',
-          authorization: userToken ? `Bearer ${userToken}` : '',
+          Authorization: `Bearer ${userToken}`,
         },
       },
     )
