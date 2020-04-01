@@ -114,41 +114,24 @@ const RegisterScreen = ({navigation}) => {
         extraHeight={metrics.size160}
         automaticallyAdjustContentInsets={false}
         scrollEnabled
+        enableOnAndroid
         enableAutomaticScroll>
         <ScrollView
           contentContainerStyle={registerScreenStyles.contentContainer}>
-          {Platform.OS === IOS ? (
-            <Carousel
-              useScrollView
-              onSnapToItem={setActiveCard}
-              keyboardDismissMode="on-drag"
-              keyboardShouldPersistTaps="handled"
-              ref={carouselRef}
-              data={cards}
-              renderItem={renderItem}
-              sliderWidth={metrics.screenWidth}
-              itemWidth={metrics.cardWidth}
-              inactiveSlideOpacity={0.85}
-              inactiveSlideScale={0.93}
-              swipeThreshold={metrics.screenWidth * 0.1}
-            />
-          ) : (
-            <Carousel
-              useScrollView
-              onSnapToItem={setActiveCard}
-              keyboardDismissMode="on-drag"
-              keyboardShouldPersistTaps="handled"
-              ref={carouselRef}
-              data={cards}
-              renderItem={renderItem}
-              sliderWidth={metrics.screenWidth}
-              itemWidth={metrics.cardWidth}
-              inactiveSlideOpacity={0.85}
-              inactiveSlideScale={0.93}
-              swipeThreshold={metrics.screenWidth * 0.1}
-            />
-          )}
-
+          <Carousel
+            useScrollView
+            onSnapToItem={setActiveCard}
+            keyboardDismissMode="on-drag"
+            keyboardShouldPersistTaps="handled"
+            ref={carouselRef}
+            data={cards}
+            renderItem={renderItem}
+            sliderWidth={metrics.screenWidth}
+            itemWidth={metrics.cardWidth}
+            inactiveSlideOpacity={0.85}
+            inactiveSlideScale={0.93}
+            swipeThreshold={metrics.screenWidth * 0.1}
+          />
           <View style={registerScreenStyles.generalButtonContainer}>
             {activeCard !== 9 ? (
               <GeneralButton
