@@ -11,9 +11,9 @@ const Stack = createStackNavigator();
 const RegisterStack = () => (
   <Stack.Navigator
     screenOptions={{gestureEnabled: false}}
-    initialRouteName={roots.registerStack}>
+    initialRouteName={roots.registerScreen}>
     <Stack.Screen
-      name={roots.registerStack}
+      name={roots.registerScreen}
       component={RegisterScreen}
       options={{title: strings.declaratie}}
     />

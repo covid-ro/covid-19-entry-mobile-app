@@ -10,10 +10,24 @@ import {
 } from '../register/redux/actionTypes';
 import {connect} from 'react-redux';
 
-const FormSection9 = ({registrationNo, setVechicleType, setRegistrationNo}) => {
+const FormSection9 = ({
+  registrationNo,
+  recomplete,
+  recompleteData,
+  setVechicleType,
+  setRegistrationNo,
+}) => {
   const [option1Selected, setOption1Selected] = useState(false);
   const [option2Selected, setOption2Selected] = useState(false);
-  const [recompleteForm, setRecompleteForm] = useState(false);
+
+  const onPressReuseData = () => {
+    const {registrationNo, vechicleType} = recompleteData;
+    setRegistrationNo(registrationNo);
+    setVechicleType(vechicleType);
+    vechicleType === 'auto'
+      ? setOption1Selected(true)
+      : setOption2Selected(true);
+  };
 
   return (
     <View style={formSection9Styles.container}>
@@ -49,12 +63,12 @@ const FormSection9 = ({registrationNo, setVechicleType, setRegistrationNo}) => {
         value={registrationNo}
         onChangeText={setRegistrationNo}
       />
-      {recompleteForm && (
+      {recomplete && (
         <View style={formSection9Styles.recompleteTextContainer}>
           <Text style={formSection9Styles.grayText}>
             {I18n.t('aceleasiDateAnterioare')}
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => onPressReuseData()}>
             <Text style={formSection9Styles.blueText}>
               {I18n.t('folosesteDateAnterioare')}
             </Text>
@@ -66,8 +80,12 @@ const FormSection9 = ({registrationNo, setVechicleType, setRegistrationNo}) => {
 };
 
 const mapStateToProps = state => {
-  const {registrationNo} = state.register.rergisterReducer;
-  return {registrationNo};
+  const {
+    registrationNo,
+    recomplete,
+    recompleteData,
+  } = state.register.rergisterReducer;
+  return {registrationNo, recomplete, recompleteData};
 };
 
 const mapDispatchToProps = dispatch => ({

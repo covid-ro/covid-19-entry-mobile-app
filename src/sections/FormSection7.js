@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text} from 'react-native';
 import {formSection7Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton} from '../core/components';
@@ -19,7 +19,7 @@ const FormSection7 = ({question3, setQuestion3}) => {
       <View style={formSection7Styles.buttonsContainer}>
         <SelectionButton
           text={I18n.t('da')}
-          isSelected={yesSelected}
+          isSelected={question3 !== '' ? yesSelected : false}
           onPress={() => {
             setYesSelected(true);
             setNoSelected(false);
@@ -28,7 +28,7 @@ const FormSection7 = ({question3, setQuestion3}) => {
         />
         <SelectionButton
           text={I18n.t('nu')}
-          isSelected={noSelected}
+          isSelected={question3 !== '' ? noSelected : false}
           onPress={() => {
             setYesSelected(false);
             setNoSelected(true);

@@ -34,7 +34,7 @@ const FormSection6 = ({
       <View style={formSection6Styles.buttonsContainer}>
         <SelectionButton
           text={I18n.t('da')}
-          isSelected={checkedFirstYES}
+          isSelected={question1 !== '' ? checkedFirstYES : false}
           onPress={() => {
             setcheckedFirstYES(true);
             setcheckedFirstNO(false);
@@ -43,7 +43,7 @@ const FormSection6 = ({
         />
         <SelectionButton
           text={I18n.t('nu')}
-          isSelected={checkedFirstNO}
+          isSelected={question1 !== '' ? checkedFirstNO : false}
           onPress={() => {
             setcheckedFirstYES(false);
             setcheckedFirstNO(true);
@@ -59,7 +59,7 @@ const FormSection6 = ({
       <View style={formSection6Styles.buttonsContainer}>
         <SelectionButton
           text={I18n.t('da')}
-          isSelected={checkedSecondYES}
+          isSelected={question2 !== '' ? checkedSecondYES : false}
           onPress={() => {
             setcheckedSecondYES(true);
             setcheckedSecondNO(false);
@@ -68,7 +68,7 @@ const FormSection6 = ({
         />
         <SelectionButton
           text={I18n.t('nu')}
-          isSelected={checkedSecondNO}
+          isSelected={question2 !== '' ? checkedSecondNO : false}
           onPress={() => {
             setcheckedSecondYES(false);
             setcheckedSecondNO(true);

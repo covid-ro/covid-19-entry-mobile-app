@@ -1,1 +1,1 @@
-export {sendPhoneNumber, sendCode} from './api';
+export {sendPhoneNumber, sendCode, sendDeclaration} from './api';

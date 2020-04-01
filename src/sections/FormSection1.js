@@ -63,8 +63,8 @@ const FormSection1 = ({
 };
 
 const mapStateToProps = state => {
-  const {name, lastName, cnp} = state.register.rergisterReducer;
-  return {name, lastName, cnp};
+  const {firstName, surname, cnp} = state.register.rergisterReducer;
+  return {firstName, surname, cnp};
 };
 
 const mapDispatchToProps = dispatch => ({

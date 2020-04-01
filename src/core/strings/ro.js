@@ -98,5 +98,6 @@ const strings = {
   plus: '+',
   ro: 'ro',
   phoneNumberError: 'Vă rugăm introduceți un număr valid de telefon.',
+  completeAllFieldsError: 'Toate câmpurile trebuie completate',
 };
 export default strings;

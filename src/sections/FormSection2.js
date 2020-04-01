@@ -12,6 +12,7 @@ import {
 } from '../register/redux/actionTypes';
 
 const FormSection2 = ({
+  documentType,
   documentNumber,
   documentSeries,
   setDocumentType,
@@ -29,16 +30,16 @@ const FormSection2 = ({
       <View style={formSection2Styles.buttonsContainer}>
         <SelectionButton
           text={I18n.t('passport')}
-          isSelected={passportSelected}
+          isSelected={documentType !== '' ? passportSelected : false}
           onPress={() => {
             setPasssportSelected(true);
             setCardSelected(false);
-            setDocumentType('pssport');
+            setDocumentType('passport');
           }}
         />
         <SelectionButton
           text={I18n.t('card')}
-          isSelected={cardSelected}
+          isSelected={documentType !== '' ? cardSelected : false}
           onPress={() => {
             setPasssportSelected(false);
             setCardSelected(true);
@@ -71,7 +72,11 @@ const FormSection2 = ({
 };
 
 const mapStateToProps = state => {
-  const {documentSeries, documentNumber} = state.register.rergisterReducer;
+  const {
+    documentSeries,
+    documentNumber,
+    documentType,
+  } = state.register.rergisterReducer;
   return {documentSeries, documentNumber};
 };
 
