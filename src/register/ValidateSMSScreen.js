@@ -3,7 +3,7 @@ import {View, Text, Alert, ActivityIndicator} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import styles from './styles/validateSMSScreenStyle';
 import {InputField, GeneralButton} from '../core/components';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {TimerHeader} from '../register/components';
 import {TouchableOpacity} from 'react-native';
 import {roots} from '../navigation';
@@ -57,10 +57,10 @@ const ValidateSMSScreen = ({route, navigation, setPhoneNumber}) => {
   return (
     <View>
       <TimerHeader step={step} />
-      <Text style={styles.addCodeLabelStyle}>{strings.addSMSCode}</Text>
+      <Text style={styles.addCodeLabelStyle}>{I18n.t('addSMSCode')}</Text>
       <View style={styles.inputFieldStyle}>
         <InputField
-          placeholder={strings.codValidareSMS}
+          placeholder={I18n.t('codValidareSMS')}
           keyboardType="number-pad"
           value={code}
           onChangeText={setCode}
@@ -70,16 +70,16 @@ const ValidateSMSScreen = ({route, navigation, setPhoneNumber}) => {
         {isSending ? (
           <ActivityIndicator size="large" color={colors.darkBlue} />
         ) : (
-        <GeneralButton text={strings.save} onPress={handleSendCode} />
+          <GeneralButton text={I18n.t('save')} onPress={handleSendCode} />
         )}
       </View>
       <Text style={styles.questionLabelStyle}>
-        {strings.dontReceiveTheCode}
+        {I18n.t('dontReceiveTheCode')}
       </Text>
       <TouchableOpacity
         style={styles.resendSMSButtonStyle}
         onPress={handleSendNumber}>
-        <Text style={styles.resendSMSTextStyle}>{strings.resendSMSCod}</Text>
+        <Text style={styles.resendSMSTextStyle}>{I18n.t('resendSMSCod')}</Text>
       </TouchableOpacity>
     </View>
   );
