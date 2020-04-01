@@ -3,8 +3,9 @@ import {View, Text, Image} from 'react-native';
 import {GeneralButton} from '../core/components';
 import {images} from '../themes';
 import {languageSelectionScreenStyles} from './styles';
-import strings from '../core/strings/strings';
+import strings from '../core/strings/ro';
 import {roots} from '../navigation';
+import {I18n} from '../core/strings';
 
 const LanguageSelectionScreen = ({navigation}) => {
   return (
@@ -20,13 +21,19 @@ const LanguageSelectionScreen = ({navigation}) => {
         <View style={languageSelectionScreenStyles.buttonContainer}>
           <GeneralButton
             text={strings.romana}
-            onPress={() => navigation.navigate(roots.informationScreen)}
+            onPress={() => {
+              I18n.locale = 'ro';
+              navigation.navigate(roots.informationScreen);
+            }}
           />
         </View>
         <View style={languageSelectionScreenStyles.buttonContainer}>
           <GeneralButton
             text={strings.engleza}
-            onPress={() => navigation.navigate(roots.informationScreen)}
+            onPress={() => {
+              I18n.locale = 'en';
+              navigation.navigate(roots.informationScreen);
+            }}
           />
         </View>
       </View>

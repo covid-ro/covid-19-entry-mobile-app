@@ -80,6 +80,7 @@ const metrics = {
   size140: 140,
   size144: 144,
   size153: 153,
+  size160: 160,
   size170: 170,
   size173: 173,
   size200: 200,

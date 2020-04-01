@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {InputField} from '../core/components';
 import {formSection4Styles} from './styles';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {DatePicker} from 'native-base';
 import {labelStyles} from '../core/styles';
 import {connect} from 'react-redux';
@@ -45,10 +45,10 @@ const FormSection4 = ({
   return (
     <View style={formSection4Styles.container}>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
-        {strings.form4Label}
+        {I18n.t('form4Label')}
       </Text>
       <InputField
-        placeholder={strings.judet}
+        placeholder={I18n.t('judet')}
         value={county}
         onChangeText={setCounty}
         placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
@@ -60,7 +60,7 @@ const FormSection4 = ({
       />
       <InputField
         inputRef={localitateRef}
-        placeholder={strings.localitate}
+        placeholder={I18n.t('localitate')}
         value={city}
         onChangeText={setCity}
         customContainerStyle={formSection4Styles.inputStyle}
@@ -68,8 +68,8 @@ const FormSection4 = ({
       />
       <View style={formSection4Styles.datepickerContainer}>
         <DatePicker
+          placeHolderText={I18n.t('dataPlecarii')}
           ref={ref => (departurePickerRef = ref)}
-          placeHolderText={strings.dataPlecarii}
           placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
           onDateChange={setDeparture}
           textStyle={formSection4Styles.datePickerTextStyle}
@@ -84,8 +84,8 @@ const FormSection4 = ({
       </View>
       <View style={formSection4Styles.datepickerContainer}>
         <DatePicker
+          placeHolderText={I18n.t('dataSosirii')}
           ref={ref => (arrivalPickerRef = ref)}
-          placeHolderText={strings.dataSosirii}
           placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
           onDateChange={setArrrival}
           textStyle={formSection4Styles.datePickerTextStyle}
@@ -99,7 +99,7 @@ const FormSection4 = ({
         />
       </View>
       <InputField
-        placeholder={strings.adresaCompleta}
+        placeholder={I18n.t('adresaCompleta')}
         value={address}
         onChangeText={setAddress}
         placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
@@ -107,11 +107,11 @@ const FormSection4 = ({
       {recomplete && (
         <View style={formSection4Styles.recompleteTextContainer}>
           <Text style={formSection4Styles.grayText}>
-            {strings.aceleasiDateAnterioare}
+            {I18n.t('aceleasiDateAnterioare')}
           </Text>
           <TouchableOpacity onPress={() => onPressReuseData()}>
             <Text style={formSection4Styles.blueText}>
-              {strings.folosesteDateAnterioare}
+              {I18n.t('folosesteDateAnterioare')}
             </Text>
           </TouchableOpacity>
         </View>

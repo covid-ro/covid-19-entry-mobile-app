@@ -3,7 +3,7 @@ import {View, Text, ScrollView} from 'react-native';
 import {formSection2Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton, InputField} from '../core/components';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {connect} from 'react-redux';
 import {
   SET_DOCUMENT_TYPE,
@@ -25,11 +25,11 @@ const FormSection2 = ({
   return (
     <View style={formSection2Styles.container}>
       <View style={formSection2Styles.textContainer}>
-        <Text style={labelStyles.textStyle}>{strings.form2Label}</Text>
+        <Text style={labelStyles.textStyle}>{I18n.t('form2Label')}</Text>
       </View>
       <View style={formSection2Styles.buttonsContainer}>
         <SelectionButton
-          text={strings.passport}
+          text={I18n.t('passport')}
           isSelected={documentType !== '' ? passportSelected : false}
           onPress={() => {
             setPasssportSelected(true);
@@ -38,7 +38,7 @@ const FormSection2 = ({
           }}
         />
         <SelectionButton
-          text={strings.card}
+          text={I18n.t('card')}
           isSelected={documentType !== '' ? cardSelected : false}
           onPress={() => {
             setPasssportSelected(false);
@@ -48,10 +48,10 @@ const FormSection2 = ({
         />
       </View>
       <Text style={formSection2Styles.title}>
-        {passportSelected ? strings.addPassportInfo : strings.addICInfo}
+        {passportSelected ? I18n.t('addPassportInfo') : I18n.t('addICInfo')}
       </Text>
       <InputField
-        placeholder={strings.seria}
+        placeholder={I18n.t('seria')}
         value={documentSeries}
         onChangeText={setDocumentSeries}
         returnKeyType={'next'}
@@ -62,7 +62,7 @@ const FormSection2 = ({
       />
       <InputField
         inputRef={numberRef}
-        placeholder={strings.passportNumber}
+        placeholder={I18n.t('passportNumber')}
         value={documentNumber}
         onChangeText={setDocumentNumber}
         customContainerStyle={formSection2Styles.inputContainer}
