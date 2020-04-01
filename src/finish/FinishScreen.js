@@ -38,7 +38,7 @@ const FinishScreen = ({navigation, declarationCodes}) => {
             keyExtractor={item => item.name}
           />
         </View>
-        {!(declarationCodes.length > 2) && (
+        {declarationCodes.length < 2 && (
           <View style={finishScreenStyles.card}>
             <Text style={finishScreenStyles.title}>
               {I18n.t('finishScreenFirstLine')}
