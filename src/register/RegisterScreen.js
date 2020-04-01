@@ -90,7 +90,9 @@ const RegisterScreen = ({
     setDeclarationCodes(declarationCodesArray);
   }, [setDeclarationCodes, declarationCodesArray]);
 
+  console.log('uuuu');
   const handleSendDeclaration = useCallback(async () => {
+    console.log('bubu');
     if (
       firstName === '' ||
       surname === '' ||
