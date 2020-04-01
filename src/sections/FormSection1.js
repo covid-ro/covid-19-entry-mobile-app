@@ -3,7 +3,7 @@ import {View, Text, ScrollView} from 'react-native';
 import {formSection1Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {InputField} from '../core/components';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {connect} from 'react-redux';
 import {
   SET_FIRST_NAME,
@@ -25,10 +25,10 @@ const FormSection1 = ({
   return (
     <View style={formSection1Styles.container}>
       <View style={formSection1Styles.textContainer}>
-        <Text style={labelStyles.textStyle}>{strings.form1Label}</Text>
+        <Text style={labelStyles.textStyle}>{I18n.t('form1Label')}</Text>
       </View>
       <InputField
-        placeholder={strings.nume}
+        placeholder={I18n.t('nume')}
         value={firstName}
         onChangeText={setFirstName}
         returnKeyType={'next'}
@@ -40,7 +40,7 @@ const FormSection1 = ({
       />
       <InputField
         inputRef={prenumeRef}
-        placeholder={strings.prenume}
+        placeholder={I18n.t('prenume')}
         value={surname}
         onChangeText={setSurname}
         returnKeyType={'next'}
@@ -52,7 +52,7 @@ const FormSection1 = ({
       />
       <InputField
         inputRef={CNPRef}
-        placeholder={strings.cnp}
+        placeholder={I18n.t('cnp')}
         value={cnp}
         onChangeText={setCNP}
         placeholderSeparatorStyle={formSection1Styles.inputPlaceholderSeparator}

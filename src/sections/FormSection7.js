@@ -3,7 +3,7 @@ import {View, Text, ScrollView} from 'react-native';
 import {formSection7Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton} from '../core/components';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {SET_QUESTION3} from '../register/redux/actionTypes';
 import {connect} from 'react-redux';
 
@@ -14,11 +14,11 @@ const FormSection7 = ({question3, setQuestion3}) => {
   return (
     <View style={formSection7Styles.container}>
       <View style={formSection7Styles.textContainer}>
-        <Text style={labelStyles.textStyle}>{strings.form7Label}</Text>
+        <Text style={labelStyles.textStyle}>{I18n.t('form7Label')}</Text>
       </View>
       <View style={formSection7Styles.buttonsContainer}>
         <SelectionButton
-          text={strings.da}
+          text={I18n.t('da')}
           isSelected={yesSelected}
           onPress={() => {
             setYesSelected(true);
@@ -27,7 +27,7 @@ const FormSection7 = ({question3, setQuestion3}) => {
           }}
         />
         <SelectionButton
-          text={strings.nu}
+          text={I18n.t('nu')}
           isSelected={noSelected}
           onPress={() => {
             setYesSelected(false);

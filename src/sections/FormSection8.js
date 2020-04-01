@@ -3,7 +3,7 @@ import {View, Text, ScrollView} from 'react-native';
 import {formSection8Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton} from '../core/components';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {
   SET_FEVER,
   SET_BREATHING,
@@ -25,18 +25,18 @@ const FormSection8 = ({
   return (
     <View style={formSection8Styles.container}>
       <View style={formSection8Styles.textContainer}>
-        <Text style={labelStyles.textStyle}>{strings.form8Label}</Text>
+        <Text style={labelStyles.textStyle}>{I18n.t('form8Label')}</Text>
       </View>
       <View style={formSection8Styles.buttonsContainer}>
         <SelectionButton
-          text={strings.simptom1}
+          text={I18n.t('simptom1')}
           isSelected={fever}
           onPress={() => {
             setFever(!fever);
           }}
         />
         <SelectionButton
-          text={strings.simptom2}
+          text={I18n.t('simptom2')}
           isSelected={swallow}
           onPress={() => {
             setSwallow(!swallow);
@@ -45,14 +45,14 @@ const FormSection8 = ({
       </View>
       <View style={formSection8Styles.buttonsContainer}>
         <SelectionButton
-          text={strings.simptom3}
+          text={I18n.t('simptom3')}
           isSelected={breathing}
           onPress={() => {
             setBreathing(!breathing);
           }}
         />
         <SelectionButton
-          text={strings.simptom4}
+          text={I18n.t('simptom3')}
           isSelected={cough}
           onPress={() => {
             setCough(!cough);

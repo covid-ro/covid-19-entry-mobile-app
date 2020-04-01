@@ -2,11 +2,10 @@ import React from 'react';
 import {View, Text, Image, ScrollView} from 'react-native';
 import {GeneralButton} from '../core/components';
 import {informationScreenStyles} from './styles';
-import {strings} from '../core/strings';
-
 import {images} from '../themes';
 import {labelStyles} from '../core/styles';
 import {roots} from '../navigation';
+import {I18n} from '../core/strings';
 
 const InformationScreen = ({navigation}) => {
   return (
@@ -19,18 +18,18 @@ const InformationScreen = ({navigation}) => {
               informationScreenStyles.informationLabelStyle,
               labelStyles.textStyle,
             ]}>
-            {strings.infoLabelBegin}
+            {I18n.t('infoLabelBegin')}
             <Text
               style={[labelStyles.textStyle, informationScreenStyles.boldText]}>
-              {strings.infoLabelBold}
+              {I18n.t('infoLabelBold')}
             </Text>
-            {strings.infoLabelEnd}
+            {I18n.t('infoLabelEnd')}
           </Text>
         </View>
       </View>
       <View style={informationScreenStyles.bottomContainer}>
         <GeneralButton
-          text={strings.completeDeclaration}
+          text={I18n.t('completeDeclaration')}
           onPress={() => navigation.navigate(roots.sendNumber)}
         />
       </View>

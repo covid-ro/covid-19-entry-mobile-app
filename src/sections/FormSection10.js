@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {InputField} from '../core/components';
 import {formSection10Styles} from './styles';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {labelStyles} from '../core/styles';
 
 const FormSection10 = () => {
@@ -10,10 +10,10 @@ const FormSection10 = () => {
   return (
     <View>
       <Text style={[labelStyles.textStyle, formSection10Styles.textContainer]}>
-        {strings.form10Label}
+        {I18n.t('form10Label')}
       </Text>
       <InputField
-        placeholder={strings.form10Placeholder}
+        placeholder={I18n.t('form10Placeholder')}
         value={location}
         onChangeText={setLocation}
         customContainerStyle={formSection10Styles.inputCustomContainer}

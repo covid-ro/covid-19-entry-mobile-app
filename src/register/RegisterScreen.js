@@ -17,7 +17,7 @@ import {
   FormSection9,
   FormSection10,
 } from '../sections';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {GeneralButton} from '../core/components';
 import {roots} from '../navigation';
 import {IOS} from '../core/constants';
@@ -86,19 +86,19 @@ const RegisterScreen = ({navigation}) => {
       case 7:
         return (
           <View style={registerScreenStyles.card}>
-            <FormSection8 text={strings.form8Label} />
+            <FormSection8 text={I18n.t('form8Label')} />
           </View>
         );
       case 8:
         return (
           <View style={registerScreenStyles.card}>
-            <FormSection9 text={strings.form9Label} />
+            <FormSection9 text={I18n.t('form9Label')} />
           </View>
         );
       case 9:
         return (
           <View style={registerScreenStyles.card}>
-            <FormSection10 text={strings.form10Label} />
+            <FormSection10 text={I18n.t('form10Label')} />
           </View>
         );
 
@@ -152,12 +152,12 @@ const RegisterScreen = ({navigation}) => {
           <View style={registerScreenStyles.generalButtonContainer}>
             {activeCard !== 9 ? (
               <GeneralButton
-                text={strings.urmatorul}
+                text={I18n.t('urmatorul')}
                 onPress={() => carouselRef.current.snapToNext()}
               />
             ) : (
               <GeneralButton
-                text={strings.trimite}
+                text={I18n.t('trimite')}
                 onPress={() => navigation.navigate(roots.finishNavigator)}
               />
             )}

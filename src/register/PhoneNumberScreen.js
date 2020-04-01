@@ -12,7 +12,7 @@ import PhoneInput from 'react-native-phone-input';
 import {GeneralButton} from '../core/components';
 import DeviceInfo from 'react-native-device-info';
 import {validators} from '../core/utils';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {roots} from '../navigation';
 import {colors} from '../themes';
 import {sendPhoneNumber} from '../api';
@@ -27,7 +27,7 @@ const PhoneNumberScreen = ({navigation}) => {
   const handleSendNumber = useCallback(async () => {
     const countryCode = parseInt(dialCode, 10);
     if (phoneNumber === '') {
-      Alert.alert(strings.completePhoneNumber);
+      Alert.alert(I18n.t('completePhoneNumber'));
     } else if (validators.phoneValidator(phoneNumber)) {
       setIsSending(true);
       const response = await sendPhoneNumber(
@@ -44,33 +44,33 @@ const PhoneNumberScreen = ({navigation}) => {
         Alert.alert(response.data.message);
       }
     } else {
-      Alert.alert(strings.phoneNumberError);
+      Alert.alert(I18n.t('phoneNumberError'));
     }
   }, [phoneNumber, navigation, dialCode]);
   return (
     <TouchableWithoutFeedback>
       <View>
         <Text style={styles.informationLabelStyle}>
-          {strings.validatePhoneNumberInformationLabel}
+          {I18n.t('validatePhoneNumberInformationLabel')}
         </Text>
         <View style={styles.pickerContainer}>
           <Text
             style={
               isFocused ? styles.labelPlaceholder : styles.unselectedLabel
             }>
-            {strings.telefon}
+            {I18n.t('telefon')}
           </Text>
           <PhoneInput
-            initialCountry={strings.ro}
+            initialCountry={I18n.t('ro')}
             textProps={{
-              placeholder: isFocused ? '' : strings.telefon,
+              placeholder: isFocused ? '' : I18n.t('telefon'),
               onFocus: () => setFocus(true),
               onBlur: () => setFocus(false),
               style: styles.textInputPicker,
               placeholderTextColor: colors.opacityGrey,
               value: phoneNumber,
             }}
-            value={strings.plus + dialCode}
+            value={I18n.t('plus') + dialCode}
             onPressFlag={() => setModal(true)}
             onChangePhoneNumber={setPhoneNumber}
           />
@@ -96,7 +96,7 @@ const PhoneNumberScreen = ({navigation}) => {
             <ActivityIndicator size="large" color={colors.darkBlue} />
           ) : (
             <GeneralButton
-              text={strings.validatePhoneNumber}
+              text={I18n.t('validatePhoneNumber')}
               onPress={handleSendNumber}
             />
           )}

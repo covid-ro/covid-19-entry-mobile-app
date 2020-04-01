@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {InputField} from '../core/components';
 import {countries, getVisitedCountries} from '../core/utils';
 import {formSection3Styles} from './styles';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {ANDROID} from '../core/constants';
 import {roots} from '../navigation';
 import {connect} from 'react-redux';
@@ -29,7 +29,7 @@ const FormSection3 = ({
 
   return (
     <View style={formSection3Styles.container}>
-      <Text style={formSection3Styles.title}>{strings.form3Label}</Text>
+      <Text style={formSection3Styles.title}>{I18n.t('form3Label')}</Text>
       <View style={[formSection3Styles.pickerContainer]}>
         <Picker
           style={
@@ -40,7 +40,7 @@ const FormSection3 = ({
           onValueChange={setTravellingCountry}
           selectedValue={travellingFromCountry}
           textStyle={formSection3Styles.pickerText}
-          placeholder={strings.country}
+          placeholder={I18n.t('country')}
           placeholderStyle={formSection3Styles.pickerPlaceHolder}
           iosIcon={
             <Icon name="arrow-down" style={formSection3Styles.pickerIcon} />
@@ -68,7 +68,7 @@ const FormSection3 = ({
         />
       )}
       <InputField
-        placeholder={strings.county}
+        placeholder={I18n.t('county')}
         value={travellingFromCity}
         onChangeText={setTravellingCity}
         placeholderSeparatorStyle={formSection3Styles.placeholderSeparatorStyle}
@@ -79,7 +79,7 @@ const FormSection3 = ({
       <View style={formSection3Styles.dateContainer}>
         <DatePicker
           androidMode={'default'}
-          placeHolderText={strings.data}
+          placeHolderText={I18n.t('data')}
           placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
           onDateChange={setTravellingDate}
           textStyle={formSection3Styles.datePickerTextStyle}
@@ -94,7 +94,7 @@ const FormSection3 = ({
       </View>
       <View style={formSection3Styles.countriesTitleContainer}>
         <Text style={formSection3Styles.countriesTitleText}>
-          {strings.transitedCountries}
+          {I18n.t('transitedCountries')}
         </Text>
       </View>
       <TouchableOpacity
@@ -111,7 +111,7 @@ const FormSection3 = ({
           ]}>
           {visitedCountries
             ? getVisitedCountries(visitedCountries)
-            : strings.selectCountries}
+            : I18n.t('selectCountries')}
         </Text>
       </TouchableOpacity>
       <View
@@ -124,11 +124,11 @@ const FormSection3 = ({
       {recompleteForm && (
         <View style={formSection3Styles.recompleteTextContainer}>
           <Text style={formSection3Styles.grayText}>
-            {strings.aceleasiDateAnterioare}
+            {I18n.t('aceleasiDateAnterioare')}
           </Text>
           <TouchableOpacity>
             <Text style={formSection3Styles.blueText}>
-              {strings.folosesteDateAnterioare}
+              {I18n.t('folosesteDateAnterioare')}
             </Text>
           </TouchableOpacity>
         </View>

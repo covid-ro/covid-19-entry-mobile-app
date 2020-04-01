@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 import {View, Text, Image, ScrollView} from 'react-native';
 import {InputField} from '../core/components';
 import {formSection5Styles} from './styles';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {images} from '../themes';
 import {labelStyles} from '../core/styles';
 import {SET_EMAIL} from '../register/redux/actionTypes';
@@ -15,11 +15,11 @@ const FormSection5 = ({email, setEmail}) => {
   return (
     <View style={formSection5Styles.container}>
       <Text style={[labelStyles.textStyle, formSection5Styles.topTextStyle]}>
-        {strings.form5Label}
+        {I18n.t('form5Label')}
       </Text>
       <View>
         <InputField
-          placeholder={strings.telefonValid}
+          placeholder={I18n.t('telefonValid')}
           value={locationValue}
           onChangeText={setLocationValue}
           returnKeyType={'next'}
@@ -32,17 +32,17 @@ const FormSection5 = ({email, setEmail}) => {
       </View>
       <InputField
         inputRef={emailRef}
-        placeholder={strings.email}
+        placeholder={I18n.t('email')}
         value={email}
         onChangeText={setEmail}
         autoCapitalize={'none'}
       />
       <Text style={formSection5Styles.alertLabelStyle}>
-        {strings.alertLabel}
+        {I18n.t('alertLabel')}
       </Text>
       <Text
         style={[labelStyles.textStyle, formSection5Styles.alertMessageStyle]}>
-        {strings.alertMessage}
+        {I18n.t('alertMessage')}
       </Text>
     </View>
   );

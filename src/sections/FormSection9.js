@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import {formSection9Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton, InputField} from '../core/components';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {
   SET_REGISTRATION_NO,
   SET_VECHICLE_TYPE,
@@ -18,11 +18,11 @@ const FormSection9 = ({registrationNo, setVechicleType, setRegistrationNo}) => {
   return (
     <View style={formSection9Styles.container}>
       <View style={formSection9Styles.textContainer}>
-        <Text style={labelStyles.textStyle}>{strings.form9Label}</Text>
+        <Text style={labelStyles.textStyle}>{I18n.t('form9Label')}</Text>
       </View>
       <View style={formSection9Styles.buttonsContainer}>
         <SelectionButton
-          text={strings.auto}
+          text={I18n.t('auto')}
           isSelected={option1Selected}
           onPress={() => {
             setOption1Selected(true);
@@ -31,7 +31,7 @@ const FormSection9 = ({registrationNo, setVechicleType, setRegistrationNo}) => {
           }}
         />
         <SelectionButton
-          text={strings.ambulance}
+          text={I18n.t('ambulance')}
           isSelected={option2Selected}
           onPress={() => {
             setOption1Selected(false);
@@ -41,10 +41,10 @@ const FormSection9 = ({registrationNo, setVechicleType, setRegistrationNo}) => {
         />
       </View>
       <View style={formSection9Styles.vehicleTextContainer}>
-        <Text style={labelStyles.textStyle}>{strings.form9Label2}</Text>
+        <Text style={labelStyles.textStyle}>{I18n.t('form9Label2')}</Text>
       </View>
       <InputField
-        placeholder={strings.placeholderAutomobil}
+        placeholder={I18n.t('placeholderAutomobil')}
         customContainerStyle={formSection9Styles.vehicleInputContainer}
         value={registrationNo}
         onChangeText={setRegistrationNo}
@@ -52,11 +52,11 @@ const FormSection9 = ({registrationNo, setVechicleType, setRegistrationNo}) => {
       {recompleteForm && (
         <View style={formSection9Styles.recompleteTextContainer}>
           <Text style={formSection9Styles.grayText}>
-            {strings.aceleasiDateAnterioare}
+            {I18n.t('aceleasiDateAnterioare')}
           </Text>
           <TouchableOpacity>
             <Text style={formSection9Styles.blueText}>
-              {strings.folosesteDateAnterioare}
+              {I18n.t('folosesteDateAnterioare')}
             </Text>
           </TouchableOpacity>
         </View>

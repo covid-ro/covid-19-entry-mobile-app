@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {SelectionButton} from '../core/components';
 import {formSection6Styles} from './styles';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {labelStyles} from '../core/styles';
 import {connect} from 'react-redux';
 import {
@@ -28,12 +28,12 @@ const FormSection6 = ({
     <View style={formSection6Styles.container}>
       <View style={formSection6Styles.textContainer}>
         <Text style={[labelStyles.textStyle, formSection6Styles.textStyle]}>
-          {strings.form6FirstQuestion}
+          {I18n.t('form6FirstQuestion')}
         </Text>
       </View>
       <View style={formSection6Styles.buttonsContainer}>
         <SelectionButton
-          text={strings.da}
+          text={I18n.t('da')}
           isSelected={checkedFirstYES}
           onPress={() => {
             setcheckedFirstYES(true);
@@ -42,7 +42,7 @@ const FormSection6 = ({
           }}
         />
         <SelectionButton
-          text={strings.nu}
+          text={I18n.t('nu')}
           isSelected={checkedFirstNO}
           onPress={() => {
             setcheckedFirstYES(false);
@@ -53,12 +53,12 @@ const FormSection6 = ({
       </View>
       <View style={formSection6Styles.textContainer}>
         <Text style={[labelStyles.textStyle, formSection6Styles.textStyle]}>
-          {strings.form6SecondQuestion}
+          {I18n.t('form6SecondQuestion')}
         </Text>
       </View>
       <View style={formSection6Styles.buttonsContainer}>
         <SelectionButton
-          text={strings.da}
+          text={I18n.t('da')}
           isSelected={checkedSecondYES}
           onPress={() => {
             setcheckedSecondYES(true);
@@ -67,7 +67,7 @@ const FormSection6 = ({
           }}
         />
         <SelectionButton
-          text={strings.nu}
+          text={I18n.t('nu')}
           isSelected={checkedSecondNO}
           onPress={() => {
             setcheckedSecondYES(false);
