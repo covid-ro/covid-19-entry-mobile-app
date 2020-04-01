@@ -38,7 +38,7 @@ const FinishScreen = ({navigation, declarationCodes}) => {
             keyExtractor={item => item.name}
           />
         </View>
-        {!(declarationCodes.length > 2) && (
+        {declarationCodes.length < 2 && (
           <View style={finishScreenStyles.card}>
             <Text style={finishScreenStyles.title}>
               {I18n.t('finishScreenFirstLine')}
@@ -54,7 +54,7 @@ const FinishScreen = ({navigation, declarationCodes}) => {
         <View style={finishScreenStyles.bottomContainer}>
           <GeneralButton
             onPress={() => navigation.navigate(roots.registerStack)}
-            text={I18n.t('daugaMembru')}
+            text={I18n.t('adaugaMembru')}
           />
           <View style={finishScreenStyles.marginTop}>
             <GeneralButton

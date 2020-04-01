@@ -44,7 +44,6 @@ const FormSection3 = ({
       setItineraryCountries(countriesCodes);
     }
   }, [visitedCountries, setItineraryCountries]);
-
   const onPressReuseData = () => {
     const {
       travellingFromCity,
