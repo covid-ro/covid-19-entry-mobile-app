@@ -70,10 +70,7 @@ const ValidateSMSScreen = ({route, navigation, setPhoneNumber}) => {
         {isSending ? (
           <ActivityIndicator size="large" color={colors.darkBlue} />
         ) : (
-          <GeneralButton
-            text={strings.save}
-            onPress={navigation.navigate(roots.registerStack)}
-          />
+        <GeneralButton text={strings.save} onPress={handleSendCode} />
         )}
       </View>
       <Text style={styles.questionLabelStyle}>

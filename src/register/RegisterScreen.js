@@ -107,7 +107,6 @@ const RegisterScreen = ({
       arrivalDate === '' ||
       departureDate === '' ||
       address === '' ||
-      email === '' ||
       question1 === '' ||
       question2 === '' ||
       question3 === '' ||
@@ -163,6 +162,7 @@ const RegisterScreen = ({
         setRecomplete(true);
         setRecompleteData();
         navigation.navigate(roots.finishNavigator);
+        carouselRef.current.snapToItem(0);
         resetState();
       } else {
         setIsSending(false);
