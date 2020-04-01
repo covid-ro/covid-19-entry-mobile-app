@@ -77,7 +77,7 @@ const mapStateToProps = state => {
     documentNumber,
     documentType,
   } = state.register.rergisterReducer;
-  return {documentSeries, documentNumber};
+  return {documentSeries, documentNumber, documentType};
 };
 
 const mapDispatchToProps = dispatch => ({
