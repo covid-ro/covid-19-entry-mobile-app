@@ -98,5 +98,6 @@ const strings = {
   plus: '+',
   ro: 'ro',
   phoneNumberError: 'Please enter a valid phone number.',
+  back: 'Back',
 };
 export default strings;

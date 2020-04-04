@@ -54,6 +54,7 @@ const FormSection1 = ({
         inputRef={CNPRef}
         placeholder={I18n.t('cnp')}
         value={cnp}
+        keyboardType="number-pad"
         onChangeText={setCNP}
         placeholderSeparatorStyle={formSection1Styles.inputPlaceholderSeparator}
         customContainerStyle={formSection1Styles.inputFieldStyle}

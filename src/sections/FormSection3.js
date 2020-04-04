@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import {View, Text, TouchableOpacity, Platform} from 'react-native';
 import {Picker, DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
-import {InputField} from '../core/components';
+import {InputField, BackHeader} from '../core/components';
 import {
   countries,
   getVisitedCountries,
@@ -73,6 +73,10 @@ const FormSection3 = ({
           textStyle={formSection3Styles.pickerText}
           placeholder={I18n.t('country')}
           placeholderStyle={formSection3Styles.pickerPlaceHolder}
+          headerBackButtonText={I18n.t('back')}
+          renderHeader={backAction => (
+            <BackHeader onPress={backAction} title={'Alege unul'} />
+          )}
           iosIcon={
             <Icon name="arrow-down" style={formSection3Styles.pickerIcon} />
           }>

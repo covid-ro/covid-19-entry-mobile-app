@@ -4,12 +4,12 @@ import {Icon} from 'native-base';
 import {backButtonStyles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 
-const BackButton = () => {
+const BackButton = ({onPress}) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
       style={backButtonStyles.marginLeft}
-      onPress={() => navigation.goBack()}>
+      onPress={() => onPress() || navigation.goBack()}>
       <Icon
         ios="ios-arrow-back"
         android="md-arrow-back"
