@@ -1,6 +1,6 @@
 const strings = {
   declaratie: 'Declarație',
-  progressHeaderStep: 'din 10',
+  progressHeaderStep: 'din 9',
   form2Label: 'Selectați unul din actele de identitate.',
   form8Label:
     'Ați avut unul sau mai multe dintre următoarele simptome (selecție multiplă) :',
