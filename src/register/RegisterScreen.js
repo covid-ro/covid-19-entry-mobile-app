@@ -114,6 +114,11 @@ const RegisterScreen = ({
         .split('T')[0];
       const city_arrival_date = arrivalDate.toISOString().split('T')[0];
       const city_departure_date = departureDate.toISOString().split('T')[0];
+      let symptoms = [];
+      fever && symptoms.push('fever');
+      swallow && symptoms.push('swallow');
+      breathing && symptoms.push('breath');
+      cough && symptoms.push('cough');
       setIsSending(true);
       const response = await sendDeclaration({
         name: firstName,
@@ -135,20 +140,19 @@ const RegisterScreen = ({
             city_departure_date: city_departure_date,
           },
         ],
-        question_1_answer: question1.toString(),
-        question_2_answer: question2.toString(),
-        question_3_answer: question3.toString(),
-        symptom_fever: fever,
-        symptom_swallow: swallow,
-        symptom_breathing: breathing,
-        symptom_cough: cough,
+        q_visited: question1,
+        q_contacted: question2,
+        q_hospitalized: question3,
+        symptoms: symptoms,
         itinerary_countries: itineraryCountries,
         vehicle_type: vechicleType,
         vehicle_registration_no: registrationNo,
+        signature: 'c3RyaW5n',
       });
+      console.log(response);
       if (response.status === 200) {
         setIsSending(false);
-        setDeclarationCodesArray(declarationCodesArray => [
+        setDeclarationCodesArray((declarationCodesArray) => [
           ...declarationCodesArray,
           {
             name: firstName + ' ' + surname,
@@ -311,7 +315,7 @@ const RegisterScreen = ({
     </View>
   );
 };
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const {
     email,
     phoneNumber,
@@ -376,11 +380,11 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   setRecompleteData: () => dispatch({type: SET_RECOMPLETE_DATA}),
-  setRecomplete: recomplete => dispatch({type: SET_RECOMPLETE, recomplete}),
+  setRecomplete: (recomplete) => dispatch({type: SET_RECOMPLETE, recomplete}),
   resetState: () => dispatch({type: RESET_STATE}),
-  setDeclarationCodes: declarationCodes =>
+  setDeclarationCodes: (declarationCodes) =>
     dispatch({type: SET_DECLARATION_CODE, declarationCodes}),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);
