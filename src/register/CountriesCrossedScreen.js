@@ -26,9 +26,7 @@ const CountriesCrossedScreen = ({route}) => {
         onCancelPress={() => setSearchValue('')}
       />
       <CountriesCrossedList
-        countries={
-          searchValue ? countriesSearch(searchValue) : countriesCrossed
-        }
+        countries={searchValue ? countriesSearched : countriesCrossed}
         getCountries={setCountries}
       />
     </View>
