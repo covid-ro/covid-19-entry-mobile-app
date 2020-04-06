@@ -4,8 +4,15 @@ const getCountriesBasedOnCodes = codes => {
   var countries = '';
   for (let codesIndex = 0; codesIndex < codes.length; codesIndex++) {
     for (let index = 0; index < countriesCrossed.length; index++) {
-      if (codes[codesIndex] === countriesCrossed[index].code) {
-        countries = countries + countriesCrossed[index].data + ', ';
+      for (
+        let entries = 0;
+        entries < countriesCrossed[index].data.length;
+        entries++
+      ) {
+        if (codes[codesIndex] === countriesCrossed[index].data[entries].iso) {
+          countries =
+            countries + countriesCrossed[index].data[entries].country + ', ';
+        }
       }
     }
   }

@@ -104,8 +104,8 @@ const RegisterScreen = ({
       question1 === '' ||
       question2 === '' ||
       question3 === '' ||
-      vechicleType === '' ||
-      registrationNo === ''
+      vechicleType === 'ambulace' ||
+      (vechicleType === 'auto' && registrationNo !== '')
     ) {
       Alert.alert(strings.completeAllFieldsError);
     } else {
@@ -147,12 +147,11 @@ const RegisterScreen = ({
         itinerary_countries: itineraryCountries,
         vehicle_type: vechicleType,
         vehicle_registration_no: registrationNo,
-        signature: 'c3RyaW5n',
       });
       console.log(response);
       if (response.status === 200) {
         setIsSending(false);
-        setDeclarationCodesArray((declarationCodesArray) => [
+        setDeclarationCodesArray(declarationCodesArray => [
           ...declarationCodesArray,
           {
             name: firstName + ' ' + surname,
@@ -315,7 +314,7 @@ const RegisterScreen = ({
     </View>
   );
 };
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const {
     email,
     phoneNumber,
@@ -380,11 +379,14 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   setRecompleteData: () => dispatch({type: SET_RECOMPLETE_DATA}),
-  setRecomplete: (recomplete) => dispatch({type: SET_RECOMPLETE, recomplete}),
+  setRecomplete: recomplete => dispatch({type: SET_RECOMPLETE, recomplete}),
   resetState: () => dispatch({type: RESET_STATE}),
-  setDeclarationCodes: (declarationCodes) =>
+  setDeclarationCodes: declarationCodes =>
     dispatch({type: SET_DECLARATION_CODE, declarationCodes}),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(RegisterScreen);
