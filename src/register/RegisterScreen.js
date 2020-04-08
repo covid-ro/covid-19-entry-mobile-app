@@ -77,7 +77,6 @@ const RegisterScreen = ({
     {id: 6, data: 'card 7'},
     {id: 7, data: 'card 8'},
     {id: 8, data: 'card 9'},
-    {id: 9, data: 'card 10'},
   ];
 
   useEffect(() => {
@@ -257,12 +256,6 @@ const RegisterScreen = ({
             <FormSection9 text={I18n.t('form9Label')} />
           </View>
         );
-      case 9:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection10 text={I18n.t('form10Label')} />
-          </View>
-        );
 
       default:
         return <View style={registerScreenStyles.card} />;
@@ -295,7 +288,7 @@ const RegisterScreen = ({
             swipeThreshold={metrics.screenWidth * 0.1}
           />
           <View style={registerScreenStyles.generalButtonContainer}>
-            {activeCard !== 9 ? (
+            {activeCard !== 8 ? (
               <GeneralButton
                 text={I18n.t('urmatorul')}
                 onPress={() => carouselRef.current.snapToNext()}
