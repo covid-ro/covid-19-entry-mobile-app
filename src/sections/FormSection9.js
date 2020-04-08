@@ -57,12 +57,14 @@ const FormSection9 = ({
       <View style={formSection9Styles.vehicleTextContainer}>
         <Text style={labelStyles.textStyle}>{I18n.t('form9Label2')}</Text>
       </View>
-      <InputField
-        placeholder={I18n.t('placeholderAutomobil')}
-        customContainerStyle={formSection9Styles.vehicleInputContainer}
-        value={registrationNo}
-        onChangeText={setRegistrationNo}
-      />
+      {option1Selected && (
+        <InputField
+          placeholder={I18n.t('placeholderAutomobil')}
+          customContainerStyle={formSection9Styles.vehicleInputContainer}
+          value={registrationNo}
+          onChangeText={setRegistrationNo}
+        />
+      )}
       {recomplete && (
         <View style={formSection9Styles.recompleteTextContainer}>
           <Text style={formSection9Styles.grayText}>
@@ -79,7 +81,7 @@ const FormSection9 = ({
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const {
     registrationNo,
     recomplete,
@@ -88,10 +90,10 @@ const mapStateToProps = state => {
   return {registrationNo, recomplete, recompleteData};
 };
 
-const mapDispatchToProps = dispatch => ({
-  setRegistrationNo: registrationNo =>
+const mapDispatchToProps = (dispatch) => ({
+  setRegistrationNo: (registrationNo) =>
     dispatch({type: SET_REGISTRATION_NO, registrationNo}),
-  setVechicleType: vechicleType =>
+  setVechicleType: (vechicleType) =>
     dispatch({type: SET_VECHICLE_TYPE, vechicleType}),
 });
 

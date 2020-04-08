@@ -99,5 +99,7 @@ const strings = {
   ro: 'ro',
   phoneNumberError: 'Please enter a valid phone number.',
   back: 'Back',
+  search: 'Search for a country',
+  cancel: 'Cancel',
 };
 export default strings;

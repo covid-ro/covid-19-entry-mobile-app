@@ -6,10 +6,10 @@ import {images} from '../../themes';
 const CountryItem = ({item, selected, onSelect}) => {
   return (
     <TouchableOpacity
-      onPress={() => onSelect(item.id)}
+      onPress={() => onSelect(item.iso)}
       style={countriesCrossedListStyles.item}>
       <View style={countriesCrossedListStyles.content}>
-        <Text style={countriesCrossedListStyles.textItem}>{item.data}</Text>
+        <Text style={countriesCrossedListStyles.textItem}>{item.country}</Text>
         {selected && <Image source={images.ic_check} />}
       </View>
       <View style={countriesCrossedListStyles.separator} />

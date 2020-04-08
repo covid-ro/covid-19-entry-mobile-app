@@ -151,7 +151,6 @@ const FormSection3 = ({
             : countriesCrossed
             ? countriesCrossed
             : I18n.t('selectCountries')}
-          }
         </Text>
       </TouchableOpacity>
       <View
