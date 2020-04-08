@@ -12,6 +12,9 @@ const colors = {
   opacityGrey: 'rgba(74,74,74, 0.6)',
   cardBorderGrey: 'rgba(207, 216, 220, 0.5)',
   greyE7: '#E7EBED',
+  grey75: '#757576',
+  backgroundE0: '#E0E1E4',
+  blue: '#0F3DA8',
 };
 
 export default colors;
