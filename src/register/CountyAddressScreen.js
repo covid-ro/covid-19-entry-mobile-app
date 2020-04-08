@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import {CountiesList, SearchBar} from './components';
 import {countiesSearch} from '../core/utils';
 import {I18n} from '../core/strings';
+import {countyAddressScreenStyles} from './styles';
 
 const CountyAddressScreen = ({route}) => {
   const {data, onPress} = route.params;
@@ -14,8 +15,8 @@ const CountyAddressScreen = ({route}) => {
   }, [searchValue, data]);
 
   return (
-    <View style={{backgroundColor: 'white', flex: 1}}>
-      <View style={{paddingVertical: 30}}>
+    <View style={countyAddressScreenStyles.container}>
+      <View style={countyAddressScreenStyles.searchBarContainer}>
         <SearchBar
           value={searchValue}
           setSearchValue={setSearchValue}

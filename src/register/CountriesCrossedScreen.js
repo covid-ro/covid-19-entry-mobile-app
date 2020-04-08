@@ -25,7 +25,7 @@ const CountriesCrossedScreen = ({route}) => {
         value={searchValue}
         setSearchValue={setSearchValue}
         onCancelPress={() => setSearchValue('')}
-        placeholder={I18n.t('cautare')}
+        placeholder={I18n.t('searchForCountry')}
       />
       <CountriesCrossedList
         countries={searchValue ? countriesSearched : countriesCrossed}

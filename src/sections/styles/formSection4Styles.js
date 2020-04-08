@@ -17,10 +17,9 @@ const formSection4Styles = StyleSheet.create({
   },
   countyContainer: {
     marginTop: metrics.size36,
-    height: normalize(metrics.size22),
+    height: metrics.size18,
     marginHorizontal: metrics.size16,
     marginBottom: metrics.size4,
-    height: metrics.size18,
     justifyContent: 'center',
   },
   countyTextInput: {

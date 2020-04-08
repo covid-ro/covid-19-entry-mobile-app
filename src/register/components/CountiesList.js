@@ -21,7 +21,7 @@ const CountiesList = ({data, onPress}) => {
               }}>
               <View style={countiesListStyles.content}>
                 <Text style={countiesListStyles.textItem}>
-                  {item.item.nume}
+                  {item.item.nume || item.item.name}
                 </Text>
               </View>
               <View style={countiesListStyles.separator} />

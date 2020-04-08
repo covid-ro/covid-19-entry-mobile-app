@@ -1,14 +1,16 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, Text, TouchableOpacity, Platform} from 'react-native';
-import {DatePicker} from 'native-base';
+import {View, Text, TouchableOpacity, Platform, Image} from 'react-native';
+import {DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
 import {InputField, CustomPicker} from '../core/components';
+import {images} from '../themes';
+import {ANDROID} from '../core/constants';
 import {
-  countries,
   getVisitedCountries,
   getVisitedCountriesCodes,
   getCountriesBasedOnCodes,
 } from '../core/utils';
+import {countries} from '../core/constants';
 import {formSection3Styles} from './styles';
 import {I18n} from '../core/strings';
 import {roots} from '../navigation';
@@ -60,11 +62,38 @@ const FormSection3 = ({
   return (
     <View style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{I18n.t('form3Label')}</Text>
-      <CustomPicker
-        data={countries}
-        onValueChange={setTravellingCountry}
-        selectedValue={travellingFromCountry}
-        placeholder={I18n.t('country')}
+
+      <TouchableOpacity
+        style={formSection3Styles.countryContainer}
+        disabled={travellingFromCountry !== null ? false : true}
+        onPress={() =>
+          navigation.navigate(roots.countriesScreen, {
+            data: countries,
+            onPress: setTravellingCountry,
+          })
+        }>
+        <Text
+          style={[
+            formSection3Styles.countryText,
+            travellingFromCountry && formSection3Styles.countryActiveText,
+          ]}>
+          {travellingFromCountry || I18n.t('country')}
+        </Text>
+        {Platform.OS === ANDROID ? (
+          <Image
+            source={images.arrow_down}
+            style={formSection3Styles.imageIcon}
+          />
+        ) : (
+          <Icon name="arrow-down" style={formSection3Styles.customPickerIcon} />
+        )}
+      </TouchableOpacity>
+      <View
+        style={
+          travellingFromCountry
+            ? formSection3Styles.valueSeparator
+            : formSection3Styles.separator
+        }
       />
       <InputField
         placeholder={I18n.t('county')}

@@ -99,6 +99,7 @@ const strings = {
   ro: 'ro',
   phoneNumberError: 'Please enter a valid phone number.',
   selectCounty: 'Please select a county',
+  selectCountry: 'Please select a country',
   back: 'Back',
   search: 'Search for a country',
   cancel: 'Cancel',

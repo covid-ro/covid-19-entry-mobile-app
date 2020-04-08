@@ -5,6 +5,7 @@ import {
   CountriesCrossedScreen,
   RegisterScreen,
   CountyAddressScreen,
+  CountriesScreen,
 } from '../register';
 import {roots} from './index';
 import {strings} from '../core/strings';
@@ -37,6 +38,14 @@ const RegisterStack = () => (
         headerLeft: () => <BackButton />,
       }}
       component={CountyAddressScreen}
+    />
+    <Stack.Screen
+      name={roots.countriesScreen}
+      options={{
+        title: I18n.t('selectCountry'),
+        headerLeft: () => <BackButton />,
+      }}
+      component={CountriesScreen}
     />
   </Stack.Navigator>
 );

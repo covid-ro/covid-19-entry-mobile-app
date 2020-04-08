@@ -100,6 +100,7 @@ const strings = {
   phoneNumberError: 'Vă rugăm introduceți un număr valid de telefon.',
   completeAllFieldsError: 'Toate câmpurile trebuie completate',
   selectCounty: 'Selectați un județ',
+  selectCountry: 'Selectați o țară',
   back: 'Înapoi',
   searchForCountry: 'Caută țara',
   cancel: 'Anulați',
