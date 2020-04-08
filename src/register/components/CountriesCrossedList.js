@@ -20,7 +20,7 @@ const CountriesCrossedList = ({countries, getCountries}) => {
       <View style={countriesCrossedListStyles.separator} />
       <SectionList
         sections={countries}
-        keyExtractor={(item, index) => item + index}
+        keyExtractor={(item, index) => `${item}${index}`}
         renderItem={({item}) => {
           return (
             <CountryItem
