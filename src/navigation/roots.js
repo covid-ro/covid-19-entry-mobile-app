@@ -9,5 +9,6 @@ const roots = {
   sendNumber: 'SendNumber',
   sendCode: 'SendCode',
   registerScreen: 'registerScreen',
+  countyScreen: 'countyScreen',
 };
 export default roots;

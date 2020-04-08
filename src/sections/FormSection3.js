@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {View, Text, TouchableOpacity, Platform} from 'react-native';
-import {Picker, DatePicker, Icon} from 'native-base';
+import {DatePicker} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
-import {InputField} from '../core/components';
+import {InputField, CustomPicker} from '../core/components';
 import {
   countries,
   getVisitedCountries,
@@ -11,7 +11,6 @@ import {
 } from '../core/utils';
 import {formSection3Styles} from './styles';
 import {I18n} from '../core/strings';
-import {ANDROID} from '../core/constants';
 import {roots} from '../navigation';
 import {connect} from 'react-redux';
 import {
@@ -61,43 +60,12 @@ const FormSection3 = ({
   return (
     <View style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{I18n.t('form3Label')}</Text>
-      <View style={[formSection3Styles.pickerContainer]}>
-        <Picker
-          style={
-            Platform.OS === ANDROID
-              ? formSection3Styles.androidPicker
-              : formSection3Styles.picker
-          }
-          onValueChange={setTravellingCountry}
-          selectedValue={travellingFromCountry}
-          textStyle={formSection3Styles.pickerText}
-          placeholder={I18n.t('country')}
-          placeholderStyle={formSection3Styles.pickerPlaceHolder}
-          iosIcon={
-            <Icon name="arrow-down" style={formSection3Styles.pickerIcon} />
-          }>
-          {countries.map(item => (
-            <Picker.Item label={item.name} value={item.code} key={item.code} />
-          ))}
-        </Picker>
-      </View>
-      {Platform.OS === ANDROID ? (
-        <View
-          style={
-            travellingFromCountry
-              ? formSection3Styles.valueAndroidSeparator
-              : formSection3Styles.androidPickerSeparator
-          }
-        />
-      ) : (
-        <View
-          style={
-            travellingFromCountry
-              ? formSection3Styles.valueSeparator
-              : formSection3Styles.separator
-          }
-        />
-      )}
+      <CustomPicker
+        data={countries}
+        onValueChange={setTravellingCountry}
+        selectedValue={travellingFromCountry}
+        placeholder={I18n.t('country')}
+      />
       <InputField
         placeholder={I18n.t('county')}
         value={travellingFromCity}
@@ -204,4 +172,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: SET_ITINERARY_COUNTRIES, itineraryCountries}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection3);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormSection3);

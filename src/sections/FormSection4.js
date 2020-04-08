@@ -1,11 +1,21 @@
-import React, {useState, useRef} from 'react';
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
-import {InputField} from '../core/components';
+import React, {useState, useRef, useEffect} from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {InputField, CustomPicker} from '../core/components';
 import {formSection4Styles} from './styles';
 import {I18n} from '../core/strings';
-import {DatePicker} from 'native-base';
+import {DatePicker, Icon} from 'native-base';
 import {labelStyles} from '../core/styles';
 import {connect} from 'react-redux';
+import {counties, localities} from '../core/constants';
+import {colors} from '../themes';
+import {roots} from '../navigation';
 import {
   SET_CITY,
   SET_COUNTY,
@@ -28,9 +38,9 @@ const FormSection4 = ({
   setArrrival,
   setDeparture,
 }) => {
-  const localitateRef = useRef(null);
   let arrivalPickerRef = useRef(null);
   let departurePickerRef = useRef(null);
+  const navigation = useNavigation();
 
   const onPressReuseData = () => {
     const {city, county, address, departureDate, arrivalDate} = recompleteData;
@@ -42,29 +52,51 @@ const FormSection4 = ({
     departurePickerRef.setDate(departureDate);
     arrivalPickerRef.setDate(arrivalDate);
   };
+  const [cityArray, setCityArray] = useState();
+  const [locality, setLocality] = useState();
+
+  useEffect(() => {
+    setCityArray(localities.filter(item => item.auto === county));
+  }, [county]);
+
   return (
     <View style={formSection4Styles.container}>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
         {I18n.t('form4Label')}
       </Text>
-      <InputField
+      <CustomPicker
+        data={counties}
+        onValueChange={setCounty}
+        selectedValue={county}
         placeholder={I18n.t('judet')}
-        value={county}
-        onChangeText={setCounty}
-        placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
-        returnKeyType={'next'}
-        onSubmitEditing={() => {
-          localitateRef.current.focus();
-        }}
-        blurOnSubmit={false}
       />
-      <InputField
-        inputRef={localitateRef}
-        placeholder={I18n.t('localitate')}
-        value={city}
-        onChangeText={setCity}
-        customContainerStyle={formSection4Styles.inputStyle}
-        placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
+      <TouchableOpacity
+        style={[
+          formSection4Styles.countyContainer,
+          locality && formSection4Styles.activeCountyContainer,
+        ]}
+        disabled={county ? false : true}
+        onPress={() =>
+          navigation.navigate(roots.countyScreen, {
+            data: cityArray,
+            onPress: setLocality,
+          })
+        }>
+        <Text
+          style={[
+            formSection4Styles.localityText,
+            locality && formSection4Styles.localityActiveText,
+          ]}>
+          {locality?.nume || I18n.t('localitate')}
+        </Text>
+        <Icon name="arrow-down" style={formSection4Styles.pickerIcon} />
+      </TouchableOpacity>
+      <View
+        style={
+          locality
+            ? formSection4Styles.valueSeparator
+            : formSection4Styles.separator
+        }
       />
       <View style={formSection4Styles.datepickerContainer}>
         <DatePicker
@@ -150,4 +182,7 @@ const mapDispatchToProps = dispatch => ({
   setAddress: address => dispatch({type: SET_ADDRESS, address}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection4);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormSection4);
