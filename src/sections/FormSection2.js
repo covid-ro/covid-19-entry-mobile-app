@@ -47,26 +47,42 @@ const FormSection2 = ({
           }}
         />
       </View>
-      <Text style={formSection2Styles.title}>
-        {passportSelected ? I18n.t('addPassportInfo') : I18n.t('addICInfo')}
-      </Text>
-      <InputField
-        placeholder={I18n.t('seria')}
-        value={documentSeries}
-        onChangeText={setDocumentSeries}
-        returnKeyType={'next'}
-        onSubmitEditing={() => {
-          numberRef.current.focus();
-        }}
-        blurOnSubmit={false}
-      />
-      <InputField
-        inputRef={numberRef}
-        placeholder={I18n.t('passportNumber')}
-        value={documentNumber}
-        onChangeText={setDocumentNumber}
-        customContainerStyle={formSection2Styles.inputContainer}
-      />
+      {(cardSelected || passportSelected) && (
+        <Text style={formSection2Styles.title}>
+          {passportSelected ? I18n.t('addPassportInfo') : I18n.t('addICInfo')}
+        </Text>
+      )}
+      {cardSelected && (
+        <View>
+          <InputField
+            placeholder={I18n.t('seria')}
+            value={documentSeries}
+            onChangeText={setDocumentSeries}
+            returnKeyType={'next'}
+            onSubmitEditing={() => {
+              numberRef.current.focus();
+            }}
+            blurOnSubmit={false}
+          />
+          <InputField
+            inputRef={numberRef}
+            placeholder={I18n.t('passportNumber')}
+            value={documentNumber}
+            onChangeText={setDocumentNumber}
+            customContainerStyle={formSection2Styles.inputContainer}
+          />
+        </View>
+      )}
+      {passportSelected && (
+        <InputField
+          inputRef={numberRef}
+          placeholder={I18n.t('passportNumber')}
+          value={documentNumber}
+          onChangeText={setDocumentNumber}
+          customContainerStyle={formSection2Styles.inputContainer}
+          maxLength={9}
+        />
+      )}
     </View>
   );
 };

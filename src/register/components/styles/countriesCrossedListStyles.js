@@ -25,6 +25,18 @@ const countriesCrossedListStyles = StyleSheet.create({
     color: colors.black,
     fontSize: metrics.size17,
   },
+  headerContainer: {
+    paddingLeft: metrics.size16,
+    paddingTop: metrics.size30,
+    paddingBottom: metrics.size16,
+    opacity: metrics.size1,
+    backgroundColor: colors.white,
+  },
+  headerText: { 
+    color: colors.black,
+    fontSize: metrics.size17,
+    fontWeight: 'bold'
+  }
 });
 
 export default countriesCrossedListStyles;

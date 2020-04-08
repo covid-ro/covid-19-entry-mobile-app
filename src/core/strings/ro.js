@@ -1,6 +1,6 @@
 const strings = {
   declaratie: 'Declarație',
-  progressHeaderStep: 'din 10',
+  progressHeaderStep: 'din 9',
   form2Label: 'Selectați unul din actele de identitate.',
   form8Label:
     'Ați avut unul sau mai multe dintre următoarele simptome (selecție multiplă) :',
@@ -70,7 +70,7 @@ const strings = {
   alertMessage:
     'Numărul de telefon completat trebuie să fie activ pe toată perioada autoizolării. Veți fi contactat pe acest număr de telefon de către autoritățile responsabile. \n \nOrice omisiune va fi pedepsită conform legii pentru combaterea bolilor contagioase.',
   telefonValid: 'Telefon valid',
-  email: 'E-mail',
+  email: 'E-mail (opțional)',
   form1Label: 'Vă rugăm să adăugați datele personale.',
   nume: 'Nume',
   prenume: 'Prenume',
@@ -100,5 +100,8 @@ const strings = {
   phoneNumberError: 'Vă rugăm introduceți un număr valid de telefon.',
   completeAllFieldsError: 'Toate câmpurile trebuie completate',
   seeQR: 'Vezi codurile QR',
+  back: 'Înapoi',
+  cautare: 'Caută țara',
+  anulati: 'Anulați',
 };
 export default strings;

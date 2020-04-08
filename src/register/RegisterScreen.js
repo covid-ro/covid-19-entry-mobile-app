@@ -77,7 +77,6 @@ const RegisterScreen = ({
     {id: 6, data: 'card 7'},
     {id: 7, data: 'card 8'},
     {id: 8, data: 'card 9'},
-    {id: 9, data: 'card 10'},
   ];
 
   useEffect(() => {
@@ -104,8 +103,8 @@ const RegisterScreen = ({
       question1 === '' ||
       question2 === '' ||
       question3 === '' ||
-      vechicleType === '' ||
-      registrationNo === ''
+      vechicleType === 'ambulace' ||
+      (vechicleType === 'auto' && registrationNo !== '')
     ) {
       Alert.alert(strings.completeAllFieldsError);
     } else {
@@ -114,6 +113,11 @@ const RegisterScreen = ({
         .split('T')[0];
       const city_arrival_date = arrivalDate.toISOString().split('T')[0];
       const city_departure_date = departureDate.toISOString().split('T')[0];
+      let symptoms = [];
+      fever && symptoms.push('fever');
+      swallow && symptoms.push('swallow');
+      breathing && symptoms.push('breath');
+      cough && symptoms.push('cough');
       setIsSending(true);
       const response = await sendDeclaration({
         name: firstName,
@@ -135,17 +139,15 @@ const RegisterScreen = ({
             city_departure_date: city_departure_date,
           },
         ],
-        question_1_answer: question1.toString(),
-        question_2_answer: question2.toString(),
-        question_3_answer: question3.toString(),
-        symptom_fever: fever,
-        symptom_swallow: swallow,
-        symptom_breathing: breathing,
-        symptom_cough: cough,
+        q_visited: question1,
+        q_contacted: question2,
+        q_hospitalized: question3,
+        symptoms: symptoms,
         itinerary_countries: itineraryCountries,
         vehicle_type: vechicleType,
         vehicle_registration_no: registrationNo,
       });
+      console.log(response);
       if (response.status === 200) {
         setIsSending(false);
         setDeclarationCodesArray(declarationCodesArray => [
@@ -254,12 +256,6 @@ const RegisterScreen = ({
             <FormSection9 text={I18n.t('form9Label')} />
           </View>
         );
-      case 9:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection10 text={I18n.t('form10Label')} />
-          </View>
-        );
 
       default:
         return <View style={registerScreenStyles.card} />;
@@ -292,7 +288,7 @@ const RegisterScreen = ({
             swipeThreshold={metrics.screenWidth * 0.1}
           />
           <View style={registerScreenStyles.generalButtonContainer}>
-            {activeCard !== 9 ? (
+            {activeCard !== 8 ? (
               <GeneralButton
                 text={I18n.t('urmatorul')}
                 onPress={() => carouselRef.current.snapToNext()}
@@ -383,4 +379,7 @@ const mapDispatchToProps = dispatch => ({
   setDeclarationCodes: declarationCodes =>
     dispatch({type: SET_DECLARATION_CODE, declarationCodes}),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(RegisterScreen);
