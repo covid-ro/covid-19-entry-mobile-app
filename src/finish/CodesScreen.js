@@ -30,7 +30,7 @@ const CodesScreen = ({navigation, declarationCodes}) => {
     return (
       <View style={codesScreenStyles.card}>
         <View style={codesScreenStyles.qrStyle}>
-          <QRCode value="text" size={150} />
+          <QRCode value={item.code} size={150} />
         </View>
         <View style={codesScreenStyles.codeContainer}>
           <Text style={codesScreenStyles.nameTextStyle}>{item.name}</Text>
