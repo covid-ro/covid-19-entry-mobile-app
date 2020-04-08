@@ -102,5 +102,6 @@ const strings = {
   back: 'Back',
   search: 'Search for a country',
   cancel: 'Cancel',
+  searchForCounty: 'Search for a county',
 };
 export default strings;
