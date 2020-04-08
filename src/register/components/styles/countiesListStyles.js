@@ -5,6 +5,9 @@ const countiesListStyles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  flatList: {
+    flex: 1,
+  },
   separator: {
     marginTop: metrics.size12,
     backgroundColor: colors.graySeparator,

@@ -1,4 +1,4 @@
-import {FlatList, View} from 'react-native';
+import {SectionList, View, Text} from 'react-native';
 import {countriesCrossedListStyles} from './styles';
 import React from 'react';
 import {CountryItem} from './index';
@@ -15,19 +15,25 @@ const CountriesCrossedList = ({countries, getCountries}) => {
     },
     [selected, getCountries],
   );
-
   return (
     <View style={countriesCrossedListStyles.container}>
       <View style={countriesCrossedListStyles.separator} />
-      <FlatList
-        data={countries}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <CountryItem
-            item={item}
-            selected={!!selected.get(item.id)}
-            onSelect={onSelect}
-          />
+      <SectionList
+        sections={countries}
+        keyExtractor={(item, index) => `${item}${index}`}
+        renderItem={({item}) => {
+          return (
+            <CountryItem
+              item={item}
+              selected={!!selected.get(item.iso)}
+              onSelect={onSelect}
+            />
+          );
+        }}
+        renderSectionHeader={({section: {title}}) => (
+          <View style={countriesCrossedListStyles.headerContainer}>
+            <Text style={countriesCrossedListStyles.headerText}>{title}</Text>
+          </View>
         )}
         extraData={selected}
       />

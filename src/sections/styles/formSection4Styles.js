@@ -19,6 +19,9 @@ const formSection4Styles = StyleSheet.create({
     marginTop: metrics.size36,
     height: normalize(metrics.size22),
     marginHorizontal: metrics.size16,
+    marginBottom: metrics.size4,
+    height: metrics.size18,
+    justifyContent: 'center',
   },
   countyTextInput: {
     color: colors.darkGrey,
@@ -26,13 +29,19 @@ const formSection4Styles = StyleSheet.create({
     fontWeight: 'normal',
     padding: metrics.size0,
   },
+  imageIcon: {
+    width: metrics.size11,
+    height: metrics.size5,
+    right: metrics.size15,
+    position: 'absolute',
+    color: colors.black4A,
+  },
   pickerIcon: {
     fontSize: metrics.size22,
     position: 'absolute',
     right: metrics.size15,
     color: colors.black4A,
     opacity: metrics.size0_7,
-    top: -metrics.size1,
   },
   localityText: {
     fontSize: metrics.size15,

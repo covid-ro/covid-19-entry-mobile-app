@@ -6,12 +6,12 @@ import {useNavigation} from '@react-navigation/native';
 const CountiesList = ({data, onPress}) => {
   const navigation = useNavigation();
   return (
-    <View>
+    <View style={countiesListStyles.container}>
       <FlatList
+        style={countiesListStyles.flatList}
         data={data}
         showsVerticalScrollIndicator={false}
         renderItem={item => {
-          console.log(item);
           return (
             <TouchableOpacity
               style={countiesListStyles.item}

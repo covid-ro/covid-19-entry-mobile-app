@@ -3,6 +3,8 @@ import {View, Platform} from 'react-native';
 import {Picker, Icon} from 'native-base';
 import {customPickerStyles} from './styles';
 import {ANDROID} from '../constants';
+import {I18n} from '../strings';
+import {BackHeader} from '../components';
 
 const CustomPicker = ({
   onValueChange,
@@ -11,7 +13,6 @@ const CustomPicker = ({
   placeholder,
   enabled,
 }) => {
-  console.log(data);
   return (
     <View>
       <View style={customPickerStyles.pickerContainer}>
@@ -27,6 +28,10 @@ const CustomPicker = ({
           placeholder={placeholder}
           placeholderStyle={customPickerStyles.pickerPlaceHolder}
           enabled={enabled}
+          headerBackButtonText={I18n.t('back')}
+          renderHeader={backAction => (
+            <BackHeader onPress={backAction} title={'Alege unul'} />
+          )}
           iosIcon={
             <Icon name="arrow-down" style={customPickerStyles.pickerIcon} />
           }>

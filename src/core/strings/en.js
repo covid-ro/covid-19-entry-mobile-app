@@ -70,7 +70,7 @@ const strings = {
   alertMessage:
     'The filled in phone number must be available throughout the entire isolation period. You will be called at this number by the authorities. \n \nAny omission will be punished according to the law referring to combating contagious diseases.',
   telefonValid: 'Valid phone number',
-  email: 'E-mail',
+  email: 'E-mail (optional)',
   form1Label: 'Please fill in your personal data.',
   nume: 'Last Name',
   prenume: 'First Name',
@@ -99,5 +99,8 @@ const strings = {
   ro: 'ro',
   phoneNumberError: 'Please enter a valid phone number.',
   selectCounty: 'Please select a county',
+  back: 'Back',
+  search: 'Search for a country',
+  cancel: 'Cancel',
 };
 export default strings;

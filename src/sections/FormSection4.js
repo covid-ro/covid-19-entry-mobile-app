@@ -1,21 +1,16 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import {View, Text, TouchableOpacity, Image, Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {InputField, CustomPicker} from '../core/components';
 import {formSection4Styles} from './styles';
 import {I18n} from '../core/strings';
-import {DatePicker, Icon} from 'native-base';
+import {DatePicker, Icon, Button} from 'native-base';
 import {labelStyles} from '../core/styles';
 import {connect} from 'react-redux';
 import {counties, localities} from '../core/constants';
-import {colors} from '../themes';
 import {roots} from '../navigation';
+import {ANDROID} from '../core/constants';
+import {images} from '../themes';
 import {
   SET_CITY,
   SET_COUNTY,
@@ -71,10 +66,7 @@ const FormSection4 = ({
         placeholder={I18n.t('judet')}
       />
       <TouchableOpacity
-        style={[
-          formSection4Styles.countyContainer,
-          locality && formSection4Styles.activeCountyContainer,
-        ]}
+        style={formSection4Styles.countyContainer}
         disabled={county ? false : true}
         onPress={() =>
           navigation.navigate(roots.countyScreen, {
@@ -89,7 +81,14 @@ const FormSection4 = ({
           ]}>
           {locality?.nume || I18n.t('localitate')}
         </Text>
-        <Icon name="arrow-down" style={formSection4Styles.pickerIcon} />
+        {Platform.OS === ANDROID ? (
+          <Image
+            source={images.arrow_down}
+            style={formSection4Styles.imageIcon}
+          />
+        ) : (
+          <Icon name="arrow-down" style={formSection4Styles.pickerIcon} />
+        )}
       </TouchableOpacity>
       <View
         style={

@@ -107,7 +107,8 @@ const formSection3Styles = StyleSheet.create({
   },
   countriesTitleContainer: {
     marginTop: metrics.size45,
-    height: metrics.size24,
+    minHeight: metrics.size24,
+    maxHeight: metrics.size48,
     marginHorizontal: metrics.size16,
   },
   countriesTitleText: {
