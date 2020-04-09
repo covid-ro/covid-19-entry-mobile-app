@@ -101,6 +101,7 @@ const strings = {
   completeAllFieldsError: 'Toate câmpurile trebuie completate',
   selectCounty: 'Selectați un județ',
   selectCountry: 'Selectați o țară',
+  seeQR: 'Vezi codurile QR',
   back: 'Înapoi',
   searchForCountry: 'Caută țara',
   cancel: 'Anulați',

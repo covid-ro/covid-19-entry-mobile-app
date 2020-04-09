@@ -100,6 +100,7 @@ const strings = {
   phoneNumberError: 'Please enter a valid phone number.',
   selectCounty: 'Please select a county',
   selectCountry: 'Please select a country',
+  seeQR: 'See QR codes',
   back: 'Back',
   search: 'Search for a country',
   cancel: 'Cancel',

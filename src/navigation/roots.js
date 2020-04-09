@@ -6,6 +6,7 @@ const roots = {
   finishNavigator: 'FinishNavigator',
   finishScreen: 'FinishScreen',
   endScreen: 'EndScreen',
+  codesScreen: 'CodesScreen',
   sendNumber: 'SendNumber',
   sendCode: 'SendCode',
   registerScreen: 'registerScreen',

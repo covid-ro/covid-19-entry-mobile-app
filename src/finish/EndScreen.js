@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Image, Text, ScrollView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {images} from '../themes';
 import {endScreenStyles} from './styles';
 import {GeneralButton} from '../core/components';
 import {I18n} from '../core/strings';
+import {roots} from '../navigation';
 
 const EndScreen = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView style={endScreenStyles.container}>
       <Image source={images.logo} style={endScreenStyles.logo} />
@@ -22,8 +25,8 @@ const EndScreen = () => {
       </View>
       <View style={endScreenStyles.bottomContainer}>
         <GeneralButton
-          text={I18n.t('sfaturiDeCalatorie')}
-          onPress={() => console.log('sfaturi')}
+          text={I18n.t('seeQR')}
+          onPress={() => navigation.navigate(roots.codesScreen)}
         />
       </View>
     </ScrollView>
