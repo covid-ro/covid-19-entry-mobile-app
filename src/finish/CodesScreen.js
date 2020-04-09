@@ -1,6 +1,7 @@
 import React, {useRef, useCallback, useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import QRCode from 'react-native-qrcode-svg';
 import {metrics} from '../themes';
@@ -8,9 +9,10 @@ import {codesScreenStyles} from './styles';
 import {GeneralButton} from '../core/components';
 import {I18n} from '../core/strings';
 
-const CodesScreen = ({navigation, declarationCodes}) => {
+const CodesScreen = ({declarationCodes}) => {
   const carouselRef = useRef(null);
   const [activeCard, setActiveCard] = useState(0);
+  const navigation = useNavigation();
   const cards = [
     {
       name: 'Cosmin Dan',
