@@ -99,11 +99,16 @@ const strings = {
   ro: 'ro',
   phoneNumberError: 'Vă rugăm introduceți un număr valid de telefon.',
   completeAllFieldsError: 'Toate câmpurile trebuie completate',
+  selectCounty: 'Selectați un județ',
+  selectCountry: 'Selectați o țară',
   seeQR: 'Vezi codurile QR',
   back: 'Înapoi',
   cautare: 'Caută țara',
   anulati: 'Anulați',
   confirmLabel:
     'Confirm ca datele trecute sunt reale si ca voi respecta procedura de auto-izolare',
+  searchForCountry: 'Caută țara',
+  cancel: 'Anulați',
+  searchForCounty: 'Caută județul',
 };
 export default strings;

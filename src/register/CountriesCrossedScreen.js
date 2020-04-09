@@ -5,6 +5,7 @@ import {strings} from '../core/strings';
 import {CountriesCrossedList, SearchBar} from './components';
 import {countriesCrossed} from '../core/constants';
 import {countriesSearch} from '../core/utils';
+import {I18n} from '../core/strings';
 
 const CountriesCrossedScreen = ({route}) => {
   const setCountries = route.params.setCountries;
@@ -24,6 +25,7 @@ const CountriesCrossedScreen = ({route}) => {
         value={searchValue}
         setSearchValue={setSearchValue}
         onCancelPress={() => setSearchValue('')}
+        placeholder={I18n.t('searchForCountry')}
       />
       <CountriesCrossedList
         countries={searchValue ? countriesSearched : countriesCrossed}

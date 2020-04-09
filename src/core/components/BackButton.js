@@ -9,7 +9,7 @@ const BackButton = ({onPress}) => {
   return (
     <TouchableOpacity
       style={backButtonStyles.marginLeft}
-      onPress={() => onPress() || navigation.goBack()}>
+      onPress={() => onPress || navigation.goBack()}>
       <Icon
         ios="ios-arrow-back"
         android="md-arrow-back"

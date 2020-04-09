@@ -1,7 +1,6 @@
 import React, {useRef, useCallback, useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import QRCode from 'react-native-qrcode-svg';
 import {metrics} from '../themes';
@@ -12,21 +11,6 @@ import {I18n} from '../core/strings';
 const CodesScreen = ({declarationCodes}) => {
   const carouselRef = useRef(null);
   const [activeCard, setActiveCard] = useState(0);
-  const navigation = useNavigation();
-  const cards = [
-    {
-      name: 'Cosmin Dan',
-      code: 'MM12BWR1',
-    },
-    {
-      name: 'Cosmin Dan',
-      code: 'MM12BWR2',
-    },
-    {
-      name: 'Cosmin Dan',
-      code: 'MM12BWR3',
-    },
-  ];
 
   const renderItem = useCallback(({item}) => {
     return (
@@ -44,7 +28,7 @@ const CodesScreen = ({declarationCodes}) => {
   const pagination = () => {
     return (
       <Pagination
-        dotsLength={cards.length}
+        dotsLength={declarationCodes.length}
         activeDotIndex={activeCard}
         containerStyle={codesScreenStyles.pagination}
         dotStyle={codesScreenStyles.dotStyle}
@@ -67,7 +51,7 @@ const CodesScreen = ({declarationCodes}) => {
           keyboardDismissMode="on-drag"
           keyboardShouldPersistTaps="handled"
           ref={carouselRef}
-          data={cards}
+          data={declarationCodes}
           renderItem={renderItem}
           sliderWidth={metrics.screenWidth}
           itemWidth={metrics.cardWidth}

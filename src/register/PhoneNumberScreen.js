@@ -23,7 +23,6 @@ const PhoneNumberScreen = ({navigation}) => {
   const [isFocused, setFocus] = useState();
   const [modal, setModal] = useState(false);
   const [isSending, setIsSending] = useState(false);
-
   const handleSendNumber = useCallback(async () => {
     const countryCode = parseInt(dialCode, 10);
     if (phoneNumber === '') {
@@ -35,7 +34,6 @@ const PhoneNumberScreen = ({navigation}) => {
         countryCode,
         DeviceInfo.getUniqueId(),
       );
-
       if (response.status === 200) {
         setIsSending(false);
         navigation.navigate(roots.sendCode, {phoneNumber, countryCode});

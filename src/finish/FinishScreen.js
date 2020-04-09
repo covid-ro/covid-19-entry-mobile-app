@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {ProgressHeader} from '../register/components';
@@ -6,7 +6,6 @@ import {finishScreenStyles} from './styles';
 import {GeneralButton} from '../core/components';
 import {I18n} from '../core/strings';
 import {roots} from '../navigation';
-import {connect} from 'react-redux';
 
 const FinishScreen = () => {
   const navigation = useNavigation();
@@ -44,10 +43,4 @@ const FinishScreen = () => {
     </View>
   );
 };
-
-const mapStateToProps = state => {
-  const {declarationCodes} = state.register.rergisterReducer;
-  return {declarationCodes};
-};
-
-export default connect(mapStateToProps)(FinishScreen);
+export default FinishScreen;

@@ -26,11 +26,11 @@ const searchBarStyles = StyleSheet.create({
     marginLeft: metrics.size10,
   },
   text: {
+    padding: metrics.size0,
     color: colors.black,
     fontSize: metrics.size17,
     marginLeft: metrics.size5,
     width: '100%',
-    flex: 1,
     paddingRight: metrics.size16,
   },
   cancelText: {

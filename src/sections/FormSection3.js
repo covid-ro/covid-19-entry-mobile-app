@@ -1,17 +1,18 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, Text, TouchableOpacity, Platform} from 'react-native';
-import {Picker, DatePicker, Icon} from 'native-base';
+import {View, Text, TouchableOpacity, Platform, Image} from 'react-native';
+import {DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
-import {InputField, BackHeader} from '../core/components';
+import {InputField, CustomPicker} from '../core/components';
+import {images} from '../themes';
+import {ANDROID} from '../core/constants';
 import {
-  countries,
   getVisitedCountries,
   getVisitedCountriesCodes,
   getCountriesBasedOnCodes,
 } from '../core/utils';
+import {countries} from '../core/constants';
 import {formSection3Styles} from './styles';
 import {I18n} from '../core/strings';
-import {ANDROID} from '../core/constants';
 import {roots} from '../navigation';
 import {connect} from 'react-redux';
 import {
@@ -44,6 +45,7 @@ const FormSection3 = ({
       setItineraryCountries(countriesCodes);
     }
   }, [visitedCountries, setItineraryCountries]);
+
   const onPressReuseData = () => {
     const {
       travellingFromCity,
@@ -61,47 +63,38 @@ const FormSection3 = ({
   return (
     <View style={formSection3Styles.container}>
       <Text style={formSection3Styles.title}>{I18n.t('form3Label')}</Text>
-      <View style={[formSection3Styles.pickerContainer]}>
-        <Picker
-          style={
-            Platform.OS === ANDROID
-              ? formSection3Styles.androidPicker
-              : formSection3Styles.picker
-          }
-          onValueChange={setTravellingCountry}
-          selectedValue={travellingFromCountry}
-          textStyle={formSection3Styles.pickerText}
-          placeholder={I18n.t('country')}
-          placeholderStyle={formSection3Styles.pickerPlaceHolder}
-          headerBackButtonText={I18n.t('back')}
-          renderHeader={backAction => (
-            <BackHeader onPress={backAction} title={'Alege unul'} />
-          )}
-          iosIcon={
-            <Icon name="arrow-down" style={formSection3Styles.pickerIcon} />
-          }>
-          {countries.map(item => (
-            <Picker.Item label={item.name} value={item.code} key={item.code} />
-          ))}
-        </Picker>
-      </View>
-      {Platform.OS === ANDROID ? (
-        <View
-          style={
-            travellingFromCountry
-              ? formSection3Styles.valueAndroidSeparator
-              : formSection3Styles.androidPickerSeparator
-          }
-        />
-      ) : (
-        <View
-          style={
-            travellingFromCountry
-              ? formSection3Styles.valueSeparator
-              : formSection3Styles.separator
-          }
-        />
-      )}
+      <TouchableOpacity
+        style={formSection3Styles.countryContainer}
+        disabled={travellingFromCountry !== null ? false : true}
+        onPress={() =>
+          navigation.navigate(roots.countriesScreen, {
+            data: countries,
+            onPress: setTravellingCountry,
+          })
+        }>
+        <Text
+          style={[
+            formSection3Styles.countryText,
+            travellingFromCountry && formSection3Styles.countryActiveText,
+          ]}>
+          {travellingFromCountry?.name || I18n.t('country')}
+        </Text>
+        {Platform.OS === ANDROID ? (
+          <Image
+            source={images.arrow_down}
+            style={formSection3Styles.imageIcon}
+          />
+        ) : (
+          <Icon name="arrow-down" style={formSection3Styles.customPickerIcon} />
+        )}
+      </TouchableOpacity>
+      <View
+        style={
+          travellingFromCountry
+            ? formSection3Styles.valueSeparator
+            : formSection3Styles.separator
+        }
+      />
       <InputField
         placeholder={I18n.t('county')}
         value={travellingFromCity}
@@ -207,4 +200,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: SET_ITINERARY_COUNTRIES, itineraryCountries}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection3);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormSection3);

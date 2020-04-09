@@ -98,11 +98,14 @@ const strings = {
   plus: '+',
   ro: 'ro',
   phoneNumberError: 'Please enter a valid phone number.',
+  selectCounty: 'Please select a county',
+  selectCountry: 'Please select a country',
   seeQR: 'See QR codes',
   back: 'Back',
   search: 'Search for a country',
   cancel: 'Cancel',
   confirmLabel:
     'Confirm ca datele trecute sunt reale si ca voi respecta procedura de auto-izolare',
+  searchForCounty: 'Search for a county',
 };
 export default strings;

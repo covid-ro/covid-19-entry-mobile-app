@@ -127,7 +127,7 @@ const RegisterScreen = ({
         document_type: documentType,
         document_series: documentSeries,
         document_number: documentNumber,
-        travelling_from_country_code: travellingFromCountry,
+        travelling_from_country_code: travellingFromCountry.alpha2.toUpperCase(),
         travelling_from_city: travellingFromCity,
         travelling_from_date: travelling_from_date,
         isolation_addresses: [
@@ -147,7 +147,6 @@ const RegisterScreen = ({
         vehicle_type: vechicleType,
         vehicle_registration_no: registrationNo,
       });
-      console.log(response);
       if (response.status === 200) {
         setIsSending(false);
         setDeclarationCodesArray(declarationCodesArray => [

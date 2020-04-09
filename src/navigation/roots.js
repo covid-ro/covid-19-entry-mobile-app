@@ -10,5 +10,7 @@ const roots = {
   sendNumber: 'SendNumber',
   sendCode: 'SendCode',
   registerScreen: 'registerScreen',
+  countyScreen: 'countyScreen',
+  countriesScreen: 'countriesScreen',
 };
 export default roots;
