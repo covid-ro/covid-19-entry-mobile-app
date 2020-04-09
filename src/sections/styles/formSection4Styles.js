@@ -15,6 +15,41 @@ const formSection4Styles = StyleSheet.create({
   inputPlaceholderSeparator: {
     marginTop: metrics.size4,
   },
+  countyContainer: {
+    marginTop: metrics.size36,
+    height: metrics.size18,
+    marginHorizontal: metrics.size16,
+    marginBottom: metrics.size4,
+    justifyContent: 'center',
+  },
+  countyTextInput: {
+    color: colors.darkGrey,
+    fontSize: metrics.size15,
+    fontWeight: 'normal',
+    padding: metrics.size0,
+  },
+  imageIcon: {
+    width: metrics.size11,
+    height: metrics.size5,
+    right: metrics.size15,
+    position: 'absolute',
+    color: colors.black4A,
+  },
+  pickerIcon: {
+    fontSize: metrics.size22,
+    position: 'absolute',
+    right: metrics.size15,
+    color: colors.black4A,
+    opacity: metrics.size0_7,
+  },
+  localityText: {
+    fontSize: metrics.size15,
+    fontWeight: 'normal',
+    color: colors.opacityGrey,
+  },
+  localityActiveText: {
+    color: colors.darkGrey,
+  },
   datePickerPlaceholderStyle: {
     top: metrics.size6,
     paddingLeft: metrics.size16,

@@ -147,7 +147,6 @@ const RegisterScreen = ({
         vehicle_type: vechicleType,
         vehicle_registration_no: registrationNo,
       });
-      console.log(response);
       if (response.status === 200) {
         setIsSending(false);
         setDeclarationCodesArray(declarationCodesArray => [

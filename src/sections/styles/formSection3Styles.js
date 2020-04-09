@@ -12,6 +12,40 @@ const formSection3Styles = StyleSheet.create({
     color: colors.black4A,
     fontWeight: '500',
   },
+  countryContainer: {
+    marginTop: metrics.size36,
+    height: metrics.size18,
+    marginHorizontal: metrics.size16,
+    justifyContent: 'center',
+  },
+  countryTextInput: {
+    color: colors.darkGrey,
+    fontSize: metrics.size15,
+    fontWeight: 'normal',
+    padding: metrics.size0,
+  },
+  imageIcon: {
+    width: metrics.size11,
+    height: metrics.size5,
+    right: metrics.size15,
+    position: 'absolute',
+    color: colors.black4A,
+  },
+  customPickerIcon: {
+    fontSize: metrics.size22,
+    position: 'absolute',
+    right: metrics.size15,
+    color: colors.black4A,
+    opacity: metrics.size0_7,
+  },
+  countryText: {
+    fontSize: metrics.size15,
+    fontWeight: 'normal',
+    color: colors.opacityGrey,
+  },
+  countryActiveText: {
+    color: colors.darkGrey,
+  },
   pickerContainer: {
     marginTop: normalize(metrics.size27),
     marginLeft: metrics.size16,
