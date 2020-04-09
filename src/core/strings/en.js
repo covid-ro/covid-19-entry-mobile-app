@@ -107,5 +107,6 @@ const strings = {
   confirmLabel:
     'Confirm ca datele trecute sunt reale si ca voi respecta procedura de auto-izolare',
   searchForCounty: 'Search for a county',
+  clickToSign: 'Click here to sign',
 };
 export default strings;

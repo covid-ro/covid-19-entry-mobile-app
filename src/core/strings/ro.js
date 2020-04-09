@@ -1,6 +1,6 @@
 const strings = {
   declaratie: 'Declarație',
-  progressHeaderStep: 'din 9',
+  progressHeaderStep: 'din 10',
   form2Label: 'Selectați unul din actele de identitate.',
   form8Label:
     'Ați avut unul sau mai multe dintre următoarele simptome (selecție multiplă) :',
@@ -110,5 +110,6 @@ const strings = {
   searchForCountry: 'Caută țara',
   cancel: 'Anulați',
   searchForCounty: 'Caută județul',
+  clickToSign: 'Apasati aici pentru a semna',
 };
 export default strings;

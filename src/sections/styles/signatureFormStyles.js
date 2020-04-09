@@ -16,15 +16,21 @@ const signatureFormStyles = StyleSheet.create({
     marginHorizontal: metrics.size16,
     marginBottom: normalize(metrics.size36),
   },
+  placeholderStyle: {
+    textAlign: 'center',
+    fontSize: metrics.size16,
+    color: colors.opacityGrey,
+  },
   signatureStyle: {
     flex: 1,
     marginHorizontal: metrics.size35,
-    height: 100,
-    // borderColor: colors.gray,
-    // borderWidth: 1,
-  },
-  flex: {
-    flex: 1,
+    marginTop: metrics.size20,
+    height: metrics.size153,
+    borderColor: colors.opacityGrey,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    justifyContent: 'center',
+    borderRadius: metrics.size10,
   },
 });
 

@@ -2,31 +2,22 @@ import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {signatureFormStyles} from './styles';
 import {labelStyles} from '../core/styles';
-import {SelectionButton} from '../core/components';
 import {I18n} from '../core/strings';
 import {SET_QUESTION3} from '../register/redux/actionTypes';
 import {connect} from 'react-redux';
-import SignatureCapture from 'react-native-signature-capture';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const SignatureForm = () => {
-  const [yesSelected, setYesSelected] = useState(false);
-  const [noSelected, setNoSelected] = useState(false);
-
   return (
     <View style={signatureFormStyles.container}>
       <View style={signatureFormStyles.textContainer}>
         <Text style={labelStyles.textStyle}>{I18n.t('confirmLabel')}</Text>
       </View>
-
-      <SignatureCapture
-        style={[signatureFormStyles.flex, signatureFormStyles.signatureStyle]}
-        onSaveEvent={() => console.log('save')}
-        onDragEvent={() => console.log('drag')}
-        saveImageFileInExtStorage={false}
-        showNativeButtons={false}
-        showTitleLabel={false}
-        viewMode={'portrait'}
-      />
+      <TouchableOpacity style={signatureFormStyles.signatureStyle}>
+        <Text style={signatureFormStyles.placeholderStyle}>
+          {I18n.t('clickToSign')}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
