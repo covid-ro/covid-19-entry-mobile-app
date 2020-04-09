@@ -13,7 +13,7 @@ const finishScreenStyles = StyleSheet.create({
   },
   bottomContainer: {
     justifyContent: 'flex-end',
-    marginBottom: metrics.size50,
+    marginBottom: metrics.size40,
   },
   marginTop: {
     marginTop: metrics.size24,
@@ -43,9 +43,9 @@ const finishScreenStyles = StyleSheet.create({
     marginBottom: metrics.size20,
   },
   codeContainer: {
-    marginTop: metrics.size40,
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: metrics.size30,
   },
   codeLabelStyle: {
     fontSize: metrics.size14,
@@ -69,19 +69,11 @@ const finishScreenStyles = StyleSheet.create({
     textAlign: 'left',
   },
   nameTextStyle: {
-    marginTop: metrics.size10,
+    marginVertical: metrics.size10,
     fontSize: metrics.size14,
     color: colors.black4A,
     fontWeight: 'bold',
     textAlign: 'left',
-  },
-  listStyle: {
-    height: metrics.size391,
-    marginHorizontal: metrics.size16,
-    marginBottom: metrics.size35,
-    padding: metrics.size16,
-    justifyContent: 'flex-start',
-    alignContent: 'center',
   },
 });
 

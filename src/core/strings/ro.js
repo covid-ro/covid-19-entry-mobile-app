@@ -99,6 +99,7 @@ const strings = {
   ro: 'ro',
   phoneNumberError: 'Vă rugăm introduceți un număr valid de telefon.',
   completeAllFieldsError: 'Toate câmpurile trebuie completate',
+  seeQR: 'Vezi codurile QR',
   back: 'Înapoi',
   cautare: 'Caută țara',
   anulati: 'Anulați',

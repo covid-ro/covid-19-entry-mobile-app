@@ -98,6 +98,7 @@ const strings = {
   plus: '+',
   ro: 'ro',
   phoneNumberError: 'Please enter a valid phone number.',
+  seeQR: 'See QR codes',
   back: 'Back',
   search: 'Search for a country',
   cancel: 'Cancel',
