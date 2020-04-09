@@ -12,9 +12,8 @@ const CountriesScreen = ({route}) => {
   const [selectedCountry, setSelectedCountry] = useState();
 
   useEffect(() => {
-    selectedCountry && onPress(selectedCountry.name);
+    selectedCountry && onPress(selectedCountry);
   }, [selectedCountry, onPress]);
-
   useEffect(() => {
     searchValue && setCountries(getCountrySearch(data, searchValue));
   }, [searchValue, data]);

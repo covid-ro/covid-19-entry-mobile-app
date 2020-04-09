@@ -36,6 +36,7 @@ const FormSection3 = ({
 }) => {
   const [visitedCountries, setVisitedCountries] = useState(null);
   const [countriesCrossed, setCountriesCrossed] = useState(null);
+  const [country, setCountry] = useState();
   let datePickerRef = useRef(null);
   const navigation = useNavigation();
 
@@ -45,6 +46,11 @@ const FormSection3 = ({
       setItineraryCountries(countriesCodes);
     }
   }, [visitedCountries, setItineraryCountries]);
+
+  useEffect(() => {
+    country && setTravellingCountry(country.alpha2.toUpperCase());
+  });
+
   const onPressReuseData = () => {
     const {
       travellingFromCity,
@@ -65,19 +71,19 @@ const FormSection3 = ({
 
       <TouchableOpacity
         style={formSection3Styles.countryContainer}
-        disabled={travellingFromCountry !== null ? false : true}
+        disabled={country !== null ? false : true}
         onPress={() =>
           navigation.navigate(roots.countriesScreen, {
             data: countries,
-            onPress: setTravellingCountry,
+            onPress: setCountry,
           })
         }>
         <Text
           style={[
             formSection3Styles.countryText,
-            travellingFromCountry && formSection3Styles.countryActiveText,
+            country && formSection3Styles.countryActiveText,
           ]}>
-          {travellingFromCountry || I18n.t('country')}
+          {country.name || I18n.t('country')}
         </Text>
         {Platform.OS === ANDROID ? (
           <Image
@@ -90,7 +96,7 @@ const FormSection3 = ({
       </TouchableOpacity>
       <View
         style={
-          travellingFromCountry
+          country
             ? formSection3Styles.valueSeparator
             : formSection3Styles.separator
         }

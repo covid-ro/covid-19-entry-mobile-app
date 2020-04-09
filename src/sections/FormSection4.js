@@ -54,6 +54,10 @@ const FormSection4 = ({
     setCityArray(localities.filter(item => item.auto === county));
   }, [county]);
 
+  useEffect(() => {
+    locality && setCity(locality.nume);
+  }, [locality, setCity]);
+
   return (
     <View style={formSection4Styles.container}>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
