@@ -102,5 +102,7 @@ const strings = {
   back: 'Back',
   search: 'Search for a country',
   cancel: 'Cancel',
+  confirmLabel:
+    'Confirm ca datele trecute sunt reale si ca voi respecta procedura de auto-izolare',
 };
 export default strings;
