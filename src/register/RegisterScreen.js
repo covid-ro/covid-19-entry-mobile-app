@@ -127,7 +127,7 @@ const RegisterScreen = ({
         document_type: documentType,
         document_series: documentSeries,
         document_number: documentNumber,
-        travelling_from_country_code: travellingFromCountry,
+        travelling_from_country_code: travellingFromCountry.alpha2.toUpperCase(),
         travelling_from_city: travellingFromCity,
         travelling_from_date: travelling_from_date,
         isolation_addresses: [
