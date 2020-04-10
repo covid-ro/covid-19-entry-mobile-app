@@ -5,22 +5,42 @@ import {useNavigation} from '@react-navigation/native';
 import {signatureScreenStyles} from './styles';
 import Orientation from 'react-native-orientation';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {BackButton} from '../core/components';
+import {I18n} from '../core/strings/index';
 
 const SignatureScreen = () => {
   const navigation = useNavigation();
   let signRef = useRef(null);
   useEffect(() => {
     Orientation.lockToLandscape();
-  });
+  }, []);
 
-  const onSave = () => {
+  const onSaveSignature = () => {
     signRef.saveImage();
+  };
+
+  const onResetSignature = () => {
+    signRef.resetImage();
   };
   const onSaveEvent = result => {
     console.log(result.encoded);
   };
   return (
     <View style={signatureScreenStyles.container}>
+      <View style={signatureScreenStyles.header}>
+        <BackButton
+          onPress={() => {
+            Orientation.lockToPortrait();
+          }}
+        />
+        <Text>{I18n.t('signatureScreenTitle')}</Text>
+        <TouchableOpacity
+          onPress={() => onSaveSignature()}
+          style={signatureScreenStyles.headerButton}>
+          <Text style={signatureScreenStyles.deleteStyle}>{I18n.t('use')}</Text>
+        </TouchableOpacity>
+      </View>
+
       <SignatureCapture
         ref={ref => (signRef = ref)}
         style={signatureScreenStyles.signatureArea}
@@ -30,17 +50,18 @@ const SignatureScreen = () => {
         showNativeButtons={false}
         viewMode={'landscape'}
       />
+
       <View style={signatureScreenStyles.bottom}>
         <TouchableOpacity
-          onPress={() => onSave()}
+          onPress={() => onResetSignature()}
           style={signatureScreenStyles.deleteContainer}>
-          <Text style={signatureScreenStyles.deleteStyle}>Sterge</Text>
+          <Text style={signatureScreenStyles.deleteStyle}>
+            {I18n.t('erase')}
+          </Text>
         </TouchableOpacity>
         <View style={signatureScreenStyles.textContainer}>
           <Text style={signatureScreenStyles.textStyle}>
-            Apasand Foloseste, sunt de acord ca semnatura sau reprezentarea ei
-            electronica sa poata fi folosite pentru validarea acestui document
-            legal, asemeni semnaturii olografice
+            {I18n.t('signatureDetails')}
           </Text>
         </View>
       </View>

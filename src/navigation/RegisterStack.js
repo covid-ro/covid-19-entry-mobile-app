@@ -52,17 +52,7 @@ const RegisterStack = () => (
     />
     <Stack.Screen
       name={roots.signatureScreen}
-      options={{
-        headerStatusBarHeight: metrics.size30,
-        title: I18n.t('signatureScreenTitle'),
-        headerLeft: () => (
-          <BackButton
-            onPress={() => {
-              Orientation.lockToPortrait();
-            }}
-          />
-        ),
-      }}
+      options={{headerShown: false}}
       component={SignatureScreen}
     />
   </Stack.Navigator>

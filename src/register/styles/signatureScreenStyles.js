@@ -4,9 +4,11 @@ import {colors, metrics} from '../../themes';
 const signatureScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.white,
   },
   signatureArea: {
     flex: 1,
+
     flexDirection: 'row',
   },
   bottom: {
@@ -40,6 +42,18 @@ const signatureScreenStyles = StyleSheet.create({
     fontSize: metrics.size20,
     color: colors.darkBlue,
     fontWeight: '500',
+  },
+  header: {
+    flexDirection: 'row',
+    flex: 0.2,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: metrics.size20,
+    borderBottomColor: colors.graySeparator,
+    borderWidth: 1,
+  },
+  headerButton: {
+    marginRight: metrics.size20,
   },
 });
 
