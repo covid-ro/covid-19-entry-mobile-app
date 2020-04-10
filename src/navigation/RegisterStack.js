@@ -6,6 +6,7 @@ import {
   RegisterScreen,
   CountyAddressScreen,
   CountriesScreen,
+  SignatureScreen,
 } from '../register';
 import {roots} from './index';
 import {strings} from '../core/strings';
@@ -46,6 +47,14 @@ const RegisterStack = () => (
         headerLeft: () => <BackButton />,
       }}
       component={CountriesScreen}
+    />
+    <Stack.Screen
+      name={roots.signatureScreen}
+      options={{
+        title: I18n.t('signatureScreenTitle'),
+        headerLeft: () => <BackButton />,
+      }}
+      component={SignatureScreen}
     />
   </Stack.Navigator>
 );

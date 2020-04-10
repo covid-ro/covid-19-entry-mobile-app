@@ -6,14 +6,20 @@ import {I18n} from '../core/strings';
 import {SET_QUESTION3} from '../register/redux/actionTypes';
 import {connect} from 'react-redux';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
+import {roots} from '../navigation';
 
 const SignatureForm = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={signatureFormStyles.container}>
       <View style={signatureFormStyles.textContainer}>
         <Text style={labelStyles.textStyle}>{I18n.t('confirmLabel')}</Text>
       </View>
-      <TouchableOpacity style={signatureFormStyles.signatureStyle}>
+      <TouchableOpacity
+        style={signatureFormStyles.signatureStyle}
+        onPress={() => navigation.navigate(roots.signatureScreen)}>
         <Text style={signatureFormStyles.placeholderStyle}>
           {I18n.t('clickToSign')}
         </Text>

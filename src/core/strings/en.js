@@ -108,5 +108,10 @@ const strings = {
     'Confirm ca datele trecute sunt reale si ca voi respecta procedura de auto-izolare',
   searchForCounty: 'Search for a county',
   clickToSign: 'Click here to sign',
+  signatureScreenTitle: 'Draw your signature',
+  use: 'Use',
+  erase: 'Erase',
+  signatureDetails:
+    'Pressing on Use, you agree that your signature or the electronic representation of it to be used for the validation of this legal document, like the holographic signature',
 };
 export default strings;

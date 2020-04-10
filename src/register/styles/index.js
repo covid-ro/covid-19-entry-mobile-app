@@ -7,3 +7,4 @@ export {
   default as countyAddressScreenStyles,
 } from './countyAddressScreenStyles';
 export {default as countriesScreenStyles} from './countriesScreenStyles';
+export {default as signatureScreenStyles} from './signatureScreenStyles';

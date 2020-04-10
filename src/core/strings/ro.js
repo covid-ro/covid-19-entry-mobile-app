@@ -111,5 +111,10 @@ const strings = {
   cancel: 'Anulați',
   searchForCounty: 'Caută județul',
   clickToSign: 'Apasati aici pentru a semna',
+  signatureScreenTitle: 'Desenați semnătura dumneavoastră',
+  use: 'Folosește',
+  erase: 'Șterge',
+  signatureDetails:
+    'Apasând pe Folosește, sunt de acord ca semnătura sau reprezentarea ei electronică să poată fi folosite pentru validarea acestui document legal, asemeni semnăturii ologarfice',
 };
 export default strings;
