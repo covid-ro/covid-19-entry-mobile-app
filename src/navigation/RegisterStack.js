@@ -12,6 +12,8 @@ import {roots} from './index';
 import {strings} from '../core/strings';
 import {BackButton} from '../core/components';
 import {I18n} from '../core/strings';
+import {metrics} from '../themes';
+import Orientation from 'react-native-orientation';
 
 const Stack = createStackNavigator();
 
@@ -51,8 +53,15 @@ const RegisterStack = () => (
     <Stack.Screen
       name={roots.signatureScreen}
       options={{
+        headerStatusBarHeight: metrics.size30,
         title: I18n.t('signatureScreenTitle'),
-        headerLeft: () => <BackButton />,
+        headerLeft: () => (
+          <BackButton
+            onPress={() => {
+              Orientation.lockToPortrait();
+            }}
+          />
+        ),
       }}
       component={SignatureScreen}
     />
