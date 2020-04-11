@@ -89,8 +89,8 @@ const RegisterScreen = ({
       surname === '' ||
       cnp === '' ||
       documentType === '' ||
-      documentSeries === '' ||
-      documentNumber === '' ||
+      (documentType === 'identity_card' && documentSeries === '') ||
+      (documentType === 'passport' && documentNumber === '') ||
       travellingFromCountry === '' ||
       travellingFromCountry === '' ||
       travellingFromDate === '' ||
@@ -103,8 +103,8 @@ const RegisterScreen = ({
       question1 === '' ||
       question2 === '' ||
       question3 === '' ||
-      vechicleType === 'ambulace' ||
-      (vechicleType === 'auto' && registrationNo !== '')
+      vechicleType === '' ||
+      (vechicleType === 'auto' && registrationNo === '')
     ) {
       Alert.alert(strings.completeAllFieldsError);
     } else {
@@ -378,7 +378,4 @@ const mapDispatchToProps = dispatch => ({
   setDeclarationCodes: declarationCodes =>
     dispatch({type: SET_DECLARATION_CODE, declarationCodes}),
 });
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(RegisterScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);
