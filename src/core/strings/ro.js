@@ -107,5 +107,6 @@ const strings = {
   cancel: 'Anulați',
   searchForCounty: 'Caută județul',
   invalidSMSCode: 'Codul este invalid!\nVă rugăm să reîncercați!',
+  phoneNumberTitle: 'Validare număr de telefon',
 };
 export default strings;
