@@ -32,6 +32,11 @@ const signatureFormStyles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: metrics.size10,
   },
+  signature: {
+    height: '100%',
+    width: '100%',
+    resizeMode: 'contain',
+  },
 });
 
 export default signatureFormStyles;

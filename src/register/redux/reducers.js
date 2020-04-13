@@ -32,6 +32,7 @@ import {
   SET_RECOMPLETE_DATA,
   RESET_STATE,
   SET_DECLARATION_CODE,
+  SET_SIGNATURE,
 } from './actionTypes';
 
 const INITIAL_STATE = {
@@ -65,6 +66,7 @@ const INITIAL_STATE = {
   recompleteData: null,
   recomplete: false,
   declarationCodes: [],
+  signature: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -235,6 +237,12 @@ export default (state = INITIAL_STATE, action) => {
       return produce(state, nextState =>
         assign(nextState, {
           declarationCodes: action.declarationCodes,
+        }),
+      );
+    case SET_SIGNATURE:
+      return produce(state, nextState =>
+        assign(nextState, {
+          signature: action.signature,
         }),
       );
     case SET_RECOMPLETE:

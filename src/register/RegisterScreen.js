@@ -17,7 +17,6 @@ import {
   FormSection7,
   FormSection8,
   FormSection9,
-  FormSection10,
   SignatureForm,
 } from '../sections';
 import {strings} from '../core/strings';
@@ -63,6 +62,7 @@ const RegisterScreen = ({
   cough,
   vechicleType,
   registrationNo,
+  signature,
 }) => {
   const carouselRef = useRef(null);
   const [declarationCodesArray, setDeclarationCodesArray] = useState([]);
@@ -106,7 +106,8 @@ const RegisterScreen = ({
       question2 === '' ||
       question3 === '' ||
       vechicleType === 'ambulace' ||
-      (vechicleType === 'auto' && registrationNo !== '')
+      (vechicleType === 'auto' && registrationNo !== '') ||
+      signature === ''
     ) {
       Alert.alert(strings.completeAllFieldsError);
     } else {
@@ -148,6 +149,7 @@ const RegisterScreen = ({
         itinerary_countries: itineraryCountries,
         vehicle_type: vechicleType,
         vehicle_registration_no: registrationNo,
+        signature: `data:image/png;base64,${signature}`,
       });
       if (response.status === 200) {
         setIsSending(false);
@@ -199,6 +201,7 @@ const RegisterScreen = ({
     cough,
     vechicleType,
     registrationNo,
+    signature,
   ]);
 
   const renderItem = useCallback(({item, index}) => {
@@ -345,6 +348,7 @@ const mapStateToProps = state => {
     registrationNo,
     citiesRoute,
     declarationCodes,
+    signature,
   } = state.register.rergisterReducer;
   return {
     email,
@@ -376,6 +380,7 @@ const mapStateToProps = state => {
     registrationNo,
     citiesRoute,
     declarationCodes,
+    signature,
   };
 };
 

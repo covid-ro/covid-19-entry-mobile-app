@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import {signatureFormStyles} from './styles';
 import {labelStyles} from '../core/styles';
 import {I18n} from '../core/strings';
@@ -9,9 +9,8 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {roots} from '../navigation';
 
-const SignatureForm = () => {
+const SignatureForm = ({signature}) => {
   const navigation = useNavigation();
-
   return (
     <View style={signatureFormStyles.container}>
       <View style={signatureFormStyles.textContainer}>
@@ -20,24 +19,27 @@ const SignatureForm = () => {
       <TouchableOpacity
         style={signatureFormStyles.signatureStyle}
         onPress={() => navigation.navigate(roots.signatureScreen)}>
-        <Text style={signatureFormStyles.placeholderStyle}>
-          {I18n.t('clickToSign')}
-        </Text>
+        {signature !== '' ? (
+          <Image
+            source={{uri: `data:image/png;base64,${signature}`}}
+            style={signatureFormStyles.signature}
+          />
+        ) : (
+          <Text style={signatureFormStyles.placeholderStyle}>
+            {I18n.t('clickToSign')}
+          </Text>
+        )}
       </TouchableOpacity>
     </View>
   );
 };
 
 const mapStateToProps = state => {
-  const {question3} = state.register.rergisterReducer;
-  return {question3};
+  const {signature} = state.register.rergisterReducer;
+  return {signature};
 };
-
-const mapDispatchToProps = dispatch => ({
-  setQuestion3: question3 => dispatch({type: SET_QUESTION3, question3}),
-});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  null,
 )(SignatureForm);

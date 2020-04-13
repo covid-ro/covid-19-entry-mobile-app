@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {View, Text} from 'react-native';
+import {connect} from 'react-redux';
 import SignatureCapture from 'react-native-signature-capture';
 import {useNavigation} from '@react-navigation/native';
 import {signatureScreenStyles} from './styles';
@@ -7,24 +8,30 @@ import Orientation from 'react-native-orientation';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {BackButton} from '../core/components';
 import {I18n} from '../core/strings/index';
+import {SET_SIGNATURE} from './redux/actionTypes';
 
-const SignatureScreen = () => {
+const SignatureScreen = ({setSignature}) => {
   const navigation = useNavigation();
   let signRef = useRef(null);
+
   useEffect(() => {
     Orientation.lockToLandscape();
   }, []);
 
   const onSaveSignature = () => {
     signRef.saveImage();
+    Orientation.lockToPortrait();
+    navigation.goBack();
   };
 
   const onResetSignature = () => {
     signRef.resetImage();
   };
+
   const onSaveEvent = result => {
-    console.log(result.encoded);
+    setSignature(result.encoded);
   };
+
   return (
     <View style={signatureScreenStyles.container}>
       <View style={signatureScreenStyles.header}>
@@ -74,4 +81,10 @@ SignatureScreen.navigationOptions = ({navigation}) => {
   };
 };
 
-export default SignatureScreen;
+const mapDispatchToProps = dispatch => ({
+  setSignature: signature => dispatch({type: SET_SIGNATURE, signature}),
+});
+export default connect(
+  null,
+  mapDispatchToProps,
+)(SignatureScreen);
