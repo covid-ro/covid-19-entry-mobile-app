@@ -18,7 +18,7 @@ const strings = {
   simptom3: 'Dificultatea \nde a respira',
   simptom4: 'Tuse intensă',
   addSMSCode: 'Introduceți codul primit prin SMS',
-  codValidareSMS: 'Cod validare SMS',
+  validationSMSCode: 'Cod validare SMS',
   save: 'Salvează',
   dontReceiveTheCode: 'Nu ai primit codul de validare?',
   resendSMSCod: 'Retrimite Cod validare SMS',

@@ -62,9 +62,15 @@ const RegisterScreen = ({
   cough,
   vechicleType,
   registrationNo,
+  userToken,
+  declarationCodes,
+  redirected,
 }) => {
   const carouselRef = useRef(null);
-  const [declarationCodesArray, setDeclarationCodesArray] = useState([]);
+  const [declarationCodesArray, setDeclarationCodesArray] = useState(
+    declarationCodes,
+  );
+  console.log(redirected);
   const [activeCard, setActiveCard] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const cards = [
@@ -108,45 +114,55 @@ const RegisterScreen = ({
     ) {
       Alert.alert(strings.completeAllFieldsError);
     } else {
-      const travelling_from_date = travellingFromDate
-        .toISOString()
-        .split('T')[0];
-      const city_arrival_date = arrivalDate.toISOString().split('T')[0];
-      const city_departure_date = departureDate.toISOString().split('T')[0];
+      let travelling_from_date;
+      let city_arrival_date;
+      let city_departure_date;
+      if (redirected) {
+        travelling_from_date = travellingFromDate.split('T')[0];
+        city_arrival_date = arrivalDate.split('T')[0];
+        city_departure_date = departureDate.split('T')[0];
+      } else {
+        travelling_from_date = travellingFromDate.toISOString().split('T')[0];
+        city_arrival_date = arrivalDate.toISOString().split('T')[0];
+        city_departure_date = departureDate.toISOString().split('T')[0];
+      }
       let symptoms = [];
       fever && symptoms.push('fever');
       swallow && symptoms.push('swallow');
       breathing && symptoms.push('breath');
       cough && symptoms.push('cough');
       setIsSending(true);
-      const response = await sendDeclaration({
-        name: firstName,
-        surname,
-        email,
-        cnp,
-        document_type: documentType,
-        document_series: documentSeries,
-        document_number: documentNumber,
-        travelling_from_country_code: travellingFromCountry.alpha2.toUpperCase(),
-        travelling_from_city: travellingFromCity,
-        travelling_from_date: travelling_from_date,
-        isolation_addresses: [
-          {
-            city,
-            county,
-            city_full_address: address,
-            city_arrival_date: city_arrival_date,
-            city_departure_date: city_departure_date,
-          },
-        ],
-        q_visited: question1,
-        q_contacted: question2,
-        q_hospitalized: question3,
-        symptoms: symptoms,
-        itinerary_countries: itineraryCountries,
-        vehicle_type: vechicleType,
-        vehicle_registration_no: registrationNo,
-      });
+      const response = await sendDeclaration(
+        {
+          name: firstName,
+          surname,
+          email,
+          cnp,
+          document_type: documentType,
+          document_series: documentSeries,
+          document_number: documentNumber,
+          travelling_from_country_code: travellingFromCountry.alpha2.toUpperCase(),
+          travelling_from_city: travellingFromCity,
+          travelling_from_date: travelling_from_date,
+          isolation_addresses: [
+            {
+              city,
+              county,
+              city_full_address: address,
+              city_arrival_date: city_arrival_date,
+              city_departure_date: city_departure_date,
+            },
+          ],
+          q_visited: question1,
+          q_contacted: question2,
+          q_hospitalized: question3,
+          symptoms: symptoms,
+          itinerary_countries: itineraryCountries,
+          vehicle_type: vechicleType,
+          vehicle_registration_no: registrationNo,
+        },
+        userToken,
+      );
       if (response.status === 200) {
         setIsSending(false);
         setDeclarationCodesArray(declarationCodesArray => [
@@ -167,6 +183,7 @@ const RegisterScreen = ({
       }
     }
   }, [
+    userToken,
     setDeclarationCodesArray,
     navigation,
     setRecomplete,
@@ -308,6 +325,7 @@ const RegisterScreen = ({
 };
 const mapStateToProps = state => {
   const {
+    userToken,
     email,
     phoneNumber,
     recompleteData,
@@ -337,8 +355,10 @@ const mapStateToProps = state => {
     registrationNo,
     citiesRoute,
     declarationCodes,
+    redirected,
   } = state.register.rergisterReducer;
   return {
+    userToken,
     email,
     phoneNumber,
     recompleteData,
@@ -368,6 +388,7 @@ const mapStateToProps = state => {
     registrationNo,
     citiesRoute,
     declarationCodes,
+    redirected,
   };
 };
 
@@ -378,4 +399,7 @@ const mapDispatchToProps = dispatch => ({
   setDeclarationCodes: declarationCodes =>
     dispatch({type: SET_DECLARATION_CODE, declarationCodes}),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(RegisterScreen);

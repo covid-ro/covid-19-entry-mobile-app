@@ -10,6 +10,7 @@ import {
   ValidateSMSScreen,
   InformationScreen,
 } from '../register';
+import CodesScreen from '../finish/CodesScreen';
 import {roots} from '.';
 import {I18n} from '../core/strings';
 import {BackButton} from '../core/components';
@@ -34,7 +35,7 @@ const MainStackNavigator = ({navigation}) => (
         component={LanguageSelectionScreen}
       />
       <Stack.Screen
-        options={{title: ''}}
+        options={{title: null}}
         name={roots.informationScreen}
         component={InformationScreen}
         screenOptions={defaultNavigationOptions}
@@ -45,7 +46,11 @@ const MainStackNavigator = ({navigation}) => (
         name={roots.sendNumber}
         component={PhoneNumberScreen}
       />
-      <Stack.Screen name={roots.sendCode} component={ValidateSMSScreen} />
+      <Stack.Screen
+        options={{title: I18n.t('validationSMSCode')}}
+        name={roots.sendCode}
+        component={ValidateSMSScreen}
+      />
       <Stack.Screen
         options={{headerShown: false}}
         name={roots.registerStack}
@@ -55,6 +60,11 @@ const MainStackNavigator = ({navigation}) => (
         options={{headerShown: false}}
         name={roots.finishNavigator}
         component={FinishNavigator}
+      />
+      <Stack.Screen
+        options={{title: I18n.t('declaratie'), headerLeft: null}}
+        name={roots.codesScreen}
+        component={CodesScreen}
       />
     </Stack.Navigator>
   </NavigationContainer>
