@@ -91,8 +91,8 @@ const RegisterScreen = ({
       surname === '' ||
       cnp === '' ||
       documentType === '' ||
-      documentSeries === '' ||
-      documentNumber === '' ||
+      (documentType === 'identity_card' && documentSeries === '') ||
+      (documentType === 'passport' && documentNumber === '') ||
       travellingFromCountry === '' ||
       travellingFromCountry === '' ||
       travellingFromDate === '' ||
@@ -105,9 +105,8 @@ const RegisterScreen = ({
       question1 === '' ||
       question2 === '' ||
       question3 === '' ||
-      vechicleType === 'ambulace' ||
-      (vechicleType === 'auto' && registrationNo !== '') ||
-      signature === ''
+      vechicleType === '' ||
+      (vechicleType === 'auto' && registrationNo === '')
     ) {
       Alert.alert(strings.completeAllFieldsError);
     } else {
