@@ -105,5 +105,6 @@ const strings = {
   search: 'Search for a country',
   cancel: 'Cancel',
   searchForCounty: 'Search for a county',
+  invalidSMSCode: 'Invalid code!\nPlease try again!',
 };
 export default strings;

@@ -50,7 +50,7 @@ const ValidateSMSScreen = ({route, navigation, setPhoneNumber}) => {
       navigation.navigate(roots.registerStack);
     } else {
       setIsSending(false);
-      Alert.alert(response.data.message);
+      Alert.alert(I18n.t('invalidSMSCode'));
     }
   }, [code, navigation, route, setPhoneNumber]);
 
@@ -90,4 +90,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: SET_PHONE_NUMBER, phoneNumber}),
 });
 
-export default connect(null, mapDispatchToProps)(ValidateSMSScreen);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(ValidateSMSScreen);
