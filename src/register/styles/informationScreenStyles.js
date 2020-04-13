@@ -22,7 +22,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    height: normalize(metrics.size357),
     backgroundColor: colors.white,
     width: metrics.cardWidth,
     borderRadius: metrics.size6,
