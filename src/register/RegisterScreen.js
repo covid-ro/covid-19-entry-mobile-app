@@ -19,7 +19,6 @@ import {
   FormSection9,
   FormSection10,
 } from '../sections';
-import {strings} from '../core/strings';
 import {GeneralButton} from '../core/components';
 import {roots} from '../navigation';
 import {colors} from '../themes';
@@ -90,29 +89,78 @@ const RegisterScreen = ({
   }, [setDeclarationCodes, declarationCodesArray]);
 
   const handleSendDeclaration = useCallback(async () => {
-    if (
-      firstName === '' ||
-      surname === '' ||
-      cnp === '' ||
-      documentType === '' ||
-      (documentType === 'identity_card' && documentSeries === '') ||
-      (documentType === 'passport' && documentNumber === '') ||
-      travellingFromCountry === '' ||
-      travellingFromCountry === '' ||
-      travellingFromDate === '' ||
-      itineraryCountries === [] ||
-      city === '' ||
-      county === '' ||
-      arrivalDate === '' ||
-      departureDate === '' ||
-      address === '' ||
-      question1 === '' ||
-      question2 === '' ||
-      question3 === '' ||
-      vechicleType === '' ||
-      (vechicleType === 'auto' && registrationNo === '')
-    ) {
-      Alert.alert(strings.completeAllFieldsError);
+    if (firstName === '' || surname === '') {
+      Alert.alert(I18n.t('completeNameError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(0)},
+      ]);
+    } else if (cnp === '') {
+      Alert.alert(I18n.t('completeCNPErorr'), '', [
+        {onPress: () => carouselRef.current.snapToItem(0)},
+      ]);
+    } else if (documentType === '') {
+      Alert.alert(I18n.t('chooseDocumentTypeError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(1)},
+      ]);
+    } else if (documentSeries === '' && documentType === 'identity_card') {
+      Alert.alert(I18n.t('completeDocumentSeriesError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(1)},
+      ]);
+    } else if (documentNumber === '' && documentType === 'passport') {
+      Alert.alert(I18n.t('completeDocumentNumberError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(1)},
+      ]);
+    } else if (travellingFromCountry === '') {
+      Alert.alert(I18n.t('travellingFromCountryError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(2)},
+      ]);
+    } else if (travellingFromCity === '') {
+      Alert.alert(I18n.t('travellingFromCityError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(2)},
+      ]);
+    } else if (travellingFromDate === '') {
+      Alert.alert(I18n.t('travellingFromDateError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(2)},
+      ]);
+    } else if (itineraryCountries === []) {
+      Alert.alert(I18n.t('itineraryCountriesError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(2)},
+      ]);
+    } else if (city === '') {
+      Alert.alert(I18n.t('cityError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(3)},
+      ]);
+    } else if (county === '') {
+      Alert.alert(I18n.t('countyError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(3)},
+      ]);
+    } else if (arrivalDate === '') {
+      Alert.alert(I18n.t('arrivalDateError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(3)},
+      ]);
+    } else if (address === '') {
+      Alert.alert(I18n.t('addressError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(3)},
+      ]);
+    } else if (question1 === '') {
+      Alert.alert(I18n.t('question1Error'), '', [
+        {onPress: () => carouselRef.current.snapToItem(5)},
+      ]);
+    } else if (question2 === '') {
+      Alert.alert(I18n.t('question2Error'), '', [
+        {onPress: () => carouselRef.current.snapToItem(5)},
+      ]);
+    } else if (question3 === '') {
+      Alert.alert(I18n.t('question3Error'), '', [
+        {onPress: () => carouselRef.current.snapToItem(6)},
+      ]);
+    } else if (vechicleType === '') {
+      Alert.alert(I18n.t('vechicleTypeError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(8)},
+      ]);
+    } else if (vechicleType === 'auto' && registrationNo === '') {
+      Alert.alert(I18n.t('registrationNoError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(8)},
+      ]);
     } else {
       let travelling_from_date;
       let city_arrival_date;
@@ -214,6 +262,7 @@ const RegisterScreen = ({
     cough,
     vechicleType,
     registrationNo,
+    redirected,
   ]);
 
   const renderItem = useCallback(({item, index}) => {
