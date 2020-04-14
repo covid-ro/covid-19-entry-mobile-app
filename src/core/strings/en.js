@@ -127,5 +127,6 @@ const strings = {
   question3Error: 'Please answer the third question',
   vechicleTypeError: 'Please select a vehicle type',
   registrationNoError: 'Please specify your vehicle registration number',
+  backEndError: 'There was an error.\nPlease try again!',
 };
 export default strings;

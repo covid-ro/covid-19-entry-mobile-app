@@ -227,7 +227,7 @@ const RegisterScreen = ({
         resetState();
       } else {
         setIsSending(false);
-        Alert.alert(response.data.message);
+        Alert.alert(I18n.t('backEndError'));
       }
     }
   }, [

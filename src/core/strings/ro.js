@@ -130,5 +130,6 @@ const strings = {
     'Vă rugăm să selectați tipul vehiculului cu care vă veți deplasa',
   registrationNoError:
     'Vă rugăm să selectați numărul de înregistrare al vehiculului dumneavoastră',
+  backEndError: 'A aparut o eroare. Vă rugăm să încercați din nou!',
 };
 export default strings;
