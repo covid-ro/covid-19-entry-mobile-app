@@ -33,6 +33,8 @@ import {
   RESET_STATE,
   SET_DECLARATION_CODE,
   SET_SIGNATURE,
+  SET_USER_TOKEN,
+  SET_REDIRECTED,
 } from './actionTypes';
 
 const INITIAL_STATE = {
@@ -67,6 +69,7 @@ const INITIAL_STATE = {
   recomplete: false,
   declarationCodes: [],
   signature: '',
+  redirected: false,
 };
 
 export default (state = INITIAL_STATE, action) => {

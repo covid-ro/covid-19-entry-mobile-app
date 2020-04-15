@@ -63,6 +63,9 @@ const RegisterScreen = ({
   vechicleType,
   registrationNo,
   signature,
+  userToken,
+  declarationCodes,
+  redirected,
 }) => {
   const carouselRef = useRef(null);
   const [declarationCodesArray, setDeclarationCodesArray] = useState([]);
@@ -201,6 +204,7 @@ const RegisterScreen = ({
     vechicleType,
     registrationNo,
     signature,
+    redirected,
   ]);
 
   const renderItem = useCallback(({item, index}) => {
@@ -348,6 +352,7 @@ const mapStateToProps = state => {
     citiesRoute,
     declarationCodes,
     signature,
+    redirected,
   } = state.register.rergisterReducer;
   return {
     email,
@@ -380,6 +385,7 @@ const mapStateToProps = state => {
     citiesRoute,
     declarationCodes,
     signature,
+    redirected,
   };
 };
 
@@ -390,7 +396,4 @@ const mapDispatchToProps = dispatch => ({
   setDeclarationCodes: declarationCodes =>
     dispatch({type: SET_DECLARATION_CODE, declarationCodes}),
 });
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(RegisterScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);
