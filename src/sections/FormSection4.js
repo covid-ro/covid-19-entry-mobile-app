@@ -81,9 +81,9 @@ const FormSection4 = ({
         <Text
           style={[
             formSection4Styles.localityText,
-            locality && formSection4Styles.localityActiveText,
+            city !== '' && formSection4Styles.localityActiveText,
           ]}>
-          {locality?.nume || I18n.t('localitate')}
+          {city || I18n.t('localitate')}
         </Text>
         {Platform.OS === ANDROID ? (
           <Image
@@ -96,7 +96,7 @@ const FormSection4 = ({
       </TouchableOpacity>
       <View
         style={
-          locality
+          city
             ? formSection4Styles.valueSeparator
             : formSection4Styles.separator
         }

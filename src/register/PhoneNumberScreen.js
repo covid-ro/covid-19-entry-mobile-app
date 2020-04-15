@@ -39,7 +39,7 @@ const PhoneNumberScreen = ({navigation}) => {
         navigation.navigate(roots.sendCode, {phoneNumber, countryCode});
       } else {
         setIsSending(false);
-        Alert.alert(response.data.message);
+        Alert.alert(I18n.t('phoneNumberError'));
       }
     } else {
       Alert.alert(I18n.t('phoneNumberError'));

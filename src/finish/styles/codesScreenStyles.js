@@ -73,6 +73,9 @@ const codesScreenStyles = StyleSheet.create({
     marginTop: metrics.size50,
     marginBottom: DeviceInfo.hasNotch() ? metrics.size50 : metrics.size25,
   },
+  marginTop: {
+    marginTop: metrics.size24,
+  },
 });
 
 export default codesScreenStyles;
