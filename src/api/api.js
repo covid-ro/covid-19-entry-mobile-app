@@ -50,7 +50,6 @@ export const sendCode = async (code, phoneID) => {
 };
 
 export const sendDeclaration = async (declaration, userToken) => {
-  console.log(userToken);
   return axios
     .post(
       `${API_BASE_URL}/declaration`,

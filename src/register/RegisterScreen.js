@@ -69,7 +69,6 @@ const RegisterScreen = ({
   const [declarationCodesArray, setDeclarationCodesArray] = useState(
     declarationCodes,
   );
-  console.log(redirected);
   const [activeCard, setActiveCard] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const cards = [
