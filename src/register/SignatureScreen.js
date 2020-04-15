@@ -75,7 +75,6 @@ const SignatureScreen = ({setSignature}) => {
     </View>
   );
 };
-
 const mapDispatchToProps = dispatch => ({
   setSignature: signature => dispatch({type: SET_SIGNATURE, signature}),
 });
