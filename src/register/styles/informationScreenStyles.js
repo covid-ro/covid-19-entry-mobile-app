@@ -22,7 +22,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    height: normalize(metrics.size357),
     backgroundColor: colors.white,
     width: metrics.cardWidth,
     borderRadius: metrics.size6,
@@ -36,9 +35,7 @@ export default StyleSheet.create({
     height: metrics.size120,
     width: metrics.size120,
     alignSelf: 'center',
-    marginTop: DeviceInfo.hasNotch()
-      ? normalize(metrics.size115)
-      : normalize(metrics.size73),
+    marginTop: normalize(metrics.size50),
   },
   bottomContainer: {
     justifyContent: 'flex-end',

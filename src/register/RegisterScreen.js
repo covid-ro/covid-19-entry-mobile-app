@@ -19,7 +19,6 @@ import {
   FormSection9,
   FormSection10,
 } from '../sections';
-import {strings} from '../core/strings';
 import {GeneralButton} from '../core/components';
 import {roots} from '../navigation';
 import {colors} from '../themes';
@@ -62,9 +61,14 @@ const RegisterScreen = ({
   cough,
   vechicleType,
   registrationNo,
+  userToken,
+  declarationCodes,
+  redirected,
 }) => {
   const carouselRef = useRef(null);
-  const [declarationCodesArray, setDeclarationCodesArray] = useState([]);
+  const [declarationCodesArray, setDeclarationCodesArray] = useState(
+    declarationCodes,
+  );
   const [activeCard, setActiveCard] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const cards = [
@@ -84,69 +88,128 @@ const RegisterScreen = ({
   }, [setDeclarationCodes, declarationCodesArray]);
 
   const handleSendDeclaration = useCallback(async () => {
-    if (
-      firstName === '' ||
-      surname === '' ||
-      cnp === '' ||
-      documentType === '' ||
-      (documentType === 'identity_card' && documentSeries === '') ||
-      (documentType === 'passport' && documentNumber === '') ||
-      travellingFromCountry === '' ||
-      travellingFromCountry === '' ||
-      travellingFromDate === '' ||
-      itineraryCountries === [] ||
-      city === '' ||
-      county === '' ||
-      arrivalDate === '' ||
-      departureDate === '' ||
-      address === '' ||
-      question1 === '' ||
-      question2 === '' ||
-      question3 === '' ||
-      vechicleType === '' ||
-      (vechicleType === 'auto' && registrationNo === '')
-    ) {
-      Alert.alert(strings.completeAllFieldsError);
+    if (firstName === '' || surname === '') {
+      Alert.alert(I18n.t('completeNameError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(0)},
+      ]);
+    } else if (cnp === '') {
+      Alert.alert(I18n.t('completeCNPErorr'), '', [
+        {onPress: () => carouselRef.current.snapToItem(0)},
+      ]);
+    } else if (documentType === '') {
+      Alert.alert(I18n.t('chooseDocumentTypeError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(1)},
+      ]);
+    } else if (documentSeries === '' && documentType === 'identity_card') {
+      Alert.alert(I18n.t('completeDocumentSeriesError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(1)},
+      ]);
+    } else if (documentNumber === '' && documentType === 'passport') {
+      Alert.alert(I18n.t('completeDocumentNumberError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(1)},
+      ]);
+    } else if (travellingFromCountry === '') {
+      Alert.alert(I18n.t('travellingFromCountryError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(2)},
+      ]);
+    } else if (travellingFromCity === '') {
+      Alert.alert(I18n.t('travellingFromCityError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(2)},
+      ]);
+    } else if (travellingFromDate === '') {
+      Alert.alert(I18n.t('travellingFromDateError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(2)},
+      ]);
+    } else if (itineraryCountries === []) {
+      Alert.alert(I18n.t('itineraryCountriesError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(2)},
+      ]);
+    } else if (city === '') {
+      Alert.alert(I18n.t('cityError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(3)},
+      ]);
+    } else if (county === '') {
+      Alert.alert(I18n.t('countyError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(3)},
+      ]);
+    } else if (arrivalDate === '') {
+      Alert.alert(I18n.t('arrivalDateError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(3)},
+      ]);
+    } else if (address === '') {
+      Alert.alert(I18n.t('addressError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(3)},
+      ]);
+    } else if (question1 === '') {
+      Alert.alert(I18n.t('question1Error'), '', [
+        {onPress: () => carouselRef.current.snapToItem(5)},
+      ]);
+    } else if (question2 === '') {
+      Alert.alert(I18n.t('question2Error'), '', [
+        {onPress: () => carouselRef.current.snapToItem(5)},
+      ]);
+    } else if (question3 === '') {
+      Alert.alert(I18n.t('question3Error'), '', [
+        {onPress: () => carouselRef.current.snapToItem(6)},
+      ]);
+    } else if (vechicleType === '') {
+      Alert.alert(I18n.t('vechicleTypeError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(8)},
+      ]);
+    } else if (vechicleType === 'auto' && registrationNo === '') {
+      Alert.alert(I18n.t('registrationNoError'), '', [
+        {onPress: () => carouselRef.current.snapToItem(8)},
+      ]);
     } else {
-      const travelling_from_date = travellingFromDate
-        .toISOString()
-        .split('T')[0];
-      const city_arrival_date = arrivalDate.toISOString().split('T')[0];
-      const city_departure_date = departureDate.toISOString().split('T')[0];
+      let travelling_from_date;
+      let city_arrival_date;
+      let city_departure_date;
+      if (redirected) {
+        travelling_from_date = travellingFromDate.split('T')[0];
+        city_arrival_date = arrivalDate.split('T')[0];
+        city_departure_date = departureDate.split('T')[0];
+      } else {
+        travelling_from_date = travellingFromDate.toISOString().split('T')[0];
+        city_arrival_date = arrivalDate.toISOString().split('T')[0];
+        city_departure_date = departureDate.toISOString().split('T')[0];
+      }
       let symptoms = [];
       fever && symptoms.push('fever');
       swallow && symptoms.push('swallow');
       breathing && symptoms.push('breath');
       cough && symptoms.push('cough');
       setIsSending(true);
-      const response = await sendDeclaration({
-        name: firstName,
-        surname,
-        email,
-        cnp,
-        document_type: documentType,
-        document_series: documentSeries,
-        document_number: documentNumber,
-        travelling_from_country_code: travellingFromCountry.alpha2.toUpperCase(),
-        travelling_from_city: travellingFromCity,
-        travelling_from_date: travelling_from_date,
-        isolation_addresses: [
-          {
-            city,
-            county,
-            city_full_address: address,
-            city_arrival_date: city_arrival_date,
-            city_departure_date: city_departure_date,
-          },
-        ],
-        q_visited: question1,
-        q_contacted: question2,
-        q_hospitalized: question3,
-        symptoms: symptoms,
-        itinerary_countries: itineraryCountries,
-        vehicle_type: vechicleType,
-        vehicle_registration_no: registrationNo,
-      });
+      const response = await sendDeclaration(
+        {
+          name: firstName,
+          surname,
+          email,
+          cnp,
+          document_type: documentType,
+          document_series: documentSeries,
+          document_number: documentNumber,
+          travelling_from_country_code: travellingFromCountry.alpha2.toUpperCase(),
+          travelling_from_city: travellingFromCity,
+          travelling_from_date: travelling_from_date,
+          isolation_addresses: [
+            {
+              city,
+              county,
+              city_full_address: address,
+              city_arrival_date: city_arrival_date,
+              city_departure_date: city_departure_date,
+            },
+          ],
+          q_visited: question1,
+          q_contacted: question2,
+          q_hospitalized: question3,
+          symptoms: symptoms,
+          itinerary_countries: itineraryCountries,
+          vehicle_type: vechicleType,
+          vehicle_registration_no: registrationNo,
+        },
+        userToken,
+      );
       if (response.status === 200) {
         setIsSending(false);
         setDeclarationCodesArray(declarationCodesArray => [
@@ -163,10 +226,11 @@ const RegisterScreen = ({
         resetState();
       } else {
         setIsSending(false);
-        Alert.alert(response.data.message);
+        Alert.alert(I18n.t('backEndError'));
       }
     }
   }, [
+    userToken,
     setDeclarationCodesArray,
     navigation,
     setRecomplete,
@@ -197,6 +261,7 @@ const RegisterScreen = ({
     cough,
     vechicleType,
     registrationNo,
+    redirected,
   ]);
 
   const renderItem = useCallback(({item, index}) => {
@@ -308,6 +373,7 @@ const RegisterScreen = ({
 };
 const mapStateToProps = state => {
   const {
+    userToken,
     email,
     phoneNumber,
     recompleteData,
@@ -337,8 +403,10 @@ const mapStateToProps = state => {
     registrationNo,
     citiesRoute,
     declarationCodes,
+    redirected,
   } = state.register.rergisterReducer;
   return {
+    userToken,
     email,
     phoneNumber,
     recompleteData,
@@ -368,6 +436,7 @@ const mapStateToProps = state => {
     registrationNo,
     citiesRoute,
     declarationCodes,
+    redirected,
   };
 };
 
@@ -378,4 +447,7 @@ const mapDispatchToProps = dispatch => ({
   setDeclarationCodes: declarationCodes =>
     dispatch({type: SET_DECLARATION_CODE, declarationCodes}),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(RegisterScreen);
