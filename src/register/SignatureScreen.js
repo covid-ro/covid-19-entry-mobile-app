@@ -75,11 +75,6 @@ const SignatureScreen = ({setSignature}) => {
     </View>
   );
 };
-SignatureScreen.navigationOptions = ({navigation}) => {
-  return {
-    title: 'Home',
-  };
-};
 
 const mapDispatchToProps = dispatch => ({
   setSignature: signature => dispatch({type: SET_SIGNATURE, signature}),
