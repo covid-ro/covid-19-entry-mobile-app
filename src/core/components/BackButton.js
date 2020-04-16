@@ -5,7 +5,7 @@ import {backButtonStyles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import Orientation from 'react-native-orientation';
 
-const BackButton = ({onPress, changeOrientation}) => {
+const BackButton = ({onPress}) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity

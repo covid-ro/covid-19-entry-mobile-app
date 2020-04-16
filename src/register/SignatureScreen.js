@@ -1,7 +1,6 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
 import {connect} from 'react-redux';
-import SignatureCapture from 'react-native-signature-capture';
 import {useNavigation} from '@react-navigation/native';
 import {signatureScreenStyles} from './styles';
 import Orientation from 'react-native-orientation';
@@ -9,27 +8,29 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {BackButton} from '../core/components';
 import {I18n} from '../core/strings/index';
 import {SET_SIGNATURE} from './redux/actionTypes';
+import SignaturePad from 'react-native-signature-pad';
 
 const SignatureScreen = ({setSignature}) => {
+  const [localSignature, setLocalSignature] = useState('');
+  const [signatureKey, setSignatureKey] = useState(0);
   const navigation = useNavigation();
-  let signRef = useRef(null);
 
   useEffect(() => {
-    Orientation.lockToLandscape();
+    Orientation.lockToLandscapeRight();
   }, []);
 
   const onSaveSignature = () => {
-    signRef.saveImage();
+    setSignature(localSignature);
     Orientation.lockToPortrait();
     navigation.goBack();
   };
 
   const onResetSignature = () => {
-    signRef.resetImage();
+    setSignatureKey(signatureKey + 1);
   };
 
-  const onSaveEvent = result => {
-    setSignature(result.encoded);
+  const onSaveEvent = ({base64DataUrl}) => {
+    setLocalSignature(base64DataUrl);
   };
 
   return (
@@ -47,17 +48,11 @@ const SignatureScreen = ({setSignature}) => {
           <Text style={signatureScreenStyles.deleteStyle}>{I18n.t('use')}</Text>
         </TouchableOpacity>
       </View>
-
-      <SignatureCapture
-        ref={ref => (signRef = ref)}
+      <SignaturePad
         style={signatureScreenStyles.signatureArea}
-        showBorder={false}
-        onSaveEvent={onSaveEvent}
-        showTitleLabel={false}
-        showNativeButtons={false}
-        viewMode={'landscape'}
+        onChange={onSaveEvent}
+        key={signatureKey}
       />
-
       <View style={signatureScreenStyles.bottom}>
         <TouchableOpacity
           onPress={() => onResetSignature()}

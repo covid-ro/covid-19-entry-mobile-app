@@ -208,7 +208,7 @@ const RegisterScreen = ({
         itinerary_countries: itineraryCountries,
         vehicle_type: vechicleType,
         vehicle_registration_no: registrationNo,
-        signature: `data:image/png;base64,${signature}`,
+        signature: `${signature}`,
       });
       if (response.status === 200) {
         setIsSending(false);

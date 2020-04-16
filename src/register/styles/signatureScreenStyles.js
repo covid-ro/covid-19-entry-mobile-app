@@ -8,7 +8,6 @@ const signatureScreenStyles = StyleSheet.create({
   },
   signatureArea: {
     flex: 1,
-
     flexDirection: 'row',
   },
   bottom: {

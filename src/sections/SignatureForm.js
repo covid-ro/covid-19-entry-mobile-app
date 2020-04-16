@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {signatureFormStyles} from './styles';
 import {labelStyles} from '../core/styles';
 import {I18n} from '../core/strings';
-import {SET_QUESTION3} from '../register/redux/actionTypes';
 import {connect} from 'react-redux';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
@@ -21,7 +20,7 @@ const SignatureForm = ({signature}) => {
         onPress={() => navigation.navigate(roots.signatureScreen)}>
         {signature !== '' ? (
           <Image
-            source={{uri: `data:image/png;base64,${signature}`}}
+            source={{uri: `${signature}`}}
             style={signatureFormStyles.signature}
           />
         ) : (
