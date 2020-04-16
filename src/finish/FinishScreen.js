@@ -11,7 +11,7 @@ const FinishScreen = () => {
   const navigation = useNavigation();
   return (
     <View style={finishScreenStyles.container}>
-      <ProgressHeader step={9} />
+      <ProgressHeader step={10} />
       <ScrollView
         style={finishScreenStyles.container}
         contentContainerStyle={finishScreenStyles.contentContainer}>

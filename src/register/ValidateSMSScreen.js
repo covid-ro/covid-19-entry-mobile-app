@@ -10,15 +10,10 @@ import {roots} from '../navigation';
 import {sendPhoneNumber, sendCode} from '../api';
 import {colors} from '../themes';
 import {connect} from 'react-redux';
-import {SET_PHONE_NUMBER, SET_USER_TOKEN} from './redux/actionTypes';
+import {SET_PHONE_NUMBER} from './redux/actionTypes';
+import {setUserToken} from '../core/utils';
 
-const ValidateSMSScreen = ({
-  route,
-  navigation,
-  setPhoneNumber,
-  setUserToken,
-  userToken,
-}) => {
+const ValidateSMSScreen = ({route, navigation, setPhoneNumber}) => {
   const [step, setStep] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const [code, setCode] = useState('');
@@ -43,6 +38,7 @@ const ValidateSMSScreen = ({
       setStep(0);
     }
   }, [route]);
+
   const handleSendCode = useCallback(async () => {
     const {phoneNumber} = route.params;
     setIsSending(true);
@@ -54,9 +50,9 @@ const ValidateSMSScreen = ({
       navigation.navigate(roots.registerStack);
     } else {
       setIsSending(false);
-      Alert.alert(I18n.t('invalidSMSCode'));
+      Alert.alert(response.data.message);
     }
-  }, [code, navigation, route, setPhoneNumber, setUserToken]);
+  }, [code, navigation, route, setPhoneNumber]);
 
   return (
     <View>
@@ -64,7 +60,7 @@ const ValidateSMSScreen = ({
       <Text style={styles.addCodeLabelStyle}>{I18n.t('addSMSCode')}</Text>
       <View style={styles.inputFieldStyle}>
         <InputField
-          placeholder={I18n.t('validationSMSCode')}
+          placeholder={I18n.t('codValidareSMS')}
           keyboardType="number-pad"
           value={code}
           onChangeText={setCode}
@@ -88,18 +84,10 @@ const ValidateSMSScreen = ({
     </View>
   );
 };
-const mapStatToProps = state => {
-  const {userToken} = state.register.rergisterReducer;
-  return {userToken};
-};
 
 const mapDispatchToProps = dispatch => ({
   setPhoneNumber: phoneNumber =>
     dispatch({type: SET_PHONE_NUMBER, phoneNumber}),
-  setUserToken: userToken => dispatch({type: SET_USER_TOKEN, userToken}),
 });
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(ValidateSMSScreen);
+export default connect(null, mapDispatchToProps)(ValidateSMSScreen);

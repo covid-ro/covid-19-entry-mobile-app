@@ -6,7 +6,6 @@ import {images} from '../themes';
 import {labelStyles} from '../core/styles';
 import {roots} from '../navigation';
 import {I18n} from '../core/strings';
-import {BackButton} from '../core/components/';
 
 const InformationScreen = ({navigation}) => {
   return (

@@ -3,19 +3,14 @@ import {View, Text, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import QRCode from 'react-native-qrcode-svg';
-import {useNavigation} from '@react-navigation/native';
 import {metrics} from '../themes';
 import {codesScreenStyles} from './styles';
 import {GeneralButton} from '../core/components';
 import {I18n} from '../core/strings';
-import {roots} from '../navigation';
-import {SET_REDIRECTED} from '../register/redux/actionTypes';
 
-const CodesScreen = ({declarationCodes, redirected, setRedirected, route}) => {
-  const navigation = useNavigation();
+const CodesScreen = ({declarationCodes}) => {
   const carouselRef = useRef(null);
   const [activeCard, setActiveCard] = useState(0);
-  const navRedirected = route?.params?.redirected;
 
   const renderItem = useCallback(({item}) => {
     return (
@@ -67,19 +62,6 @@ const CodesScreen = ({declarationCodes, redirected, setRedirected, route}) => {
         {pagination()}
       </View>
       <View style={codesScreenStyles.generalButtonContainer}>
-        {(redirected || navRedirected) && (
-          <View>
-            <GeneralButton
-              onPress={() => {
-                setRedirected(true);
-                navigation.navigate(roots.registerStack);
-              }}
-              text={I18n.t('adaugaMembru')}
-            />
-            <View style={codesScreenStyles.marginTop} />
-          </View>
-        )}
-
         <GeneralButton
           text={I18n.t('sfaturiDeCalatorie')}
           onPress={() => console.log('sfaturi')}
@@ -90,13 +72,7 @@ const CodesScreen = ({declarationCodes, redirected, setRedirected, route}) => {
 };
 
 const mapStateToProps = state => {
-  const {declarationCodes, redirected} = state.register.rergisterReducer;
-  return {declarationCodes, redirected};
+  const {declarationCodes} = state.register.rergisterReducer;
+  return {declarationCodes};
 };
-const mapDispatchToProps = dispatch => ({
-  setRedirected: redirected => dispatch({type: SET_REDIRECTED, redirected}),
-});
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(CodesScreen);
+export default connect(mapStateToProps)(CodesScreen);

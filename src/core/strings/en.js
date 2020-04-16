@@ -19,7 +19,7 @@ const strings = {
   simptom3: 'Difficulty \nto breathe',
   simptom4: 'Intense cough',
   addSMSCode: 'Please fill in the code received by SMS',
-  validationSMSCode: 'SMS verification code',
+  codValidareSMS: 'SMS verification code',
   save: 'Save',
   dontReceiveTheCode: "Didn't receive the code?",
   resendSMSCod: 'Resend SMS verification \n code',

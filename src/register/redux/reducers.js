@@ -38,7 +38,6 @@ import {
 } from './actionTypes';
 
 const INITIAL_STATE = {
-  userToken: '',
   firstName: '',
   surname: '',
   cnp: '',
@@ -79,18 +78,6 @@ export default (state = INITIAL_STATE, action) => {
       return produce(state, nextState =>
         assign(nextState, {
           firstName: action.firstName,
-        }),
-      );
-    case SET_USER_TOKEN:
-      return produce(state, nextState =>
-        assign(nextState, {
-          userToken: action.userToken,
-        }),
-      );
-    case SET_REDIRECTED:
-      return produce(state, nextState =>
-        assign(nextState, {
-          redirected: action.redirected,
         }),
       );
     case SET_SURNAME:
