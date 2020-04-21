@@ -32,12 +32,12 @@ import {
   SET_RECOMPLETE_DATA,
   RESET_STATE,
   SET_DECLARATION_CODE,
-  SET_SIGNATURE,
   SET_USER_TOKEN,
   SET_REDIRECTED,
 } from './actionTypes';
 
 const INITIAL_STATE = {
+  userToken: '',
   firstName: '',
   surname: '',
   cnp: '',
@@ -68,7 +68,6 @@ const INITIAL_STATE = {
   recompleteData: null,
   recomplete: false,
   declarationCodes: [],
-  signature: '',
   redirected: false,
 };
 
@@ -78,6 +77,18 @@ export default (state = INITIAL_STATE, action) => {
       return produce(state, nextState =>
         assign(nextState, {
           firstName: action.firstName,
+        }),
+      );
+    case SET_USER_TOKEN:
+      return produce(state, nextState =>
+        assign(nextState, {
+          userToken: action.userToken,
+        }),
+      );
+    case SET_REDIRECTED:
+      return produce(state, nextState =>
+        assign(nextState, {
+          redirected: action.redirected,
         }),
       );
     case SET_SURNAME:
@@ -240,12 +251,6 @@ export default (state = INITIAL_STATE, action) => {
       return produce(state, nextState =>
         assign(nextState, {
           declarationCodes: action.declarationCodes,
-        }),
-      );
-    case SET_SIGNATURE:
-      return produce(state, nextState =>
-        assign(nextState, {
-          signature: action.signature,
         }),
       );
     case SET_RECOMPLETE:

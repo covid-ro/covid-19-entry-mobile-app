@@ -10,8 +10,9 @@ import {
   ValidateSMSScreen,
   InformationScreen,
 } from '../register';
+import CodesScreen from '../finish/CodesScreen';
 import {roots} from '.';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import {BackButton} from '../core/components';
 
 const Stack = createStackNavigator();
@@ -34,17 +35,22 @@ const MainStackNavigator = ({navigation}) => (
         component={LanguageSelectionScreen}
       />
       <Stack.Screen
-        options={{headerShown: false}}
+        options={{title: ''}}
         name={roots.informationScreen}
         component={InformationScreen}
+        screenOptions={defaultNavigationOptions}
       />
 
       <Stack.Screen
-        options={{title: strings.codValidareSMS}}
+        options={{title: I18n.t('phoneNumberTitle')}}
         name={roots.sendNumber}
         component={PhoneNumberScreen}
       />
-      <Stack.Screen name={roots.sendCode} component={ValidateSMSScreen} />
+      <Stack.Screen
+        options={{title: I18n.t('validationSMSCode')}}
+        name={roots.sendCode}
+        component={ValidateSMSScreen}
+      />
       <Stack.Screen
         options={{headerShown: false}}
         name={roots.registerStack}
@@ -54,6 +60,11 @@ const MainStackNavigator = ({navigation}) => (
         options={{headerShown: false}}
         name={roots.finishNavigator}
         component={FinishNavigator}
+      />
+      <Stack.Screen
+        options={{title: I18n.t('declaratie'), headerLeft: null}}
+        name={roots.codesScreen}
+        component={CodesScreen}
       />
     </Stack.Navigator>
   </NavigationContainer>
