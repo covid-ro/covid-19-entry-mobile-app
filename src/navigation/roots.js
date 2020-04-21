@@ -12,5 +12,6 @@ const roots = {
   registerScreen: 'registerScreen',
   countyScreen: 'countyScreen',
   countriesScreen: 'countriesScreen',
+  signatureScreen: 'signatureScreen',
 };
 export default roots;

@@ -11,3 +11,4 @@ export {default as formSection10Styles} from './formSection10Styles';
 export {default as formSection11Styles} from './formSection11Styles';
 export {default as formSection12Styles} from './formSection12Styles';
 export {default as formSection13Styles} from './formSection13Styles';
+export {default as signatureFormStyles} from './signatureFormStyles';

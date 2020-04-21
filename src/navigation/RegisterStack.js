@@ -6,11 +6,14 @@ import {
   RegisterScreen,
   CountyAddressScreen,
   CountriesScreen,
+  SignatureScreen,
 } from '../register';
 import {roots} from './index';
 import {strings} from '../core/strings';
 import {BackButton} from '../core/components';
 import {I18n} from '../core/strings';
+import {metrics} from '../themes';
+import Orientation from 'react-native-orientation';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +49,11 @@ const RegisterStack = () => (
         headerLeft: () => <BackButton />,
       }}
       component={CountriesScreen}
+    />
+    <Stack.Screen
+      name={roots.signatureScreen}
+      options={{headerShown: false}}
+      component={SignatureScreen}
     />
   </Stack.Navigator>
 );

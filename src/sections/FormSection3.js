@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import {View, Text, TouchableOpacity, Platform, Image} from 'react-native';
 import {DatePicker, Icon} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
-import {InputField, CustomPicker} from '../core/components';
+import {InputField} from '../core/components';
 import {images} from '../themes';
 import {ANDROID} from '../core/constants';
 import {
