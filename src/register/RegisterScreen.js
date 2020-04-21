@@ -17,8 +17,8 @@ import {
   FormSection7,
   FormSection8,
   FormSection9,
+  SignatureForm,
 } from '../sections';
-import {strings} from '../core/strings';
 import {GeneralButton} from '../core/components';
 import {roots} from '../navigation';
 import {colors} from '../themes';
@@ -82,6 +82,7 @@ const RegisterScreen = ({
     {id: 6, data: 'card 7'},
     {id: 7, data: 'card 8'},
     {id: 8, data: 'card 9'},
+    {id: 9, data: 'card 10'},
   ];
 
   useEffect(() => {
@@ -227,7 +228,7 @@ const RegisterScreen = ({
         resetState();
       } else {
         setIsSending(false);
-        Alert.alert(response.data.message);
+        Alert.alert(I18n.t('backEndError'));
       }
     }
   }, [
@@ -321,7 +322,12 @@ const RegisterScreen = ({
             <FormSection9 text={I18n.t('form9Label')} />
           </View>
         );
-
+      case 9:
+        return (
+          <View style={registerScreenStyles.card}>
+            <SignatureForm />
+          </View>
+        );
       default:
         return <View style={registerScreenStyles.card} />;
     }
@@ -353,7 +359,7 @@ const RegisterScreen = ({
             swipeThreshold={metrics.screenWidth * 0.1}
           />
           <View style={registerScreenStyles.generalButtonContainer}>
-            {activeCard !== 8 ? (
+            {activeCard !== 9 ? (
               <GeneralButton
                 text={I18n.t('urmatorul')}
                 onPress={() => carouselRef.current.snapToNext()}

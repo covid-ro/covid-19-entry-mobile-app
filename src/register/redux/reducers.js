@@ -34,6 +34,7 @@ import {
   SET_DECLARATION_CODE,
   SET_USER_TOKEN,
   SET_REDIRECTED,
+  SET_SIGNATURE,
 } from './actionTypes';
 
 const INITIAL_STATE = {
@@ -69,10 +70,17 @@ const INITIAL_STATE = {
   recomplete: false,
   declarationCodes: [],
   redirected: false,
+  signature: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case SET_SIGNATURE:
+      return produce(state, nextState =>
+        assign(nextState, {
+          signature: action.signature,
+        }),
+      );
     case SET_FIRST_NAME:
       return produce(state, nextState =>
         assign(nextState, {
