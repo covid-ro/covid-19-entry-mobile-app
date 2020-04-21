@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import {InputField, CustomPicker} from '../core/components';
 import {formSection4Styles} from './styles';
 import {I18n} from '../core/strings';
-import {DatePicker, Icon, Button} from 'native-base';
+import {DatePicker, Icon} from 'native-base';
 import {labelStyles} from '../core/styles';
 import {connect} from 'react-redux';
 import {counties, localities} from '../core/constants';
@@ -81,9 +81,9 @@ const FormSection4 = ({
         <Text
           style={[
             formSection4Styles.localityText,
-            locality && formSection4Styles.localityActiveText,
+            city !== '' && formSection4Styles.localityActiveText,
           ]}>
-          {locality?.nume || I18n.t('localitate')}
+          {city || I18n.t('localitate')}
         </Text>
         {Platform.OS === ANDROID ? (
           <Image
@@ -96,7 +96,7 @@ const FormSection4 = ({
       </TouchableOpacity>
       <View
         style={
-          locality
+          city
             ? formSection4Styles.valueSeparator
             : formSection4Styles.separator
         }
