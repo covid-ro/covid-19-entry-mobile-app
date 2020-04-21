@@ -34,6 +34,7 @@ const MainStackNavigator = ({navigation}) => (
         name={roots.languageSelect}
         component={LanguageSelectionScreen}
       />
+      
       <Stack.Screen
         options={{title: ''}}
         name={roots.informationScreen}
