@@ -38,6 +38,7 @@ const SignatureScreen = ({setSignature}) => {
       <View style={signatureScreenStyles.header}>
         <BackButton
           onPress={() => {
+            navigation.goBack();
             Orientation.lockToPortrait();
           }}
         />
