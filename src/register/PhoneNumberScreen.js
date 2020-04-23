@@ -23,6 +23,7 @@ const PhoneNumberScreen = ({navigation}) => {
   const [isFocused, setFocus] = useState();
   const [modal, setModal] = useState(false);
   const [isSending, setIsSending] = useState(false);
+
   const handleSendNumber = useCallback(async () => {
     const countryCode = parseInt(dialCode, 10);
     if (phoneNumber === '') {
@@ -45,6 +46,7 @@ const PhoneNumberScreen = ({navigation}) => {
       Alert.alert(I18n.t('phoneNumberError'));
     }
   }, [phoneNumber, navigation, dialCode]);
+
   return (
     <TouchableWithoutFeedback>
       <View>
