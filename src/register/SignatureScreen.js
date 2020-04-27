@@ -10,7 +10,7 @@ import {I18n} from '../core/strings/index';
 import {SET_SIGNATURE} from './redux/actionTypes';
 import SignaturePad from 'react-native-signature-pad';
 
-const SignatureScreen = ({setSignature}) => {
+const SignatureScreen = ({setSignature, language}) => {
   const [localSignature, setLocalSignature] = useState('');
   const [signatureKey, setSignatureKey] = useState(0);
   const navigation = useNavigation();
@@ -42,11 +42,13 @@ const SignatureScreen = ({setSignature}) => {
             Orientation.lockToPortrait();
           }}
         />
-        <Text>{I18n.t('signatureScreenTitle')}</Text>
+        <Text>{I18n.t('signatureScreenTitle', {locale: language})}</Text>
         <TouchableOpacity
           onPress={() => onSaveSignature()}
           style={signatureScreenStyles.headerButton}>
-          <Text style={signatureScreenStyles.deleteStyle}>{I18n.t('use')}</Text>
+          <Text style={signatureScreenStyles.deleteStyle}>
+            {I18n.t('use', {locale: language})}
+          </Text>
         </TouchableOpacity>
       </View>
       <SignaturePad
@@ -59,22 +61,28 @@ const SignatureScreen = ({setSignature}) => {
           onPress={() => onResetSignature()}
           style={signatureScreenStyles.deleteContainer}>
           <Text style={signatureScreenStyles.deleteStyle}>
-            {I18n.t('erase')}
+            {I18n.t('erase', {locale: language})}
           </Text>
         </TouchableOpacity>
         <View style={signatureScreenStyles.textContainer}>
           <Text style={signatureScreenStyles.textStyle}>
-            {I18n.t('signatureDetails')}
+            {I18n.t('signatureDetails', {locale: language})}
           </Text>
         </View>
       </View>
     </View>
   );
 };
+
+const mapStateToProps = state => {
+  const {language} = state.register.rergisterReducer;
+  return {language};
+};
+
 const mapDispatchToProps = dispatch => ({
   setSignature: signature => dispatch({type: SET_SIGNATURE, signature}),
 });
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(SignatureScreen);

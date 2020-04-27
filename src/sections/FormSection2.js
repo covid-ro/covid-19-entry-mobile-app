@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text} from 'react-native';
 import {formSection2Styles} from './styles';
 import {labelStyles} from '../core/styles';
 import {SelectionButton, InputField} from '../core/components';
@@ -18,6 +18,7 @@ const FormSection2 = ({
   setDocumentType,
   setDocumentNumber,
   setDocumentSeries,
+  language,
 }) => {
   const [passportSelected, setPasssportSelected] = useState(false);
   const [cardSelected, setCardSelected] = useState(false);
@@ -25,11 +26,13 @@ const FormSection2 = ({
   return (
     <View style={formSection2Styles.container}>
       <View style={formSection2Styles.textContainer}>
-        <Text style={labelStyles.textStyle}>{I18n.t('form2Label')}</Text>
+        <Text style={labelStyles.textStyle}>
+          {I18n.t('form2Label', {locale: language})}
+        </Text>
       </View>
       <View style={formSection2Styles.buttonsContainer}>
         <SelectionButton
-          text={I18n.t('passport')}
+          text={I18n.t('passport', {locale: language})}
           isSelected={documentType !== '' ? passportSelected : false}
           onPress={() => {
             setPasssportSelected(true);
@@ -38,7 +41,7 @@ const FormSection2 = ({
           }}
         />
         <SelectionButton
-          text={I18n.t('card')}
+          text={I18n.t('card', {locale: language})}
           isSelected={documentType !== '' ? cardSelected : false}
           onPress={() => {
             setPasssportSelected(false);
@@ -49,13 +52,15 @@ const FormSection2 = ({
       </View>
       {(cardSelected || passportSelected) && (
         <Text style={formSection2Styles.title}>
-          {passportSelected ? I18n.t('addPassportInfo') : I18n.t('addICInfo')}
+          {passportSelected
+            ? I18n.t('addPassportInfo', {locale: language})
+            : I18n.t('addICInfo', {locale: language})}
         </Text>
       )}
       {cardSelected && (
         <View>
           <InputField
-            placeholder={I18n.t('seria')}
+            placeholder={I18n.t('seria', {locale: language})}
             value={documentSeries}
             onChangeText={setDocumentSeries}
             returnKeyType={'next'}
@@ -66,7 +71,7 @@ const FormSection2 = ({
           />
           <InputField
             inputRef={numberRef}
-            placeholder={I18n.t('passportNumber')}
+            placeholder={I18n.t('passportNumber', {locale: language})}
             value={documentNumber}
             onChangeText={setDocumentNumber}
             customContainerStyle={formSection2Styles.inputContainer}
@@ -76,7 +81,7 @@ const FormSection2 = ({
       {passportSelected && (
         <InputField
           inputRef={numberRef}
-          placeholder={I18n.t('passportNumber')}
+          placeholder={I18n.t('passportNumber', {locale: language})}
           value={documentNumber}
           onChangeText={setDocumentNumber}
           customContainerStyle={formSection2Styles.inputContainer}
@@ -92,8 +97,9 @@ const mapStateToProps = state => {
     documentSeries,
     documentNumber,
     documentType,
+    language,
   } = state.register.rergisterReducer;
-  return {documentSeries, documentNumber, documentType};
+  return {documentSeries, documentNumber, documentType, language};
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -105,4 +111,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: SET_DOCUMENT_NUMBER, documentNumber}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection2);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormSection2);

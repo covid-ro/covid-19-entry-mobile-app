@@ -7,9 +7,10 @@ import {languageSelectionScreenStyles} from './styles';
 import strings from '../core/strings/ro';
 import {roots} from '../navigation';
 import {I18n} from '../core/strings';
-import {SET_REDIRECTED} from '../register/redux/actionTypes';
+import {SET_REDIRECTED, SET_LANGUAGE} from '../register/redux/actionTypes';
 
 const LanguageSelectionScreen = ({
+  setLanguage,
   navigation,
   declarationCodes,
   setRedirected,
@@ -33,6 +34,7 @@ const LanguageSelectionScreen = ({
           <GeneralButton
             text={strings.romana}
             onPress={() => {
+              setLanguage('ro');
               I18n.locale = 'ro';
               navigation.navigate(roots.informationScreen);
             }}
@@ -42,6 +44,7 @@ const LanguageSelectionScreen = ({
           <GeneralButton
             text={strings.engleza}
             onPress={() => {
+              setLanguage('en');
               I18n.locale = 'en';
               navigation.navigate(roots.informationScreen);
             }}
@@ -57,6 +60,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => ({
   setRedirected: redirected => dispatch({type: SET_REDIRECTED, redirected}),
+  setLanguage: language => dispatch({type: SET_LANGUAGE, language}),
 });
 
 export default connect(

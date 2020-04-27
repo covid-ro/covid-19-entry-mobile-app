@@ -16,6 +16,7 @@ const FormSection9 = ({
   recompleteData,
   setVechicleType,
   setRegistrationNo,
+  language,
 }) => {
   const [option1Selected, setOption1Selected] = useState(false);
   const [option2Selected, setOption2Selected] = useState(false);
@@ -32,11 +33,13 @@ const FormSection9 = ({
   return (
     <View style={formSection9Styles.container}>
       <View style={formSection9Styles.textContainer}>
-        <Text style={labelStyles.textStyle}>{I18n.t('form9Label')}</Text>
+        <Text style={labelStyles.textStyle}>
+          {I18n.t('form9Label', {locale: language})}
+        </Text>
       </View>
       <View style={formSection9Styles.buttonsContainer}>
         <SelectionButton
-          text={I18n.t('auto')}
+          text={I18n.t('auto', {locale: language})}
           isSelected={option1Selected}
           onPress={() => {
             setOption1Selected(true);
@@ -45,7 +48,7 @@ const FormSection9 = ({
           }}
         />
         <SelectionButton
-          text={I18n.t('ambulance')}
+          text={I18n.t('ambulance', {locale: language})}
           isSelected={option2Selected}
           onPress={() => {
             setOption1Selected(false);
@@ -55,11 +58,13 @@ const FormSection9 = ({
         />
       </View>
       <View style={formSection9Styles.vehicleTextContainer}>
-        <Text style={labelStyles.textStyle}>{I18n.t('form9Label2')}</Text>
+        <Text style={labelStyles.textStyle}>
+          {I18n.t('form9Label2', {locale: language})}
+        </Text>
       </View>
       {option1Selected && (
         <InputField
-          placeholder={I18n.t('placeholderAutomobil')}
+          placeholder={I18n.t('placeholderAutomobil', {locale: language})}
           customContainerStyle={formSection9Styles.vehicleInputContainer}
           value={registrationNo}
           onChangeText={setRegistrationNo}
@@ -68,11 +73,11 @@ const FormSection9 = ({
       {recomplete && (
         <View style={formSection9Styles.recompleteTextContainer}>
           <Text style={formSection9Styles.grayText}>
-            {I18n.t('aceleasiDateAnterioare')}
+            {I18n.t('aceleasiDateAnterioare', {locale: language})}
           </Text>
           <TouchableOpacity onPress={() => onPressReuseData()}>
             <Text style={formSection9Styles.blueText}>
-              {I18n.t('folosesteDateAnterioare')}
+              {I18n.t('folosesteDateAnterioare', {locale: language})}
             </Text>
           </TouchableOpacity>
         </View>
@@ -81,20 +86,24 @@ const FormSection9 = ({
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const {
     registrationNo,
     recomplete,
     recompleteData,
+    language,
   } = state.register.rergisterReducer;
-  return {registrationNo, recomplete, recompleteData};
+  return {registrationNo, recomplete, recompleteData, language};
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  setRegistrationNo: (registrationNo) =>
+const mapDispatchToProps = dispatch => ({
+  setRegistrationNo: registrationNo =>
     dispatch({type: SET_REGISTRATION_NO, registrationNo}),
-  setVechicleType: (vechicleType) =>
+  setVechicleType: vechicleType =>
     dispatch({type: SET_VECHICLE_TYPE, vechicleType}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection9);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormSection9);

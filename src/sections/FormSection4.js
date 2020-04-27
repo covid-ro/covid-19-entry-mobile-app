@@ -17,6 +17,8 @@ import {
   SET_ARRIVAL,
   SET_DEPARTURE,
   SET_ADDRESS,
+  SET_ARRIVAL_DATE_REUSE,
+  SET_DEPARTURE_DATE_REUSE,
 } from '../register/redux/actionTypes';
 
 const FormSection4 = ({
@@ -32,12 +34,18 @@ const FormSection4 = ({
   setAddress,
   setArrrival,
   setDeparture,
+  language,
+  setArrivalDateReuse,
+  setDepartureDateReuse,
 }) => {
   let arrivalPickerRef = useRef(null);
   let departurePickerRef = useRef(null);
   const navigation = useNavigation();
 
   const onPressReuseData = () => {
+    console.log('salut');
+    setDepartureDateReuse(true);
+    setArrivalDateReuse(true);
     const {city, county, address, departureDate, arrivalDate} = recompleteData;
     setCity(city);
     setCounty(county);
@@ -61,13 +69,13 @@ const FormSection4 = ({
   return (
     <View style={formSection4Styles.container}>
       <Text style={[labelStyles.textStyle, formSection4Styles.topTextStyle]}>
-        {I18n.t('form4Label')}
+        {I18n.t('form4Label', {locale: language})}
       </Text>
       <CustomPicker
         data={counties}
         onValueChange={setCounty}
         selectedValue={county}
-        placeholder={I18n.t('judet')}
+        placeholder={I18n.t('judet', {locale: language})}
       />
       <TouchableOpacity
         style={formSection4Styles.countyContainer}
@@ -83,7 +91,7 @@ const FormSection4 = ({
             formSection4Styles.localityText,
             city !== '' && formSection4Styles.localityActiveText,
           ]}>
-          {city || I18n.t('localitate')}
+          {city || I18n.t('localitate', {locale: language})}
         </Text>
         {Platform.OS === ANDROID ? (
           <Image
@@ -103,10 +111,13 @@ const FormSection4 = ({
       />
       <View style={formSection4Styles.datepickerContainer}>
         <DatePicker
-          placeHolderText={I18n.t('dataPlecarii')}
+          placeHolderText={I18n.t('dataPlecarii', {locale: language})}
           ref={ref => (departurePickerRef = ref)}
           placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
-          onDateChange={setDeparture}
+          onDateChange={date => {
+            setDeparture(date);
+            setDepartureDateReuse(false);
+          }}
           textStyle={formSection4Styles.datePickerTextStyle}
         />
         <View
@@ -119,10 +130,13 @@ const FormSection4 = ({
       </View>
       <View style={formSection4Styles.datepickerContainer}>
         <DatePicker
-          placeHolderText={I18n.t('dataSosirii')}
+          placeHolderText={I18n.t('dataSosirii', {locale: language})}
           ref={ref => (arrivalPickerRef = ref)}
           placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
-          onDateChange={setArrrival}
+          onDateChange={date => {
+            setArrrival(date);
+            setArrivalDateReuse(false);
+          }}
           textStyle={formSection4Styles.datePickerTextStyle}
         />
         <View
@@ -134,7 +148,7 @@ const FormSection4 = ({
         />
       </View>
       <InputField
-        placeholder={I18n.t('adresaCompleta')}
+        placeholder={I18n.t('adresaCompleta', {locale: language})}
         value={address}
         onChangeText={setAddress}
         placeholderSeparatorStyle={formSection4Styles.inputPlaceholderSeparator}
@@ -142,11 +156,11 @@ const FormSection4 = ({
       {recomplete && (
         <View style={formSection4Styles.recompleteTextContainer}>
           <Text style={formSection4Styles.grayText}>
-            {I18n.t('aceleasiDateAnterioare')}
+            {I18n.t('aceleasiDateAnterioare', {locale: language})}
           </Text>
           <TouchableOpacity onPress={() => onPressReuseData()}>
             <Text style={formSection4Styles.blueText}>
-              {I18n.t('folosesteDateAnterioare')}
+              {I18n.t('folosesteDateAnterioare', {locale: language})}
             </Text>
           </TouchableOpacity>
         </View>
@@ -165,6 +179,7 @@ const mapStateToProps = state => {
     arrivalDate,
     recomplete,
     recompleteData,
+    language,
   } = state.register.rergisterReducer;
   return {
     city,
@@ -174,6 +189,7 @@ const mapStateToProps = state => {
     arrivalDate,
     recomplete,
     recompleteData,
+    language,
   };
 };
 
@@ -183,6 +199,10 @@ const mapDispatchToProps = dispatch => ({
   setArrrival: arrivalDate => dispatch({type: SET_ARRIVAL, arrivalDate}),
   setDeparture: departureDate => dispatch({type: SET_DEPARTURE, departureDate}),
   setAddress: address => dispatch({type: SET_ADDRESS, address}),
+  setArrivalDateReuse: arrivalDateReuse =>
+    dispatch({type: SET_ARRIVAL_DATE_REUSE, arrivalDateReuse}),
+  setDepartureDateReuse: departureDateReuse =>
+    dispatch({type: SET_DEPARTURE_DATE_REUSE, departureDateReuse}),
 });
 
 export default connect(

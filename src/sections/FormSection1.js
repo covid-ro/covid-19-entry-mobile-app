@@ -18,6 +18,7 @@ const FormSection1 = ({
   setFirstName,
   setSurname,
   setCNP,
+  language,
 }) => {
   const prenumeRef = useRef(null);
   const CNPRef = useRef(null);
@@ -25,10 +26,12 @@ const FormSection1 = ({
   return (
     <View style={formSection1Styles.container}>
       <View style={formSection1Styles.textContainer}>
-        <Text style={labelStyles.textStyle}>{I18n.t('form1Label')}</Text>
+        <Text style={labelStyles.textStyle}>
+          {I18n.t('form1Label', {locale: language})}
+        </Text>
       </View>
       <InputField
-        placeholder={I18n.t('nume')}
+        placeholder={I18n.t('nume', {locale: language})}
         value={firstName}
         onChangeText={setFirstName}
         returnKeyType={'next'}
@@ -40,7 +43,7 @@ const FormSection1 = ({
       />
       <InputField
         inputRef={prenumeRef}
-        placeholder={I18n.t('prenume')}
+        placeholder={I18n.t('prenume', {locale: language})}
         value={surname}
         onChangeText={setSurname}
         returnKeyType={'next'}
@@ -52,7 +55,7 @@ const FormSection1 = ({
       />
       <InputField
         inputRef={CNPRef}
-        placeholder={I18n.t('cnp')}
+        placeholder={I18n.t('cnp', {locale: language})}
         value={cnp}
         keyboardType="number-pad"
         onChangeText={setCNP}
@@ -64,8 +67,8 @@ const FormSection1 = ({
 };
 
 const mapStateToProps = state => {
-  const {firstName, surname, cnp} = state.register.rergisterReducer;
-  return {firstName, surname, cnp};
+  const {firstName, surname, cnp, language} = state.register.rergisterReducer;
+  return {firstName, surname, cnp, language};
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -74,4 +77,7 @@ const mapDispatchToProps = dispatch => ({
   setCNP: cnp => dispatch({type: SET_CNP, cnp}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection1);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormSection1);

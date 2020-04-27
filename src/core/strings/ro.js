@@ -43,7 +43,7 @@ const strings = {
   county: 'Localitate',
   completeDeclaration: 'Completează declarația',
   infoLabelBegin:
-    'Această aplicație este pusă la dispoziție de Guvernul României și\nstă la baza declarației de intrare în țară la punctele vamale,\nurmare a pandemiei de coronavirus COVID-19.\n\n',
+    'Această aplicație este pusă la dispoziție de Guvernul României și\nstă la baza declarației de intrare în țară la punctele vamale, urmare a pandemiei de coronavirus COVID-19.\n\n',
   infoLabelBold:
     ' Vă rugăm să completați formularul din această aplicație cu date reale, ',
   infoLabelEnd:
@@ -61,7 +61,7 @@ const strings = {
     'Introduceți câteva din localitățile de pe drum, diferențiate prin virgulă.',
 
   form7Label:
-    'Ați venit în contact direct cu persoane suferinde din cauza infecției  cu noul coronavirus (COVID-19) la serviciu, în vecinătatea locuinței sau vizitând unități medicale ori alte genuri de locuri în ultimele 14 zile?',
+    'Ați venit în contact direct cu persoane suferinde din cauza infecției cu noul coronavirus (COVID-19) la serviciu, în vecinătatea locuinței sau vizitând unități medicale ori alte genuri de locuri în ultimele 14 zile?',
   form6FirstQuestion:
     'Ați locuit / vizitat zone în care se aflau persoane suferinde din cauza infecției cu noul coronavirus (COVID-19)?',
   form6SecondQuestion: 'Ați fost spitalizat în ultimele 3 săptămâni?',
@@ -90,7 +90,7 @@ const strings = {
   endScreenThirdLine:
     'Te rugăm să transmiți reprezentantului DSP din punctul vamal că ai utilizat aplicația mobilă pentru completarea datelor. Pentru a fi validă, declarația completată va fi imprimată și semnată.',
   data: 'Data',
-  transitedCountries: 'Țările prin care ați trecut(inclusiv escale):',
+  transitedCountries: 'Țările prin care ați trecut (inclusiv escale):',
   selectCountries: 'Selectați țările(selecție multiplă)',
   aceleasiDateAnterioare: 'Aceleași date ca la membrul adăugat anterior?',
   folosesteDateAnterioare: 'Folosește datele anterioare',
@@ -133,7 +133,7 @@ const strings = {
   countyError: 'Vă rugăm să specificați județul în care vă veți izola',
   arrivalDateError:
     'Vă rugăm să selectați data în care veți sosi la destinație',
-  addressError: 'Vă rugăm să compeltați adresa dumneavoastră',
+  addressError: 'Vă rugăm să completați adresa dumneavoastră',
   question1Error: 'Vă rugăm sa răspundeți la prima întrebare',
   question2Error: 'Vă rugăm sa răspundeți la a doua întrebare',
   question3Error: 'Vă rugăm sa răspundeți la a treia întrebare',
