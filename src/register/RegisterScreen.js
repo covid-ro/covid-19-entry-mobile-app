@@ -94,7 +94,7 @@ const RegisterScreen = ({
       Alert.alert(I18n.t('completeNameError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(0)},
       ]);
-    } else if (cnp === '' || cnp.match('/^d{13}$/')) {
+    } else if (cnp === '') {
       Alert.alert(I18n.t('completeCNPErorr', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(0)},
       ]);
