@@ -27,9 +27,6 @@ import {
   SET_RECOMPLETE,
   RESET_STATE,
   SET_DECLARATION_CODE,
-  SET_ARRIVAL_DATE_REUSE,
-  SET_DEPARTURE_DATE_REUSE,
-  SET_TRAVELLING_FROM_DATE_REUSE,
 } from './redux/actionTypes';
 import {sendDeclaration} from '../api';
 
