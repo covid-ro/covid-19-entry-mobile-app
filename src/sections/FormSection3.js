@@ -34,8 +34,6 @@ const FormSection3 = ({
   setTravellingDate,
   setItineraryCountries,
   language,
-  setTravellingDateReuse,
-  travellingFromDateReuse,
 }) => {
   const [visitedCountries, setVisitedCountries] = useState(null);
   const [countriesCrossed, setCountriesCrossed] = useState(null);
@@ -50,7 +48,6 @@ const FormSection3 = ({
   }, [visitedCountries, setItineraryCountries]);
 
   const onPressReuseData = () => {
-    setTravellingDateReuse(true);
     const {
       travellingFromCity,
       travellingFromCountry,

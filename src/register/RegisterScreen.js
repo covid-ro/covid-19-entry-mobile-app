@@ -171,11 +171,11 @@ const RegisterScreen = ({
       let city_arrival_date = new Date(arrivalDate);
       let city_departure_date = new Date(departureDate);
 
-      city_arrival_date = arrivalDate.toISOString().split('T')[0];
+      city_arrival_date = city_arrival_date.toISOString().split('T')[0];
 
-      city_departure_date = departureDate.toISOString().split('T')[0];
+      city_departure_date = city_departure_date.toISOString().split('T')[0];
 
-      travelling_from_date = travellingFromDate.toISOString().split('T')[0];
+      travelling_from_date = travelling_from_date.toISOString().split('T')[0];
 
       let symptoms = [];
       fever && symptoms.push('fever');
