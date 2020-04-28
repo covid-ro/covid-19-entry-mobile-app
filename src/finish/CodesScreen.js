@@ -9,20 +9,13 @@ import {codesScreenStyles} from './styles';
 import {GeneralButton} from '../core/components';
 import {I18n} from '../core/strings';
 import {roots} from '../navigation';
-import {
-  SET_REDIRECTED,
-  SET_RECOMPLETE_DATA,
-  SET_RECOMPLETE,
-  RESET_STATE,
-} from '../register/redux/actionTypes';
+import {SET_REDIRECTED, RESET_STATE} from '../register/redux/actionTypes';
 
 const CodesScreen = ({
   declarationCodes,
   redirected,
   setRedirected,
   route,
-  setRecompleteData,
-  setRecomplete,
   resetState,
   language,
 }) => {
@@ -85,6 +78,7 @@ const CodesScreen = ({
           <View>
             <GeneralButton
               onPress={() => {
+                resetState();
                 setRedirected(true);
                 navigation.navigate(roots.registerStack);
               }}
@@ -112,8 +106,6 @@ const mapStateToProps = state => {
   return {declarationCodes, redirected, language};
 };
 const mapDispatchToProps = dispatch => ({
-  setRecompleteData: () => dispatch({type: SET_RECOMPLETE_DATA}),
-  setRecomplete: recomplete => dispatch({type: SET_RECOMPLETE, recomplete}),
   resetState: () => dispatch({type: RESET_STATE}),
   setRedirected: redirected => dispatch({type: SET_REDIRECTED, redirected}),
 });
