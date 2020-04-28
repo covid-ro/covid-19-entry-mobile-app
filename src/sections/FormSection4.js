@@ -17,8 +17,6 @@ import {
   SET_ARRIVAL,
   SET_DEPARTURE,
   SET_ADDRESS,
-  SET_ARRIVAL_DATE_REUSE,
-  SET_DEPARTURE_DATE_REUSE,
 } from '../register/redux/actionTypes';
 
 const FormSection4 = ({
@@ -35,17 +33,12 @@ const FormSection4 = ({
   setArrrival,
   setDeparture,
   language,
-  setArrivalDateReuse,
-  setDepartureDateReuse,
 }) => {
   let arrivalPickerRef = useRef(null);
   let departurePickerRef = useRef(null);
   const navigation = useNavigation();
 
   const onPressReuseData = () => {
-    console.log('salut');
-    setDepartureDateReuse(true);
-    setArrivalDateReuse(true);
     const {city, county, address, departureDate, arrivalDate} = recompleteData;
     setCity(city);
     setCounty(county);
@@ -114,10 +107,7 @@ const FormSection4 = ({
           placeHolderText={I18n.t('dataPlecarii', {locale: language})}
           ref={ref => (departurePickerRef = ref)}
           placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
-          onDateChange={date => {
-            setDeparture(date);
-            setDepartureDateReuse(false);
-          }}
+          onDateChange={setDeparture}
           textStyle={formSection4Styles.datePickerTextStyle}
         />
         <View
@@ -133,10 +123,7 @@ const FormSection4 = ({
           placeHolderText={I18n.t('dataSosirii', {locale: language})}
           ref={ref => (arrivalPickerRef = ref)}
           placeHolderTextStyle={formSection4Styles.datePickerPlaceholderStyle}
-          onDateChange={date => {
-            setArrrival(date);
-            setArrivalDateReuse(false);
-          }}
+          onDateChange={setArrrival}
           textStyle={formSection4Styles.datePickerTextStyle}
         />
         <View
@@ -199,10 +186,6 @@ const mapDispatchToProps = dispatch => ({
   setArrrival: arrivalDate => dispatch({type: SET_ARRIVAL, arrivalDate}),
   setDeparture: departureDate => dispatch({type: SET_DEPARTURE, departureDate}),
   setAddress: address => dispatch({type: SET_ADDRESS, address}),
-  setArrivalDateReuse: arrivalDateReuse =>
-    dispatch({type: SET_ARRIVAL_DATE_REUSE, arrivalDateReuse}),
-  setDepartureDateReuse: departureDateReuse =>
-    dispatch({type: SET_DEPARTURE_DATE_REUSE, departureDateReuse}),
 });
 
 export default connect(

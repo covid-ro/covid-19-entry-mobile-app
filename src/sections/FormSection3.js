@@ -20,7 +20,6 @@ import {
   SET_TRAVELLING_CITY,
   SET_TRAVELLING_DATE,
   SET_ITINERARY_COUNTRIES,
-  SET_TRAVELLING_FROM_DATE_REUSE,
 } from '../register/redux/actionTypes';
 
 const FormSection3 = ({
@@ -36,6 +35,7 @@ const FormSection3 = ({
   setItineraryCountries,
   language,
   setTravellingDateReuse,
+  travellingFromDateReuse,
 }) => {
   const [visitedCountries, setVisitedCountries] = useState(null);
   const [countriesCrossed, setCountriesCrossed] = useState(null);
@@ -116,10 +116,7 @@ const FormSection3 = ({
           androidMode={'default'}
           placeHolderText={I18n.t('data', {locale: language})}
           placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
-          onDateChange={date => {
-            setTravellingDate(date);
-            setTravellingDateReuse(false);
-          }}
+          onDateChange={setTravellingDate}
           textStyle={formSection3Styles.datePickerTextStyle}
         />
         <View
@@ -209,8 +206,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: SET_TRAVELLING_DATE, travellingDate}),
   setItineraryCountries: itineraryCountries =>
     dispatch({type: SET_ITINERARY_COUNTRIES, itineraryCountries}),
-  setTravellingDateReuse: travellingDateReuse =>
-    dispatch({type: SET_TRAVELLING_FROM_DATE_REUSE, travellingDateReuse}),
 });
 
 export default connect(

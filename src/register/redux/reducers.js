@@ -36,9 +36,6 @@ import {
   SET_REDIRECTED,
   SET_SIGNATURE,
   SET_LANGUAGE,
-  SET_TRAVELLING_FROM_DATE_REUSE,
-  SET_ARRIVAL_DATE_REUSE,
-  SET_DEPARTURE_DATE_REUSE,
 } from './actionTypes';
 
 const INITIAL_STATE = {
@@ -76,9 +73,6 @@ const INITIAL_STATE = {
   redirected: false,
   signature: '',
   language: '',
-  arrivalDateReuse: false,
-  travellingFromDateReuse: false,
-  departureDateReuse: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -279,24 +273,6 @@ export default (state = INITIAL_STATE, action) => {
       return produce(state, nextState => {
         assign(nextState, {
           language: action.language,
-        });
-      });
-    case SET_TRAVELLING_FROM_DATE_REUSE:
-      return produce(state, nextState => {
-        assign(nextState, {
-          travellingFromDateReuse: action.travellingFromDateReuse,
-        });
-      });
-    case SET_ARRIVAL_DATE_REUSE:
-      return produce(state, nextState => {
-        assign(nextState, {
-          arrivalDateReuse: action.arrivalDateReuse,
-        });
-      });
-    case SET_DEPARTURE_DATE_REUSE:
-      return produce(state, nextState => {
-        assign(nextState, {
-          departureDateReuse: action.departureDateReuse,
         });
       });
     case SET_RECOMPLETE_DATA:

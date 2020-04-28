@@ -67,13 +67,6 @@ const RegisterScreen = ({
   registrationNo,
   userToken,
   declarationCodes,
-  recompleteData,
-  setArrivalDateReuse,
-  setDepartureDateReuse,
-  setTravellingFromDateReuse,
-  arrivalDateReuse,
-  departureDateReuse,
-  travellingFromDateReuse,
 }) => {
   const carouselRef = useRef(null);
   const [declarationCodesArray, setDeclarationCodesArray] = useState(
@@ -93,17 +86,15 @@ const RegisterScreen = ({
     {id: 8, data: 'card 9'},
     {id: 9, data: 'card 10'},
   ];
-  console.log(recompleteData);
   useEffect(() => {
     setDeclarationCodes(declarationCodesArray);
   }, [setDeclarationCodes, declarationCodesArray]);
-  console.log(arrivalDateReuse, 'reuse');
   const handleSendDeclaration = useCallback(async () => {
     if (firstName === '' || surname === '') {
       Alert.alert(I18n.t('completeNameError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(0)},
       ]);
-    } else if (cnp === '') {
+    } else if (cnp === '' || cnp.match('/^d{13}$/')) {
       Alert.alert(I18n.t('completeCNPErorr', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(0)},
       ]);
@@ -176,25 +167,15 @@ const RegisterScreen = ({
         {onPress: () => carouselRef.current.snapToItem(8)},
       ]);
     } else {
-      let travelling_from_date;
-      let city_arrival_date;
-      let city_departure_date;
+      let travelling_from_date = new Date(travellingFromDate);
+      let city_arrival_date = new Date(arrivalDate);
+      let city_departure_date = new Date(departureDate);
 
-      if (arrivalDateReuse) {
-        city_arrival_date = arrivalDate.split('T')[0];
-      } else {
-        city_arrival_date = arrivalDate.toISOString().split('T')[0];
-      }
-      if (departureDateReuse) {
-        city_departure_date = departureDate.split('T')[0];
-      } else {
-        city_departure_date = departureDate.toISOString().split('T')[0];
-      }
-      if (travellingFromDateReuse) {
-        travelling_from_date = travellingFromDate.split('T')[0];
-      } else {
-        travelling_from_date = travellingFromDate.toISOString().split('T')[0];
-      }
+      city_arrival_date = arrivalDate.toISOString().split('T')[0];
+
+      city_departure_date = departureDate.toISOString().split('T')[0];
+
+      travelling_from_date = travellingFromDate.toISOString().split('T')[0];
 
       let symptoms = [];
       fever && symptoms.push('fever');
@@ -242,15 +223,13 @@ const RegisterScreen = ({
             code: response.data.declaration_code,
           },
         ]);
-        setTravellingFromDateReuse(false);
-        setArrivalDateReuse(false);
-        setDepartureDateReuse(false);
         setRecomplete(true);
         setRecompleteData();
         navigation.navigate(roots.finishNavigator);
         carouselRef.current.snapToItem(0);
         resetState();
       } else {
+        console.log(response);
         setIsSending(false);
         Alert.alert(I18n.t('backEndError', {locale: language}));
       }
@@ -288,12 +267,6 @@ const RegisterScreen = ({
     cough,
     vechicleType,
     registrationNo,
-    arrivalDateReuse,
-    setArrivalDateReuse,
-    setTravellingFromDateReuse,
-    departureDateReuse,
-    setDepartureDateReuse,
-    travellingFromDateReuse,
   ]);
 
   const renderItem = useCallback(
@@ -445,9 +418,6 @@ const mapStateToProps = state => {
     declarationCodes,
     redirected,
     language,
-    arrivalDateReuse,
-    departureDateReuse,
-    travellingFromDateReuse,
   } = state.register.rergisterReducer;
   return {
     userToken,
@@ -482,9 +452,6 @@ const mapStateToProps = state => {
     declarationCodes,
     redirected,
     language,
-    arrivalDateReuse,
-    departureDateReuse,
-    travellingFromDateReuse,
   };
 };
 
@@ -494,12 +461,6 @@ const mapDispatchToProps = dispatch => ({
   resetState: () => dispatch({type: RESET_STATE}),
   setDeclarationCodes: declarationCodes =>
     dispatch({type: SET_DECLARATION_CODE, declarationCodes}),
-  setArrivalDateReuse: arrivalDateReuse =>
-    dispatch({type: SET_ARRIVAL_DATE_REUSE, arrivalDateReuse}),
-  setDepartureDateReuse: departureDateReuse =>
-    dispatch({type: SET_DEPARTURE_DATE_REUSE, departureDateReuse}),
-  setTravellingFromDateReuse: travellingFromDateReuse =>
-    dispatch({type: SET_TRAVELLING_FROM_DATE_REUSE, travellingFromDateReuse}),
 });
 export default connect(
   mapStateToProps,
