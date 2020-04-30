@@ -1,17 +1,18 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {connect} from 'react-redux';
 import {FinishScreen, EndScreen} from '../finish';
 import {roots} from './index';
-import {strings} from '../core/strings';
+import {I18n} from '../core/strings';
 import CodesScreen from '../finish/CodesScreen';
 
 const Stack = createStackNavigator();
 
-const FinishNavigator = () => (
+const FinishNavigator = ({language}) => (
   <Stack.Navigator screenOptions={{gestureEnabled: false}}>
     <Stack.Screen
-      options={{title: strings.declaratie}}
+      options={{title: I18n.t('declaratie', {locale: language})}}
       name={roots.finishScreen}
       component={FinishScreen}
     />
@@ -21,11 +22,19 @@ const FinishNavigator = () => (
       component={EndScreen}
     />
     <Stack.Screen
-      options={{title: strings.declaratie, headerLeft: null}}
+      options={{
+        title: I18n.t('declaratie', {locale: language}),
+        headerLeft: null,
+      }}
       name={roots.codesScreen}
       component={CodesScreen}
     />
   </Stack.Navigator>
 );
 
-export default FinishNavigator;
+const mapStateToProps = state => {
+  const {language} = state.register.rergisterReducer;
+  return {language};
+};
+
+export default connect(mapStateToProps)(FinishNavigator);

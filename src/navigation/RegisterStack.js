@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
+import {connect} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
   CountriesCrossedScreen,
@@ -9,27 +10,24 @@ import {
   SignatureScreen,
 } from '../register';
 import {roots} from './index';
-import {strings} from '../core/strings';
 import {BackButton} from '../core/components';
 import {I18n} from '../core/strings';
-import {metrics} from '../themes';
-import Orientation from 'react-native-orientation';
 
 const Stack = createStackNavigator();
 
-const RegisterStack = () => (
+const RegisterStack = ({language}) => (
   <Stack.Navigator
     screenOptions={{gestureEnabled: false}}
     initialRouteName={roots.registerScreen}>
     <Stack.Screen
       name={roots.registerScreen}
       component={RegisterScreen}
-      options={{title: strings.declaratie}}
+      options={{title: I18n.t('declaratie', {locale: language})}}
     />
     <Stack.Screen
       name={roots.countriesCrossed}
       options={{
-        title: strings.countriesCrossed,
+        title: I18n.t('countriesCrossed', {locale: language}),
         headerLeft: () => <BackButton />,
       }}
       component={CountriesCrossedScreen}
@@ -37,7 +35,7 @@ const RegisterStack = () => (
     <Stack.Screen
       name={roots.countyScreen}
       options={{
-        title: I18n.t('selectCounty'),
+        title: I18n.t('selectCounty', {locale: language}),
         headerLeft: () => <BackButton />,
       }}
       component={CountyAddressScreen}
@@ -45,7 +43,7 @@ const RegisterStack = () => (
     <Stack.Screen
       name={roots.countriesScreen}
       options={{
-        title: I18n.t('selectCountry'),
+        title: I18n.t('selectCountry', {locale: language}),
         headerLeft: () => <BackButton />,
       }}
       component={CountriesScreen}
@@ -58,4 +56,9 @@ const RegisterStack = () => (
   </Stack.Navigator>
 );
 
-export default RegisterStack;
+const mapStateToProps = state => {
+  const {language} = state.register.rergisterReducer;
+  return {language};
+};
+
+export default connect(mapStateToProps)(RegisterStack);

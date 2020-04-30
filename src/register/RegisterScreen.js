@@ -31,6 +31,7 @@ import {
 import {sendDeclaration} from '../api';
 
 const RegisterScreen = ({
+  language,
   setDeclarationCodes,
   navigation,
   setRecompleteData,
@@ -63,13 +64,11 @@ const RegisterScreen = ({
   registrationNo,
   userToken,
   declarationCodes,
-  redirected,
 }) => {
   const carouselRef = useRef(null);
   const [declarationCodesArray, setDeclarationCodesArray] = useState(
     declarationCodes,
   );
-  console.log(redirected);
   const [activeCard, setActiveCard] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const cards = [
@@ -84,97 +83,97 @@ const RegisterScreen = ({
     {id: 8, data: 'card 9'},
     {id: 9, data: 'card 10'},
   ];
-
   useEffect(() => {
     setDeclarationCodes(declarationCodesArray);
   }, [setDeclarationCodes, declarationCodesArray]);
-
   const handleSendDeclaration = useCallback(async () => {
     if (firstName === '' || surname === '') {
-      Alert.alert(I18n.t('completeNameError'), '', [
+      Alert.alert(I18n.t('completeNameError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(0)},
       ]);
     } else if (cnp === '') {
-      Alert.alert(I18n.t('completeCNPErorr'), '', [
+      Alert.alert(I18n.t('completeCNPErorr', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(0)},
       ]);
     } else if (documentType === '') {
-      Alert.alert(I18n.t('chooseDocumentTypeError'), '', [
+      Alert.alert(I18n.t('chooseDocumentTypeError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(1)},
       ]);
     } else if (documentSeries === '' && documentType === 'identity_card') {
-      Alert.alert(I18n.t('completeDocumentSeriesError'), '', [
-        {onPress: () => carouselRef.current.snapToItem(1)},
-      ]);
+      Alert.alert(
+        I18n.t('completeDocumentSeriesError', {locale: language}),
+        '',
+        [{onPress: () => carouselRef.current.snapToItem(1)}],
+      );
     } else if (documentNumber === '' && documentType === 'passport') {
-      Alert.alert(I18n.t('completeDocumentNumberError'), '', [
-        {onPress: () => carouselRef.current.snapToItem(1)},
-      ]);
+      Alert.alert(
+        I18n.t('completeDocumentNumberError', {locale: language}),
+        '',
+        [{onPress: () => carouselRef.current.snapToItem(1)}],
+      );
     } else if (travellingFromCountry === '') {
       Alert.alert(I18n.t('travellingFromCountryError'), '', [
         {onPress: () => carouselRef.current.snapToItem(2)},
       ]);
     } else if (travellingFromCity === '') {
-      Alert.alert(I18n.t('travellingFromCityError'), '', [
+      Alert.alert(I18n.t('travellingFromCityError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(2)},
       ]);
     } else if (travellingFromDate === '') {
-      Alert.alert(I18n.t('travellingFromDateError'), '', [
+      Alert.alert(I18n.t('travellingFromDateError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(2)},
       ]);
     } else if (itineraryCountries === []) {
-      Alert.alert(I18n.t('itineraryCountriesError'), '', [
+      Alert.alert(I18n.t('itineraryCountriesError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(2)},
       ]);
     } else if (city === '') {
-      Alert.alert(I18n.t('cityError'), '', [
+      Alert.alert(I18n.t('cityError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(3)},
       ]);
     } else if (county === '') {
-      Alert.alert(I18n.t('countyError'), '', [
+      Alert.alert(I18n.t('countyError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(3)},
       ]);
     } else if (arrivalDate === '') {
-      Alert.alert(I18n.t('arrivalDateError'), '', [
+      Alert.alert(I18n.t('arrivalDateError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(3)},
       ]);
     } else if (address === '') {
-      Alert.alert(I18n.t('addressError'), '', [
+      Alert.alert(I18n.t('addressError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(3)},
       ]);
     } else if (question1 === '') {
-      Alert.alert(I18n.t('question1Error'), '', [
+      Alert.alert(I18n.t('question1Error', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(5)},
       ]);
     } else if (question2 === '') {
-      Alert.alert(I18n.t('question2Error'), '', [
+      Alert.alert(I18n.t('question2Error', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(5)},
       ]);
     } else if (question3 === '') {
-      Alert.alert(I18n.t('question3Error'), '', [
+      Alert.alert(I18n.t('question3Error', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(6)},
       ]);
     } else if (vechicleType === '') {
-      Alert.alert(I18n.t('vechicleTypeError'), '', [
+      Alert.alert(I18n.t('vechicleTypeError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(8)},
       ]);
     } else if (vechicleType === 'auto' && registrationNo === '') {
-      Alert.alert(I18n.t('registrationNoError'), '', [
+      Alert.alert(I18n.t('registrationNoError', {locale: language}), '', [
         {onPress: () => carouselRef.current.snapToItem(8)},
       ]);
     } else {
-      let travelling_from_date;
-      let city_arrival_date;
-      let city_departure_date;
-      if (redirected) {
-        travelling_from_date = travellingFromDate.split('T')[0];
-        city_arrival_date = arrivalDate.split('T')[0];
-        city_departure_date = departureDate.split('T')[0];
-      } else {
-        travelling_from_date = travellingFromDate.toISOString().split('T')[0];
-        city_arrival_date = arrivalDate.toISOString().split('T')[0];
-        city_departure_date = departureDate.toISOString().split('T')[0];
-      }
+      let travelling_from_date = new Date(travellingFromDate);
+      let city_arrival_date = new Date(arrivalDate);
+      let city_departure_date = new Date(departureDate);
+
+      city_arrival_date = city_arrival_date.toISOString().split('T')[0];
+
+      city_departure_date = city_departure_date.toISOString().split('T')[0];
+
+      travelling_from_date = travelling_from_date.toISOString().split('T')[0];
+
       let symptoms = [];
       fever && symptoms.push('fever');
       swallow && symptoms.push('swallow');
@@ -227,11 +226,13 @@ const RegisterScreen = ({
         carouselRef.current.snapToItem(0);
         resetState();
       } else {
+        console.log(response);
         setIsSending(false);
-        Alert.alert(I18n.t('backEndError'));
+        Alert.alert(I18n.t('backEndError', {locale: language}));
       }
     }
   }, [
+    language,
     userToken,
     setDeclarationCodesArray,
     navigation,
@@ -263,75 +264,77 @@ const RegisterScreen = ({
     cough,
     vechicleType,
     registrationNo,
-    redirected,
   ]);
 
-  const renderItem = useCallback(({item, index}) => {
-    switch (index) {
-      case 0:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection1 />
-          </View>
-        );
-      case 1:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection2 />
-          </View>
-        );
-      case 2:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection3 />
-          </View>
-        );
-      case 3:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection4 />
-          </View>
-        );
-      case 4:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection5 />
-          </View>
-        );
-      case 5:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection6 />
-          </View>
-        );
-      case 6:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection7 />
-          </View>
-        );
-      case 7:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection8 text={I18n.t('form8Label')} />
-          </View>
-        );
-      case 8:
-        return (
-          <View style={registerScreenStyles.card}>
-            <FormSection9 text={I18n.t('form9Label')} />
-          </View>
-        );
-      case 9:
-        return (
-          <View style={registerScreenStyles.card}>
-            <SignatureForm />
-          </View>
-        );
-      default:
-        return <View style={registerScreenStyles.card} />;
-    }
-  }, []);
+  const renderItem = useCallback(
+    ({item, index}) => {
+      switch (index) {
+        case 0:
+          return (
+            <View style={registerScreenStyles.card}>
+              <FormSection1 />
+            </View>
+          );
+        case 1:
+          return (
+            <View style={registerScreenStyles.card}>
+              <FormSection2 />
+            </View>
+          );
+        case 2:
+          return (
+            <View style={registerScreenStyles.card}>
+              <FormSection3 />
+            </View>
+          );
+        case 3:
+          return (
+            <View style={registerScreenStyles.card}>
+              <FormSection4 />
+            </View>
+          );
+        case 4:
+          return (
+            <View style={registerScreenStyles.card}>
+              <FormSection5 />
+            </View>
+          );
+        case 5:
+          return (
+            <View style={registerScreenStyles.card}>
+              <FormSection6 />
+            </View>
+          );
+        case 6:
+          return (
+            <View style={registerScreenStyles.card}>
+              <FormSection7 />
+            </View>
+          );
+        case 7:
+          return (
+            <View style={registerScreenStyles.card}>
+              <FormSection8 text={I18n.t('form8Label', {locale: language})} />
+            </View>
+          );
+        case 8:
+          return (
+            <View style={registerScreenStyles.card}>
+              <FormSection9 text={I18n.t('form9Label', {locale: language})} />
+            </View>
+          );
+        case 9:
+          return (
+            <View style={registerScreenStyles.card}>
+              <SignatureForm />
+            </View>
+          );
+        default:
+          return <View style={registerScreenStyles.card} />;
+      }
+    },
+    [language],
+  );
 
   return (
     <View style={registerScreenStyles.container}>
@@ -361,14 +364,14 @@ const RegisterScreen = ({
           <View style={registerScreenStyles.generalButtonContainer}>
             {activeCard !== 9 ? (
               <GeneralButton
-                text={I18n.t('urmatorul')}
+                text={I18n.t('urmatorul', {locale: language})}
                 onPress={() => carouselRef.current.snapToNext()}
               />
             ) : isSending ? (
               <ActivityIndicator size="large" color={colors.darkBlue} />
             ) : (
               <GeneralButton
-                text={I18n.t('trimite')}
+                text={I18n.t('trimite', {locale: language})}
                 onPress={handleSendDeclaration}
               />
             )}
@@ -411,6 +414,7 @@ const mapStateToProps = state => {
     citiesRoute,
     declarationCodes,
     redirected,
+    language,
   } = state.register.rergisterReducer;
   return {
     userToken,
@@ -444,6 +448,7 @@ const mapStateToProps = state => {
     citiesRoute,
     declarationCodes,
     redirected,
+    language,
   };
 };
 

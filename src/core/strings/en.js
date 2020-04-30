@@ -44,10 +44,10 @@ const strings = {
   county: 'City',
   completeDeclaration: 'Please fill in the statement',
   infoLabelBegin:
-    'This app is offered by the Government of Romania and it assists with the declaration of entry in Romania at customs points,\nfollowing the pandemic caused by COVID-19.\n\n',
+    'This app is offered by the Government of Romania and it assists with the declaration of entry in Romania at customs points, following the pandemic caused by COVID-19.\n\n',
   infoLabelBold: ' Please fill in the form in this app using real data, ',
   infoLabelEnd:
-    'this statement will be checked by the competent authorities and you will be\naccountable for the provided information.',
+    'this statement will be checked by the competent authorities and you will be accountable for the provided information.',
   adaugaMembru: 'Add new person',
   nuMaiAdaug: "I won't add anyone else",
   finishScreenFirstLine:
@@ -105,7 +105,7 @@ const strings = {
   search: 'Search for a country',
   cancel: 'Cancel',
   confirmLabel:
-    'Confirm ca datele trecute sunt reale si ca voi respecta procedura de auto-izolare',
+    'I confirm that the all the data is real and I will respect the auto-isolation procedure',
   searchForCounty: 'Search for a county',
   clickToSign: 'Click here to sign',
   signatureScreenTitle: 'Draw your signature',

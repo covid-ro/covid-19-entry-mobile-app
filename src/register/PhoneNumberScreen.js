@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   Alert,
 } from 'react-native';
+import {connect} from 'react-redux';
 import styles from './styles/phoneNumberScreenStyle';
 import CountryPicker from 'react-native-country-picker-modal';
 import PhoneInput from 'react-native-phone-input';
@@ -17,7 +18,7 @@ import {roots} from '../navigation';
 import {colors} from '../themes';
 import {sendPhoneNumber} from '../api';
 
-const PhoneNumberScreen = ({navigation}) => {
+const PhoneNumberScreen = ({navigation, language}) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [dialCode, setDialCode] = useState('+40');
   const [isFocused, setFocus] = useState();
@@ -27,7 +28,7 @@ const PhoneNumberScreen = ({navigation}) => {
   const handleSendNumber = useCallback(async () => {
     const countryCode = parseInt(dialCode, 10);
     if (phoneNumber === '') {
-      Alert.alert(I18n.t('completePhoneNumber'));
+      Alert.alert(I18n.t('completePhoneNumber', {locale: language}));
     } else if (validators.phoneValidator(phoneNumber)) {
       setIsSending(true);
       const response = await sendPhoneNumber(
@@ -40,37 +41,39 @@ const PhoneNumberScreen = ({navigation}) => {
         navigation.navigate(roots.sendCode, {phoneNumber, countryCode});
       } else {
         setIsSending(false);
-        Alert.alert(I18n.t('phoneNumberError'));
+        Alert.alert(I18n.t('phoneNumberError', {locale: language}));
       }
     } else {
-      Alert.alert(I18n.t('phoneNumberError'));
+      Alert.alert(I18n.t('phoneNumberError', {locale: language}));
     }
-  }, [phoneNumber, navigation, dialCode]);
+  }, [phoneNumber, navigation, dialCode, language]);
 
   return (
     <TouchableWithoutFeedback>
       <View>
         <Text style={styles.informationLabelStyle}>
-          {I18n.t('validatePhoneNumberInformationLabel')}
+          {I18n.t('validatePhoneNumberInformationLabel', {locale: language})}
         </Text>
         <View style={styles.pickerContainer}>
           <Text
             style={
               isFocused ? styles.labelPlaceholder : styles.unselectedLabel
             }>
-            {I18n.t('telefon')}
+            {I18n.t('telefon', {locale: language})}
           </Text>
           <PhoneInput
-            initialCountry={I18n.t('ro')}
+            initialCountry={I18n.t('ro', {locale: language})}
             textProps={{
-              placeholder: isFocused ? '' : I18n.t('telefon'),
+              placeholder: isFocused
+                ? ''
+                : I18n.t('telefon', {locale: language}),
               onFocus: () => setFocus(true),
               onBlur: () => setFocus(false),
               style: styles.textInputPicker,
               placeholderTextColor: colors.opacityGrey,
               value: phoneNumber,
             }}
-            value={I18n.t('plus') + dialCode}
+            value={I18n.t('plus', {locale: language}) + dialCode}
             onPressFlag={() => setModal(true)}
             onChangePhoneNumber={setPhoneNumber}
           />
@@ -96,7 +99,7 @@ const PhoneNumberScreen = ({navigation}) => {
             <ActivityIndicator size="large" color={colors.darkBlue} />
           ) : (
             <GeneralButton
-              text={I18n.t('validatePhoneNumber')}
+              text={I18n.t('validatePhoneNumber', {locale: language})}
               onPress={handleSendNumber}
             />
           )}
@@ -106,4 +109,9 @@ const PhoneNumberScreen = ({navigation}) => {
   );
 };
 
-export default PhoneNumberScreen;
+const mapStateToProps = state => {
+  const {language} = state.register.rergisterReducer;
+  return {language};
+};
+
+export default connect(mapStateToProps)(PhoneNumberScreen);

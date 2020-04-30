@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text} from 'react-native';
 import {InputField} from '../core/components';
 import {formSection10Styles} from './styles';
 import {I18n} from '../core/strings';
 import {labelStyles} from '../core/styles';
 import {SET_CITIES_ROUTE} from '../register/redux/actionTypes';
 
-const FormSection10 = ({citiesRoute, setCitiesRoute}) => {
+const FormSection10 = ({citiesRoute, setCitiesRoute, language}) => {
   return (
     <View>
       <Text style={[labelStyles.textStyle, formSection10Styles.textContainer]}>
-        {I18n.t('form10Label')}
+        {I18n.t('form10Label', {locale: language})}
       </Text>
       <InputField
-        placeholder={I18n.t('form10Placeholder')}
+        placeholder={I18n.t('form10Placeholder', {locale: language})}
         value={citiesRoute}
         onChangeText={setCitiesRoute}
         customContainerStyle={formSection10Styles.inputCustomContainer}
@@ -27,8 +27,8 @@ const FormSection10 = ({citiesRoute, setCitiesRoute}) => {
 };
 
 const mapStateToProps = state => {
-  const {citiesRoute} = state.register.rergisterReducer;
-  return {citiesRoute};
+  const {citiesRoute, language} = state.register.rergisterReducer;
+  return {citiesRoute, language};
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -36,4 +36,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: SET_CITIES_ROUTE, citiesRoute}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection10);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormSection10);

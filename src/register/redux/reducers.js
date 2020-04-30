@@ -35,6 +35,7 @@ import {
   SET_USER_TOKEN,
   SET_REDIRECTED,
   SET_SIGNATURE,
+  SET_LANGUAGE,
 } from './actionTypes';
 
 const INITIAL_STATE = {
@@ -71,6 +72,7 @@ const INITIAL_STATE = {
   declarationCodes: [],
   redirected: false,
   signature: '',
+  language: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -267,6 +269,12 @@ export default (state = INITIAL_STATE, action) => {
           recomplete: action.recomplete,
         });
       });
+    case SET_LANGUAGE:
+      return produce(state, nextState => {
+        assign(nextState, {
+          language: action.language,
+        });
+      });
     case SET_RECOMPLETE_DATA:
       return produce(state, nextState => {
         const {
@@ -318,7 +326,6 @@ export default (state = INITIAL_STATE, action) => {
           departureDate: '',
           address: '',
           email: '',
-          phoneNumber: '',
           question1: '',
           question2: '',
           question3: '',
@@ -329,6 +336,7 @@ export default (state = INITIAL_STATE, action) => {
           vechicleType: '',
           registrationNo: '',
           citiesRoute: '',
+          signature: '',
         });
       });
     default:

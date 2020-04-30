@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
+import {connect} from 'react-redux';
 import {CountiesList, SearchBar} from './components';
 import {getCountrySearch} from '../core/utils';
 import {I18n} from '../core/strings';
 import {countriesScreenStyles} from './styles';
 
-const CountriesScreen = ({route}) => {
+const CountriesScreen = ({route, language}) => {
   const {data, onPress} = route.params;
   const [countries, setCountries] = useState(data);
   const [searchValue, setSearchValue] = useState();
@@ -25,7 +26,7 @@ const CountriesScreen = ({route}) => {
           value={searchValue}
           setSearchValue={setSearchValue}
           onCancelPress={() => setSearchValue('')}
-          placeholder={I18n.t('searchForCountry')}
+          placeholder={I18n.t('searchForCountry', {locale: language})}
         />
       </View>
       <CountiesList
@@ -35,4 +36,9 @@ const CountriesScreen = ({route}) => {
     </View>
   );
 };
-export default CountriesScreen;
+
+const mapStateToProps = state => {
+  const {language} = state.register.rergisterReducer;
+  return {language};
+};
+export default connect(mapStateToProps)(CountriesScreen);

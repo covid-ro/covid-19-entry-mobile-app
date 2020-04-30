@@ -17,6 +17,7 @@ const ValidateSMSScreen = ({
   navigation,
   setPhoneNumber,
   setUserToken,
+  language,
 }) => {
   const [step, setStep] = useState(0);
   const [isSending, setIsSending] = useState(false);
@@ -37,7 +38,7 @@ const ValidateSMSScreen = ({
     );
 
     if (response.status !== 200) {
-      Alert.alert(I18n.t('backEndError'));
+      Alert.alert(I18n.t('backEndError', {locale: language}));
     } else {
       setStep(0);
     }
@@ -54,17 +55,19 @@ const ValidateSMSScreen = ({
       navigation.navigate(roots.registerStack);
     } else {
       setIsSending(false);
-      Alert.alert(I18n.t('invalidSMSCode'));
+      Alert.alert(I18n.t('invalidSMSCode', {locale: language}));
     }
-  }, [code, navigation, route, setPhoneNumber, setUserToken]);
+  }, [code, navigation, route, setPhoneNumber, setUserToken, language]);
 
   return (
     <View>
       <TimerHeader step={step} />
-      <Text style={styles.addCodeLabelStyle}>{I18n.t('addSMSCode')}</Text>
+      <Text style={styles.addCodeLabelStyle}>
+        {I18n.t('addSMSCode', {locale: language})}
+      </Text>
       <View style={styles.inputFieldStyle}>
         <InputField
-          placeholder={I18n.t('validationSMSCode')}
+          placeholder={I18n.t('validationSMSCode', {locale: language})}
           keyboardType="number-pad"
           value={code}
           onChangeText={setCode}
@@ -74,19 +77,29 @@ const ValidateSMSScreen = ({
         {isSending ? (
           <ActivityIndicator size="large" color={colors.darkBlue} />
         ) : (
-          <GeneralButton text={I18n.t('save')} onPress={handleSendCode} />
+          <GeneralButton
+            text={I18n.t('save', {locale: language})}
+            onPress={handleSendCode}
+          />
         )}
       </View>
       <Text style={styles.questionLabelStyle}>
-        {I18n.t('dontReceiveTheCode')}
+        {I18n.t('dontReceiveTheCode', {locale: language})}
       </Text>
       <TouchableOpacity
         style={styles.resendSMSButtonStyle}
         onPress={handleSendNumber}>
-        <Text style={styles.resendSMSTextStyle}>{I18n.t('resendSMSCod')}</Text>
+        <Text style={styles.resendSMSTextStyle}>
+          {I18n.t('resendSMSCod', {locale: language})}
+        </Text>
       </TouchableOpacity>
     </View>
   );
+};
+
+const mapStateToProps = state => {
+  const {language} = state.register.rergisterReducer;
+  return {language};
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -96,6 +109,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(ValidateSMSScreen);

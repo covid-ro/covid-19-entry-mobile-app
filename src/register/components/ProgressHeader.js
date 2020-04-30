@@ -1,9 +1,10 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import {connect} from 'react-redux';
 import {progressHeaderStyles} from './styles';
-import {strings} from '../../core/strings';
+import {I18n} from '../../core/strings';
 
-const Component = ({step}) => {
+const Component = ({step, language}) => {
   return (
     <View style={progressHeaderStyles.container}>
       <View style={progressHeaderStyles.progressContainer}>
@@ -19,11 +20,17 @@ const Component = ({step}) => {
         />
         <View style={progressHeaderStyles.circle} />
       </View>
-      <Text style={progressHeaderStyles.textStyle}>{`${step} ${
-        strings.progressHeaderStep
-      }`}</Text>
+      <Text style={progressHeaderStyles.textStyle}>{`${step} ${I18n.t(
+        'progressHeaderStep',
+        {locale: language},
+      )}`}</Text>
     </View>
   );
 };
 
-export default Component;
+const mapStateToProps = state => {
+  const {language} = state.register.rergisterReducer;
+  return {language};
+};
+
+export default connect(mapStateToProps)(Component);

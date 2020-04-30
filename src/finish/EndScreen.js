@@ -9,25 +9,25 @@ import {I18n} from '../core/strings';
 import {roots} from '../navigation';
 import {SET_REDIRECTED} from '../register/redux/actionTypes';
 
-const EndScreen = ({setRedirected}) => {
+const EndScreen = ({setRedirected, language}) => {
   const navigation = useNavigation();
   return (
     <ScrollView style={endScreenStyles.container}>
       <Image source={images.logo} style={endScreenStyles.logo} />
       <View style={endScreenStyles.card}>
         <Text style={endScreenStyles.textStyle}>
-          {I18n.t('endScreenFirstLine')}
+          {I18n.t('endScreenFirstLine', {locale: language})}
         </Text>
         <Text style={endScreenStyles.textStyle}>
-          {I18n.t('endScreenSecondLine')}
+          {I18n.t('endScreenSecondLine', {locale: language})}
         </Text>
         <Text style={endScreenStyles.textStyle}>
-          {I18n.t('endScreenThirdLine')}
+          {I18n.t('endScreenThirdLine', {locale: language})}
         </Text>
       </View>
       <View style={endScreenStyles.bottomContainer}>
         <GeneralButton
-          text={I18n.t('seeQR')}
+          text={I18n.t('seeQR', {locale: language})}
           onPress={() => {
             setRedirected(false);
             navigation.navigate(roots.codesScreen);
@@ -37,10 +37,14 @@ const EndScreen = ({setRedirected}) => {
     </ScrollView>
   );
 };
+const mapStateToProps = state => {
+  const {language} = state.register.rergisterReducer;
+  return {language};
+};
 const mapDispatchToProps = dispatch => ({
   setRedirected: redirected => dispatch({type: SET_REDIRECTED, redirected}),
 });
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(EndScreen);

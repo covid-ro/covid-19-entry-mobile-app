@@ -9,9 +9,16 @@ import {codesScreenStyles} from './styles';
 import {GeneralButton} from '../core/components';
 import {I18n} from '../core/strings';
 import {roots} from '../navigation';
-import {SET_REDIRECTED} from '../register/redux/actionTypes';
+import {SET_REDIRECTED, RESET_STATE} from '../register/redux/actionTypes';
 
-const CodesScreen = ({declarationCodes, redirected, setRedirected, route}) => {
+const CodesScreen = ({
+  declarationCodes,
+  redirected,
+  setRedirected,
+  route,
+  resetState,
+  language,
+}) => {
   const navigation = useNavigation();
   const carouselRef = useRef(null);
   const [activeCard, setActiveCard] = useState(0);
@@ -46,7 +53,7 @@ const CodesScreen = ({declarationCodes, redirected, setRedirected, route}) => {
     <ScrollView style={codesScreenStyles.container}>
       <View style={codesScreenStyles.titleContainer}>
         <Text style={codesScreenStyles.titleStyle}>
-          {I18n.t('finishScreenCodeLabel')}
+          {I18n.t('finishScreenCodeLabel', {locale: language})}
         </Text>
       </View>
       <View>
@@ -71,17 +78,18 @@ const CodesScreen = ({declarationCodes, redirected, setRedirected, route}) => {
           <View>
             <GeneralButton
               onPress={() => {
+                resetState();
                 setRedirected(true);
                 navigation.navigate(roots.registerStack);
               }}
-              text={I18n.t('adaugaMembru')}
+              text={I18n.t('adaugaMembru', {locale: language})}
             />
             <View style={codesScreenStyles.marginTop} />
           </View>
         )}
 
         <GeneralButton
-          text={I18n.t('sfaturiDeCalatorie')}
+          text={I18n.t('sfaturiDeCalatorie', {locale: language})}
           onPress={() => console.log('sfaturi')}
         />
       </View>
@@ -90,10 +98,15 @@ const CodesScreen = ({declarationCodes, redirected, setRedirected, route}) => {
 };
 
 const mapStateToProps = state => {
-  const {declarationCodes, redirected} = state.register.rergisterReducer;
-  return {declarationCodes, redirected};
+  const {
+    declarationCodes,
+    redirected,
+    language,
+  } = state.register.rergisterReducer;
+  return {declarationCodes, redirected, language};
 };
 const mapDispatchToProps = dispatch => ({
+  resetState: () => dispatch({type: RESET_STATE}),
   setRedirected: redirected => dispatch({type: SET_REDIRECTED, redirected}),
 });
 export default connect(

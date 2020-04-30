@@ -33,6 +33,7 @@ const FormSection3 = ({
   setTravellingCity,
   setTravellingDate,
   setItineraryCountries,
+  language,
 }) => {
   const [visitedCountries, setVisitedCountries] = useState(null);
   const [countriesCrossed, setCountriesCrossed] = useState(null);
@@ -62,7 +63,9 @@ const FormSection3 = ({
   };
   return (
     <View style={formSection3Styles.container}>
-      <Text style={formSection3Styles.title}>{I18n.t('form3Label')}</Text>
+      <Text style={formSection3Styles.title}>
+        {I18n.t('form3Label', {locale: language})}
+      </Text>
       <TouchableOpacity
         style={formSection3Styles.countryContainer}
         disabled={travellingFromCountry !== null ? false : true}
@@ -77,7 +80,7 @@ const FormSection3 = ({
             formSection3Styles.countryText,
             travellingFromCountry && formSection3Styles.countryActiveText,
           ]}>
-          {travellingFromCountry?.name || I18n.t('country')}
+          {travellingFromCountry?.name || I18n.t('country', {locale: language})}
         </Text>
         {Platform.OS === ANDROID ? (
           <Image
@@ -96,7 +99,7 @@ const FormSection3 = ({
         }
       />
       <InputField
-        placeholder={I18n.t('county')}
+        placeholder={I18n.t('county', {locale: language})}
         value={travellingFromCity}
         onChangeText={setTravellingCity}
         placeholderSeparatorStyle={formSection3Styles.placeholderSeparatorStyle}
@@ -108,7 +111,7 @@ const FormSection3 = ({
         <DatePicker
           ref={ref => (datePickerRef = ref)}
           androidMode={'default'}
-          placeHolderText={I18n.t('data')}
+          placeHolderText={I18n.t('data', {locale: language})}
           placeHolderTextStyle={formSection3Styles.datePickerPlaceholderStyle}
           onDateChange={setTravellingDate}
           textStyle={formSection3Styles.datePickerTextStyle}
@@ -123,7 +126,7 @@ const FormSection3 = ({
       </View>
       <View style={formSection3Styles.countriesTitleContainer}>
         <Text style={formSection3Styles.countriesTitleText}>
-          {I18n.t('transitedCountries')}
+          {I18n.t('transitedCountries', {locale: language})}
         </Text>
       </View>
       <TouchableOpacity
@@ -143,7 +146,7 @@ const FormSection3 = ({
             ? getVisitedCountries(visitedCountries)
             : countriesCrossed
             ? countriesCrossed
-            : I18n.t('selectCountries')}
+            : I18n.t('selectCountries', {locale: language})}
         </Text>
       </TouchableOpacity>
       <View
@@ -156,11 +159,11 @@ const FormSection3 = ({
       {recomplete && (
         <View style={formSection3Styles.recompleteTextContainer}>
           <Text style={formSection3Styles.grayText}>
-            {I18n.t('aceleasiDateAnterioare')}
+            {I18n.t('aceleasiDateAnterioare', {locale: language})}
           </Text>
           <TouchableOpacity onPress={() => onPressReuseData()}>
             <Text style={formSection3Styles.blueText}>
-              {I18n.t('folosesteDateAnterioare')}
+              {I18n.t('folosesteDateAnterioare', {locale: language})}
             </Text>
           </TouchableOpacity>
         </View>
@@ -178,6 +181,7 @@ const mapStateToProps = state => {
     itineraryCountries,
     recomplete,
     recompleteData,
+    language,
   } = state.register.rergisterReducer;
   return {
     travellingFromCountry,
@@ -186,6 +190,7 @@ const mapStateToProps = state => {
     itineraryCountries,
     recomplete,
     recompleteData,
+    language,
   };
 };
 

@@ -21,22 +21,25 @@ const FormSection8 = ({
   setBreathing,
   setSwallow,
   setCough,
+  language,
 }) => {
   return (
     <View style={formSection8Styles.container}>
       <View style={formSection8Styles.textContainer}>
-        <Text style={labelStyles.textStyle}>{I18n.t('form8Label')}</Text>
+        <Text style={labelStyles.textStyle}>
+          {I18n.t('form8Label', {locale: language})}
+        </Text>
       </View>
       <View style={formSection8Styles.buttonsContainer}>
         <SelectionButton
-          text={I18n.t('simptom1')}
+          text={I18n.t('simptom1', {locale: language})}
           isSelected={fever}
           onPress={() => {
             setFever(!fever);
           }}
         />
         <SelectionButton
-          text={I18n.t('simptom2')}
+          text={I18n.t('simptom2', {locale: language})}
           isSelected={swallow}
           onPress={() => {
             setSwallow(!swallow);
@@ -45,14 +48,14 @@ const FormSection8 = ({
       </View>
       <View style={formSection8Styles.buttonsContainer}>
         <SelectionButton
-          text={I18n.t('simptom3')}
+          text={I18n.t('simptom3', {locale: language})}
           isSelected={breathing}
           onPress={() => {
             setBreathing(!breathing);
           }}
         />
         <SelectionButton
-          text={I18n.t('simptom3')}
+          text={I18n.t('simptom4', {locale: language})}
           isSelected={cough}
           onPress={() => {
             setCough(!cough);
@@ -64,8 +67,14 @@ const FormSection8 = ({
 };
 
 const mapStateToProps = state => {
-  const {fever, swallow, cough, breathing} = state.register.rergisterReducer;
-  return {fever, swallow, cough, breathing};
+  const {
+    fever,
+    swallow,
+    cough,
+    breathing,
+    language,
+  } = state.register.rergisterReducer;
+  return {fever, swallow, cough, breathing, language};
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -75,4 +84,7 @@ const mapDispatchToProps = dispatch => ({
   setSwallow: swallow => dispatch({type: SET_SWALLOW, swallow}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection8);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormSection8);

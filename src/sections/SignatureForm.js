@@ -8,12 +8,14 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {roots} from '../navigation';
 
-const SignatureForm = ({signature}) => {
+const SignatureForm = ({signature, language}) => {
   const navigation = useNavigation();
   return (
     <View style={signatureFormStyles.container}>
       <View style={signatureFormStyles.textContainer}>
-        <Text style={labelStyles.textStyle}>{I18n.t('confirmLabel')}</Text>
+        <Text style={labelStyles.textStyle}>
+          {I18n.t('confirmLabel', {locale: language})}
+        </Text>
       </View>
       <TouchableOpacity
         style={signatureFormStyles.signatureStyle}
@@ -25,7 +27,7 @@ const SignatureForm = ({signature}) => {
           />
         ) : (
           <Text style={signatureFormStyles.placeholderStyle}>
-            {I18n.t('clickToSign')}
+            {I18n.t('clickToSign', {locale: language})}
           </Text>
         )}
       </TouchableOpacity>
@@ -34,8 +36,8 @@ const SignatureForm = ({signature}) => {
 };
 
 const mapStateToProps = state => {
-  const {signature} = state.register.rergisterReducer;
-  return {signature};
+  const {signature, language} = state.register.rergisterReducer;
+  return {signature, language};
 };
 
 export default connect(

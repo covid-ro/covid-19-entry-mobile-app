@@ -4,15 +4,15 @@ import {connect} from 'react-redux';
 import {GeneralButton} from '../core/components';
 import {images} from '../themes';
 import {languageSelectionScreenStyles} from './styles';
-import strings from '../core/strings/ro';
 import {roots} from '../navigation';
 import {I18n} from '../core/strings';
-import {SET_REDIRECTED} from '../register/redux/actionTypes';
+import {SET_REDIRECTED, SET_LANGUAGE} from '../register/redux/actionTypes';
 
 const LanguageSelectionScreen = ({
+  setLanguage,
   navigation,
   declarationCodes,
-  setRedirected,
+  language,
 }) => {
   useEffect(() => {
     if (declarationCodes.length !== 0) {
@@ -24,15 +24,16 @@ const LanguageSelectionScreen = ({
       <Image source={images.logo} style={languageSelectionScreenStyles.logo} />
       <View style={languageSelectionScreenStyles.bottomContainer}>
         <Text style={languageSelectionScreenStyles.titleStyle}>
-          {strings.languageSelectTitle}
+          {I18n.t('languageSelectTitle', {locale: language})}
         </Text>
         <Text style={languageSelectionScreenStyles.subTitleStyle}>
-          {strings.languageSelectSubtitle}
+          {I18n.t('languageSelectSubtitle', {locale: language})}
         </Text>
         <View style={languageSelectionScreenStyles.buttonContainer}>
           <GeneralButton
-            text={strings.romana}
+            text={I18n.t('romana', {locale: language})}
             onPress={() => {
+              setLanguage('ro');
               I18n.locale = 'ro';
               navigation.navigate(roots.informationScreen);
             }}
@@ -40,8 +41,9 @@ const LanguageSelectionScreen = ({
         </View>
         <View style={languageSelectionScreenStyles.buttonContainer}>
           <GeneralButton
-            text={strings.engleza}
+            text={I18n.t('engleza', {locale: language})}
             onPress={() => {
+              setLanguage('en');
               I18n.locale = 'en';
               navigation.navigate(roots.informationScreen);
             }}
@@ -52,11 +54,12 @@ const LanguageSelectionScreen = ({
   );
 };
 const mapStateToProps = state => {
-  const {declarationCodes} = state.register.rergisterReducer;
-  return {declarationCodes};
+  const {declarationCodes, language} = state.register.rergisterReducer;
+  return {declarationCodes, language};
 };
 const mapDispatchToProps = dispatch => ({
   setRedirected: redirected => dispatch({type: SET_REDIRECTED, redirected}),
+  setLanguage: language => dispatch({type: SET_LANGUAGE, language}),
 });
 
 export default connect(

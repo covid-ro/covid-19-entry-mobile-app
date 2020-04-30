@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {connect} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
 import {LanguageSelectionScreen} from '../languageSelection';
 import RegisterStack from './RegisterStack';
@@ -22,7 +23,7 @@ const defaultNavigationOptions = () => ({
   headerLeft: () => <BackButton />,
 });
 
-const MainStackNavigator = ({navigation}) => (
+const MainStackNavigator = ({navigation, language}) => (
   <NavigationContainer>
     <Stack.Navigator
       screenOptions={{gestureEnabled: false}}
@@ -43,12 +44,12 @@ const MainStackNavigator = ({navigation}) => (
       />
 
       <Stack.Screen
-        options={{title: I18n.t('phoneNumberTitle')}}
+        options={{title: I18n.t('phoneNumberTitle', {locale: language})}}
         name={roots.sendNumber}
         component={PhoneNumberScreen}
       />
       <Stack.Screen
-        options={{title: I18n.t('validationSMSCode')}}
+        options={{title: I18n.t('validationSMSCode', {locale: language})}}
         name={roots.sendCode}
         component={ValidateSMSScreen}
       />
@@ -63,7 +64,10 @@ const MainStackNavigator = ({navigation}) => (
         component={FinishNavigator}
       />
       <Stack.Screen
-        options={{title: I18n.t('declaratie'), headerLeft: null}}
+        options={{
+          title: I18n.t('declaratie', {locale: language}),
+          headerLeft: null,
+        }}
         name={roots.codesScreen}
         component={CodesScreen}
       />
@@ -71,4 +75,9 @@ const MainStackNavigator = ({navigation}) => (
   </NavigationContainer>
 );
 
-export default MainStackNavigator;
+const mapStateToProps = state => {
+  const {language} = state.register.rergisterReducer;
+  return {language};
+};
+
+export default connect(mapStateToProps)(MainStackNavigator);

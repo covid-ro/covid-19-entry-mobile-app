@@ -8,17 +8,17 @@ import {labelStyles} from '../core/styles';
 import {SET_EMAIL, SET_PHONE_NUMBER} from '../register/redux/actionTypes';
 import {connect} from 'react-redux';
 
-const FormSection5 = ({email, phoneNumber, setEmail}) => {
+const FormSection5 = ({email, phoneNumber, setEmail, language}) => {
   const [locationValue, setLocationValue] = useState(undefined);
   const emailRef = useRef(null);
   return (
     <View style={formSection5Styles.container}>
       <Text style={[labelStyles.textStyle, formSection5Styles.topTextStyle]}>
-        {I18n.t('form5Label')}
+        {I18n.t('form5Label', {locale: language})}
       </Text>
       <View>
         <InputField
-          placeholder={I18n.t('telefonValid')}
+          placeholder={I18n.t('telefonValid', {locale: language})}
           onChangeText={setLocationValue}
           value={phoneNumber}
           editable={false}
@@ -32,25 +32,25 @@ const FormSection5 = ({email, phoneNumber, setEmail}) => {
       </View>
       <InputField
         inputRef={emailRef}
-        placeholder={I18n.t('email')}
+        placeholder={I18n.t('email', {locale: language})}
         value={email}
         onChangeText={setEmail}
         autoCapitalize={'none'}
       />
       <Text style={formSection5Styles.alertLabelStyle}>
-        {I18n.t('alertLabel')}
+        {I18n.t('alertLabel', {locale: language})}
       </Text>
       <Text
         style={[labelStyles.textStyle, formSection5Styles.alertMessageStyle]}>
-        {I18n.t('alertMessage')}
+        {I18n.t('alertMessage', {locale: language})}
       </Text>
     </View>
   );
 };
 
 const mapStateToProps = state => {
-  const {email, phoneNumber} = state.register.rergisterReducer;
-  return {email, phoneNumber};
+  const {email, phoneNumber, language} = state.register.rergisterReducer;
+  return {email, phoneNumber, language};
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -58,4 +58,7 @@ const mapDispatchToProps = dispatch => ({
   setPhoneNumber: phone => dispatch({type: SET_PHONE_NUMBER, phone}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSection5);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormSection5);
